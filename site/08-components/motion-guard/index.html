@@ -1,0 +1,2254 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/08-components/motion-guard/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>MOTION-GUARD: Robotics, Industrial Fieldbus & Autonomous Motion Safety Governor - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MOTION-GUARD: Robotics, Industrial Fieldbus &amp; Autonomous Motion Safety Governor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../09-archive-business-and-research/" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-archive-business-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-120-ns-non-ip-ethercat-0x88a4-socketcan-can-fd-shmring-nagumo-cbf-gate-iso-13849-pl-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sub-120 ns Non-IP EtherCAT (0x88A4), SocketCAN CAN-FD, ShmRing &amp; Nagumo CBF Gate (ISO 13849 PL-e)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-robotics-safety-engineering-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Executive Summary &amp; Robotics Safety Engineering Scope
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-formal-control-theory-nagumo-control-barrier-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Formal Control Theory: Nagumo Control Barrier Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verified-deterministic-latency-benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Verified Deterministic Latency Benchmarks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multi-bus-protocol-invariants-dissection-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Multi-Bus Protocol Invariants &amp; Dissection Mechanics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Multi-Bus Protocol Invariants &amp; Dissection Mechanics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-bus-a-non-ip-layer-2-ethercat-ethertype-0x88a4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A. Bus A: Non-IP Layer-2 EtherCAT (<code>EtherType 0x88A4</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-bus-b-fieldbus-can-can-fd-socketcan-canbus0" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        B. Bus B: Fieldbus CAN / CAN-FD (<code>SocketCAN</code> / <code>can://bus0</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bus-c-direct-memory-posix-shared-memory-ring-shmring0" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        C. Bus C: Direct Memory POSIX Shared Memory Ring (<code>shm://ring0</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-threat-mitigation-matrix-robotics-mobility-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Threat Mitigation Matrix: Robotics &amp; Mobility Defense
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-repository-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Repository Layout
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-build-test-benchmark-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Build, Test, Benchmark &amp; Installation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Build, Test, Benchmark &amp; Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployed-system-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deployed System Artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-operator-cli-operations-aryo-motion-aryo-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Operator CLI Operations (<code>aryo motion</code> &amp; <code>aryo lab</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-robotics-can-fd-ethercat-multi-node-grid-digital-twin-8-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Robotics, CAN-FD &amp; EtherCAT Multi-Node Grid Digital Twin (8 Containers)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Robotics, CAN-FD &amp; EtherCAT Multi-Node Grid Digital Twin (8 Containers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-network-bus-matrix-1024070024" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digital Twin Network &amp; Bus Matrix (<code>10.240.70.0/24</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-mission-control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Web Mission Control Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-regulatory-safety-standards-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Regulatory &amp; Safety Standards Compliance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-research-preprint-authorship" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Research Preprint &amp; Authorship
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="motion-guard-robotics-industrial-fieldbus-autonomous-motion-safety-governor">MOTION-GUARD: Robotics, Industrial Fieldbus &amp; Autonomous Motion Safety Governor</h1>
+<h3 id="sub-120-ns-non-ip-ethercat-0x88a4-socketcan-can-fd-shmring-nagumo-cbf-gate-iso-13849-pl-e">Sub-120 ns Non-IP EtherCAT (0x88A4), SocketCAN CAN-FD, ShmRing &amp; Nagumo CBF Gate (ISO 13849 PL-e)</h3>
+<p><a href="https://aryorithm.com"><img alt="Enterprise" src="https://img.shields.io/badge/Entity-Aryorithm%20Technologies%20B.V.-00E5FF?style=flat-square" /></a>
+<a href="#"><img alt="Machinery Safety" src="https://img.shields.io/badge/Machinery%20Safety-ISO%2013849--1%20PL--e%20%7C%20ISO%2010218--1%2F2-red?style=flat-square" /></a>
+<a href="#"><img alt="Cobot Standard" src="https://img.shields.io/badge/Collaborative%20Robots-ISO%2FTS%2015066-orange?style=flat-square" /></a>
+<a href="#"><img alt="Fieldbus Standards" src="https://img.shields.io/badge/Fieldbus-EtherCAT%20(0x88A4)%20%7C%20CAN--FD%20(CiA%20402)-blue?style=flat-square" /></a>
+<a href="#"><img alt="Control Barrier Functions" src="https://img.shields.io/badge/Control%20Theory-Nagumo%20CBF%20h_v(x)%E2%89%A50-yellow?style=flat-square" /></a>
+<a href="#"><img alt="Deterministic Core" src="https://img.shields.io/badge/Deterministic%20SLA-%3C%20120%20ns%20(Zero--Alloc)-00FFA3?style=flat-square" /></a></p>
+<hr />
+<h2 id="1-executive-summary-robotics-safety-engineering-scope">1. Executive Summary &amp; Robotics Safety Engineering Scope</h2>
+<p>Industrial articulated robots, collaborative workcells (cobots), autonomous mobile robots (AMRs), and heavy mining haul trucks operate within physical spaces shared with human workers and multi-ton payloads. In these systems, standard software firewalls cannot prevent mechanical disasters:</p>
+<ol>
+<li><strong>Non-IP Fieldbus Vulnerability:</strong> Real-time servo controllers and robotic joints communicate over <strong>EtherCAT (<code>0x88A4</code>)</strong> or <strong>CAN-FD</strong>, which do not use IP addresses, TCP, or UDP. Traditional firewalls cannot inspect or filter these packets.</li>
+<li><strong>Kinematic &amp; Control Surges:</strong> An attacker or rogue trajectory planner commanding an acceleration of $48\,\text{m/s}^2$ on a $500\,\text{kg}$ robotic arm will shear gearboxes or breach safety fences before an operator can reach an E-stop button.</li>
+<li><strong>Sensor-Fusion Blindness:</strong> Autonomous mining haul trucks and AGVs can suffer steering hijacking or obstacle-sensor freezing. Without cross-validation between the fieldbus actuation conduit and physical obstacle boundaries, high-speed collisions occur.</li>
+</ol>
+<p><code>motion-guard</code> is the robotics and motion safety vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Designed to comply with <strong>ISO 13849-1 Performance Level e (PL-e)</strong> and <strong>ISO/TS 15066</strong>, it combines a <strong>zero-allocation C++20 Tier-1 deterministic protocol dissector</strong> with <strong>formal Nagumo Control Barrier Functions (CBFs)</strong> and <strong>three multi-bus ingress adapters</strong>:</p>
+<div class="highlight"><pre><span></span><code> ┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │                              MULTI-BUS PHYSICAL INGRESS ARCHITECTURE                                    │
+ ├──────────────────────────────────────────┬─────────────────────────────┬───────────────────────────────┤
+ │ BUS A: Non-IP Layer-2 Ethernet           │ BUS B: Fieldbus CAN-FD      │ BUS C: Direct Memory Ring     │
+ │ • AF_PACKET (SOCK_RAW, ETH_P_ALL)        │ • SocketCAN (AF_CAN) /      │ • POSIX /dev/shm Shared Ring  │
+ │ • Raw IEEE 802.3 MAC Frames              │   Portable AF_UNIX Bridge   │ • Zero-Copy Host Tensors      │
+ │ • EtherCAT Servo Protocol (0x88A4)       │ • CAN-FD / CANopen CiA 402  │ • AMR Obstacle &amp; Brake (MOT1) │
+ └──────────────────────────────────────────┴──────────────┬──────────────┴───────────────────────────────┘
+                                                           │
+                                                           ▼
+ ╔════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+ ║ TIER 1: motion_guard_dissector_plugin.so (&lt; 120 ns Deterministic Safety Gate)                          ║
+ ║                                                                                                        ║
+ ║ • EtherCAT L2 Interlock   : Validates PDU lengths, WKC counters, and clamps joint accel (≤ 15.0 m/s²)  ║
+ ║ • CAN-FD Actuator Guard   : Filters arbitration IDs (0x100–0x5FF); clamps steering angle (≤ 35.0°)     ║
+ ║ • ShmRing Collision Gate  : Enforces safe obstacle margins (≥ 0.50 m) and brake temperatures (≤ 320°C) ║
+ ║ • Nagumo Invariant Engine : Enforces formal velocity barrier h_v(x) = v_max - |v| ≥ 0                  ║
+ ║ • MotionAirGap Tripwire   : Sub-15 ns lock-free atomic physical actuator latch                         ║
+ ╚═════════════════════════════════════════════════════════┬══════════════════════════════════════════════╝
+                                                           │
+                   ┌───────────────────────────────────────┴───────────────────────────────────────┐
+                   │ PASS (with normalized risk score)                                             │ KERNEL_DROP / E-STOP
+                   ▼                                                                               ▼
+ ┌───────────────────────────────────────────────────┐                           ┌─────────────────────────────────┐
+ │ TIER 2: xinfer::Engine (INT8 / FP32 ONNX Models)  │                           │ HARDWARE ACTUATOR AIR-GAP LATCH │
+ │ • vibration_spectral_ae.onnx (Bearing Resonance)  │                           │ Sub-15 ns Immediate E-Stop      │
+ │ • lidar_spatial_detector.onnx (Spatial Clearance) │                           │ Prevents Physical Runaway       │
+ │ • OpenVINO / TensorRT NPU Execution               │                           └─────────────────────────────────┘
+ └───────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="2-formal-control-theory-nagumo-control-barrier-functions">2. Formal Control Theory: Nagumo Control Barrier Functions</h2>
+<p>Rather than relying purely on static heuristics, <code>motion-guard</code> models physical kinetic boundaries mathematically using <strong>Control Barrier Functions (CBFs)</strong> and guarantees safety forward-invariance under Nagumo's theorem:</p>
+<p>Given a safe operating set $\mathcal{C}$:</p>
+<p>$$\mathcal{C} = \left{ x \in \mathbb{R}^n \;\middle|\; h_v(x) = v_{\max} - |v| \ge 0 \right}$$</p>
+<p>The system is safe for all forward time $t \ge 0$ if and only if the control input satisfies:</p>
+<p>$$\dot{h}_v(x, u) + \alpha \cdot h_v(x) \ge 0$$</p>
+<p>Where:
+* $v$ is the measured joint or vehicle velocity.
+* $\dot{h}_v = -\text{sgn}(v) \cdot a$ (derived from acceleration $a = \dot{v}$).
+* $\alpha &gt; 0$ is the class-$\mathcal{K}$ convergence parameter (default: $\alpha = 4.0$).</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Formal Nagumo Velocity Invariance Verification (motion_cbf_gate.cpp)</span>
+<span class="n">GuardStatus</span><span class="w"> </span><span class="nf">MotionCbfGate::evaluate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MotionState</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MotionCbfLimits</span><span class="o">&amp;</span><span class="w"> </span><span class="n">limits</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1. Strict kinematic envelope checks</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">position_mm</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="n">max_position_mm</span><span class="w"> </span><span class="o">||</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">torque_nm</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="n">max_torque_nm</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">GuardStatus</span><span class="o">::</span><span class="n">REJECT_CBF_BOUNDARY_BREACH</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 2. Control Barrier Function calculation: h_v(x) = v_max - |v| &gt;= 0</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">h_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="n">max_velocity_mps</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">velocity_mps</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">sign_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">velocity_mps</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">h_v_dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">sign_v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">accel_mps2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 3. Nagumo forward invariance inequality: dh/dt + alpha * h(x) &gt;= 0</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">h_v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">h_v_dot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="n">nagumo_alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h_v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">GuardStatus</span><span class="o">::</span><span class="n">REJECT_CBF_BOUNDARY_BREACH</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GuardStatus</span><span class="o">::</span><span class="n">PASS</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If a trajectory command breaches this boundary, <code>motion-guard</code> drops the packet in under <strong>$120\,\text{ns}$</strong>, tripping the hardware safety air-gap latch (<code>MOTION_AIRGAP_TRIPPED</code>) before mechanical damage can occur.</p>
+<hr />
+<h2 id="3-verified-deterministic-latency-benchmarks">3. Verified Deterministic Latency Benchmarks</h2>
+<p><code>motion-guard</code> executes with <strong>zero heap allocations (<code>0 bytes malloc</code>)</strong>, bounded execution paths, and hardware CPU Time-Stamp Counter (TSC) instruction calibration:</p>
+<div class="highlight"><pre><span></span><code>================================================================================
+  MOTION-GUARD HARDWARE LATENCY BENCHMARK (100,000 ETHERCAT 0x88A4 FRAMES)
+================================================================================
+  Host Architecture   : x86-64 Native (Intel Core Ultra / Industrial IPC)
+  Hardware TSC Freq   : 3.18645 GHz
+  Mean Gate Latency   : 12.4100 ns
+  P95 Latency         : 14.8500 ns
+  P99 Latency         : 18.2000 ns
+  Worst-Case (WCET)   : 26.5000 ns
+  Target SLA Target   : &lt; 120.00 ns  -&gt;  [PASS]
+  Dynamic Memory Rate : 0 Bytes / PDU (Zero Heap Allocation)
+================================================================================
+</code></pre></div>
+<hr />
+<h2 id="4-multi-bus-protocol-invariants-dissection-mechanics">4. Multi-Bus Protocol Invariants &amp; Dissection Mechanics</h2>
+<h3 id="a-bus-a-non-ip-layer-2-ethercat-ethertype-0x88a4">A. Bus A: Non-IP Layer-2 EtherCAT (<code>EtherType 0x88A4</code>)</h3>
+<ul>
+<li><strong>Physical Framing:</strong> Ingests raw Ethernet frames directly via <code>AF_PACKET</code> raw sockets without an IPv4/TCP stack.</li>
+<li><strong>PDU Header Parsing:</strong> Decodes the 2-byte EtherCAT header (Length lower 11 bits, Type upper 4 bits where <code>Type == 1</code>).</li>
+<li><strong>PDO Joint Acceleration Validation:</strong> Extracts 8-byte Process Data Objects (PDO) representing floating-point joint acceleration ($a$) and tool center point (TCP) workspace radius ($R$).</li>
+<li>Enforces maximum allowable collaborative acceleration ($|a| \le 15.0\,\text{m/s}^2$).</li>
+<li>Enforces maximum workspace reach ($R \le 850.0\,\text{mm}$) to prevent fence breaches.</li>
+<li><strong>Working Counter (WKC) Anti-Tamper:</strong> Validates that slave node Working Counters match the expected physical topology count ($\text{WKC} \ge 1$). Drops packets indicating injected or dropped slave frames (<code>REJECT_ETHERCAT_WKC_TAMPER</code>).</li>
+</ul>
+<h3 id="b-bus-b-fieldbus-can-can-fd-socketcan-canbus0">B. Bus B: Fieldbus CAN / CAN-FD (<code>SocketCAN</code> / <code>can://bus0</code>)</h3>
+<ul>
+<li><strong>Framing:</strong> Ingests standard Linux <code>struct can_frame</code> (16 bytes) and <code>struct canfd_frame</code> (up to 64 bytes).</li>
+<li><strong>Arbitration ID Allowlist:</strong> Enforces permitted J1939 / CANopen message IDs (<code>0x100 ≤ ID ≤ 0x5FF</code>). Rejects unauthorized diagnostic or reflashing frames such as <code>0x7DF</code> (<code>REJECT_CAN_UNAUTHORIZED_ID</code>).</li>
+<li><strong>Drive-by-Wire Steering &amp; Torque Boundaries:</strong></li>
+<li>Evaluates 32-bit floating-point steering angles at byte offset 8. Clamps maximum steering authority ($|\theta_{\text{steer}}| \le 35.0^\circ$) to prevent high-speed rollover attacks on mining haul trucks (<code>REJECT_CAN_ACTUATOR_OVERRIDE</code>).</li>
+<li>Clamps drive motor torque commands ($|\tau| \le 250.0\,\text{Nm}$).</li>
+</ul>
+<h3 id="c-bus-c-direct-memory-posix-shared-memory-ring-shmring0">C. Bus C: Direct Memory POSIX Shared Memory Ring (<code>shm://ring0</code>)</h3>
+<ul>
+<li><strong>Memory Architecture:</strong> Uses POSIX <code>shm_open()</code> with 4KB page alignment inside Docker (<code>ipc: shareable</code>) or host memory.</li>
+<li><strong>Header Magic:</strong> Validates 4-byte identifier <code>0x4D4F5431</code> (<code>"MOT1"</code>).</li>
+<li><strong>AMR LiDAR Collision Interlock:</strong> Cross-correlates mobile robot velocity ($v$) with forward minimum obstacle range ($d_{\text{obs}}$).</li>
+<li>Forces an immediate emergency stop if velocity is active ($|v| &gt; 0.2\,\text{m/s}$) and clearance is breached ($d_{\text{obs}} &lt; 0.50\,\text{m}$) (<code>REJECT_SHM_OBSTACLE_COLLISION</code>).</li>
+<li><strong>Thermal Brake Runaway Guard:</strong> Monitors mechanical disc brake temperature $T_{\text{brake}}$. Trips thermal safety thresholds if friction braking exceeds material limits ($T_{\text{brake}} &gt; 320^\circ\text{C}$) (<code>REJECT_SHM_BRAKE_OVERHEAT</code>).</li>
+</ul>
+<hr />
+<h2 id="5-threat-mitigation-matrix-robotics-mobility-defense">5. Threat Mitigation Matrix: Robotics &amp; Mobility Defense</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat Profile</th>
+<th style="text-align: left;">Target Bus / Layer</th>
+<th style="text-align: left;">Attack Vector</th>
+<th style="text-align: left;">motion-guard Tier-1 Defense Invariant</th>
+<th style="text-align: left;">Action &amp; Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cobot Joint Surge / Crushing</strong></td>
+<td style="text-align: left;">EtherCAT L2 (<code>0x88A4</code>)</td>
+<td style="text-align: left;">Rogue trajectory generator injects $48\,\text{m/s}^2$ joint acceleration toward operator</td>
+<td style="text-align: left;"><code>EthercatL2Validator</code>: Intercepts PDO payload; validates joint acceleration against ISO 13849 limits</td>
+<td style="text-align: left;"><code>&lt; 14 ns</code> packet drop + locks actuator air-gap</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drive-by-Wire Steer Hijack</strong></td>
+<td style="text-align: left;">CAN-FD (<code>can://bus0</code>)</td>
+<td style="text-align: left;">Attacker broadcasts spoofed CAN ID <code>0x201</code> with $68^\circ$ steering angle at $80\,\text{km/h}$</td>
+<td style="text-align: left;"><code>CanFdBusValidator</code>: Enforces velocity-dependent steering angle envelope ($</td>
+<td style="text-align: left;">\theta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AMR Sensor Blindness / Freeze</strong></td>
+<td style="text-align: left;">ShmRing (<code>shm://ring0</code>)</td>
+<td style="text-align: left;">Frozen LiDAR perception stack fails to update point cloud as AMR approaches pallet rack</td>
+<td style="text-align: left;"><code>ShmMotionValidator</code>: Cross-checks forward velocity against obstacle distance $d_{\text{obs}} &lt; 0.5\,\text{m}$</td>
+<td style="text-align: left;">Engages emergency dynamic brakes; raises E-stop</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Brake Thermal Fade / Runaway</strong></td>
+<td style="text-align: left;">CAN-FD / ShmRing</td>
+<td style="text-align: left;">Mining truck retarder disabled on $12\%$ mine decline, driving brake discs into thermal failure</td>
+<td style="text-align: left;"><code>ShmMotionValidator</code>: Tracks thermal dynamic boundary ($T \le 320^\circ\text{C}$); forces auxiliary engine retarding</td>
+<td style="text-align: left;">Triggers transmission downshift lock before brake fade</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EtherCAT Slave MITM Injection</strong></td>
+<td style="text-align: left;">EtherCAT L2 (<code>0x88A4</code>)</td>
+<td style="text-align: left;">Malicious gateway alters servo feedback registers while spoofing Working Counter</td>
+<td style="text-align: left;"><code>EthercatL2Validator</code>: Enforces strict WKC counter state machine; flags discrepancy</td>
+<td style="text-align: left;">Drops corrupted datagram; isolates servo loop</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-repository-layout">6. Repository Layout</h2>
+<div class="highlight"><pre><span></span><code>/home/kami/motion-guard/
+├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
+├── Makefile                               # Lifecycle targets: build, test, bench, install, cobot-up/down
+├── cmake/
+│   ├── MotionGuardConfig.cmake.in         # CMake package export template
+│   └── motion_guard.pc.in                 # pkg-config definition
+├── include/motion_guard/
+│   ├── motion_guard.hpp                   # Master umbrella C++20 header
+│   ├── core/
+│   │   ├── types.hpp                      # MotionState, GuardStatus enums
+│   │   └── tsc_clock.hpp                  # High-precision CPU TSC RDTSC routines
+│   ├── protocols/
+│   │   ├── ethercat_l2.hpp                # Non-IP L2 EtherCAT (0x88A4) dissector
+│   │   ├── canfd_bus.hpp                  # SocketCAN / CAN-FD frame validator
+│   │   └── shm_motion.hpp                 # POSIX ShmRing MOT1 motion validator
+│   ├── defense/
+│   │   ├── motion_cbf_gate.hpp            # Nagumo Control Barrier Function solver
+│   │   └── motion_airgap.hpp              # Sub-15 ns atomic physical air-gap latch
+│   └── pipeline/
+│       └── guard_engine.hpp               # Zero-allocation unified Tier-1 Motion GuardEngine
+├── src/
+│   ├── core/tsc_clock.cpp
+│   ├── protocols/{ethercat_l2.cpp, canfd_bus.cpp, shm_motion.cpp}
+│   ├── defense/{motion_cbf_gate.cpp, motion_airgap.cpp}
+│   └── pipeline/guard_engine.cpp
+├── tools/
+│   ├── sentinel_plugin/motion_guard_plugin.cpp  # Native 3-bus plugin for blackbox-sentinel
+│   ├── aryo_motion/main.cpp                     # CLI binary for `aryo motion ...`
+│   └── motion_guard_ctl/main.cpp                # Self-test diagnostic utility
+├── benchmarks/
+│   └── bench_latency.cpp                  # 100,000-frame cycle benchmark (&lt; 120 ns SLA)
+├── tests/
+│   ├── test_ethercat_l2.cpp               # EtherCAT joint surge &amp; WKC unit tests
+│   ├── test_canfd_bus.cpp                 # CAN-FD arbitration ID &amp; steering override unit tests
+│   ├── test_motion_cbf.cpp                # ShmRing obstacle collision &amp; Nagumo CBF tests
+│   ├── test_sentinel_plugin.cpp           # 3-bus plugin ABI integration test
+│   └── test_motion_tier1_tier2_pipeline.cpp# Tier-1 C++20 logic vs Tier-2 ONNX pipeline test
+├── harnesses/                             # Automated research harnesses (Sentinel-Lab)
+│   ├── motion_ethercat_surge.py
+│   ├── motion_canfd_override.py
+│   ├── motion_shm_obstacle.py
+│   └── motion_cbf_clamp.py
+├── apparatus_plugins/                     # Physical telemetry drivers for sentinel-matrix runtime
+│   ├── cobot_ethercat_scope.py            # EtherCAT 2-link robotic arm visualizer
+│   ├── mining_canfd_bus.py                # CAN-FD steering angle gauge visualizer
+│   └── amr_shm_lidar.py                   # AMR radar clearance &amp; brake visualizer
+├── web/                                   # Micro-frontend plugin package (served via Nexus)
+│   ├── manifest.json
+│   └── motion/
+│       ├── motion.js                      # 3 apparatus visualizers + Robotics C2 tab
+│       └── motion.css
+└── scenarios/robotics_can_ethercat_grid/  # Full 8-container 3-bus digital twin mesh
+    ├── manifest.json
+    ├── scenario.yaml                      # Configures AF_PACKET, AF_UNIX and ipc:shareable /dev/shm
+    ├── configs/
+    │   ├── sensor_attack_matrix.json
+    │   ├── lab_plugins/motion_cbf.json    # Kinematic threat profiles
+    │   └── nodes/
+    │       ├── node_01_cobot_ethercat.yaml# Edge Sentry 01: Cobot EtherCAT (0x88A4)
+    │       ├── node_02_mining_canfd.yaml  # Edge Sentry 02: Mining Haul CAN-FD
+    │       └── node_03_amr_shm.yaml       # Edge Sentry 03: AMR ShmRing (MOT1)
+    ├── models/                            # Neural models (vibration_spectral_ae, network_threat_int8)
+    └── tools/
+        └── motion_wire_gen.py             # 3-bus wire generator (AF_PACKET + AF_UNIX + /dev/shm)
+</code></pre></div>
+<hr />
+<h2 id="7-build-test-benchmark-installation">7. Build, Test, Benchmark &amp; Installation</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/motion-guard
+
+<span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
+make<span class="w"> </span>build
+
+<span class="c1"># 2. Run all 5 unit, 3-bus ABI and Tier-1/Tier-2 pipeline test suites</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># 3. Execute 100,000-frame hardware latency benchmark (&lt; 120 ns SLA)</span>
+make<span class="w"> </span>bench
+
+<span class="c1"># 4. Install libraries, plugins, CLI bridges, and research harnesses</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+
+<span class="c1"># 5. Synchronize artifacts with sentinel-matrix and sentinel-nexus</span>
+make<span class="w"> </span>sync-all
+</code></pre></div>
+<h3 id="deployed-system-artifacts">Deployed System Artifacts</h3>
+<ul>
+<li><code>/usr/local/lib/libmotion_guard.so</code> &amp; <code>libmotion_guard.a</code></li>
+<li><code>/usr/local/lib/blackbox/motion_guard_dissector_plugin.so</code> (Blackbox dynamic plugin path)</li>
+<li><code>/usr/local/bin/aryo-motion</code> (Discovered dynamically by master <code>aryo</code> CLI)</li>
+<li><code>/usr/local/bin/motion-guard-ctl</code> (Diagnostic utility)</li>
+<li><code>/etc/sentinel/lab/harnesses/motion_*.py</code> &amp; <code>/opt/sentinel-stack/harnesses/motion-*.py</code></li>
+</ul>
+<hr />
+<h2 id="8-operator-cli-operations-aryo-motion-aryo-lab">8. Operator CLI Operations (<code>aryo motion</code> &amp; <code>aryo lab</code>)</h2>
+<p>The master CLI <code>aryo</code> natively integrates <code>motion-guard</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display extension status and capabilities</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>--plugin-desc
+
+<span class="c1"># Verify protocol gate self-tests</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>bench<span class="w">            </span><span class="c1"># 100,000-frame cycle-accurate latency benchmark</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>verify-ethercat<span class="w">  </span><span class="c1"># Verify Non-IP Layer-2 EtherCAT joint surge clamp</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>verify-can<span class="w">       </span><span class="c1"># Verify SocketCAN / CAN-FD steering override block</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>verify-shm<span class="w">       </span><span class="c1"># Verify POSIX ShmRing obstacle stop &amp; brake guard</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>verify-cbf<span class="w">       </span><span class="c1"># Verify Nagumo CBF forward invariance safety gate</span>
+aryo<span class="w"> </span>motion<span class="w"> </span>airgap-status<span class="w">    </span><span class="c1"># Inspect real-time motion air-gap latch state</span>
+
+<span class="c1"># Run automated Sentinel-Lab evaluation harnesses</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>motion-ethercat-surge<span class="w">  </span><span class="c1"># EtherCAT joint surge audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>motion-canfd-override<span class="w">  </span><span class="c1"># CAN-FD steering override audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>motion-shm-obstacle<span class="w">    </span><span class="c1"># AMR obstacle collision &amp; brake heat audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>motion-cbf-clamp<span class="w">       </span><span class="c1"># Nagumo CBF velocity boundary clamp audit</span>
+</code></pre></div>
+<hr />
+<h2 id="9-robotics-can-fd-ethercat-multi-node-grid-digital-twin-8-containers">9. Robotics, CAN-FD &amp; EtherCAT Multi-Node Grid Digital Twin (8 Containers)</h2>
+<p><code>motion-guard</code> provisions an 8-container digital twin on subnet <code>10.240.70.0/24</code> running <strong>all three non-IP buses simultaneously</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/motion-guard
+
+<span class="c1"># Deploy the 8-node simulation mesh in the background</span>
+make<span class="w"> </span>cobot-up
+
+<span class="c1"># Inspect container health and multi-bus endpoints</span>
+make<span class="w"> </span>cobot-status
+
+<span class="c1"># Stream real-time eBPF logs from Cobot EtherCAT Sentry</span>
+make<span class="w"> </span>cobot-logs
+
+<span class="c1"># Teardown simulation mesh and release network bridge</span>
+make<span class="w"> </span>cobot-down
+</code></pre></div>
+<h3 id="digital-twin-network-bus-matrix-1024070024">Digital Twin Network &amp; Bus Matrix (<code>10.240.70.0/24</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Container / Service</th>
+<th style="text-align: left;">Ingress Bus Type</th>
+<th style="text-align: left;">Endpoints / Shared Resources</th>
+<th style="text-align: left;">Role &amp; Deployed Subsystems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-nexus</code></strong></td>
+<td style="text-align: left;">TCP / gRPC</td>
+<td style="text-align: left;"><code>10.240.70.10</code> (<code>:9443</code>, <code>:50051</code>)</td>
+<td style="text-align: left;">Sentinel Nexus Command Plane + Motion Web Plugin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-cobot-01</code></strong></td>
+<td style="text-align: left;"><strong>Bus A:</strong> Non-IP L2</td>
+<td style="text-align: left;"><code>10.240.70.101</code> (<code>AF_PACKET 0x88A4</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 01:</strong> Cobot EtherCAT Safety Gate (<code>INTEL_OPENVINO</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-mining-02</code></strong></td>
+<td style="text-align: left;"><strong>Bus B:</strong> Fieldbus</td>
+<td style="text-align: left;"><code>10.240.70.102</code> (<code>/var/run/sentinel-bus/can.sock</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 02:</strong> Mining Haul CAN-FD Guard (<code>NVIDIA_TENSORRT</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-amr-03</code></strong></td>
+<td style="text-align: left;"><strong>Bus C:</strong> Memory Ring</td>
+<td style="text-align: left;"><code>10.240.70.103</code> (<code>/dev/shm/sentinel_motion_ring</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 03:</strong> AMR ShmRing Collision Guard (<code>ROCKCHIP_RKNN</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-motion-wire-gen</code></strong></td>
+<td style="text-align: left;"><strong>Buses A, B, C</strong></td>
+<td style="text-align: left;">Injects <code>0x88A4</code>, <code>can.sock</code>, and <code>/dev/shm</code></td>
+<td style="text-align: left;">3-Bus Wire Generator (EtherCAT + CAN-FD + ShmRing)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-cobot</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18099:8090</code></td>
+<td style="text-align: left;">Apparatus: Cobot Arm 2-Link Scope + Surge Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-canfd</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18100:8090</code></td>
+<td style="text-align: left;">Apparatus: CAN-FD Steering Dial + Override Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-amr</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18101:8090</code></td>
+<td style="text-align: left;">Apparatus: AMR Radar Clearance + Collision Streamer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-mission-control-interface">Web Mission Control Interface</h3>
+<p>Browse to <strong><code>http://localhost:9443/</code></strong>:
+* <strong>Mission Control (Pane 01):</strong> Displays live physical visualizers matching selected field nodes:
+  * Selecting <code>Edge-Cobot-EtherCAT-01</code> displays the <strong>Cobot ISO 13849 EtherCAT Scope</strong> (<code>:18099</code>).
+  * Selecting <code>Edge-Mining-CANFD-02</code> displays the <strong>Mining Haul Truck CAN-FD Steering Bus</strong> (<code>:18100</code>).
+  * Selecting <code>Edge-AMR-ShmRing-03</code> displays the <strong>AMR ShmRing Obstacle &amp; Brake Radar</strong> (<code>:18101</code>).
+* <strong>Sidebar Navigation:</strong> Access the <strong>"🦾 Robotics &amp; CAN-FD C2"</strong> tab for live joint accelerations, steering angles, obstacle clearance telemetry, and single-click surge injection.</p>
+<hr />
+<h2 id="10-regulatory-safety-standards-compliance">10. Regulatory &amp; Safety Standards Compliance</h2>
+<ul>
+<li><strong>ISO 13849-1 (PL-e, Category 4):</strong> Satisfies maximum safety-integrity requirements by validating control commands against kinematic barrier constraints within sub-microsecond cycle times.</li>
+<li><strong>ISO/TS 15066 (Collaborative Robots):</strong> Enforces Power and Force Limiting (PFL) by monitoring joint torques and bounding Cartesian tool center point (TCP) velocities.</li>
+<li><strong>CiA 402 / CANopen Device Profile for Drives and Motion Control:</strong> Enforces strict state-machine transitions (Ready to Switch On, Switched On, Operation Enable) and rejects out-of-order motion commands.</li>
+<li><strong>IEC 62443-4-2 Component Security:</strong> Provides hardware-attested, tamper-evident audit logging for all robotics and machine-automation conduits.</li>
+</ul>
+<hr />
+<h2 id="11-research-preprint-authorship">11. Research Preprint &amp; Authorship</h2>
+<ul>
+<li><strong>Corporate Entity:</strong> Aryorithm Technologies B.V. (Amsterdam, The Netherlands)</li>
+<li><strong>Founder &amp; Chief Technology Officer:</strong> Kamran Saberifard (<a href="https://github.com/kamisaberi">github.com/kamisaberi</a>)</li>
+<li><strong>Permanent Research DOI:</strong> CERN / Zenodo: <a href="https://doi.org/10.5281/zenodo.23598779"><code>10.5281/zenodo.23598779</code></a></li>
+<li><strong>License:</strong> Proprietary / Commercial Licensing available from Aryorithm Technologies B.V.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1974 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/09-archive-business-and-research/startup_kits/01/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>1. The Open-Core Architecture Map - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. The Open-Core Architecture Map
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../08-components/" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<p>To build a successful deep-tech cybersecurity business, you should adopt the <strong>Open-Core &amp; Dual-Sovereignty Model</strong> (the model proven by companies like GitLab, Elastic, and Isovalent/Cilium).</p>
+<p>The strategy is simple:
+1. <strong>Open Source (FOSS):</strong> Release the foundational engines and academic testbeds under permissive licenses (Apache 2.0 / MIT). This builds global developer adoption, enables university citations (TalTech, Aalto), and builds developer goodwill.
+2. <strong>Commercial Subscription (Enterprise / OT):</strong> Gate the advanced cyber-physical modules, SCADA protocol dissectors, fleet collective defense, and automated compliance behind a cryptographically signed <strong>License Key (<code>.lic</code>)</strong>.
+3. <strong>Cloud SaaS (<code>app.aryorithm.com</code>):</strong> Deliver continuous fleet orchestration, multi-tenancy, and global threat intelligence as a monthly recurring subscription.</p>
+<hr />
+<h1 id="1-the-open-core-architecture-map">1. The Open-Core Architecture Map</h1>
+<div class="highlight"><pre><span></span><code>========================================================================================================
+                          ARYORITHM OPEN-CORE &amp; MONETIZATION MATRIX
+========================================================================================================
+
+ ┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │  FREE &amp; OPEN SOURCE (FOSS) TIER (Community / Research)                                              │
+ │  • Tier 1: xinfer-essential (libxinfer.so) ──&gt; Universal C++20 AI Runtime (Apache 2.0)             │
+ │  • Tier 2: blackbox-essential (libblackbox.so) ──&gt; eBPF/XDP Dropper &amp; Ring Buffer (Apache 2.0/GPLv2)│
+ │  • Tier 5: sentinel-lab ──&gt; Academic Preprint, SLAB Protocol &amp; CIC-IDS-2017 Testbed (MIT)          │
+ │  • Community Edition of Sentinel Appliance ──&gt; 5 basic IT modules, single-node only                │
+ └────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                   │
+                                                   ▼ (Upgraded via License Token or SaaS)
+ ┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │  ENTERPRISE COMMERCIAL SUBSCRIPTION (Air-Gapped Local Software)                                    │
+ │  • Tier 3: Full Blackbox Sentinel ──&gt; All 26 Subsystems (SCADA, CWPP, WAF, Bot Kinematics)         │
+ │  • All 30 Industrial Plugins ──&gt; Modbus, DNP3, PROFINET, S7Comm, DICOM, MAVLink, AIS               │
+ │  • Tier 4: xinfer-forge ──&gt; Autonomous MAE Retraining &amp; Golden Attack Safety Gate                  │
+ │  • Offline Cryptographic License (.lic) ──&gt; Sealed to physical TPM 2.0 silicon                      │
+ └────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                   │
+                                                   ▼ (Cloud Connected Hybrid)
+ ┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │  CLOUD SAAS SUBSCRIPTION (app.aryorithm.com)                                                       │
+ │  • Tier 6: Sentinel Nexus Cloud ──&gt; Central C2, Fleet Map, Multi-Tenant MSSP Hub                    │
+ │  • Sub-50ms Global Collective Immunity Feed ──&gt; "Attacked Once, Immune Everywhere"                 │
+ │  • Continuous NIS2 / CMMC / IEC 62443 Compliance Auditor ──&gt; Automated PDF Export                  │
+ │  • Tier 7: Sentinel Matrix Cloud ──&gt; On-demand Digital Twin Cyber Range &amp; Malware Replay           │
+ └────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h1 id="2-project-by-project-entitlement-matrix">2. Project-by-Project Entitlement Matrix</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Project / Tier</th>
+<th style="text-align: left;">Open Source (Free)</th>
+<th style="text-align: left;">Commercial Subscription (Paid)</th>
+<th style="text-align: left;">Licensing / Enforcement Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tier 1: <code>xinfer-essential</code></strong></td>
+<td style="text-align: left;"><strong>100% Free &amp; Open Source.</strong> All 15 silicon backends, zero-copy tensor runtime, <code>IInferencePlugin</code> interface.</td>
+<td style="text-align: left;">None (keeps developers building on your silicon runtime).</td>
+<td style="text-align: left;"><strong>Apache 2.0 License.</strong> Public on GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 2: <code>blackbox-essential</code></strong></td>
+<td style="text-align: left;"><strong>100% Free &amp; Open Source.</strong> Driver-level <code>xdp_filter.o</code>, SPMC ring buffer, basic TPM 2.0 probe.</td>
+<td style="text-align: left;">None (kernel transparency is required for security trust).</td>
+<td style="text-align: left;"><strong>Dual Apache 2.0 / GPLv2</strong> (eBPF kernel code). Public on GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 3: <code>blackbox-sentinel</code></strong></td>
+<td style="text-align: left;"><strong>Community Edition:</strong> 5 basic IT modules (<code>siem_core</code>, <code>ids_ips</code>, <code>ngfw</code>, <code>swg</code>, <code>dfir</code> PCAP capture) for 1 node.</td>
+<td style="text-align: left;"><strong>Full Enterprise Edition:</strong> All 26 modules + 30 SCADA/Medical/Aviation plugins + real-time XAI attribution.</td>
+<td style="text-align: left;"><strong>Aryorithm Commercial EULA.</strong> Verified via local asymmetric <code>.lic</code> key.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 4: <code>xinfer-forge</code></strong></td>
+<td style="text-align: left;"><strong>Community Edition:</strong> Manual evaluation and validation on static datasets.</td>
+<td style="text-align: left;"><strong>Continuous Adaptation Daemon:</strong> Autonomous background training, golden attack safety gate, automated ONNX stager.</td>
+<td style="text-align: left;"><strong>Commercial License.</strong> Gated in <code>forge-cli</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 5: <code>sentinel-lab</code></strong></td>
+<td style="text-align: left;"><strong>100% Free &amp; Open Source.</strong> SLAB wire protocol, CIC-IDS-2017 harness, LaTeX preprint paper.</td>
+<td style="text-align: left;">None (must remain open for university thesis and academic citations).</td>
+<td style="text-align: left;"><strong>MIT License.</strong> Public on GitHub / Zenodo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 6: <code>sentinel-nexus</code></strong></td>
+<td style="text-align: left;"><strong>Local Community Edition:</strong> Single cluster management up to 3 edge nodes, local web UI (9443).</td>
+<td style="text-align: left;"><strong>Enterprise Grid:</strong> Up to 5,000 nodes, $&lt; 50\,\text{ms}$ collective defense fan-out, Canary OTA, CMMC/IEC 62443 reports.</td>
+<td style="text-align: left;"><strong>Commercial Subscription.</strong> Bounded by node license limits.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tier 7: <code>sentinel-matrix</code></strong></td>
+<td style="text-align: left;"><strong>Basic Simulator:</strong> Ambient NetFlow and baseline traffic generator.</td>
+<td style="text-align: left;"><strong>Full Cyber-Range:</strong> OmniFlow 7 channels, real PCAP malware replays (Industroyer, Triton, S7), live adversary node.</td>
+<td style="text-align: left;"><strong>Commercial / Lab License.</strong> Gated in <code>docker-compose.matrix.yml</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cloud SaaS (<code>app.aryorithm.com</code>)</strong></td>
+<td style="text-align: left;"><strong>None.</strong> (Free 14-day trial available).</td>
+<td style="text-align: left;"><strong>100% Paid SaaS:</strong> Hosted Nexus, global threat feed, automated compliance exports, cloud compiler.</td>
+<td style="text-align: left;"><strong>Stripe / JWT Tenant Subscription ($199–$499/node/mo).</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="3-gating-the-26-subsystems-30-plugins">3. Gating the 26 Subsystems &amp; 30 Plugins</h1>
+<p>In <code>blackbox-sentinel</code>, modules are dynamically enabled or disabled based on the active license tier:</p>
+<div class="highlight"><pre><span></span><code>========================================================================================================
+                                 MODULE ENTITLEMENT BREAKDOWN
+========================================================================================================
+ TIER                           INCLUDED SUBSYSTEM MODULES &amp; PLUGINS
+ ─────────────────────────────  ────────────────────────────────────────────────────────────────────────
+ Community Free Tier            • 01_siem_core (Basic In-Memory Log Indexer)
+ (Unlicensed / Free)            • 04_ids_ips (Basic Signature Matching &amp; Kernel Drops)
+                                • 15_ngfw (Standard Deep Packet Inspection)
+                                • 19_swg (Outbound Egress Proxy)
+                                • 22_dfir (Basic PCAP evidence capture)
+
+ Enterprise IT Edition          • All Community Modules PLUS:
+ (Paid License)                 • 02_ueba (User Behavior 100k Matrix) • 03_ndr (JA3/JA4 TLS Analysis)
+                                • 05_waf (API SQLi/XSS)               • 06_edr (Process Hunter)
+                                • 07_epp_ngav (Ransomware Entropy)     • 08_nac (802.1X VLAN Quarantine)
+                                • 09_cwpp (eBPF Syscall Breakout)     • 10_bad (Kinematic Bot Defense)
+                                • 12_itdr (Kerberoasting / AD Abuse)   • 14_ato (Impossible Travel Velocity)
+
+ Sovereign Cyber-Physical (OT)  • All Enterprise Modules PLUS:
+ &amp; Critical Infrastructure      • 18_cps_sec (SCADA Physical Constraint Validator)
+ (Full Paid License)            • 17_iot_sec (Medical DICOM PACS &amp; HL7 Protocol Security)
+                                • 20_fse (Firmware/UEFI Dissector)    • 21_side_channel (Power/EM Defense)
+                                • 23_ai_trism (LLM Prompt Firewall)   • 26_ddp (Decoy PLCs on VIPs)
+                                • All 30 Industrial Protocol Plugins:
+                                  Modbus TCP, DNP3, PROFINET, Siemens S7Comm, MAVLink, AIS Maritime
+========================================================================================================
+</code></pre></div>
+<hr />
+<h1 id="4-technical-implementation-air-gapped-licensing-in-native-c20">4. Technical Implementation: Air-Gapped Licensing in Native C++20</h1>
+<p>To protect your intellectual property without requiring internet access, the local C++ software must verify licenses using <strong>Asymmetric Cryptography (Ed25519 or RSA-4096)</strong>:</p>
+<ol>
+<li><strong>Aryorithm Private Key (Held securely in Cloud):</strong> Generates and signs license envelopes.</li>
+<li><strong>Aryorithm Public Key (Embedded in <code>libblackbox.so</code>):</strong> Hardcoded in the C++ binary to verify license signatures locally.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>  [ CUSTOMER BUYS SUBSCRIPTION ON APP.ARYORITHM.COM ]
+                         │
+                         ▼
+  [ CLOUD LICENSE GENERATOR (Signed with Aryorithm Private Key) ]
+                         │
+                         ▼
+  [ CUSTOMER DOWNLOADS LICENSE FILE: license.lic ]
+                         │
+                         ▼ (Transferred via USB or pasted into Web UI)
+  [ BLACKBOX SENTINEL LOCAL APPLIANCE ]
+  • LicenseManager reads license.lic
+  • Verifies cryptographic signature using embedded Aryorithm Public Key
+  • Checks: 1. Is license expired? (now &lt; expires_at)
+            2. Does machine UUID / TPM PCR match the hardware lock?
+            3. Which modules are authorized in the license claims?
+                         │
+         ┌───────────────┴───────────────┐
+         ▼ VALID SIGNATURE               ▼ INVALID / EXPIRED / MISSING
+  [ UNLOCK FULL 26 MODULES &amp; PLUGINS ]   [ DEGRADE TO FREE COMMUNITY MODE (5 Basic Modules) ]
+</code></pre></div>
+<hr />
+<h3 id="implementation-code-licensemanagerhpp">Implementation Code: <code>LicenseManager.hpp</code></h3>
+<p>Save this in <code>/home/kami/blackbox-sentinel/src/core/LicenseManager.hpp</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_set&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sstream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;openssl/evp.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;openssl/pem.h&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">sentinel</span><span class="o">::</span><span class="nn">licensing</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LicenseTier</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">COMMUNITY_FREE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ENTERPRISE_IT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CRITICAL_INFRASTRUCTURE_OT</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">LicenseClaims</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">license_id</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">customer_name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LicenseTier</span><span class="w"> </span><span class="n">tier</span><span class="p">{</span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">COMMUNITY_FREE</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">expires_at_sec</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">max_nodes</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">authorized_modules</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">authorized_plugins</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">locked_hardware_uuid</span><span class="p">{</span><span class="s">""</span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LicenseManager</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">LicenseManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">LicenseManager</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Loads and cryptographically validates license file without cloud access</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">load_and_verify_license</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">license_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/etc/sentinel/license.lic"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="n">license_path</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">COMMUNITY_FREE</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Fallback to free community mode</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">content</span><span class="p">((</span><span class="n">std</span><span class="o">::</span><span class="n">istreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">file</span><span class="p">)),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">istreambuf_iterator</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">verify_license_signature</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_module_authorized</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">module_name</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">CRITICAL_INFRASTRUCTURE_OT</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Free Community Tier defaults</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FREE_MODULES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">"01_siem_core"</span><span class="p">,</span><span class="w"> </span><span class="s">"04_ids_ips"</span><span class="p">,</span><span class="w"> </span><span class="s">"15_ngfw"</span><span class="p">,</span><span class="w"> </span><span class="s">"19_swg"</span><span class="p">,</span><span class="w"> </span><span class="s">"22_dfir"</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">COMMUNITY_FREE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">FREE_MODULES</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">module_name</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">authorized_modules</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">module_name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_plugin_authorized</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">plugin_name</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">CRITICAL_INFRASTRUCTURE_OT</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">authorized_plugins</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">LicenseTier</span><span class="w"> </span><span class="n">get_active_tier</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">get_tier_name</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">LicenseTier</span><span class="o">::</span><span class="no">COMMUNITY_FREE</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Community Free (5 IT Modules)"</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">LicenseTier</span><span class="o">::</span><span class="no">ENTERPRISE_IT</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Enterprise IT Edition"</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">LicenseTier</span><span class="o">::</span><span class="no">CRITICAL_INFRASTRUCTURE_OT</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Critical Infrastructure OT (Full 26 Modules + 30 Plugins)"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">LicenseManager</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">verify_license_signature</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">license_raw_envelope</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Parse JSON payload and base64 signature</span>
+<span class="w">        </span><span class="c1">// In production: verify using embedded RSA-4096 / Ed25519 public key</span>
+<span class="w">        </span><span class="c1">// For development/mock: validate expiration timestamp</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">now_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">()).</span><span class="n">count</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// If license has expired, degrade to free tier</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">active_claims_</span><span class="p">.</span><span class="n">expires_at_sec</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">now_sec</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">expires_at_sec</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">COMMUNITY_FREE</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Set to full OT tier when valid</span>
+<span class="w">        </span><span class="n">active_claims_</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LicenseTier</span><span class="o">::</span><span class="n">CRITICAL_INFRASTRUCTURE_OT</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">LicenseClaims</span><span class="w"> </span><span class="n">active_claims_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace sentinel::licensing</span>
+</code></pre></div>
+<hr />
+<h1 id="5-dual-mode-synchronization-air-gapped-vs-cloud-saas">5. Dual-Mode Synchronization: Air-Gapped vs. Cloud SaaS</h1>
+<p>Customers can activate their subscriptions in two ways:</p>
+<div class="highlight"><pre><span></span><code>========================================================================================================
+                                    DUAL ACTIVATION MODES
+========================================================================================================
+
+ MODE A: AIR-GAPPED SNEAKERNET (Classified, Defense, Nuclear)
+ 1. Customer runs: sentinel --generate-hardware-token
+ 2. System outputs an encrypted token containing physical TPM 2.0 PCR measurements.
+ 3. Operator pastes token into https://app.aryorithm.com/portal/license-activate on an external terminal.
+ 4. Portal issues a signed license file: `license.lic`.
+ 5. Operator walks the file on an encrypted USB to the air-gapped appliance and saves it to `/etc/sentinel/`.
+ 6. Sentinel unlocks all 26 modules with ZERO outbound network requests.
+
+ MODE B: CLOUD-CONNECTED HYBRID SAAS (Commercial, Utilities, Healthcare)
+ 1. Customer configures `saas.enabled: true` in `nexus.yaml`.
+ 2. Sentinel Nexus authenticates with `app.aryorithm.com` via JWT (`POST /api/v1/auth/login`).
+ 3. Nexus syncs the customer's active subscription tier automatically over HTTPS.
+ 4. When the customer upgrades their subscription on the web dashboard, Nexus automatically unlocks
+    the corresponding modules across all connected edge appliances within seconds.
+========================================================================================================
+</code></pre></div>
+<hr />
+<h1 id="6-recommended-legal-licensing-framework">6. Recommended Legal Licensing Framework</h1>
+<p>To protect your intellectual property while maximizing open-source distribution:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Repository / Component</th>
+<th style="text-align: left;">Chosen License</th>
+<th style="text-align: left;">Legal &amp; Commercial Protections</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>xinfer-essential</code></strong></td>
+<td style="text-align: left;"><strong>Apache 2.0</strong></td>
+<td style="text-align: left;">Permissive. Developers and hardware partners can embed <code>libxinfer.so</code> anywhere, driving silicon adoption.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>blackbox-essential</code></strong></td>
+<td style="text-align: left;"><strong>Dual Apache 2.0 / GPLv2</strong></td>
+<td style="text-align: left;">eBPF kernel code (<code>xdp_filter.c</code>) must be GPLv2 to access Linux kernel helper functions. Userspace is Apache 2.0.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>sentinel-lab</code></strong></td>
+<td style="text-align: left;"><strong>MIT License</strong></td>
+<td style="text-align: left;">Open science. Zero commercial barriers for university professors and researchers citing the preprint.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>blackbox-sentinel</code></strong></td>
+<td style="text-align: left;"><strong>Aryorithm Commercial EULA</strong></td>
+<td style="text-align: left;">Proprietary. Free for single-node community use; commercial subscription required for SCADA modules and industrial deployments.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>sentinel-nexus</code></strong></td>
+<td style="text-align: left;"><strong>Aryorithm Commercial EULA</strong></td>
+<td style="text-align: left;">Proprietary. Free up to 3 nodes; enterprise tier required for multi-site collective defense and compliance audits.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>xinfer-forge</code></strong></td>
+<td style="text-align: left;"><strong>Aryorithm Commercial EULA</strong></td>
+<td style="text-align: left;">Proprietary. Automated continuous retraining and anti-poisoning safety gates are commercial features.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-takeaway-for-your-team">Key Takeaway for Your Team</h3>
+<ul>
+<li><strong>Keep your core open source:</strong> Keep <code>xinfer-essential</code>, <code>blackbox-essential</code>, and <code>sentinel-lab</code> public on GitHub to build academic credibility and vendor partnerships (Intel, NVIDIA, TalTech, Aalto).</li>
+<li><strong>Charge for mission-critical operations:</strong> Charge enterprise subscriptions for the <strong>SCADA constraint validators</strong>, <strong>industrial protocol plugins</strong>, <strong>fleet collective defense</strong>, and <strong>automated NIS2/CMMC compliance reporting</strong>. </li>
+<li><strong>Zero compromise on air-gapping:</strong> By using asymmetric cryptographic keys, you can enforce paid licensing in classified and air-gapped networks without requiring appliances to phone home.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2289 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/08-components/net-guard/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>NET-GUARD: High-Speed Line-Rate Wire, 5G UPF & FinTech Defense Engine - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NET-GUARD: High-Speed Line-Rate Wire, 5G UPF &amp; FinTech Defense Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../09-archive-business-and-research/" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-archive-business-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-120-ns-non-ip-layer-2-goose-3gpp-gtp-u-slicing-itch-50-pre-trade-pqc-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sub-120 ns Non-IP Layer-2 GOOSE, 3GPP GTP-U Slicing, ITCH 5.0 Pre-Trade &amp; PQC Gate
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-systems-engineering-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Executive Summary &amp; Systems Engineering Scope
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verified-deterministic-latency-benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Verified Deterministic Latency Benchmarks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-supported-protocols-deep-wire-dissection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Supported Protocols &amp; Deep Wire Dissection
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Supported Protocols &amp; Deep Wire Dissection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-3gpp-5g-upf-gtpv1-u-protocol-udp-port-2152" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A. 3GPP 5G UPF GTPv1-U Protocol (UDP Port 2152)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-non-ip-layer-2-iec-61850-goose-sampled-values-0x88b8-0x88ba" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        B. Non-IP Layer-2 IEC 61850 GOOSE &amp; Sampled Values (<code>0x88B8</code> / <code>0x88BA</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-fintech-nasdaq-itch-50-ouch-pre-trade-protocol-tcp-port-9001" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        C. FinTech NASDAQ ITCH 5.0 &amp; OUCH Pre-Trade Protocol (TCP Port 9001)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-o-ran-near-rt-ric-e2ap-protocol-sctp-port-36422" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        D. O-RAN Near-RT RIC E2AP Protocol (SCTP Port 36422)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-post-quantum-cryptography-pqc-tls-13-handshake-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        E. Post-Quantum Cryptography (PQC) TLS 1.3 Handshake Enforcement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-threat-mitigation-matrix-network-telco-fintech-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Threat Mitigation Matrix: Network, Telco &amp; FinTech Defense
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Repository Structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-build-test-benchmark-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Build, Test, Benchmark &amp; Installation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Build, Test, Benchmark &amp; Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployed-system-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deployed System Artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-operator-cli-operations-aryo-net-aryo-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Operator CLI Operations (<code>aryo net</code> &amp; <code>aryo lab</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-telco-5g-fintech-multi-node-grid-digital-twin-11-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Telco 5G &amp; FinTech Multi-Node Grid Digital Twin (11 Containers)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Telco 5G &amp; FinTech Multi-Node Grid Digital Twin (11 Containers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-network-matrix-1024060024" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digital Twin Network Matrix (<code>10.240.60.0/24</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-mission-control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Web Mission Control Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-regulatory-standards-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Regulatory &amp; Standards Alignment
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-research-preprint-authorship" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Research Preprint &amp; Authorship
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="net-guard-high-speed-line-rate-wire-5g-upf-fintech-defense-engine">NET-GUARD: High-Speed Line-Rate Wire, 5G UPF &amp; FinTech Defense Engine</h1>
+<h3 id="sub-120-ns-non-ip-layer-2-goose-3gpp-gtp-u-slicing-itch-50-pre-trade-pqc-gate">Sub-120 ns Non-IP Layer-2 GOOSE, 3GPP GTP-U Slicing, ITCH 5.0 Pre-Trade &amp; PQC Gate</h3>
+<p><a href="https://aryorithm.com"><img alt="Enterprise" src="https://img.shields.io/badge/Entity-Aryorithm%20Technologies%20B.V.-00E5FF?style=flat-square" /></a>
+<a href="#"><img alt="Standard" src="https://img.shields.io/badge/Telecommunications-3GPP%20Rel%2017%20%7C%20O--RAN%20WG3-blue?style=flat-square" /></a>
+<a href="#"><img alt="Power Standard" src="https://img.shields.io/badge/Power%20Substation-IEC%2061850--8--1%20GOOSE%20%7C%209--2%20SV-orange?style=flat-square" /></a>
+<a href="#"><img alt="FinTech Regulatory" src="https://img.shields.io/badge/Market%20Access-SEC%20Rule%2015c3--5%20%7C%20MiFID%20II-purple?style=flat-square" /></a>
+<a href="#"><img alt="Quantum Resistance" src="https://img.shields.io/badge/Post--Quantum-NIST%20FIPS%20203%20(ML--KEM)--yellow?style=flat-square" /></a>
+<a href="#"><img alt="Deterministic Latency" src="https://img.shields.io/badge/Deterministic%20SLA-%3C%20120%20ns%20(Zero--Alloc)-00FFA3?style=flat-square" /></a></p>
+<hr />
+<h2 id="1-executive-summary-systems-engineering-scope">1. Executive Summary &amp; Systems Engineering Scope</h2>
+<p>Modern high-velocity network infrastructure operates under extreme throughput and timing constraints where traditional IP firewalls create unacceptable buffer bloat, microsecond jitter, and protocol blind spots:</p>
+<ol>
+<li><strong>5G / Private Network Slicing:</strong> A User Plane Function (UPF) must enforce strict multi-tenant tenant isolation across Ultra-Reliable Low-Latency Communication (URLLC) and enhanced Mobile Broadband (eMBB) slices without adding packet latency to autonomous robotics or telesurgery.</li>
+<li><strong>Substation Digital Busbars (Non-IP Layer 2):</strong> High-voltage electrical substations communicate critical protection trips over raw Ethernet multicast frames (<strong>IEC 61850 GOOSE <code>0x88B8</code> and Sampled Values <code>0x88BA</code></strong>). Traditional Layer-3/4 firewalls discard these frames entirely because they contain <strong>no IP or TCP/UDP headers</strong>.</li>
+<li><strong>FinTech High-Frequency Trading (HFT):</strong> Exchange gateways and algorithmic order routers must evaluate risk parameters (fat-finger share caps, price collars) at sub-microsecond wire speed to satisfy <strong>SEC Rule 15c3-5</strong> without compromising trade execution queues.</li>
+<li><strong>Post-Quantum Cryptography (PQC) Transition:</strong> Critical conduits must detect and block "Harvest-Now, Decrypt-Later" downgrades to classical cipher suites by enforcing <strong>NIST ML-KEM</strong> key encapsulation in raw TLS 1.3 handshakes.</li>
+</ol>
+<p><code>net-guard</code> is the high-speed wire vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Compiled as a zero-allocation, lock-free C++20 engine linked to <code>blackbox-sentinel</code> and <code>xinfer-essential</code>, it leverages <strong>Linux <code>AF_PACKET</code> raw sockets, <code>AF_XDP</code> kernel bypass, and hardware cycle-accurate TSC timers</strong> to enforce deterministic inspection at <strong>$&lt; 120\,\text{ns}$ latency</strong>.</p>
+<div class="highlight"><pre><span></span><code>  PHYSICAL FIBER / HIGH-SPEED WIRE INGRESS (10GbE / 25GbE / 100GbE NIC)
+                                │
+                                ▼
+  ┌───────────────────────────────────────────────────────────────────────────┐
+  │ INGRESS BUS A: AF_PACKET (SOCK_RAW, ETH_P_ALL) / AF_XDP UMEM Zero-Copy    │
+  │ • Kernel-bypass L2 ingress: Ingests raw IEEE 802.3 MAC frames directly    │
+  │ • Filters PACKET_OUTGOING to guarantee zero reflection / loopback storms  │
+  └─────────────────────────────┬─────────────────────────────────────────────┘
+                                │
+         ┌──────────────────────┴──────────────────────┐
+         ▼                                             ▼
+  [ NON-IP LAYER-2 BUS ]                       [ IPV4 / L4 PROTOCOL BUS ]
+  • IEC 61850 GOOSE (0x88B8)                   • 3GPP 5G GTP-U (UDP :2152)
+  • IEC 61850 SV (0x88BA)                      • O-RAN Near-RT RIC E2AP (SCTP :36422)
+  • EtherCAT Automation (0x88A4)               • NASDAQ ITCH 5.0 / OUCH (TCP :9001)
+         │                                     • TLS 1.3 ClientHello (TCP :443)
+         │                                             │
+         └──────────────────────┬──────────────────────┘
+                                │
+                                ▼
+  ╔═══════════════════════════════════════════════════════════════════════════╗
+  ║ TIER-1: net_guard_dissector_plugin.so (&lt; 120 ns Monotonic Gate)           ║
+  ║ • 5G UPF Slice Governor : Blocks eMBB TEID hopping into URLLC OT conduits ║
+  ║ • L2 GOOSE Bus Sentinel : Enforces stNum monotonicity &amp; APPID bounds      ║
+  ║ • Pre-Trade Risk Collar : Clamps algorithmic fat-finger orders (&lt; 15 ns)  ║
+  ║ • O-RAN xApp Sandbox    : Intercepts unauthorized E2AP RICcontrol PDUs    ║
+  ║ • Quantum TLS Inspector : Drops classical-only downgrade attempts         ║
+  ║ • SliceAirGap Tripwire  : Lock-free atomic air-gap latch (&lt; 15 ns)        ║
+  ╚═════════════════════════════┬═════════════════════════════════════════════╝
+                                │
+          ┌─────────────────────┴─────────────────────┐
+          │ PASS (with normalized risk score)         │ KERNEL_DROP (&lt; 0.84 µs)
+          ▼                                           ▼
+  ┌───────────────────────────────┐          ┌────────────────────────────────┐
+  │ TIER-2: xinfer::Engine (ONNX) │          │ IN-KERNEL eBPF XDP_DROP MAP    │
+  │ • network_threat_int8.onnx    │          │ Hardware Line-Rate Drop Queue  │
+  │ • power_quality_anomaly.onnx  │          │ Attacker IP / Interface Bound  │
+  │ • OpenVINO / TensorRT NPU     │          └────────────────────────────────┘
+  └───────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="2-verified-deterministic-latency-benchmarks">2. Verified Deterministic Latency Benchmarks</h2>
+<p><code>net-guard</code> measures hardware execution time using cycle-accurate x86-64 <code>RDTSC</code> assembly instructions calibrated against system crystal clocks. All hot-path data structures are statically allocated with zero dynamic allocations on packet ingress.</p>
+<div class="highlight"><pre><span></span><code>================================================================================
+  NET-GUARD HARDWARE LATENCY BENCHMARK (100,000 5G GTP-U / L2 FRAMES)
+================================================================================
+  Host Architecture   : x86-64 Native (Intel Xeon / E810 100GbE / Core Ultra)
+  Hardware TSC Freq   : 3.18645 GHz
+  Mean Gate Latency   : 14.8210 ns
+  P95 Latency         : 18.2400 ns
+  P99 Latency         : 24.1100 ns
+  Worst-Case (WCET)   : 38.6000 ns
+  Target SLA Threshold: &lt; 120.0000 ns  -&gt;  [PASS]
+  Heap Allocation Rate: 0 Bytes / Packet (Zero-Copy Span Dissection)
+================================================================================
+</code></pre></div>
+<hr />
+<h2 id="3-supported-protocols-deep-wire-dissection">3. Supported Protocols &amp; Deep Wire Dissection</h2>
+<h3 id="a-3gpp-5g-upf-gtpv1-u-protocol-udp-port-2152">A. 3GPP 5G UPF GTPv1-U Protocol (UDP Port 2152)</h3>
+<ul>
+<li><strong>Standards:</strong> 3GPP TS 29.281, 3GPP TS 23.501 (5G System Architecture).</li>
+<li><strong>Header Validation:</strong> Enforces GTPv1 flags (<code>Version == 1</code>, <code>Protocol Type == 1</code>), Message Type (<code>0xFF</code> G-PDU), and optional Extension Header padding.</li>
+<li><strong>Tunnel Endpoint Identifier (TEID) Slicing:</strong></li>
+<li>Maps 32-bit TEID ranges to Network Slices: URLLC (<code>0x00000100–0x000001FF</code>) vs. eMBB (<code>0x00000200–0x000002FF</code>).</li>
+<li><strong>Slice-Hopping Interception:</strong> Performs wire-speed decapsulation of the inner IPv4 packet inside the G-PDU payload. If an eMBB user terminal sends packets targeting restricted operational control ports (<code>502</code> Modbus, <code>102</code> S7, <code>2404</code> IEC-104), <code>net-guard</code> drops the packet instantly (<code>REJECT_GTPU_SLICE_HOPPING</code>).</li>
+<li>Unauthorized TEID drop (<code>REJECT_GTPU_UNAUTHORIZED_TEID</code>).</li>
+</ul>
+<h3 id="b-non-ip-layer-2-iec-61850-goose-sampled-values-0x88b8-0x88ba">B. Non-IP Layer-2 IEC 61850 GOOSE &amp; Sampled Values (<code>0x88B8</code> / <code>0x88BA</code>)</h3>
+<ul>
+<li><strong>Standards:</strong> IEC 61850-8-1 (Specific Communication Service Mapping for GOOSE), IEC 61850-9-2 (Sampled Values).</li>
+<li><strong>Ingress Mechanism:</strong> Linux <code>AF_PACKET</code> raw socket capturing directly from Ethernet MAC without IP stack overhead.</li>
+<li><strong>APPID &amp; PDU Verification:</strong></li>
+<li>Enforces valid IEEE APPID allocation: GOOSE (<code>0x0000 ≤ APPID ≤ 0x3FFF</code>), Sampled Values (<code>0x4000 ≤ APPID ≤ 0x7FFF</code>).</li>
+<li><strong>State Number (<code>stNum</code>) Anti-Spoof:</strong> Enforces monotonic forward progression of breaker trip state numbers (<code>stNum</code>). Replayed packets with stale or decrementing <code>stNum</code> counters are dropped (<code>REJECT_GOOSE_SPOOFED_STNUM</code>).</li>
+<li><strong>Sequence Number (<code>sqNum</code>) Heartbeat Audit:</strong> Validates message burst intervals during protection trip events.</li>
+</ul>
+<h3 id="c-fintech-nasdaq-itch-50-ouch-pre-trade-protocol-tcp-port-9001">C. FinTech NASDAQ ITCH 5.0 &amp; OUCH Pre-Trade Protocol (TCP Port 9001)</h3>
+<ul>
+<li><strong>Standards:</strong> NASDAQ TotalView-ITCH 5.0, NASDAQ OUCH 5.0, SEC Rule 15c3-5.</li>
+<li><strong>Pre-Trade Risk Collar Gate:</strong></li>
+<li>Ingests Add Order messages (<code>'A'</code>, <code>'F'</code>) and Enter Order messages (<code>'O'</code>).</li>
+<li><strong>Fat-Finger Quantity Clamp:</strong> Reads 32-bit big-endian share quantities at byte offset 20. Orders exceeding client margin policy (e.g. $&gt; 10,000$ shares) are intercepted in under $15\,\text{ns}$ before hitting the matching engine (<code>REJECT_ITCH_FAT_FINGER_QTY</code>).</li>
+<li><strong>Price Collar Band:</strong> Evaluates 32-bit $10^{-4}$ scaled prices at byte offset 32. Rejects orders outside exchange circuit-breaker collars (<code>REJECT_ITCH_PRICE_COLLAR</code>).</li>
+</ul>
+<h3 id="d-o-ran-near-rt-ric-e2ap-protocol-sctp-port-36422">D. O-RAN Near-RT RIC E2AP Protocol (SCTP Port 36422)</h3>
+<ul>
+<li><strong>Standards:</strong> O-RAN Alliance WG3 E2AP Specification v03.00.</li>
+<li><strong>xApp Sandboxing Interlock:</strong></li>
+<li>Inspects E2AP Elementary Procedures transmitted over Stream Control Transmission Protocol (SCTP).</li>
+<li>Permits telemetry observation (<code>RICindication</code>, Procedure Code 5).</li>
+<li>Intercepts rogue or uncertified xApp actuation commands attempting radio beamforming or slice-bandwidth mutation (<code>RICcontrol</code>, Procedure Code 4; <code>E2nodeConfigurationUpdate</code>, Procedure Code 10) unless explicitly authorized (<code>REJECT_ORAN_ROGUE_XAPP_CONTROL</code>).</li>
+</ul>
+<h3 id="e-post-quantum-cryptography-pqc-tls-13-handshake-enforcement">E. Post-Quantum Cryptography (PQC) TLS 1.3 Handshake Enforcement</h3>
+<ul>
+<li><strong>Standards:</strong> NIST FIPS 203 (ML-KEM), IETF RFC 8446 (TLS 1.3).</li>
+<li><strong>Classical Downgrade Guard:</strong></li>
+<li>Scans raw TLS 1.3 <code>ClientHello</code> records (<code>HandshakeType == 0x01</code>).</li>
+<li>Parses the <code>supported_groups</code> extension (Extension ID <code>0x000A</code>) for quantum-resistant NamedGroup identifiers:<ul>
+<li><code>0x0201</code>: ML-KEM-768</li>
+<li><code>0x11EC</code>: X25519MLKEM768 (NIST / Cloudflare / Chrome hybrid standard)</li>
+<li><code>0x0202</code>: ML-KEM-1024</li>
+</ul>
+</li>
+<li>Drops connections attempting classical-only Elliptic Curve downgrades (<code>secp256r1</code>, <code>x25519</code>) on mission-critical banking and defense conduits (<code>REJECT_PQC_CLASSICAL_DOWNGRADE</code>).</li>
+</ul>
+<hr />
+<h2 id="4-threat-mitigation-matrix-network-telco-fintech-defense">4. Threat Mitigation Matrix: Network, Telco &amp; FinTech Defense</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat Vector</th>
+<th style="text-align: left;">Target Protocol / Layer</th>
+<th style="text-align: left;">Attack Profile</th>
+<th style="text-align: left;">net-guard Deterministic Defense</th>
+<th style="text-align: left;">Action &amp; Latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>5G Slice-Hopping Attack</strong></td>
+<td style="text-align: left;">3GPP GTP-U (<code>UDP :2152</code>)</td>
+<td style="text-align: left;">Malicious UE in eMBB commercial slice sends Modbus commands to URLLC robotic cell</td>
+<td style="text-align: left;"><code>GtpuPfcpValidator</code>: Decapsulates G-PDU inner IPv4 packet and cross-checks slice policy against inner destination port</td>
+<td style="text-align: left;"><code>&lt; 18 ns</code> wire drop + atomic <code>SliceAirGap</code> trip</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GOOSE Protection Relay Spoof</strong></td>
+<td style="text-align: left;">IEC 61850 L2 (<code>EtherType 0x88B8</code>)</td>
+<td style="text-align: left;">Attacker injects rogue Ethernet frame on substation LAN commanding busbar breaker trip</td>
+<td style="text-align: left;"><code>GooseSvL2Validator</code>: Enforces <code>stNum</code> monotonicity and rejects replayed or decreasing sequence counters</td>
+<td style="text-align: left;"><code>&lt; 14 ns</code> kernel drop via raw <code>AF_PACKET</code> ring</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Algorithmic Flash Crash</strong></td>
+<td style="text-align: left;">NASDAQ ITCH / OUCH (<code>TCP :9001</code>)</td>
+<td style="text-align: left;">Corrupted trading algorithm sends errant 500,000-share market order flood</td>
+<td style="text-align: left;"><code>ItchMdpValidator</code>: Enforces SEC 15c3-5 pre-trade position and fat-finger checks at L4 ingress</td>
+<td style="text-align: left;"><code>&lt; 15 ns</code> order drop before matching engine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>O-RAN Rogue xApp Hijack</strong></td>
+<td style="text-align: left;">O-RAN E2AP (<code>SCTP :36422</code>)</td>
+<td style="text-align: left;">Compromised third-party xApp issues unauthorized <code>RICcontrol</code> payload to shut down base station radio</td>
+<td style="text-align: left;"><code>OranE2Validator</code>: Blocks uncertified <code>ProcedureCode == 4</code> commands; forces Wasm isolation</td>
+<td style="text-align: left;"><code>&lt; 12 ns</code> drop; logs xApp quarantine event</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Quantum Eavesdropping (HNDL)</strong></td>
+<td style="text-align: left;">TLS 1.3 Handshake (<code>TCP :443</code>)</td>
+<td style="text-align: left;">Adversary intercepts classical TLS handshakes for "Harvest-Now, Decrypt-Later" attacks</td>
+<td style="text-align: left;"><code>PqcTlsValidator</code>: Audits KeyShare extension; drops sessions lacking <code>X25519MLKEM768</code></td>
+<td style="text-align: left;">Drops TCP connection during <code>ClientHello</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-repository-structure">5. Repository Structure</h2>
+<div class="highlight"><pre><span></span><code>/home/kami/net-guard/
+├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
+├── Makefile                               # Orchestration: build, test, bench, install, telco-up/down
+├── cmake/
+│   ├── NetGuardConfig.cmake.in            # CMake export discovery template
+│   └── net_guard.pc.in                    # pkg-config metadata definition
+├── include/net_guard/
+│   ├── net_guard.hpp                      # Master umbrella C++20 header
+│   ├── core/
+│   │   ├── types.hpp                      # GuardStatus enums and wire structures
+│   │   └── tsc_clock.hpp                  # Sub-nanosecond RDTSC hardware clock calibration
+│   ├── protocols/
+│   │   ├── gtpu_pfcp.hpp                  # 3GPP GTPv1-U and 5G network slicing validator
+│   │   ├── goose_sv_l2.hpp                # Non-IP L2 IEC 61850 GOOSE/SV anti-spoof validator
+│   │   ├── itch_mdp.hpp                   # NASDAQ ITCH 5.0 / OUCH pre-trade risk collar
+│   │   ├── oran_e2.hpp                    # O-RAN Near-RT RIC E2AP xApp control validator
+│   │   └── pqc_tls.hpp                    # NIST ML-KEM / TLS 1.3 post-quantum validator
+│   ├── defense/
+│   │   └── slice_airgap.hpp               # Lock-free atomic slice air-gap latch (&lt; 15 ns)
+│   └── pipeline/
+│       └── guard_engine.hpp               # Zero-allocation unified Tier-1 Net GuardEngine
+├── src/
+│   ├── core/tsc_clock.cpp
+│   ├── protocols/{gtpu_pfcp.cpp, goose_sv_l2.cpp, itch_mdp.cpp, oran_e2.cpp, pqc_tls.cpp}
+│   ├── defense/slice_airgap.cpp
+│   └── pipeline/guard_engine.cpp
+├── tools/
+│   ├── sentinel_plugin/net_guard_plugin.cpp  # Native ABI dissector plugin for blackbox-sentinel
+│   ├── aryo_net/main.cpp                     # CLI binary for `aryo net ...`
+│   └── net_guard_ctl/main.cpp                # Diagnostic self-test utility
+├── benchmarks/
+│   └── bench_latency.cpp                     # 100,000-frame cycle benchmark (&lt; 120 ns SLA)
+├── tests/
+│   ├── test_gtpu_slice.cpp                   # 5G GTP-U TEID &amp; slice-hopping unit tests
+│   ├── test_goose_l2.cpp                     # Non-IP Layer-2 GOOSE stNum/APPID unit tests
+│   ├── test_itch_oran_pqc.cpp                # ITCH fat-finger, O-RAN E2 &amp; PQC TLS unit tests
+│   ├── test_sentinel_plugin.cpp              # dlopen() ABI plugin verification test
+│   └── test_net_tier1_tier2_pipeline.cpp     # Tier-1 C++20 logic vs Tier-2 OpenVINO ONNX test
+├── harnesses/                                # Research evaluation harnesses (Sentinel-Lab)
+│   ├── net_5g_gtpu_slice.py
+│   ├── net_goose_l2_trip.py
+│   ├── net_itch_pretrade.py
+│   ├── net_oran_e2_wasm.py
+│   └── net_pqc_handshake.py
+├── apparatus_plugins/                        # Physical telemetry drivers for sentinel-matrix runtime
+│   ├── telco_upf_scope.py                    # 5G UPF URLLC/eMBB throughput and slice scope
+│   ├── goose_l2_bus.py                       # IEC 61850 Layer-2 bus sequence analyzer
+│   └── itch_orderbook.py                     # ITCH order book bid/ask collar visualizer
+├── web/                                      # Micro-frontend plugin package (served via Nexus)
+│   ├── manifest.json
+│   └── net/
+│       ├── net.js                            # 3 apparatus visualizers + 5G/FinTech C2 tab
+│       └── net.css
+└── scenarios/telco_5g_fintech_grid/          # Full 11-container digital twin mesh
+    ├── manifest.json
+    ├── scenario.yaml
+    ├── configs/
+    │   ├── sensor_attack_matrix.json
+    │   ├── lab_plugins/telco_net_guard.json  # Dynamic OCP threat definitions
+    │   └── nodes/
+    │       ├── node_01_5g_upf_core.yaml      # Edge Sentry 01: 5G UPF (GTP-U :2152 / O-RAN)
+    │       ├── node_02_goose_l2_bus.yaml     # Edge Sentry 02: Non-IP L2 GOOSE / PQC TLS
+    │       └── node_03_fintech_exchange.yaml # Edge Sentry 03: FinTech ITCH 5.0 Pre-Trade
+    ├── models/                               # Neural models (network_threat_int8, power_quality_anomaly)
+    ├── pcaps/                                # Generated binary PCAPs (including L2 0x88B8)
+    └── tools/
+        ├── generate_telco_pcaps.py           # Offline binary PCAP synthesizer
+        └── telco_l2_traffic_gen.py           # Live AF_PACKET L2 + UDP traffic injector
+</code></pre></div>
+<hr />
+<h2 id="6-build-test-benchmark-installation">6. Build, Test, Benchmark &amp; Installation</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/net-guard
+
+<span class="c1"># 1. Compile Release binaries (-O3 -march=native -Wall -Wextra)</span>
+make<span class="w"> </span>build
+
+<span class="c1"># 2. Run all 5 unit, ABI and Tier-1/Tier-2 pipeline test suites</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># 3. Execute 100,000-frame hardware latency benchmark (&lt; 120 ns SLA)</span>
+make<span class="w"> </span>bench
+
+<span class="c1"># 4. Install libraries, plugins, CLI bridges, and research harnesses</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+
+<span class="c1"># 5. Synchronize artifacts with sentinel-matrix and sentinel-nexus</span>
+make<span class="w"> </span>sync-all
+</code></pre></div>
+<h3 id="deployed-system-artifacts">Deployed System Artifacts</h3>
+<ul>
+<li><code>/usr/local/lib/libnet_guard.so</code> &amp; <code>libnet_guard.a</code></li>
+<li><code>/usr/local/lib/blackbox/net_guard_dissector_plugin.so</code> (Blackbox dynamic dissector path)</li>
+<li><code>/usr/local/bin/aryo-net</code> (Discovered dynamically by master <code>aryo</code> CLI)</li>
+<li><code>/usr/local/bin/net-guard-ctl</code> (Diagnostic tool)</li>
+<li><code>/etc/sentinel/lab/harnesses/net_*.py</code> &amp; <code>/opt/sentinel-stack/harnesses/net-*.py</code></li>
+</ul>
+<hr />
+<h2 id="7-operator-cli-operations-aryo-net-aryo-lab">7. Operator CLI Operations (<code>aryo net</code> &amp; <code>aryo lab</code>)</h2>
+<p>The master CLI <code>aryo</code> dynamically manages <code>net-guard</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display extension status and capabilities</span>
+aryo<span class="w"> </span>net<span class="w"> </span>--plugin-desc
+
+<span class="c1"># Verify protocol gate self-tests</span>
+aryo<span class="w"> </span>net<span class="w"> </span>bench<span class="w">          </span><span class="c1"># 100,000-frame cycle-accurate latency benchmark</span>
+aryo<span class="w"> </span>net<span class="w"> </span>verify-gtpu<span class="w">    </span><span class="c1"># Verify 5G eMBB to URLLC slice-hopping drop</span>
+aryo<span class="w"> </span>net<span class="w"> </span>verify-goose<span class="w">   </span><span class="c1"># Verify Non-IP Layer-2 GOOSE stNum anti-spoof</span>
+aryo<span class="w"> </span>net<span class="w"> </span>verify-itch<span class="w">    </span><span class="c1"># Verify NASDAQ ITCH fat-finger order drop</span>
+aryo<span class="w"> </span>net<span class="w"> </span>verify-oran<span class="w">    </span><span class="c1"># Verify O-RAN rogue xApp control blocking</span>
+aryo<span class="w"> </span>net<span class="w"> </span>verify-pqc<span class="w">     </span><span class="c1"># Verify PQC TLS 1.3 classical downgrade drop</span>
+aryo<span class="w"> </span>net<span class="w"> </span>airgap-status<span class="w">  </span><span class="c1"># Inspect real-time slice air-gap latch state</span>
+
+<span class="c1"># Run automated Sentinel-Lab evaluation harnesses</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>net-5g-gtpu-slice<span class="w">   </span><span class="c1"># 5G GTP-U TEID isolation audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>net-goose-l2-trip<span class="w">   </span><span class="c1"># IEC 61850 L2 GOOSE sequence audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>net-itch-pretrade<span class="w">   </span><span class="c1"># ITCH 5.0 pre-trade collar audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>net-oran-e2-wasm<span class="w">    </span><span class="c1"># O-RAN Near-RT RIC xApp audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>net-pqc-handshake<span class="w">   </span><span class="c1"># Post-Quantum TLS 1.3 ML-KEM audit</span>
+</code></pre></div>
+<hr />
+<h2 id="8-telco-5g-fintech-multi-node-grid-digital-twin-11-containers">8. Telco 5G &amp; FinTech Multi-Node Grid Digital Twin (11 Containers)</h2>
+<p><code>net-guard</code> provisions an 11-container digital twin on subnet <code>10.240.60.0/24</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/net-guard
+
+<span class="c1"># Deploy the entire 11-node simulation mesh in background</span>
+make<span class="w"> </span>telco-up
+
+<span class="c1"># Check container health, interfaces, and port bindings</span>
+make<span class="w"> </span>telco-status
+
+<span class="c1"># Stream real-time eBPF logs from 5G UPF Edge Sentry</span>
+make<span class="w"> </span>telco-logs
+
+<span class="c1"># Teardown simulation mesh and release network bridge</span>
+make<span class="w"> </span>telco-down
+</code></pre></div>
+<h3 id="digital-twin-network-matrix-1024060024">Digital Twin Network Matrix (<code>10.240.60.0/24</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hostname / Service</th>
+<th style="text-align: left;">IP Address</th>
+<th style="text-align: left;">Host Ports</th>
+<th style="text-align: left;">Subsystem &amp; Deployed Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>nexus.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.10</code></td>
+<td style="text-align: left;"><code>9443</code>, <code>9444</code>, <code>50051</code></td>
+<td style="text-align: left;">Sentinel Nexus Command Plane + Net Web Plugin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>upf-01.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.101</code></td>
+<td style="text-align: left;"><code>2152:2152/udp</code></td>
+<td style="text-align: left;"><strong>Edge Sentry 01:</strong> 5G UPF Core (<code>INTEL_OPENVINO</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>goose-l2-02.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.102</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><strong>Edge Sentry 02:</strong> Non-IP L2 GOOSE Bus (<code>NVIDIA_TENSORRT</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>fintech-03.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.103</code></td>
+<td style="text-align: left;"><code>9001:9001</code></td>
+<td style="text-align: left;"><strong>Edge Sentry 03:</strong> FinTech ITCH Gateway (<code>ROCKCHIP_RKNN</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ran-gnb-01.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.75</code></td>
+<td style="text-align: left;"><code>15601:502</code></td>
+<td style="text-align: left;">Device: 5G gNodeB RAN Telemetry Twin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>goose-ied-02.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.76</code></td>
+<td style="text-align: left;"><code>15602:502</code></td>
+<td style="text-align: left;">Device: ABB REL670 GOOSE Transmission Protection IED</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>itch-match-03.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.77</code></td>
+<td style="text-align: left;"><code>15603:502</code></td>
+<td style="text-align: left;">Device: NASDAQ ITCH 5.0 Matching Engine Simulator</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>telco-wire-gen</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.50</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Live Wire Generator (AF_PACKET 0x88B8 + GTP-U + ITCH)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-upf</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.131</code></td>
+<td style="text-align: left;"><code>18096:8090</code></td>
+<td style="text-align: left;">Apparatus: 5G UPF URLLC/eMBB Scope + PCAP Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-goose</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.132</code></td>
+<td style="text-align: left;"><code>18097:8090</code></td>
+<td style="text-align: left;">Apparatus: Non-IP L2 GOOSE Analyzer + PCAP Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-itch</code></strong></td>
+<td style="text-align: left;"><code>10.240.60.133</code></td>
+<td style="text-align: left;"><code>18098:8090</code></td>
+<td style="text-align: left;">Apparatus: ITCH Pre-Trade Order Book + PCAP Streamer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-mission-control-interface">Web Mission Control Interface</h3>
+<p>Browse to <strong><code>http://localhost:9443/</code></strong>:
+* <strong>Mission Control (Pane 01):</strong> Displays live physical visualizers matching selected field nodes:
+  * Selecting <code>Edge-5G-UPF-01</code> displays the <strong>5G UPF GTP-U &amp; O-RAN E2 Slice Governor</strong> (<code>:18096</code>).
+  * Selecting <code>Edge-GOOSE-L2-02</code> displays the <strong>Non-IP Layer-2 IEC 61850 GOOSE Bus Analyzer</strong> (<code>:18097</code>).
+  * Selecting <code>Edge-FinTech-ITCH-03</code> displays the <strong>FinTech ITCH 5.0 Pre-Trade Risk Collar</strong> (<code>:18098</code>).
+* <strong>Sidebar Navigation:</strong> Access the <strong>"🌐 5G &amp; FinTech Wire C2"</strong> tab for live slice throughput, stNum tracking, order book depths, and one-click attack burst replay.</p>
+<hr />
+<h2 id="9-regulatory-standards-alignment">9. Regulatory &amp; Standards Alignment</h2>
+<ul>
+<li><strong>3GPP Security Assurance Methodology (SECAM / SCAS):</strong> Enforces user-plane integrity protection, cryptographic slice isolation, and anti-tamper mechanisms defined in 3GPP TS 33.501.</li>
+<li><strong>SEC Rule 15c3-5 (Market Access Rule):</strong> Satisfies ultra-low-latency financial pre-trade risk management requirements by evaluating order quantities and price collars strictly on the wire before execution queues.</li>
+<li><strong>IEC 61850-8-1 &amp; IEC 61850-9-2:</strong> Ensures substation digital secondary protection continuity via deterministic Layer-2 inspection without introducing packet jitter or buffer delays.</li>
+<li><strong>NIST FIPS 203 (ML-KEM):</strong> Verifies quantum-resistant key establishment across mission-critical communications conduits.</li>
+</ul>
+<hr />
+<h2 id="10-research-preprint-authorship">10. Research Preprint &amp; Authorship</h2>
+<ul>
+<li><strong>Corporate Entity:</strong> Aryorithm Technologies B.V. (Amsterdam, The Netherlands)</li>
+<li><strong>Founder &amp; Chief Technology Officer:</strong> Kamran Saberifard (<a href="https://github.com/kamisaberi">github.com/kamisaberi</a>)</li>
+<li><strong>Permanent Research DOI:</strong> CERN / Zenodo: <a href="https://doi.org/10.5281/zenodo.23598779"><code>10.5281/zenodo.23598779</code></a></li>
+<li><strong>License:</strong> Proprietary / Commercial Licensing available from Aryorithm Technologies B.V.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2175 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/08-components/sentinel-hub/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Sentinel-Hub: The Official Aryorithm Artifact & Package Registry - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sentinel-Hub: The Official Aryorithm Artifact &amp; Package Registry
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../09-archive-business-and-research/" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-archive-business-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#registry-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Registry Architecture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-core-8-official-spkg-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. The Core 8 Official <code>.spkg</code> Packages
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-ground-truth-malware-pcap-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. The Ground-Truth Malware PCAP Vault
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-slab-universal-wire-protocol-research-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. SLAB Universal Wire Protocol Research Datasets
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-matrix-digital-twin-cyber-range-scenario-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Matrix Digital Twin Cyber-Range Scenario Packs
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-spkg-container-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. The <code>.spkg</code> Container Specification
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-toolchain-cli-operational-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Toolchain &amp; CLI Operational Guide
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Toolchain &amp; CLI Operational Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-package-toolchain-sentinel-spkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Package Toolchain: <code>sentinel-spkg</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-fleet-deployment-via-sentinel-nexus-nexus-ctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Fleet Deployment via Sentinel Nexus: <code>nexus-ctl</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-edge-dependency-synchronization-sentinel-ctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Edge Dependency Synchronization: <code>sentinel-ctl</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-master-packaging-automation-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Master Packaging Automation Scripts
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Master Packaging Automation Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-seal-all-8-spkg-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Build &amp; Seal All 8 <code>.spkg</code> Packages
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-all-pcaps-slab-datasets-digital-twin-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Package All PCAPs, SLAB Datasets &amp; Digital Twin Scenarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-statutory-compliance-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Statutory Compliance Mappings
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-contact-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Contact &amp; Governance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="sentinel-hub-the-official-aryorithm-artifact-package-registry">Sentinel-Hub: The Official Aryorithm Artifact &amp; Package Registry</h1>
+<p><a href="https://hub.aryorithm.com"><img alt="Registry: hub.aryorithm.com" src="https://img.shields.io/badge/Registry-hub.aryorithm.com-00F0FF.svg" /></a>
+<a href="#the-spkg-container-specification"><img alt="Format: .spkg Container" src="https://img.shields.io/badge/Package%20Format-.spkg%20(ARYOSPKG)-purple.svg" /></a>
+<a href="#cryptographic-provenance--auditability"><img alt="Signatures: Ed25519 Merkle" src="https://img.shields.io/badge/Security-Ed25519%20Merkle%20Sealed-10B981.svg" /></a>
+<a href="#slab-universal-wire-protocol-research-datasets"><img alt="Protocol: SLAB 0x534C4142" src="https://img.shields.io/badge/Protocol-SLAB%20Zero--Copy-orange.svg" /></a>
+<a href="#statutory-compliance-mappings"><img alt="Compliance: IEC 62443 / CMMC" src="https://img.shields.io/badge/Compliance-IEC%2062443%20%7C%20CMMC%202.0-blue.svg" /></a></p>
+<p><strong>Sentinel-Hub</strong> is the official decentralized registry and artifact repository powering <strong><code>hub.aryorithm.com</code></strong> for the <strong>Aryorithm / Blackbox Sentinel</strong> cyber-physical active defense ecosystem.</p>
+<p>Sentinel-Hub distributes four categories of certified industrial security assets:
+1. <strong>Official <code>.spkg</code> Packages:</strong> Cryptographically sealed, single-file extension bundles (Native C++20, Rust WebAssembly, and LuaJIT).
+2. <strong>Ground-Truth Malware PCAP Vault:</strong> Sanitized, byte-for-byte binary captures of historic critical infrastructure cyberattacks (Industroyer2, TRITON/Trisis, Stuxnet, Modbus coil abuse).
+3. <strong>SLAB Universal Wire Protocol Datasets:</strong> Pre-normalized, zero-copy binary streams (<code>0x534C4142</code>) for line-rate NIDS research without memory allocation bottlenecks.
+4. <strong>Matrix Digital Twin Scenarios:</strong> Packaged cyber-range profiles (<code>.tar.gz</code>) for 1-click multi-container adversary simulation on <code>sentinel-matrix</code>.</p>
+<hr />
+<h2 id="registry-architecture">Registry Architecture</h2>
+<div class="highlight"><pre><span></span><code>========================================================================================================================
+                                     ARYORITHM HUB DISTRIBUTION TOPOLOGY
+========================================================================================================================
+
+  hub.aryorithm.com / github.com/kamisaberi/sentinel-hub
+  ├── /packages   ──► Official Core 8 .spkg Bundles (Native 88ns, Lua 350ns, Wasm 1,240ns)
+  ├── /pcaps      ──► Certified Malware PCAP Vault (Industroyer2, TRITON, Stuxnet, Modbus)
+  ├── /datasets   ──► Academic Zero-Copy SLAB Datasets (CIC-IDS-2017, UNSW-NB15, SWaT)
+  └── /scenarios  ──► Digital Twin Cyber-Range Packs (Power Grid, Hospital, Refinery)
+                            │
+         ┌──────────────────┴──────────────────┐
+         ▼                                     ▼
+  [ sentinel-ctl ]                      [ nexus-ctl ]
+  Appliance Dependency Manager          Command Plane Fleet Orchestrator
+  `sentinel-ctl sync routes.yaml`       `nexus-ctl hub broadcast my_pkg.spkg`
+         │                                     │
+         ▼                                     ▼
+  Edge Appliance Ingestion Loop         Sub-50ms Fleet-Wide Deployment (&lt; 5,000 Nodes)
+========================================================================================================================
+</code></pre></div>
+<hr />
+<h2 id="1-the-core-8-official-spkg-packages">1. The Core 8 Official <code>.spkg</code> Packages</h2>
+<p>Every <code>.spkg</code> package is cryptographically sealed under an <strong>Ed25519 Merkle signature</strong> and contains:
+1) Manifest metadata, 2) Runnable binary, 3) Plain-text human-auditable source code (IEC 62443 compliance), and 4) Embedded pre-flight sandbox test frames.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Package File</th>
+<th style="text-align: left;">Tier &amp; Language</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: center;">Latency SLA</th>
+<th style="text-align: left;">Target Sector</th>
+<th style="text-align: left;">Threat Vector Mitigated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>modbus_actuator_guard.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier A:</strong> Native C++20</td>
+<td style="text-align: left;">Modbus TCP (502)</td>
+<td style="text-align: center;"><strong>$&lt; 120\,\text{ns}$</strong></td>
+<td style="text-align: left;">Water, Oil &amp; Gas, Fabs</td>
+<td style="text-align: left;">Unauthorized coil overrides (FC05/15) &amp; valve jitter</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>s7comm_safety_interlock.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier B:</strong> Rust Wasm3</td>
+<td style="text-align: left;">Siemens S7 (102)</td>
+<td style="text-align: center;"><strong>$&lt; 1.5\,\mu\text{s}$</strong></td>
+<td style="text-align: left;">Manufacturing, Automotive</td>
+<td style="text-align: left;">Rogue S7 PLC CPU Stop (<code>0x29</code>) &amp; firmware alterations</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>log4j_jndi_fastdrop.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier C:</strong> LuaJIT FFI</td>
+<td style="text-align: left;">Raw TCP/HTTP (0)</td>
+<td style="text-align: center;"><strong>$&lt; 450\,\text{ns}$</strong></td>
+<td style="text-align: left;">Enterprise DMZ, Web API</td>
+<td style="text-align: left;">Sliding-window scanner dropping JNDI exploit payloads</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>iec104_grid_shield.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier A:</strong> Native C++20</td>
+<td style="text-align: left;">IEC-104 (2404)</td>
+<td style="text-align: center;"><strong>$&lt; 150\,\text{ns}$</strong></td>
+<td style="text-align: left;">Electrical Substations</td>
+<td style="text-align: left;">Industroyer2 rogue breaker trip telegrams (ASDU 45)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>http_rapid_reset_shield.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier C:</strong> LuaJIT FFI</td>
+<td style="text-align: left;">HTTP/2 (443)</td>
+<td style="text-align: center;"><strong>$&lt; 450\,\text{ns}$</strong></td>
+<td style="text-align: left;">Web Gateways, Reverse Proxies</td>
+<td style="text-align: left;">HTTP/2 CVE-2023-44487 rapid stream cancellation floods</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>dicom_phi_sanitizer.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier B:</strong> Rust Wasm3</td>
+<td style="text-align: left;">DICOM (104)</td>
+<td style="text-align: center;"><strong>$&lt; 2.0\,\mu\text{s}$</strong></td>
+<td style="text-align: left;">Healthcare IoMT, PACS</td>
+<td style="text-align: left;">Cleartext Patient Name/PHI tag exfiltration (HIPAA)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>dnp3_water_telemetry.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier A:</strong> Native C++20</td>
+<td style="text-align: left;">DNP3 (20000)</td>
+<td style="text-align: center;"><strong>$&lt; 180\,\text{ns}$</strong></td>
+<td style="text-align: left;">Municipal Water Utilities</td>
+<td style="text-align: left;">Oldsmar-style chemical dosing analog overrides</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>mavlink_uav_guardian.spkg</code></strong></td>
+<td style="text-align: left;"><strong>Tier B:</strong> Rust Wasm3</td>
+<td style="text-align: left;">MAVLink (14550)</td>
+<td style="text-align: center;"><strong>$&lt; 1.8\,\mu\text{s}$</strong></td>
+<td style="text-align: left;">Defense, Autonomous UAVs</td>
+<td style="text-align: left;">Spoofed mid-flight disarm &amp; force-land commands</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-the-ground-truth-malware-pcap-vault">2. The Ground-Truth Malware PCAP Vault</h2>
+<p>Sanitized, binary network captures of real-world critical infrastructure cyberattacks, calibrated for replay testing:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">PCAP Archive</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">Attack Vector</th>
+<th style="text-align: left;">Source Origin</th>
+<th style="text-align: left;">Recommended Defense Package</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>industroyer2_substation.pcap</code></strong></td>
+<td style="text-align: left;">IEC 60870-5-104</td>
+<td style="text-align: left;">Telecontrol Command Injection (ASDU 45)</td>
+<td style="text-align: left;">CISA / ESET Ukraine Grid Trace</td>
+<td style="text-align: left;"><code>iec104_grid_shield.spkg</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>triton_trisis_sis.pcap</code></strong></td>
+<td style="text-align: left;">TriStation 1131</td>
+<td style="text-align: left;">Safety Instrumented System (SIS) Injection</td>
+<td style="text-align: left;">Nozomi Networks Petrochemical Trace</td>
+<td style="text-align: left;"><code>triton_sis.spkg</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>stuxnet_s7comm_injected.pcap</code></strong></td>
+<td style="text-align: left;">Siemens S7Comm</td>
+<td style="text-align: left;">PLC CPU Stop &amp; Ladder Logic Tampering</td>
+<td style="text-align: left;">CISA / ICS-CERT Official Trace</td>
+<td style="text-align: left;"><code>s7comm_safety_interlock.spkg</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>modbus_uiuc_scada_attack.pcap</code></strong></td>
+<td style="text-align: left;">Modbus TCP</td>
+<td style="text-align: left;">High-Frequency Coil Oscillation Attack</td>
+<td style="text-align: left;">UIUC SCADA Laboratory Capture</td>
+<td style="text-align: left;"><code>modbus_actuator_guard.spkg</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>cve_2023_44487_rapid_reset.pcap</code></strong></td>
+<td style="text-align: left;">HTTP/2 TCP</td>
+<td style="text-align: left;">Rapid RST_STREAM Cancellation Burst</td>
+<td style="text-align: left;">Real Adversary DoS Traffic</td>
+<td style="text-align: left;"><code>http_rapid_reset_shield.spkg</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-slab-universal-wire-protocol-research-datasets">3. SLAB Universal Wire Protocol Research Datasets</h2>
+<p>Standard CSV datasets drop $&gt; 80\%$ of frames on 10GbE interfaces due to parsing overhead and the Python GIL. </p>
+<p>Sentinel-Hub distributes datasets pre-compiled in the <strong>SLAB Binary Wire Format</strong> (<code>[Magic 0x534C4142 | EventID | GroundTruth | Dim | Tensor]</code>). Researchers evaluate line-rate algorithms with <strong>zero heap reallocations</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset Slug</th>
+<th style="text-align: left;">Underlying Benchmark</th>
+<th style="text-align: center;">Dimensions</th>
+<th style="text-align: center;">Normalization</th>
+<th style="text-align: center;">File Size</th>
+<th style="text-align: center;">Streaming SLA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>cicids2017_portscan.slab</code></strong></td>
+<td style="text-align: left;">CIC-IDS-2017 PortScan Stream</td>
+<td style="text-align: center;">32-dim</td>
+<td style="text-align: center;">MinMax <code>[0.0 - 1.0]</code> (FP16)</td>
+<td style="text-align: center;">81 MB</td>
+<td style="text-align: center;"><strong>65,000+ EPS</strong> (Wire Speed)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>unsw_nb15_cps.slab</code></strong></td>
+<td style="text-align: left;">UNSW-NB15 Cyber-Physical Flows</td>
+<td style="text-align: center;">42-dim</td>
+<td style="text-align: center;">Z-score Standardized</td>
+<td style="text-align: center;">125 MB</td>
+<td style="text-align: center;"><strong>58,000+ EPS</strong> (Wire Speed)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>swat_water_physical.slab</code></strong></td>
+<td style="text-align: left;">iTrust Secure Water Treatment</td>
+<td style="text-align: center;">51-dim</td>
+<td style="text-align: center;">Physical Sensor Scaled</td>
+<td style="text-align: center;">220 MB</td>
+<td style="text-align: center;"><strong>72,000+ EPS</strong> (Sensor Array)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-matrix-digital-twin-cyber-range-scenario-packs">4. Matrix Digital Twin Cyber-Range Scenario Packs</h2>
+<p>Packaged scenario bundles (<code>.scenario.tar.gz</code>) for <code>sentinel-matrix</code>. They deploy containerized digital twin environments on subnet <code>10.240.0.0/24</code>:</p>
+<ul>
+<li><strong><code>scenario_power_grid_blackout.tar.gz</code>:</strong> Substation Alpha node (<code>.101</code>) + Central Nexus C2 (<code>.10</code>) + Red-Team Adversary (<code>.99</code>). Replays Industroyer2 breaker trips; validates sub-50ms collective immunity fanout and $0.84\,\mu\text{s}$ driver drops.</li>
+<li><strong><code>scenario_hospital_pacs_heist.tar.gz</code>:</strong> Hospital Radiology node (<code>.102</code>) + Medical Imaging Workstation + Exfiltration agent. Replays unencrypted DICOM PHI theft coupled with high-entropy ransomware encryption bursts.</li>
+<li><strong><code>scenario_refinery_disaster_triton.tar.gz</code>:</strong> Refinery Delta SIS node (<code>.103</code>) + Triconex controller. Replays TRITON firmware injection; validates physical valve constraint violations and hardware GPIO relay power cutoff.</li>
+</ul>
+<hr />
+<h2 id="5-the-spkg-container-specification">5. The <code>.spkg</code> Container Specification</h2>
+<p>Every <code>.spkg</code> is a deterministic binary container with the following layout:</p>
+<div class="highlight"><pre><span></span><code>+----------------------------------------------------------------------------------------------------+
+| 1. CONTAINER HEADER (96 Bytes)                                                                     |
+|    • Magic: "ARYOSPKG" (0x474B50534F595241) | Version: 1 | Tier: 0=Native, 1=Wasm, 2=Lua           |
+|    • Section Length Table: Manifest Length | Binary Length | Source Length | Test Frame Length     |
++----------------------------------------------------------------------------------------------------+
+| 2. ASYMMETRIC ED25519 MERKLE SIGNATURE (64 Bytes)                                                  |
+|    • Sig = Ed25519_Sign( SHA256(Manifest) || SHA256(Binary) || SHA256(Source) || SHA256(Test) )    |
++----------------------------------------------------------------------------------------------------+
+| 3. SECTION 1: MANIFEST METADATA (manifest.json)                                                    |
+|    • Package ID, Version, Target Protocol, Port, Latency SLA, Sector, Compliance Mappings         |
++----------------------------------------------------------------------------------------------------+
+| 4. SECTION 2: EXECUTABLE BINARY PAYLOAD                                                            |
+|    • Runnable binary: `.so` (Native C++20), `.wasm` (Rust), or `.lua` (LuaJIT)                     |
++----------------------------------------------------------------------------------------------------+
+| 5. SECTION 3: AUDITABLE PLAIN-TEXT SOURCE CODE                                                     |
+|    • Raw `src/lib.rs`, `src/plugin.cpp`, or `rule.lua` stored directly inside the container        |
+|    • Allows air-gapped industrial regulators (IEC 62443 / CMMC) to audit logic without Git        |
++----------------------------------------------------------------------------------------------------+
+| 6. SECTION 4: PRE-FLIGHT SANDBOX TEST VECTOR                                                       |
+|    • Raw packet frame embedded in package. Engine validates KERNEL_DROP before live deployment    |
++----------------------------------------------------------------------------------------------------+
+</code></pre></div>
+<hr />
+<h2 id="6-toolchain-cli-operational-guide">6. Toolchain &amp; CLI Operational Guide</h2>
+<h3 id="61-package-toolchain-sentinel-spkg">6.1 Package Toolchain: <code>sentinel-spkg</code></h3>
+<p>The <code>sentinel-spkg</code> utility (built in <code>blackbox-sentinel/build/sentinel-spkg</code>) manages package authoring:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Scaffold a new Rust WebAssembly package</span>
+sentinel-spkg<span class="w"> </span>new<span class="w"> </span>s7_power_guard<span class="w"> </span>rust
+
+<span class="c1"># 2. Generate a certified Ed25519 developer keypair</span>
+sentinel-spkg<span class="w"> </span>keygen<span class="w"> </span>operator_key
+
+<span class="c1"># 3. Compile the Rust code</span>
+<span class="nb">cd</span><span class="w"> </span>s7_power_guard<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cargo<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>wasm32-unknown-unknown<span class="w"> </span>--release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+
+<span class="c1"># 4. Pack all 4 sections into a sealed .spkg container</span>
+sentinel-spkg<span class="w"> </span>pack<span class="w"> </span>operator_key_private.pem<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>s7_power_guard/manifest.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>s7_power_guard/target/wasm32-unknown-unknown/release/s7_power_guard.wasm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>s7_power_guard/src/lib.rs<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>s7_power_guard/tests/preflight_frame.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>dist/s7_power_guard.spkg
+
+<span class="c1"># 5. Inspect container metadata, source size, and latency SLA</span>
+sentinel-spkg<span class="w"> </span>inspect<span class="w"> </span>dist/s7_power_guard.spkg
+
+<span class="c1"># 6. Verify cryptographic Merkle signature</span>
+sentinel-spkg<span class="w"> </span>verify<span class="w"> </span>operator_key_public.pem<span class="w"> </span>dist/s7_power_guard.spkg
+
+<span class="c1"># 7. Extract plain-text source for compliance review</span>
+sentinel-spkg<span class="w"> </span>extract-source<span class="w"> </span>dist/s7_power_guard.spkg<span class="w"> </span>/tmp/auditor_review.rs
+</code></pre></div>
+<h3 id="62-fleet-deployment-via-sentinel-nexus-nexus-ctl">6.2 Fleet Deployment via Sentinel Nexus: <code>nexus-ctl</code></h3>
+<p>The <code>nexus-ctl</code> operations CLI manages packages from the central command plane:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Search the Hub catalog</span>
+nexus-ctl<span class="w"> </span>hub<span class="w"> </span>search<span class="w"> </span>modbus
+
+<span class="c1"># 2. Inspect a package before deployment</span>
+nexus-ctl<span class="w"> </span>hub<span class="w"> </span>inspect<span class="w"> </span>dist/modbus_actuator_guard.spkg
+
+<span class="c1"># 3. Verify signature against master authority key</span>
+nexus-ctl<span class="w"> </span>hub<span class="w"> </span>verify<span class="w"> </span>keys/authority_key_public.pem<span class="w"> </span>dist/modbus_actuator_guard.spkg
+
+<span class="c1"># 4. Broadcast package fleet-wide over gRPC (&lt; 50ms fanout across 5,000 nodes)</span>
+nexus-ctl<span class="w"> </span>hub<span class="w"> </span>broadcast<span class="w"> </span>dist/modbus_actuator_guard.spkg
+</code></pre></div>
+<h3 id="63-edge-dependency-synchronization-sentinel-ctl">6.3 Edge Dependency Synchronization: <code>sentinel-ctl</code></h3>
+<p>Edge appliances resolve all declared <code>.spkg</code> packages and ONNX models before startup:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Audit routing profile dependencies</span>
+sentinel-ctl<span class="w"> </span>check<span class="w"> </span>configs/model_routes.yaml
+
+<span class="c1"># 2. Automatically pull missing .spkg packages and models</span>
+sudo<span class="w"> </span>sentinel-ctl<span class="w"> </span>sync<span class="w"> </span>configs/model_routes.yaml
+
+<span class="c1"># 3. Sync and launch Sentinel daemon in one step</span>
+sudo<span class="w"> </span>sentinel-ctl<span class="w"> </span>launch<span class="w"> </span>configs/model_routes.yaml
+</code></pre></div>
+<hr />
+<h2 id="7-master-packaging-automation-scripts">7. Master Packaging Automation Scripts</h2>
+<p>This repository includes two automated packaging engines in <code>scripts/</code>:</p>
+<h3 id="build-seal-all-8-spkg-packages">Build &amp; Seal All 8 <code>.spkg</code> Packages</h3>
+<p><div class="highlight"><pre><span></span><code>./scripts/build_all_spkg.sh
+</code></pre></div>
+* Generates the Hub authority keypair in <code>keys/</code>.
+* Compiles C++, Rust, and Lua packages.
+* Packs all 4 sections into <code>.spkg</code> envelopes in <code>dist/</code>.
+* Cryptographically verifies all 8 generated <code>.spkg</code> files.</p>
+<h3 id="package-all-pcaps-slab-datasets-digital-twin-scenarios">Package All PCAPs, SLAB Datasets &amp; Digital Twin Scenarios</h3>
+<p><div class="highlight"><pre><span></span><code>./scripts/package_hub_assets.sh
+</code></pre></div>
+* Packages real-world PCAP files into <code>dist/pcaps/</code>.
+* Generates binary <code>.slab</code> research datasets in <code>dist/datasets/</code>.
+* Packages Docker Digital Twin scenarios into <code>dist/scenarios/</code>.
+* Generates <code>dist/assets_manifest.json</code> with live SHA-256 hashes and byte sizes.</p>
+<hr />
+<h2 id="8-statutory-compliance-mappings">8. Statutory Compliance Mappings</h2>
+<ul>
+<li><strong>IEC 62443-4-2 Requirement FR 3 (System Integrity):</strong> Protocol constraint validation and physical actuator limits for SCADA environments (Modbus, DNP3, S7Comm).</li>
+<li><strong>IEC 62443-4-2 Requirement FR 5 (Network Segmentation):</strong> AF_XDP micro-segmentation routing flows to isolated Wasm sandboxes with zero jitter.</li>
+<li><strong>IEC 62443 Regulatory Auditability:</strong> Every <code>.spkg</code> contains human-readable source code verifiable via <code>sentinel-spkg extract-source</code>.</li>
+<li><strong>CMMC 2.0 (Level 2) / NIST SP 800-171 Control SI.L2-3.14.1 (Flaw Remediation):</strong> In-kernel eBPF CO-RE driver drops mitigate hostile payloads in $0.84\,\mu\text{s}$, verifying threat containment prior to process execution.</li>
+<li><strong>CMMC 2.0 (Level 2) Control IA.L2-3.5.1 (Identification &amp; Authentication):</strong> Hardware-rooted attestation anchoring appliance identity to physical TPM 2.0 silicon (<code>/dev/tpmrm0</code>).</li>
+<li><strong>EU NIS2 Directive (Article 21.2):</strong> Autonomous, 100% on-premises threat mitigation operating with <strong>$0.00 cloud data egress</strong>.</li>
+<li><strong>HIPAA Security Rule (45 CFR Part 160/164):</strong> Clinical network DLP sanitizing unencrypted medical imaging PHI tags (DICOM/HL7).</li>
+</ul>
+<hr />
+<h2 id="9-contact-governance">9. Contact &amp; Governance</h2>
+<ul>
+<li><strong>Publisher:</strong> Aryorithm Technologies B.V. (Amsterdam, The Netherlands)</li>
+<li><strong>Founder &amp; Chief Systems Architect:</strong> Kamran Saberifard (<code>github.com/kamisaberi</code>)</li>
+<li><strong>Hub Registry Portal:</strong> <a href="https://hub.aryorithm.com">https://hub.aryorithm.com</a></li>
+<li><strong>Corporate Website:</strong> <a href="https://aryorithm.com">https://aryorithm.com</a></li>
+<li><strong>Academic Preprint (DOI):</strong> <a href="https://doi.org/10.5281/zenodo.10892341">10.5281/zenodo.10892341</a>
+<div class="highlight"><pre><span></span><code>---
+
+### Step 3: Apply and Commit to `sentinel-hub`
+
+Save this file directly to `/home/kami/sentinel-hub/README.md` and commit:
+
+```bash
+cd /home/kami/sentinel-hub
+# Paste the content above into README.md
+
+git add README.md
+git commit -m "docs: publish comprehensive master README for sentinel-hub registry"
+</code></pre></div></li>
+</ul>
+<p>The repository structure and master documentation are set up for deployment on <code>github.com/kamisaberi/sentinel-hub</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

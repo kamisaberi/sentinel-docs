@@ -1,0 +1,2262 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/08-components/vision-guard/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>VISION-GUARD: Air-Gapped Edge Vision, GigE Vision & Zero-Retention Privacy Engine - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VISION-GUARD: Air-Gapped Edge Vision, GigE Vision &amp; Zero-Retention Privacy Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../09-archive-business-and-research/" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-archive-business-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-120-ns-optical-invariant-verification-hipaa-ram-only-shmring-gige-vision-gvcp-write-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sub-120 ns Optical Invariant Verification, HIPAA RAM-Only ShmRing &amp; GigE Vision GVCP Write-Lock
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-edge-vision-engineering-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Executive Summary &amp; Edge Vision Engineering Scope
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-zero-retention-memory-architecture-hipaa-gdpr-by-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Zero-Retention Memory Architecture: HIPAA &amp; GDPR by Design
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Zero-Retention Memory Architecture: HIPAA &amp; GDPR by Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ram-only-processing-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The RAM-Only Processing Lifecycle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verified-deterministic-latency-benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Verified Deterministic Latency Benchmarks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-optical-wire-protocols-deep-invariant-dissection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Optical Wire Protocols &amp; Deep Invariant Dissection
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Optical Wire Protocols &amp; Deep Invariant Dissection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-conduit-c-direct-memory-posix-shmring-shmring0-magic-vis1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A. Conduit C: Direct Memory POSIX ShmRing (<code>shm://ring0</code>, Magic <code>VIS1</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-conduit-b-gige-vision-control-protocol-gvcp-udp-port-3956" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        B. Conduit B: GigE Vision Control Protocol (GVCP / UDP Port 3956)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-conduit-a-rtsp-onvif-streaming-control-tcp-port-8554-3702" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        C. Conduit A: RTSP / ONVIF Streaming Control (TCP Port 8554 &amp; 3702)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-threat-mitigation-matrix-edge-vision-privacy-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Threat Mitigation Matrix: Edge Vision &amp; Privacy Defense
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-repository-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Repository Layout
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-build-test-benchmark-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Build, Test, Benchmark &amp; Installation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Build, Test, Benchmark &amp; Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployed-system-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deployed System Artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-operator-cli-operations-aryo-vision-aryo-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Operator CLI Operations (<code>aryo vision</code> &amp; <code>aryo lab</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-vision-edge-digital-twin-mesh-8-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Vision Edge Digital Twin Mesh (8 Containers)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Vision Edge Digital Twin Mesh (8 Containers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-network-matrix-1024080024" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digital Twin Network Matrix (<code>10.240.80.0/24</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-mission-control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Web Mission Control Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-regulatory-privacy-standards-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Regulatory &amp; Privacy Standards Compliance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-research-preprint-authorship" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Research Preprint &amp; Authorship
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="vision-guard-air-gapped-edge-vision-gige-vision-zero-retention-privacy-engine">VISION-GUARD: Air-Gapped Edge Vision, GigE Vision &amp; Zero-Retention Privacy Engine</h1>
+<h3 id="sub-120-ns-optical-invariant-verification-hipaa-ram-only-shmring-gige-vision-gvcp-write-lock">Sub-120 ns Optical Invariant Verification, HIPAA RAM-Only ShmRing &amp; GigE Vision GVCP Write-Lock</h3>
+<p><a href="https://aryorithm.com"><img alt="Enterprise" src="https://img.shields.io/badge/Entity-Aryorithm%20Technologies%20B.V.-00E5FF?style=flat-square" /></a>
+<a href="#"><img alt="Privacy Standard" src="https://img.shields.io/badge/Healthcare%20Privacy-HIPAA%20Security%20Rule%20(45%20CFR)-red?style=flat-square" /></a>
+<a href="#"><img alt="Data Protection" src="https://img.shields.io/badge/Sovereignty-EU%20GDPR%20Art.%2025%20(By%20Design)-blue?style=flat-square" /></a>
+<a href="#"><img alt="Industrial Vision" src="https://img.shields.io/badge/Vision%20Standard-AIA%20GigE%20Vision%20%7C%20EMVA%201288-orange?style=flat-square" /></a>
+<a href="#"><img alt="Stream Security" src="https://img.shields.io/badge/Video%20Conduit-RTSP%20%7C%20ONVIF%20Profile%20S%2FT-purple?style=flat-square" /></a>
+<a href="#"><img alt="Zero Cloud Egress" src="https://img.shields.io/badge/Egress%20Cost-%240.00%20(Zero--Cloud%20Airgap)-00FFA3?style=flat-square" /></a></p>
+<hr />
+<h2 id="1-executive-summary-edge-vision-engineering-scope">1. Executive Summary &amp; Edge Vision Engineering Scope</h2>
+<p>Enterprise vision systems deployed in high-security facilities, hospital inpatient wards, semiconductor cleanrooms, and high-speed packaging lines face critical operational and regulatory vulnerabilities:</p>
+<ol>
+<li><strong>Cloud Egress &amp; Data Sovereignty Violations:</strong> Streaming raw 4K video feeds or patient hospital rooms to cloud AI providers violates <strong>HIPAA</strong>, <strong>EU GDPR</strong>, and military air-gap mandates, while incurring massive cloud bandwidth and storage egress bills.</li>
+<li><strong>Optical Sensor Blinding &amp; Stream Tampering:</strong> Optical sensors are vulnerable to high-intensity laser dazzling, infrared blinding, video feed freezing (replay attacks), and unauthorized RTSP <code>TEARDOWN</code> or ONVIF factory reset commands.</li>
+<li><strong>High-Speed Industrial Inspection Control:</strong> Line-rate automated sorters (e.g., 200 FPS conveyor defect ejectors) communicate over <strong>GigE Vision GVCP (<code>:3956</code>)</strong>. Malicious or errant register writes to camera exposure, gain, or trigger offsets can blind automated quality gates and cause mass manufacturing defects.</li>
+</ol>
+<p><code>vision-guard</code> is the edge vision and privacy vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Designed for deployment on low-power industrial edge silicon (Rockchip RK3588, Intel NPU/Arc, Hailo-8, NVIDIA Jetson), it enforces <strong>deterministic sub-120 ns protocol and safety-barrier verification</strong> coupled with <strong>$0.00 cloud egress</strong>:</p>
+<div class="highlight"><pre><span></span><code> ┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │                          PHYSICAL CAMERA &amp; HIGH-SPEED OPTICAL INGRESS                                  │
+ ├──────────────────────────────────────────┬─────────────────────────────┬───────────────────────────────┤
+ │ CONDUIT A: RTSP / ONVIF Stream           │ CONDUIT B: GigE Vision GVCP │ CONDUIT C: POSIX Shared Ring  │
+ │ • H.264 / H.265 4K Video (:8554)         │ • Machine Vision UDP (:3956)│ • Lock-Free /dev/shm Ring     │
+ │ • ONVIF Discovery &amp; Control (:3702)      │ • AIA GVCP / GVSP Framing   │ • 0-Byte Persistent Disk I/O  │
+ │ • Zero Cloud Egress Gateway              │ • Micro-Defect Trigger Line │ • Ephemeral RAM Purge (VIS1)  │
+ └──────────────────────────────────────────┴──────────────┬──────────────┴───────────────────────────────┘
+                                                           │
+                                                           ▼
+ ╔════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+ ║ TIER 1: vision_guard_dissector_plugin.so (&lt; 120 ns Deterministic Safety Gate)                          ║
+ ║                                                                                                        ║
+ ║ • HIPAA RAM-Only Interlock : Enforces ram_only_ephemeral=1; drops any unencrypted disk retention path ║
+ ║ • Optical Blinding Guard  : Detects laser dazzle saturation (&gt; 85%) and scene entropy collapse (&lt; 0.35)║
+ ║ • Frame-Freeze Tripwire   : Validates strict frame_seq forward progression (rejects video replay loops)║
+ ║ • GigE GVCP Register Lock : Intercepts unauthorized WRITEREG_CMD (0x0082) &amp; WRITEMEM_CMD (0x0086)     ║
+ ║ • RTSP Stream Guard       : Drops hostile TEARDOWN, SET_PARAMETER, and ONVIF factory resets           ║
+ ║ • PrivacyAirGap Latch     : Sub-15 ns lock-free atomic isolation of compromised video conduits         ║
+ ╚═════════════════════════════════════════════════════════┬══════════════════════════════════════════════╝
+                                                           │
+                   ┌───────────────────────────────────────┴───────────────────────────────────────┐
+                   │ PASS (Frame Verified Clean)                                                   │ KERNEL_DROP / AIR-GAP
+                   ▼                                                                               ▼
+ ┌───────────────────────────────────────────────────┐                           ┌─────────────────────────────────┐
+ │ TIER 2: xinfer::Engine (Local Hardware NPU)       │                           │ PHYSICAL PRIVACY AIR-GAP LATCH  │
+ │ • 100% On-Premises Volatile RAM Inference         │                           │ Instant Hardware Stream Cut     │
+ │ • Zero-Copy Host Tensors (DMA-BUF / ShmRing)      │                           │ Protects Patient/Facility Data  │
+ │ • Automated Ephemeral Memory Zeroization          │                           └─────────────────────────────────┘
+ └───────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="2-zero-retention-memory-architecture-hipaa-gdpr-by-design">2. Zero-Retention Memory Architecture: HIPAA &amp; GDPR by Design</h2>
+<p>In healthcare inpatient rooms and critical defense enclaves, saving raw video frames to disk creates permanent legal and regulatory exposure under <strong>HIPAA (45 CFR § 164.312)</strong> and <strong>GDPR Article 25 (Privacy by Design)</strong>.</p>
+<p><code>vision-guard</code> implements a <strong>volatile lock-free shared memory ring buffer (<code>/dev/shm/sentinel_vision_ring</code>)</strong> that enforces zero disk I/O:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Ephemeral Memory-Mapped Header Specification (shm_vision.hpp)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ShmVisionHeader</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">magic</span><span class="p">;</span><span class="w">              </span><span class="c1">// 0x56495331 ("VIS1")</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">camera_id</span><span class="p">;</span><span class="w">          </span><span class="c1">// Physical sensor channel</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">frame_seq</span><span class="p">;</span><span class="w">          </span><span class="c1">// Monotonic hardware frame counter</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">              </span><span class="c1">// Resolution width</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">             </span><span class="c1">// Resolution height</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w">  </span><span class="n">pixel_format</span><span class="p">;</span><span class="w">       </span><span class="c1">// 1=RGB8, 2=GRAY8, 3=LWIR16 Radiometric</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w">  </span><span class="n">ram_only_ephemeral</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1 = MANDATORY EPHEMERAL PURGE (HIPAA/GDPR)</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">reserved</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w">    </span><span class="n">entropy_score</span><span class="p">;</span><span class="w">      </span><span class="c1">// Scene information density (detects freeze)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w">    </span><span class="n">saturation_pct</span><span class="p">;</span><span class="w">     </span><span class="c1">// Pixel overexposure (detects blinding)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w">    </span><span class="n">anomaly_score</span><span class="p">;</span><span class="w">      </span><span class="c1">// Onboard NPU detection probability (0.0..1.0)</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="the-ram-only-processing-lifecycle">The RAM-Only Processing Lifecycle</h3>
+<ol>
+<li>The camera driver or feeder writes uncompressed image tensors directly into memory-mapped RAM slots.</li>
+<li><code>vision_guard_dissector_plugin.so</code> evaluates <code>ram_only_ephemeral == 1</code>. If an unauthorized process redirects output to a persistent filesystem mount, the stream is severed instantly (<code>REJECT_VISION_PRIVACY_RETENTION_VIOLATION</code>).</li>
+<li>Local NPU models (<code>xinfer::Engine</code>) extract structural telemetry (bounding box coordinates, pose angle, fall alert status).</li>
+<li>Raw image buffers in RAM are <strong>overwritten immediately</strong> upon sequence increment. <strong>Zero bytes of raw video ever touch non-volatile storage or leave the local network.</strong></li>
+</ol>
+<hr />
+<h2 id="3-verified-deterministic-latency-benchmarks">3. Verified Deterministic Latency Benchmarks</h2>
+<p><code>vision-guard</code> inspects frame headers and network control packets with <strong>zero dynamic memory allocations (<code>0 bytes malloc</code>)</strong>, deterministic instruction branches, and hardware CPU Time-Stamp Counter (TSC) calibration:</p>
+<div class="highlight"><pre><span></span><code>================================================================================
+  VISION-GUARD HARDWARE LATENCY BENCHMARK (100,000 SHM-VISION FRAMES)
+================================================================================
+  Host Architecture   : x86-64 Native (Intel Core Ultra / Industrial IPC)
+  Hardware TSC Freq   : 3.18645 GHz
+  Mean Gate Latency   : 13.1200 ns
+  P95 Latency         : 16.4500 ns
+  P99 Latency         : 20.8000 ns
+  Worst-Case (WCET)   : 31.2000 ns
+  Target SLA Target   : &lt; 120.00 ns  -&gt;  [PASS]
+  Cloud Egress Cost   : $0.00 (100% Air-Gapped Local Inference)
+================================================================================
+</code></pre></div>
+<hr />
+<h2 id="4-optical-wire-protocols-deep-invariant-dissection">4. Optical Wire Protocols &amp; Deep Invariant Dissection</h2>
+<h3 id="a-conduit-c-direct-memory-posix-shmring-shmring0-magic-vis1">A. Conduit C: Direct Memory POSIX ShmRing (<code>shm://ring0</code>, Magic <code>VIS1</code>)</h3>
+<ul>
+<li><strong>Framing:</strong> 4KB page-aligned slots mapped via POSIX <code>shm_open()</code> in Docker (<code>ipc: shareable</code>) or host memory.</li>
+<li><strong>Monotonic Sequence Enforcement:</strong> Validates <code>frame_seq</code> forward progression. Replayed duplicate frames used by attackers to freeze security displays are dropped immediately (<code>REJECT_VISION_FRAME_FREEZE</code>).</li>
+<li><strong>Optical Blinding &amp; Laser Dazzle Tripwire:</strong> Calculates scene saturation percentage. If laser blinding or optical dazzle flood exceeds safety thresholds ($\text{sat} &gt; 85.0\%$), the anomaly is flagged at line rate (<code>REJECT_VISION_OPTICAL_BLINDING</code>).</li>
+<li><strong>Scene Entropy Collapse:</strong> Monitors spatial Shannon entropy ($H$). A frozen frame, covered lens, or spray-painted camera drops entropy below acceptable baseline thresholds ($H &lt; 0.35$), triggering an immediate tampering alarm.</li>
+</ul>
+<h3 id="b-conduit-b-gige-vision-control-protocol-gvcp-udp-port-3956">B. Conduit B: GigE Vision Control Protocol (GVCP / UDP Port 3956)</h3>
+<ul>
+<li><strong>Standards:</strong> Automated Imaging Association (AIA) GigE Vision Specification v2.0, EMVA 1288.</li>
+<li><strong>Header Validation:</strong> Validates GVCP packet preamble (<code>0x42</code>), message types, and acknowledge sequence IDs.</li>
+<li><strong>Register Write-Lockout:</strong> In high-speed inspection cells, operational parameters are fixed during production runs. <code>vision-guard</code> intercepts and blocks unauthorized camera configuration changes:</li>
+<li>Blocks <code>WRITEREG_CMD</code> (<code>0x0082</code>) targeting exposure, gain, or trigger selectors (<code>REJECT_GIGE_UNAUTHORIZED_WRITE</code>).</li>
+<li>Blocks <code>WRITEMEM_CMD</code> (<code>0x0086</code>) firmware manipulation commands.</li>
+<li>Permits read-only status telemetry (<code>READREG_CMD 0x0080</code>, <code>READMEM_CMD 0x0084</code>).</li>
+</ul>
+<h3 id="c-conduit-a-rtsp-onvif-streaming-control-tcp-port-8554-3702">C. Conduit A: RTSP / ONVIF Streaming Control (TCP Port 8554 &amp; 3702)</h3>
+<ul>
+<li><strong>Standards:</strong> IETF RFC 2326 (RTSP), ONVIF Core Specification Profile S/T.</li>
+<li><strong>Stream Preservation &amp; Anti-Hijack:</strong></li>
+<li>Inspects ASCII control verbs on the wire.</li>
+<li>Blocks unauthorized <code>TEARDOWN</code> requests designed to disable camera feeds during physical perimeter penetrations (<code>REJECT_RTSP_STREAM_HIJACK</code>).</li>
+<li>Blocks <code>SET_PARAMETER</code> and <code>RECORD</code> tampering verbs.</li>
+<li>Intercepts ONVIF SOAP control requests targeting camera maintenance endpoints (<code>SetSystemFactoryDefault</code>, <code>SystemReboot</code>).</li>
+</ul>
+<hr />
+<h2 id="5-threat-mitigation-matrix-edge-vision-privacy-defense">5. Threat Mitigation Matrix: Edge Vision &amp; Privacy Defense</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat Profile</th>
+<th style="text-align: left;">Protocol / Ingress</th>
+<th style="text-align: left;">Attack Mechanism</th>
+<th style="text-align: left;">vision-guard Tier-1 Defense Invariant</th>
+<th style="text-align: left;">Action &amp; Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Physical Perimeter Penetration</strong></td>
+<td style="text-align: left;">RTSP (<code>TCP :8554</code>)</td>
+<td style="text-align: left;">Intruder issues rogue RTSP <code>TEARDOWN</code> or flooding packet to crash facility security feed</td>
+<td style="text-align: left;"><code>RtspOnvifValidator</code>: Drops unauthorized teardown commands; preserves active video conduit</td>
+<td style="text-align: left;"><code>&lt; 15 ns</code> command drop; flags physical perimeter breach</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Optical Laser Dazzling / Blinding</strong></td>
+<td style="text-align: left;">ShmRing (<code>VIS1</code>)</td>
+<td style="text-align: left;">Laser pointer or optical flare directed at camera lens to blind AI weapon detection</td>
+<td style="text-align: left;"><code>ShmVisionValidator</code>: Evaluates pixel saturation curve; detects overexposure ($\text{sat} &gt; 85\%$)</td>
+<td style="text-align: left;">Triggers optical blinding alert; switches to secondary LiDAR</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Video Replay / Screen Freeze Attack</strong></td>
+<td style="text-align: left;">ShmRing (<code>VIS1</code>)</td>
+<td style="text-align: left;">Attacker injects recorded video loop of empty hallway into perception memory buffer</td>
+<td style="text-align: left;"><code>ShmVisionValidator</code>: Enforces monotonic sequence numbers and minimum Shannon entropy ($H \ge 0.35$)</td>
+<td style="text-align: left;">Drops replayed frames; alerts Security Operations Center</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conveyor Sorter Exposure Tampering</strong></td>
+<td style="text-align: left;">GigE Vision (<code>UDP :3956</code>)</td>
+<td style="text-align: left;">Adversary sends GVCP register write modifying sensor exposure time, letting defects pass</td>
+<td style="text-align: left;"><code>GigeVisionValidator</code>: Enforces read-only GVCP policy; blocks <code>0x0082</code> command</td>
+<td style="text-align: left;"><code>&lt; 12 ns</code> drop; triggers pneumatic line ejector</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hospital Inpatient Privacy Leak</strong></td>
+<td style="text-align: left;">ShmRing (<code>VIS1</code>)</td>
+<td style="text-align: left;">Rogue script attempts to write patient fall-detection video frames to persistent disk</td>
+<td style="text-align: left;"><code>ShmVisionValidator</code>: Validates <code>ram_only_ephemeral == 1</code>; detects non-volatile descriptor redirects</td>
+<td style="text-align: left;">Trips <code>PrivacyAirGap</code>; zeros volatile memory buffers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-repository-layout">6. Repository Layout</h2>
+<div class="highlight"><pre><span></span><code>/home/kami/vision-guard/
+├── CMakeLists.txt                         # Build flags (-O3 -march=native -fno-omit-frame-pointer)
+├── Makefile                               # Lifecycle targets: build, test, bench, install, vision-up/down
+├── cmake/
+│   ├── VisionGuardConfig.cmake.in         # CMake package export template
+│   └── vision_guard.pc.in                 # pkg-config definition
+├── include/vision_guard/
+│   ├── vision_guard.hpp                   # Master umbrella C++20 header
+│   ├── core/
+│   │   ├── types.hpp                      # GuardStatus enums
+│   │   └── tsc_clock.hpp                  # Sub-nanosecond CPU RDTSC clock calibration
+│   ├── protocols/
+│   │   ├── shm_vision.hpp                 # POSIX ShmRing VIS1 zero-retention frame validator
+│   │   ├── rtsp_onvif.hpp                 # RTSP/ONVIF stream preservation &amp; hijack validator
+│   │   └── gige_vision.hpp                # GigE Vision GVCP register write-lock validator
+│   ├── defense/
+│   │   └── privacy_airgap.hpp             # Sub-15 ns atomic physical privacy air-gap latch
+│   └── pipeline/
+│       └── guard_engine.hpp               # Zero-allocation unified Tier-1 Vision GuardEngine
+├── src/
+│   ├── core/tsc_clock.cpp
+│   ├── protocols/{shm_vision.cpp, rtsp_onvif.cpp, gige_vision.cpp}
+│   ├── defense/privacy_airgap.cpp
+│   └── pipeline/guard_engine.cpp
+├── tools/
+│   ├── sentinel_plugin/vision_guard_plugin.cpp  # Native dissector plugin for blackbox-sentinel
+│   ├── aryo_vision/main.cpp                     # CLI binary for `aryo vision ...`
+│   └── vision_guard_ctl/main.cpp                # Diagnostic self-test utility
+├── benchmarks/
+│   └── bench_latency.cpp                  # 100,000-frame cycle benchmark (&lt; 120 ns SLA)
+├── tests/
+│   ├── test_shm_vision.cpp                # HIPAA RAM-only, frame freeze &amp; blinding unit tests
+│   ├── test_rtsp_gige.cpp                 # RTSP teardown &amp; GigE Vision GVCP write unit tests
+│   ├── test_sentinel_plugin.cpp           # Native plugin ABI integration test
+│   └── test_vision_tier1_tier2_pipeline.cpp# Tier-1 C++20 logic vs Tier-2 ONNX pipeline test
+├── harnesses/                             # Automated research harnesses (Sentinel-Lab)
+│   ├── vision_shm_privacy.py
+│   ├── vision_rtsp_hijack.py
+│   ├── vision_gige_defect.py
+│   └── vision_optical_blind.py
+├── apparatus_plugins/                     # Physical telemetry drivers for sentinel-matrix runtime
+│   ├── vision_weapon_rtsp.py              # Air-gapped 4K weapon detection visualizer
+│   ├── vision_conveyor_gige.py            # 200 FPS conveyor defect sorter visualizer
+│   └── vision_hipaa_fall_shm.py           # Zero-retention HIPAA patient fall ToF visualizer
+├── web/                                   # Micro-frontend plugin package (served via Nexus)
+│   ├── manifest.json
+│   └── vision/
+│       ├── vision.js                      # 3 apparatus visualizers + Edge Vision C2 tab
+│       └── vision.css
+└── scenarios/vision_edge_grid/            # Full 8-container digital twin mesh
+    ├── manifest.json
+    ├── scenario.yaml                      # Configures RTSP, GVCP and ipc:shareable /dev/shm
+    ├── configs/
+    │   ├── sensor_attack_matrix.json
+    │   ├── lab_plugins/vision_edge.json   # Optical threat profiles
+    │   └── nodes/
+    │       ├── node_01_breach_rtsp.yaml   # Edge Sentry 01: Perimeter 4K RTSP Guard
+    │       ├── node_02_conveyor_gige.yaml # Edge Sentry 02: Industrial Conveyor GigE Sorter
+    │       └── node_03_hipaa_shm.yaml     # Edge Sentry 03: Inpatient HIPAA ToF ShmRing
+    ├── models/                            # Neural models (network_threat_int8, lidar_spatial_detector)
+    └── tools/
+        └── vision_wire_gen.py             # Optical wire generator (GVCP :3956 + ShmRing VIS1)
+</code></pre></div>
+<hr />
+<h2 id="7-build-test-benchmark-installation">7. Build, Test, Benchmark &amp; Installation</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/vision-guard
+
+<span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
+make<span class="w"> </span>build
+
+<span class="c1"># 2. Run all 4 unit, ABI, and Tier-1/Tier-2 pipeline test suites</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># 3. Execute 100,000-frame hardware latency benchmark (&lt; 120 ns SLA)</span>
+make<span class="w"> </span>bench
+
+<span class="c1"># 4. Install libraries, plugins, CLI bridges, and research harnesses</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+
+<span class="c1"># 5. Synchronize artifacts with sentinel-matrix and sentinel-nexus</span>
+make<span class="w"> </span>sync-all
+</code></pre></div>
+<h3 id="deployed-system-artifacts">Deployed System Artifacts</h3>
+<ul>
+<li><code>/usr/local/lib/libvision_guard.so</code> &amp; <code>libvision_guard.a</code></li>
+<li><code>/usr/local/lib/blackbox/vision_guard_dissector_plugin.so</code> (Blackbox dynamic plugin path)</li>
+<li><code>/usr/local/bin/aryo-vision</code> (Discovered dynamically by master <code>aryo</code> CLI)</li>
+<li><code>/usr/local/bin/vision-guard-ctl</code> (Diagnostic utility)</li>
+<li><code>/etc/sentinel/lab/harnesses/vision_*.py</code> &amp; <code>/opt/sentinel-stack/harnesses/vision-*.py</code></li>
+</ul>
+<hr />
+<h2 id="8-operator-cli-operations-aryo-vision-aryo-lab">8. Operator CLI Operations (<code>aryo vision</code> &amp; <code>aryo lab</code>)</h2>
+<p>The master CLI <code>aryo</code> natively integrates <code>vision-guard</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display extension status and capabilities</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>--plugin-desc
+
+<span class="c1"># Verify protocol gate self-tests</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>bench<span class="w">          </span><span class="c1"># 100,000-frame cycle-accurate latency benchmark</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>verify-shm<span class="w">     </span><span class="c1"># Verify HIPAA RAM-only zero-retention &amp; freeze guard</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>verify-rtsp<span class="w">    </span><span class="c1"># Verify RTSP/ONVIF stream hijack blocking</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>verify-gige<span class="w">    </span><span class="c1"># Verify GigE Vision GVCP register write-lock</span>
+aryo<span class="w"> </span>vision<span class="w"> </span>airgap-status<span class="w">  </span><span class="c1"># Inspect real-time privacy air-gap latch state</span>
+
+<span class="c1"># Run automated Sentinel-Lab evaluation harnesses</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>vision-shm-privacy<span class="w">   </span><span class="c1"># HIPAA RAM-only zero-retention audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>vision-rtsp-hijack<span class="w">   </span><span class="c1"># RTSP stream teardown &amp; ONVIF tamper audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>vision-gige-defect<span class="w">   </span><span class="c1"># GigE Vision GVCP write-lock audit</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>vision-optical-blind<span class="w"> </span><span class="c1"># Optical laser blinding &amp; weapon score audit</span>
+</code></pre></div>
+<hr />
+<h2 id="9-vision-edge-digital-twin-mesh-8-containers">9. Vision Edge Digital Twin Mesh (8 Containers)</h2>
+<p><code>vision-guard</code> provisions an 8-container digital twin on subnet <code>10.240.80.0/24</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/vision-guard
+
+<span class="c1"># Deploy the 8-node simulation mesh in the background</span>
+make<span class="w"> </span>vision-up
+
+<span class="c1"># Inspect container health and exposed ports</span>
+make<span class="w"> </span>vision-status
+
+<span class="c1"># Stream real-time eBPF logs from Breach Guard Sentry</span>
+make<span class="w"> </span>vision-logs
+
+<span class="c1"># Teardown simulation mesh and release network bridge</span>
+make<span class="w"> </span>vision-down
+</code></pre></div>
+<h3 id="digital-twin-network-matrix-1024080024">Digital Twin Network Matrix (<code>10.240.80.0/24</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Container / Service</th>
+<th style="text-align: left;">Ingress Protocol</th>
+<th style="text-align: left;">Network Binding / Memory</th>
+<th style="text-align: left;">Role &amp; Deployed Subsystems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-nexus</code></strong></td>
+<td style="text-align: left;">TCP / gRPC</td>
+<td style="text-align: left;"><code>10.240.80.10</code> (<code>:9443</code>, <code>:50051</code>)</td>
+<td style="text-align: left;">Sentinel Nexus Command Plane + Vision Web Plugin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-breach-01</code></strong></td>
+<td style="text-align: left;">RTSP / TCP</td>
+<td style="text-align: left;"><code>10.240.80.101</code> (<code>:8554</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 01:</strong> Air-Gapped 4K Breach Guard (<code>INTEL_OPENVINO</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-conveyor-02</code></strong></td>
+<td style="text-align: left;">GigE GVCP / UDP</td>
+<td style="text-align: left;"><code>10.240.80.102</code> (<code>:3956/udp</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 02:</strong> GigE Vision Sorter (<code>NVIDIA_TENSORRT</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-edge-hipaa-03</code></strong></td>
+<td style="text-align: left;">ShmRing Memory</td>
+<td style="text-align: left;"><code>10.240.80.103</code> (<code>/dev/shm/sentinel_vision_ring</code>)</td>
+<td style="text-align: left;"><strong>Edge Sentry 03:</strong> HIPAA Inpatient ToF Eye (<code>ROCKCHIP_RKNN</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-vision-wire-gen</code></strong></td>
+<td style="text-align: left;">GVCP + ShmRing</td>
+<td style="text-align: left;">Injects <code>:3956</code> and writes <code>/dev/shm</code></td>
+<td style="text-align: left;">Optical Wire Generator (GVCP + ShmRing VIS1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-breach</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18102:8090</code></td>
+<td style="text-align: left;">Apparatus: 4K RTSP Weapon Detection Visualizer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-conveyor</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18103:8090</code></td>
+<td style="text-align: left;">Apparatus: 200 FPS GigE Sorter Visualizer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>matrix-apparatus-hipaa</code></strong></td>
+<td style="text-align: left;">HTTP / REST</td>
+<td style="text-align: left;"><code>:18104:8090</code></td>
+<td style="text-align: left;">Apparatus: HIPAA RAM-Only ToF Visualizer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-mission-control-interface">Web Mission Control Interface</h3>
+<p>Browse to <strong><code>http://localhost:9443/</code></strong>:
+* <strong>Mission Control (Pane 01):</strong> Displays live physical visualizers matching selected field nodes:
+  * Selecting <code>Edge-Vision-Breach-01</code> displays the <strong>Air-Gapped Weapon &amp; Breach Guard</strong> (<code>:18102</code>).
+  * Selecting <code>Edge-Vision-Conveyor-02</code> displays the <strong>Conveyor Micro-Defect Sorter</strong> (<code>:18103</code>).
+  * Selecting <code>Edge-Vision-HIPAA-03</code> displays the <strong>HIPAA RAM-Only Patient Fall ToF Eye</strong> (<code>:18104</code>).
+* <strong>Sidebar Navigation:</strong> Access the <strong>"👁️ Edge Vision &amp; Privacy C2"</strong> tab for live confidence scores, belt speeds, memory purge counters, and simulated anomaly triggers.</p>
+<hr />
+<h2 id="10-regulatory-privacy-standards-compliance">10. Regulatory &amp; Privacy Standards Compliance</h2>
+<ul>
+<li><strong>HIPAA Security Rule (45 CFR § 164.312):</strong> Guarantees electronic Protected Health Information (ePHI) integrity by ensuring optical sensors operate entirely within volatile RAM rings (<code>VIS1</code>), with automatic overwrites preventing unauthorized storage or exposure.</li>
+<li><strong>EU General Data Protection Regulation (GDPR Art. 25):</strong> Fulfills Privacy by Design and by Default mandates through zero external network egress ($0.00 cloud egress) and mathematical feature abstraction on local silicon.</li>
+<li><strong>AIA GigE Vision &amp; EMVA 1288:</strong> Ensures deterministic industrial camera control by preventing register desynchronization during high-speed production cycles.</li>
+<li><strong>Zero Trust Edge Architecture:</strong> Binds every optical processing enclave to physical silicon roots (TPM 2.0 / vTPM) before granting telecommand access.</li>
+</ul>
+<hr />
+<h2 id="11-research-preprint-authorship">11. Research Preprint &amp; Authorship</h2>
+<ul>
+<li><strong>Corporate Entity:</strong> Aryorithm Technologies B.V. (Amsterdam, The Netherlands)</li>
+<li><strong>Founder &amp; Chief Technology Officer:</strong> Kamran Saberifard (<a href="https://github.com/kamisaberi">github.com/kamisaberi</a>)</li>
+<li><strong>Permanent Research DOI:</strong> CERN / Zenodo: <a href="https://doi.org/10.5281/zenodo.23598779"><code>10.5281/zenodo.23598779</code></a></li>
+<li><strong>License:</strong> Proprietary / Commercial Licensing available from Aryorithm Technologies B.V.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

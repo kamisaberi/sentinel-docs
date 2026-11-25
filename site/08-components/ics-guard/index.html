@@ -1,0 +1,2442 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.">
+      
+      
+        <meta name="author" content="Kamran Saberifard (Aryorithm Technologies B.V.)">
+      
+      
+        <link rel="canonical" href="https://docs.aryorithm.com/08-components/ics-guard/">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>ICS-GUARD: Sovereign Deterministic OT & SCADA Security Engine - Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-header__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ICS-GUARD: Sovereign Deterministic OT &amp; SCADA Security Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home & Master Map
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-tabs__link">
+          
+  
+  1. Executive & Fundraising
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-tabs__link">
+          
+  
+  2. System Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-tabs__link">
+          
+  
+  3. Developer & SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-tabs__link">
+          
+  
+  4. Domain Cartridges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-tabs__link">
+          
+  
+  5. Operations & Scenarios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-tabs__link">
+          
+  
+  6. Compliance & Assurance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-tabs__link">
+          
+  
+  7. Investor Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  8. Component Docs (Synced)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../09-archive-business-and-research/" class="md-tabs__link">
+        
+  
+  9. Business & Research Archive
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aryorithm &#x2f; Blackbox Sentinel — Master Ecosystem Documentation" class="md-nav__button md-logo" aria-label="Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home & Master Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Executive & Fundraising
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  1. Executive & Fundraising
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/01-executive-summary-and-moat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vision & Competitive Moat
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/02-verified-benchmarks-and-doi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Verified Benchmarks & DOI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/03-portfolio-50-products.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Product Portfolio Matrix
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-executive-and-fundraising/04-commercialization-and-next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Commercialization & Next Steps
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. System Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  2. System Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/01-five-tier-dependency-dag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Tier Dependency DAG (14 Repos)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/02-ssfs-storage-architecture.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sovereign Sentinel Filesystem (SSFS)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/03-data-plane-ebpf-and-xinfer.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Plane (eBPF/XDP & xInfer)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/04-multi-bus-ingress-and-router.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multi-Bus Ingress & ModelRouter
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/05-control-plane-c2-and-forge.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Control Plane (Nexus, Forge, Lab)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Developer & SDK
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  3. Developer & SDK
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/01-master-build-and-linkage-dag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master Build Order & Linkage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/02-cartridge-and-plugin-sdk.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge & 3-Tier Plugin SDK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-developer-and-sdk/03-binary-formats-specification.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binary Formats (.spkg/.slab/.aryopack)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Domain Cartridges
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  4. Domain Cartridges
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/00-cartridges-overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/01-ics-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #1: ics-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/02-ccsds-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/03-net-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/04-motion-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-domain-cartridges/05-vision-guard.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Operations & Scenarios
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  5. Operations & Scenarios
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/01-cli-reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Master CLI (aryo, sentinel-ctl, sfs)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-operations-and-cli/02-50-scenario-catalog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  50-Recipe Scenario Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Compliance & Assurance
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  6. Compliance & Assurance
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  EU NIS2, IEC 62443, CMMC & TPM 2.0
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Investor Live Demos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  7. Investor Live Demos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-investor-and-customer-demos/01-five-minute-demos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5-Minute Digital Twin Playbooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Component Docs (Synced)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-archive-business-and-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Business & Research Archive
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-120-ns-physical-invariant-verification-active-conduit-defense-iec-62443-levels-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sub-120 ns Physical Invariant Verification &amp; Active Conduit Defense (IEC 62443 Levels 1–2)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-ot-engineering-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Executive Summary &amp; OT Engineering Rationale
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verified-deterministic-benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Verified Deterministic Benchmarks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-supported-industrial-protocols-deep-invariant-dissection" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Supported Industrial Protocols &amp; Deep Invariant Dissection
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Supported Industrial Protocols &amp; Deep Invariant Dissection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-modbus-tcp-ip-port-502" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A. Modbus TCP / IP (Port 502)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-siemens-s7comm-port-102" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        B. Siemens S7Comm (Port 102)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-iec-60870-5-104-telecontrol-port-2404" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        C. IEC 60870-5-104 Telecontrol (Port 2404)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-ieee-c371182-synchrophasor-power-grid-standards-port-15501" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        D. IEEE C37.118.2 Synchrophasor Power Grid Standards (Port 15501)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-physics-informed-control-theory-nagumo-control-barrier-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Physics-Informed Control Theory: Nagumo Control Barrier Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-threat-mitigation-matrix-real-world-ics-attack-vector-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Threat Mitigation Matrix: Real-World ICS Attack Vector Defense
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-hardware-network-deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Hardware &amp; Network Deployment Architecture
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Hardware &amp; Network Deployment Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physical-hardware-specifications-industrial-field-appliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Physical Hardware Specifications (Industrial Field Appliance)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integrated-honeytap-decoy-plc-mock-plc" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Integrated Honeytap Decoy PLC (Mock PLC)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-repository-layout-component-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Repository Layout &amp; Component Architecture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-compilation-testing-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Compilation, Testing &amp; Installation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Compilation, Testing &amp; Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Build Requirements
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployed-system-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Deployed System Artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-operator-cli-operations-aryo-ics-aryo-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Operator CLI Operations (<code>aryo ics</code> &amp; <code>aryo lab</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-production-master-grid-digital-twin-17-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Production Master Grid Digital Twin (17 Containers)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Production Master Grid Digital Twin (17 Containers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-twin-network-matrix-102400024" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digital Twin Network Matrix (<code>10.240.0.0/24</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-mission-control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Web Mission Control Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-regulatory-compliance-standards-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Regulatory Compliance &amp; Standards Alignment
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Regulatory Compliance &amp; Standards Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-iec-62443-industrial-cyber-physical-systems-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A. IEC 62443 (Industrial Cyber-Physical Systems Security)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-eu-nis2-directive-directive-20222555" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        B. EU NIS2 Directive (Directive 2022/2555)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-research-preprint-authorship" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Research Preprint &amp; Authorship
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="ics-guard-sovereign-deterministic-ot-scada-security-engine">ICS-GUARD: Sovereign Deterministic OT &amp; SCADA Security Engine</h1>
+<h3 id="sub-120-ns-physical-invariant-verification-active-conduit-defense-iec-62443-levels-12">Sub-120 ns Physical Invariant Verification &amp; Active Conduit Defense (IEC 62443 Levels 1–2)</h3>
+<p><a href="https://aryorithm.com"><img alt="Enterprise" src="https://img.shields.io/badge/Entity-Aryorithm%20Technologies%20B.V.-00E5FF?style=flat-square" /></a>
+<a href="#"><img alt="Standard" src="https://img.shields.io/badge/Security%20Standard-IEC%2062443--3--3%20%7C%20IEC%2062443--4--2-orange?style=flat-square" /></a>
+<a href="#"><img alt="Compliance" src="https://img.shields.io/badge/Regulatory-EU%20NIS2%20(2022%2F2555)%20%7C%20NERC%20CIP-blueviolet?style=flat-square" /></a>
+<a href="#"><img alt="Deterministic Core" src="https://img.shields.io/badge/Deterministic%20Core-C%2B%2B20%20Zero--Heap%20(11.96%20ns)-00FFA3?style=flat-square" /></a>
+<a href="#"><img alt="Physical Integrity" src="https://img.shields.io/badge/Control%20Theory-Nagumo%20CBF%20h(x)%E2%89%A50-yellow?style=flat-square" /></a></p>
+<hr />
+<h2 id="1-executive-summary-ot-engineering-rationale">1. Executive Summary &amp; OT Engineering Rationale</h2>
+<p>Standard IT cybersecurity appliances fail in Operational Technology (OT) environments because they optimize for <strong>data confidentiality over physical safety and availability</strong>. Deep packet inspection engines that introduce non-deterministic buffering (&gt; 5 ms jitter), rely on cloud lookups, or enforce blind TCP resets can trip high-voltage breakers, cause pump cavitation, or induce compressor surges.</p>
+<p><code>ics-guard</code> is a <strong>zero-allocation, hardware-rooted cyber-physical security appliance</strong> designed for deployment at <strong>Purdue Model Levels 1 and 2</strong> (Control Conduits and Industrial LANs). </p>
+<p>Operating as an active in-line safety interlock or a non-intrusive optical TAP listener, <code>ics-guard</code> inspects industrial protocol commands at <strong>wire speed (<code>11.96 ns</code> mean verification latency)</strong>, cross-correlating digital network packets with <strong>Runge-Kutta 4th-Order (RK4) continuous physical dynamics and formal Control Barrier Functions (CBFs)</strong> before malicious setpoints reach physical field actuators.</p>
+<div class="highlight"><pre><span></span><code> ┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │                      PURDUE MODEL FOR CONTROL SYSTEMS (ISA-95 / IEC 62443)                             │
+ ├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+ │ LEVEL 4/5: Enterprise Network &amp; Business ERP                                                           │
+ ├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+ │ LEVEL 3.5: Industrial DMZ (Historians, Patching, Remote Access Jump Hosts)                             │
+ ├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+ │ LEVEL 3: Site Operations &amp; Supervisory Control (SCADA HMI Servers, Engineering Workstations - EWS)    │
+ │   ▲                                                                                                    │
+ │   │ Industrial Ethernet Conduit (Modbus TCP, Siemens S7Comm, IEC 60870-5-104, IEEE C37.118)          │
+ │   ▼                                                                                                    │
+ │ ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗ │
+ │ ║  ics-guard DEPLOYMENT ZONE: LEVEL 1/2 CONDUIT SECURITY APPLIANCE                                  ║ │
+ │ ║  • Hardware Fail-Open Bypass Relay / Passive Optical Splitter                                      ║ │
+ │ ║  • Sub-120 ns Tier-1 Deterministic Protocol Dissector (Zero Heap / Zero Dynamic Alloc)           ║ │
+ │ ║  • Continuous Physics Boundary Evaluation (Nagumo Invariant Gate: dh/dt + α·h(x) ≥ 0)             ║ │
+ │ ║  • Sub-15 ns Hardware Actuator Air-Gap Tripping Engine                                             ║ │
+ │ ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝ │
+ │   ▲                                                                                                    │
+ │   │ Hardwire Actuation / Fieldbus Conduits (Coils, Holding Registers, Analog Voltage, 4-20mA)         │
+ │   ▼                                                                                                    │
+ │ LEVEL 1: Local Control &amp; Protection (PLCs, RTUs, Protection IEDs, Safety Instrumented Systems - SIS)   │
+ ├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+ │ LEVEL 0: Physical Process (Reactors, High-Voltage Busbars, Centrifuges, Valves, Hydraulic Piping)     │
+ └────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="2-verified-deterministic-benchmarks">2. Verified Deterministic Benchmarks</h2>
+<p>All hot-path protocol decoders in <code>ics-guard</code> execute with zero heap allocation (<code>0 bytes malloc/new</code>), zero lock contention on hot paths, and bounded instruction depth. Latencies are measured using CPU Time-Stamp Counter (RDTSC) hardware register cycles calibrated against host hardware.</p>
+<div class="highlight"><pre><span></span><code>================================================================================
+  ICS-GUARD HARDWARE LATENCY BENCHMARK (100,000 MODBUS TCP FRAMES)
+================================================================================
+  Host Architecture   : x86-64 Native (Intel Xeon / Industrial Core Ultra)
+  Hardware TSC Freq   : 3.18645 GHz
+  Mean Gate Latency   : 11.9573 ns
+  P95 Latency         : 12.4200 ns
+  P99 Latency         : 12.8670 ns
+  Worst-Case (WCET)   : 19.4500 ns
+  IEC 62443 SLA Target: &lt; 120.00 ns  -&gt;  [PASS]
+  Allocation on Ingress: 0 Bytes (Fixed Ring / Static Stack Storage)
+================================================================================
+</code></pre></div>
+<hr />
+<h2 id="3-supported-industrial-protocols-deep-invariant-dissection">3. Supported Industrial Protocols &amp; Deep Invariant Dissection</h2>
+<p><code>ics-guard</code> implements native C++20 dissectors covering critical industrial infrastructure protocols:</p>
+<h3 id="a-modbus-tcp-ip-port-502">A. Modbus TCP / IP (Port 502)</h3>
+<ul>
+<li><strong>MBAP Bounds Checking:</strong> Validates Transaction ID, Protocol Identifier (<code>0x0000</code>), Length byte calculation, and Unit ID consistency.</li>
+<li><strong>Function Code Whitelisting:</strong> Enforces read-only policies (<code>FC01</code> Coils, <code>FC02</code> Discrete Inputs, <code>FC03</code> Holding Registers, <code>FC04</code> Input Registers).</li>
+<li><strong>Write-Lock &amp; Range Isolation:</strong> Intercepts <code>FC05</code> (Write Single Coil), <code>FC06</code> (Write Single Register), and <code>FC15/16</code> (Multiple Write). Blocks writes targeting safety-critical memory ranges (e.g., setpoints in registers <code>40001–40100</code>).</li>
+<li><strong>Diagnostic &amp; Smuggling Mitigation:</strong> Drops unauthorized diagnostic commands (<code>FC08</code>), encapsulated interface commands (<code>FC2B</code>), and malformed frames used for protocol tunneling.</li>
+</ul>
+<h3 id="b-siemens-s7comm-port-102">B. Siemens S7Comm (Port 102)</h3>
+<ul>
+<li><strong>TPKT / COTP Framing:</strong> Verifies TPKT Version 3 (<code>0x03</code>) and ISO 8073 COTP connection state machine (Connection Request <code>0xE0</code>, Confirm <code>0xD0</code>).</li>
+<li><strong>S7 PDU ROSCTR Inspection:</strong> Inspects S7 Comm Protocol Data Unit (<code>0x32</code>), verifying Job Requests (<code>ROSCTR 0x01</code>) and Userdata (<code>ROSCTR 0x07</code>).</li>
+<li><strong>Stuxnet PLC-State Override Prevention:</strong> Detects and drops CPU Control commands targeting PLC mode switches:</li>
+<li>Blocks CPU STOP (<code>Function 0x29</code>).</li>
+<li>Blocks Program Invocations (<code>Function 0x28</code>).</li>
+<li>Blocks unauthorized variable writes (<code>Function 0x05</code>) and block downloads (<code>0x1A..0x1C</code>) targeting Safety Data Blocks (DBs).</li>
+</ul>
+<h3 id="c-iec-60870-5-104-telecontrol-port-2404">C. IEC 60870-5-104 Telecontrol (Port 2404)</h3>
+<ul>
+<li><strong>APCI Frame State Machine:</strong> Validates Start-Frame <code>0x68</code>, Length byte, and supervisory frames (U-frames: <code>TESTFR</code>, <code>STARTDT</code>, <code>STOPDT</code>; S-frames: sequence confirmation).</li>
+<li><strong>ASDU Command Filtering (Industroyer / CrashRAT Mitigation):</strong></li>
+<li>Dissects Type Identifier commands (Type 45: Single Command, Type 46: Double Command, Type 47: Regulating Step Command, Types 58–64: Time-Tagged Setpoints).</li>
+<li><strong>Breaker Trip Lockout:</strong> Detects Cause of Transmission (<code>COT 6</code> - Activation / <code>COT 8</code> - Deactivation) directed at high-voltage transmission substation breakers and triggers line-rate drop.</li>
+</ul>
+<h3 id="d-ieee-c371182-synchrophasor-power-grid-standards-port-15501">D. IEEE C37.118.2 Synchrophasor Power Grid Standards (Port 15501)</h3>
+<ul>
+<li><strong>Frame Synchronization:</strong> Validates IEEE Sync bytes (<code>0xAA</code>) and P/M-class data frames.</li>
+<li><strong>Frequency Band Enforcement:</strong> Monitors high-voltage transmission grid frequency with sub-millihertz precision, enforcing tight grid bounds (<code>49.50 Hz ≤ f ≤ 50.50 Hz</code>).</li>
+<li><strong>Rate-of-Change-of-Frequency (ROCOF):</strong> Clamps transient frequency drift rate ($|\text{ROCOF}| \le 1.0\,\text{Hz/s}$) to prevent cascading blackout trips.</li>
+<li><strong>Total Harmonic Distortion (THD):</strong> Inspects 1st, 2nd, 3rd, and 5th harmonic spectral energy, triggering alert thresholds when $\text{THD} &gt; 8.0\%$.</li>
+</ul>
+<hr />
+<h2 id="4-physics-informed-control-theory-nagumo-control-barrier-functions">4. Physics-Informed Control Theory: Nagumo Control Barrier Functions</h2>
+<p>Pure signature and protocol checks cannot identify an attacker who uses authentic, authorized protocol frames to drive a physical process into catastrophic runaway (e.g., slowly increasing chemical reactor pressure or heating an exothermic catalyst).</p>
+<p><code>ics-guard</code> integrates an embedded <strong>Runge-Kutta 4th-Order (RK4)</strong> numerical ODE solver and enforces <strong>Nagumo Forward Invariance via Control Barrier Functions (CBFs)</strong>:</p>
+<p>$$\mathcal{C} = { x \in \mathbb{R}^n \mid h(x) \ge 0 }$$</p>
+<p>$$\dot{h}(x, u) + \alpha(h(x)) \ge 0$$</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example: Thermal Runway Invariant Check (plant_ode.c)</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">plant_cbf_evaluate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">plant_state_t</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">max_temp_c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Safe set boundary: h(x) = T_max - T(t) &gt;= 0</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">max_temp_c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">temperature</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">plant_cbf_check_invariance</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">plant_state_t</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">plant_control_t</span><span class="w"> </span><span class="o">*</span><span class="n">control</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">max_temp_c</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">h_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plant_cbf_evaluate</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">max_temp_c</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">h_dot_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plant_cbf_dot_evaluate</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">control</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Nagumo invariance: dh/dt + alpha * h(x) &gt;= 0</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">h_dot_val</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h_val</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If an incoming Modbus or S7 command requests a control input $u(t)$ that violates the invariance inequality—meaning the physical plant will breach critical operating boundaries within the critical time horizon $T_\text{crit}$—the command is dropped immediately at the kernel boundary (<code>ACTUATOR_AIRGAP_TRIPPED</code>), independent of what SCADA or HMI dashboards report.</p>
+<hr />
+<h2 id="5-threat-mitigation-matrix-real-world-ics-attack-vector-defense">5. Threat Mitigation Matrix: Real-World ICS Attack Vector Defense</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Industrial Threat / Malware</th>
+<th style="text-align: left;">Target Protocols</th>
+<th style="text-align: left;">Attack Mechanism</th>
+<th style="text-align: left;">ics-guard Tier-1 Defense Invariant</th>
+<th style="text-align: left;">Enforcement Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Industroyer / Industroyer2</strong></td>
+<td style="text-align: left;">IEC 60870-5-104</td>
+<td style="text-align: left;">Spurious breaker open commands (<code>COT 6</code>, Type 45/46) across 110kV–330kV substations</td>
+<td style="text-align: left;"><code>Iec104Validator</code>: Drops unauthorized command ASDUs targeting breaker IOAs</td>
+<td style="text-align: left;">Line-rate drop (<code>&lt; 12 ns</code>) + latches substation interlock</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stuxnet (Centrifuge Attack)</strong></td>
+<td style="text-align: left;">Siemens S7Comm</td>
+<td style="text-align: left;">Modifies S7-300 DB89 variables to alter variable frequency drive (VFD) rotor speed</td>
+<td style="text-align: left;"><code>S7CommValidator</code>: Enforces DB write-lock (<code>0x05</code>) + RK4 centrifugal resonance CBF</td>
+<td style="text-align: left;">Drops S7 PDU + trips mechanical safety air-gap</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TRITON / TRISIS</strong></td>
+<td style="text-align: left;">Triconex TriStation / Modbus</td>
+<td style="text-align: left;">Overwrites Safety Instrumented System (SIS) firmware logic to permit thermal runaway</td>
+<td style="text-align: left;"><code>IndustrialThermalPlugin</code>: Cross-correlates radiometric thermal grid with SIS command stream</td>
+<td style="text-align: left;">Rejects SIS logic alteration + initiates nitrogen quench</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oldsmar Water Treatment</strong></td>
+<td style="text-align: left;">Modbus TCP</td>
+<td style="text-align: left;">Unauthorized operator setpoint modification increasing NaOH (Lye) dosing rate to lethal levels</td>
+<td style="text-align: left;"><code>CbfSafetyGate</code>: Chemical titration corridor monitoring ($6.5 \le \text{pH} \le 8.5$)</td>
+<td style="text-align: left;">Drops <code>FC05/06</code> writes breaching chemical boundary</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ukraine 2015 Blackout</strong></td>
+<td style="text-align: left;">IEC 60870-5-104 / S7</td>
+<td style="text-align: left;">Remote operator station hijacking followed by sequential substation blackout commands</td>
+<td style="text-align: left;">Protocol state machine: Rate-limits and flags anomalous operator command bursts</td>
+<td style="text-align: left;">Freezes unauthorized command conduits; locks HMI bridge</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-hardware-network-deployment-architecture">6. Hardware &amp; Network Deployment Architecture</h2>
+<p><code>ics-guard</code> supports two physical deployment topologies based on facility safety requirements:</p>
+<div class="highlight"><pre><span></span><code>TOPOLOGY 1: BUMP-IN-THE-WIRE (BITW) IN-LINE ACTIVE INTERLOCK
+┌──────────────────────┐       ┌──────────────────────────────────────────────┐       ┌──────────────────────┐
+│  SCADA Supervisory   │       │               ics-guard SENTRY               │       │   Field Controller   │
+│  HMI / Engineering   │──────▶│ [NIC 0] ──▶ Hardware Relay ──▶ [NIC 1]       │──────▶│      PLC / RTU       │
+│  Workstation (EWS)   │       │                 │                            │       │   Siemens / Rockwell │
+└──────────────────────┘       │                 ▼ Line-Rate In-Kernel Engine │       └──────────────────────┘
+                               │        [eBPF / AF_XDP Driver Ring]           │
+                               │        Sub-120 ns Tier-1 Safety Gate         │
+                               └──────────────────────────────────────────────┘
+                               * Note: Hardware Fail-Open Relay ensures physical cable continuity during power loss.
+
+TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
+┌──────────────────────┐                                                              ┌──────────────────────┐
+│  SCADA Supervisory   │─────────────────────────────────────────────────────────────▶│   Field Controller   │
+│  HMI / Engineering   │◀─────────────────────────────────────────────────────────────│      PLC / RTU       │
+└──────────────────────┘                                                              └──────────────────────┘
+            │                                                                                     │
+            └───────────────┐                                                     ┌───────────────┘
+                            ▼                                                     ▼
+                     ┌──────────────────────────────────────────────────────────────────┐
+                     │          Fiber-Optic Passive Tap / Network Regeneration Unit      │
+                     └────────────────────────────────┬─────────────────────────────────┘
+                                                      │ Monitor (Rx Only)
+                                                      ▼
+                                       ┌──────────────────────────────┐
+                                       │       ics-guard SENTRY       │
+                                       │   Passive Line-Rate Auditor  │
+                                       └──────────────────────────────┘
+</code></pre></div>
+<h3 id="physical-hardware-specifications-industrial-field-appliance">Physical Hardware Specifications (Industrial Field Appliance)</h3>
+<ul>
+<li><strong>Form Factor:</strong> DIN-Rail or 1U Ruggedized Rackmount (Fanless conduction cooling).</li>
+<li><strong>Power Supply:</strong> Redundant dual $24\,\text{V DC}$ inputs ($9–36\,\text{V DC}$ wide-input tolerance).</li>
+<li><strong>Operating Temperature:</strong> $-40^\circ\text{C}$ to $+75^\circ\text{C}$ (IEC 60068-2 cold/heat compliant).</li>
+<li><strong>Physical Relays:</strong> Dual hardware watchdog fail-open bypass relays (Zero-Packet-Loss power-fail pass-through).</li>
+<li><strong>Root-of-Trust:</strong> Dedicated discrete Infineon OPTIGA™ TPM 2.0 cryptoprocessor.</li>
+</ul>
+<hr />
+<h2 id="7-integrated-honeytap-decoy-plc-mock-plc">7. Integrated Honeytap Decoy PLC (Mock PLC)</h2>
+<p><code>ics-guard</code> compiles and deploys an authentic, multi-threaded industrial honeytap decoy PLC (<code>shared/bin/mock_plc</code>) directly into industrial conduits:
+* <strong>Multi-Protocol Simulation:</strong> Simultaneously binds and answers on Modbus TCP (<code>:502</code>), Siemens S7Comm (<code>:102</code>), and IEC 60870-5-104 (<code>:2404</code>).
+* <strong>Continuous Physical Dynamics:</strong> Solves continuous thermal, pressure, and centrifugal vibration ODEs via an internal RK4 integration loop (<code>100 ms</code> step).
+* <strong>Automated Forensic Spooling:</strong> When an adversary issues write commands (<code>FC05</code>, <code>FC06</code>, S7 <code>0x28/0x29</code>, IEC <code>COT=6</code>), the honeytap captures the full raw hex packet payload, timestamps, originating IP/port, and physical barrier margins into structured JSON spool archives (<code>/var/run/sentinel/honeynet_spool/exploit_*.json</code>).</p>
+<hr />
+<h2 id="8-repository-layout-component-architecture">8. Repository Layout &amp; Component Architecture</h2>
+<div class="highlight"><pre><span></span><code>/home/kami/ics-guard/
+├── CMakeLists.txt                       # Build definition (-O3 -march=native -fno-omit-frame-pointer)
+├── Makefile                             # Lifecycle orchestration: build, test, bench, install, grid-up
+├── cmake/
+│   ├── IcsGuardConfig.cmake.in          # CMake package discovery export
+│   └── ics_guard.pc.in                  # pkg-config export definition
+├── include/ics_guard/
+│   ├── ics_guard.hpp                    # Master umbrella C++20 header
+│   ├── core/
+│   │   ├── types.hpp                    # GuardStatus enums &amp; Synchrophasor structures
+│   │   └── tsc_clock.hpp                # Cycle-accurate TSC RDTSC calibration routines
+│   ├── protocols/
+│   │   ├── modbus_tcp.hpp               # Modbus MBAP &amp; Function Code zero-alloc validator
+│   │   ├── s7comm.hpp                   # Siemens S7Comm &amp; COTP PDU validator
+│   │   ├── iec104.hpp                   # IEC 60870-5-104 APCI/ASDU telecontrol validator
+│   │   └── synchrophasor.hpp            # IEEE C37.118 frequency, ROCOF &amp; THD validator
+│   ├── defense/
+│   │   ├── plant_ode.h                  # Continuous differential equations &amp; Nagumo CBF headers
+│   │   ├── cbf_safety_gate.hpp          # Formal Nagumo invariance gate (dh/dt + alpha*h &gt;= 0)
+│   │   └── actuator_airgap.hpp          # Sub-15 ns lock-free atomic safety tripwire latch
+│   └── pipeline/
+│       └── guard_engine.hpp             # Unified zero-allocation Tier-1 Industrial GuardEngine
+├── src/
+│   ├── core/tsc_clock.cpp
+│   ├── protocols/{modbus_tcp.cpp, s7comm.cpp, iec104.cpp, synchrophasor.cpp}
+│   ├── defense/{plant_ode.c, cbf_safety_gate.cpp, actuator_airgap.cpp}
+│   └── pipeline/guard_engine.cpp
+├── tools/
+│   ├── sentinel_plugin/ics_guard_plugin.cpp  # Native ABI dissector for blackbox-sentinel eBPF daemon
+│   ├── aryo_ics/main.cpp                     # Subcommand extension for `aryo ics ...`
+│   ├── ics_guard_ctl/main.cpp                # Diagnostic and self-test utility
+│   └── mock_plc/mock_plc.c                   # Standalone decoy PLC twin with plant ODE solvers
+├── benchmarks/
+│   └── bench_latency.cpp                     # 100,000-frame cycle-accurate latency benchmark (&lt; 120 ns)
+├── tests/
+│   ├── test_modbus_validation.cpp            # Modbus FC whitelisting &amp; write-lock unit tests
+│   ├── test_s7_iec104_validation.cpp         # S7 CPU STOP &amp; IEC-104 breaker trip unit tests
+│   ├── test_cbf_invariance.cpp               # Runge-Kutta 4 &amp; Nagumo barrier invariance tests
+│   ├── test_sentinel_plugin.cpp              # Dynamic dlopen() plugin ABI integration test
+│   └── test_ics_tier1_tier2_pipeline.cpp     # Tier-1 C++20 logic vs Tier-2 xinfer OpenVINO ONNX test
+├── harnesses/                                # Hard-copied permanent research harnesses (no symlinks)
+│   ├── ics_modbus_tamper.py
+│   ├── ics_iec104_trip.py
+│   ├── ics_s7_runaway.py
+│   ├── ics_triton_sis.py
+│   ├── ics_pmu_harmonics.py
+│   └── ics_airgap_tripwire.py
+├── apparatus_plugins/                        # Physical telemetry drivers for sentinel-matrix runtime
+│   ├── synchrophasor.py                      # IEEE C37.118 power grid physics model
+│   ├── industrial_thermal.py                 # FLIR 16x12 radiometric thermal matrix model
+│   └── reactor_core.py                       # Exothermic chemical reaction vessel model
+├── web/                                      # Micro-frontend plugin package (served via Nexus)
+│   ├── manifest.json
+│   └── industrial/
+│       ├── industrial.js                     # 3 live apparatus displays + Industrial SCADA C2 tab
+│       └── industrial.css
+└── scenarios/production_master_grid/         # Full 17-container cyber-physical digital twin mesh
+    ├── manifest.json
+    ├── scenario.yaml
+    ├── run_demo.sh
+    ├── configs/
+    │   ├── plc_register_map.json
+    │   ├── sensor_attack_matrix.json
+    │   ├── lab_plugins/industrial_ics.json   # OCP dynamic category definitions
+    │   └── nodes/
+    │       ├── node_01_substation_alpha.yaml # Substation Alpha (OpenVINO + Modbus/PMU)
+    │       ├── node_02_hospital_pacs.yaml    # Hospital PACS (TensorRT + FLIR/LiDAR)
+    │       └── node_03_refinery_plc.yaml     # Refinery Zone B (RKNN + S7Comm/Vibration)
+    ├── models/                               # Verified INT8/FP32 neural models (.onnx + .data)
+    └── pcaps/                                # Authentic ICS attack traces (Industroyer2, Stuxnet, Triton)
+</code></pre></div>
+<hr />
+<h2 id="9-compilation-testing-installation">9. Compilation, Testing &amp; Installation</h2>
+<h3 id="build-requirements">Build Requirements</h3>
+<ul>
+<li>Modern C++20 and C11 compiler (<code>gcc-13+</code> or <code>clang-16+</code>).</li>
+<li>Linux Kernel 6.x / 7.x with <code>eBPF</code> and <code>AF_XDP</code> support.</li>
+<li>Core libraries installed system-wide: <code>libblackbox.so</code> (Blackbox Essential) and <code>libxinfer.so</code> (xInfer Essential).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/ics-guard
+
+<span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
+make<span class="w"> </span>build
+
+<span class="c1"># 2. Execute full verification test suite (100% pass required)</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># 3. Execute cycle-accurate hardware latency benchmark (&lt; 120 ns target)</span>
+make<span class="w"> </span>bench
+
+<span class="c1"># 4. Install shared libraries, plugins, CLI bridges, and research harnesses</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+
+<span class="c1"># 5. Synchronize artifacts with sentinel-matrix and sentinel-nexus</span>
+make<span class="w"> </span>sync-all
+</code></pre></div>
+<h3 id="deployed-system-artifacts">Deployed System Artifacts</h3>
+<ul>
+<li><code>/usr/local/lib/libics_guard.so</code> &amp; <code>libics_guard.a</code></li>
+<li><code>/usr/local/lib/blackbox/ics_guard_dissector_plugin.so</code> (Blackbox dynamic dissector path)</li>
+<li><code>/usr/local/bin/aryo-ics</code> (Master CLI extension)</li>
+<li><code>/usr/local/bin/ics-guard-ctl</code> (Diagnostic tool)</li>
+<li><code>/usr/local/bin/mock_plc</code> (Honeytap PLC decoy)</li>
+<li><code>/etc/sentinel/lab/harnesses/ics_*.py</code> &amp; <code>/opt/sentinel-stack/harnesses/ics-*.py</code></li>
+</ul>
+<hr />
+<h2 id="10-operator-cli-operations-aryo-ics-aryo-lab">10. Operator CLI Operations (<code>aryo ics</code> &amp; <code>aryo lab</code>)</h2>
+<p>The master CLI <code>aryo</code> automatically detects and delegates to <code>ics-guard</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display extension status and capabilities</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>--plugin-desc
+
+<span class="c1"># Verify protocol gate self-tests</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>verify-modbus<span class="w">      </span><span class="c1"># Modbus TCP FC03 read vs FC05 write lockout</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>verify-s7<span class="w">          </span><span class="c1"># Siemens S7Comm CPU STOP (0x29) interception</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>verify-iec104<span class="w">      </span><span class="c1"># IEC 60870-5-104 breaker trip (COT=6) interception</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>verify-cbf<span class="w">         </span><span class="c1"># Nagumo CBF thermal stability invariance evaluation</span>
+aryo<span class="w"> </span>ics<span class="w"> </span>airgap-status<span class="w">      </span><span class="c1"># Inspect real-time hardware actuator air-gap latch</span>
+
+<span class="c1"># Execute automated research evaluation harnesses (Sentinel-Lab)</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-modbus-tamper<span class="w">  </span><span class="c1"># Modbus FC05 coil override vs illegal FC08 probe</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-iec104-trip<span class="w">    </span><span class="c1"># Industroyer2 breaker trip attack evaluation</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-s7-runaway<span class="w">     </span><span class="c1"># Stuxnet centrifuge overspin &amp; DB write tamper</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-triton-sis<span class="w">     </span><span class="c1"># Triconex TriStation logic tamper &amp; thermal spike</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-pmu-harmonics<span class="w">  </span><span class="c1"># Synchrophasor underfrequency &amp; harmonic distortion</span>
+aryo<span class="w"> </span>lab<span class="w"> </span>ics-airgap-tripwire#<span class="w"> </span>Nagumo<span class="w"> </span>barrier<span class="w"> </span>margin<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>forward<span class="w"> </span>invariance<span class="w"> </span>audit
+</code></pre></div>
+<hr />
+<h2 id="11-production-master-grid-digital-twin-17-containers">11. Production Master Grid Digital Twin (17 Containers)</h2>
+<p><code>ics-guard</code> orchestrates a complete 17-container industrial digital twin mesh on isolated subnet <code>10.240.0.0/24</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/ics-guard
+
+<span class="c1"># Deploy the entire 17-node simulation mesh in the background</span>
+make<span class="w"> </span>grid-up
+
+<span class="c1"># Check container runtime health and IP/port bindings</span>
+make<span class="w"> </span>grid-status
+
+<span class="c1"># Stream real-time eBPF and inference telemetry from Substation Alpha</span>
+make<span class="w"> </span>grid-logs
+
+<span class="c1"># Dismantle simulation mesh and release all network bridges</span>
+make<span class="w"> </span>grid-down
+</code></pre></div>
+<h3 id="digital-twin-network-matrix-102400024">Digital Twin Network Matrix (<code>10.240.0.0/24</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hostname / Service</th>
+<th style="text-align: left;">IP Address</th>
+<th style="text-align: left;">Host Exposed Ports</th>
+<th style="text-align: left;">Subsystem &amp; Deployed Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>nexus.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.10</code></td>
+<td style="text-align: left;"><code>9443</code>, <code>9444</code>, <code>50051</code></td>
+<td style="text-align: left;">Sentinel Nexus Command Plane + Industrial Web Plugin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>forge.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.20</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Continuous Learning Daemon (<code>xinfer-forge</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>traffic.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.50</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Synthetic Wire Traffic &amp; Attack Wave Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>monitor.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.60</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Real-Time Split-Panel Terminal UI (TUI)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>adversary.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.99</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Red-Team Ingress Node (Nmap, Modbus poll, S7 tamper)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>substation-01.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.101</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><strong>Edge Sentry 01:</strong> Substation Alpha (<code>INTEL_OPENVINO</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>hospital-02.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.102</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><strong>Edge Sentry 02:</strong> Hospital Facilities (<code>NVIDIA_TENSORRT</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>refinery-03.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.103</code></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><strong>Edge Sentry 03:</strong> Refinery Zone B (<code>ROCKCHIP_RKNN</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>camera.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.75</code></td>
+<td style="text-align: left;"><code>8554</code>, <code>8889</code></td>
+<td style="text-align: left;">Sensor: MediaMTX Radiometric RTSP Thermal Stream</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>vibration.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.76</code></td>
+<td style="text-align: left;"><code>15502:502</code></td>
+<td style="text-align: left;">Sensor: IFM Bearing &amp; Agitator Vibration Probe</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>lidar.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.77</code></td>
+<td style="text-align: left;"><code>2368/udp</code></td>
+<td style="text-align: left;">Sensor: SICK Industrial Spatial LiDAR Scanner</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>power-meter.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.78</code></td>
+<td style="text-align: left;"><code>15501:502</code></td>
+<td style="text-align: left;">Sensor: Siemens PAC3200 Synchrophasor PMU</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-synchrophasor</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.131</code></td>
+<td style="text-align: left;"><code>18093:8090</code></td>
+<td style="text-align: left;">Apparatus: PMU Scope + Industroyer2 PCAP Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-thermal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.132</code></td>
+<td style="text-align: left;"><code>18094:8090</code></td>
+<td style="text-align: left;">Apparatus: Radiometric FLIR + Triton SIS PCAP Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>apparatus-reactor</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.133</code></td>
+<td style="text-align: left;"><code>18095:8090</code></td>
+<td style="text-align: left;">Apparatus: Exothermic Core + Stuxnet PCAP Streamer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>plc.matrix.internal</code></strong></td>
+<td style="text-align: left;"><code>10.240.0.150</code></td>
+<td style="text-align: left;"><code>502</code>, <code>102</code>, <code>2404</code></td>
+<td style="text-align: left;">Decoy: Honeytap Decoy PLC Twin (Modbus/S7/IEC-104)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-mission-control-interface">Web Mission Control Interface</h3>
+<p>Once deployed, browse to <strong><code>http://localhost:9443/</code></strong>:
+* <strong>Mission Control (Pane 01):</strong> Inspects physical apparatus scopes matching active field nodes:
+  * Selecting <code>Substation-01</code> displays the <strong>Power Quality &amp; Synchrophasor Scope</strong> (<code>:18093</code>).
+  * Selecting <code>Hospital-02</code> displays the <strong>Radiometric Thermal Vision Camera</strong> (<code>:18094</code>).
+  * Selecting <code>Refinery-03</code> displays the <strong>Exothermic Reaction Vessel Core</strong> (<code>:18095</code>).
+* <strong>Sidebar Navigation:</strong> Access the dedicated <strong>"🏭 Industrial SCADA C2"</strong> dashboard for fleet-wide telemetry, THD measurements, vessel pressure tracking, and on-demand malware replay bursts.</p>
+<hr />
+<h2 id="12-regulatory-compliance-standards-alignment">12. Regulatory Compliance &amp; Standards Alignment</h2>
+<p><code>ics-guard</code> automates continuous regulatory audit reporting via the Sentinel Nexus REST API:</p>
+<h3 id="a-iec-62443-industrial-cyber-physical-systems-security">A. IEC 62443 (Industrial Cyber-Physical Systems Security)</h3>
+<ul>
+<li><strong>IEC 62443-3-3 System Security Requirements:</strong> Satisfies Foundational Requirements FR 3 (System Integrity) and FR 5 (Network Segmentation / Zone &amp; Conduit boundary protection) via sub-microsecond in-kernel eBPF packet drops.</li>
+<li><strong>IEC 62443-4-2 Component Security Requirements:</strong> Enforces local cryptoprocessor attestation (TPM 2.0) and software component verification (CycloneDX SBOM export).</li>
+</ul>
+<h3 id="b-eu-nis2-directive-directive-20222555">B. EU NIS2 Directive (Directive 2022/2555)</h3>
+<ul>
+<li><strong>Article 21(2)(a) Risk Analysis &amp; Asset Mapping:</strong> Automated live enumeration of active OT field nodes and protocol routes.</li>
+<li><strong>Article 21(2)(b) Incident Handling &amp; Sub-ms Mitigation:</strong> Cryptographically verified mitigation latency SLAs ($&lt; 0.84\,\mu\text{s}$) with automated in-kernel drop logging.</li>
+<li><strong>Article 21(2)(d) Supply Chain Security:</strong> Mandatory OpenSSL SHA-256 digest validation of all incoming neural model weights and software extension packages.</li>
+<li><strong>Article 21(2)(h) Cryptographic Attestation:</strong> Silicon-anchored hardware root-of-trust authentication for all telemetry and telecommand gateways.</li>
+</ul>
+<hr />
+<h2 id="13-research-preprint-authorship">13. Research Preprint &amp; Authorship</h2>
+<ul>
+<li><strong>Corporate Entity:</strong> Aryorithm Technologies B.V. (Amsterdam, The Netherlands)</li>
+<li><strong>Founder &amp; Chief Technology Officer:</strong> Kamran Saberifard (<a href="https://github.com/kamisaberi">github.com/kamisaberi</a>)</li>
+<li><strong>Permanent Research DOI:</strong> CERN / Zenodo: <a href="https://doi.org/10.5281/zenodo.23598779"><code>10.5281/zenodo.23598779</code></a></li>
+<li><strong>License:</strong> Proprietary / Commercial Licensing available from Aryorithm Technologies B.V.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","search.suggest","search.highlight","content.code.copy"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>
