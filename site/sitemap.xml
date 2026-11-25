@@ -1327,6 +1327,9 @@
         <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/getting-started/ten-minute-quickstart/</loc>
       </url>
       <url>
+        <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/getting-started/verifying-services/</loc>
+      </url>
+      <url>
         <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/hierarchical-asset-topology/</loc>
       </url>
       <url>
@@ -1409,6 +1412,9 @@
       </url>
       <url>
         <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/troubleshooting/sse-stream-disconnects/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/troubleshooting/support/</loc>
       </url>
       <url>
         <loc>https://docs.aryorithm.com/08-components/sentinel-nexus/tutorials/</loc>

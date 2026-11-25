@@ -1,8 +1,3 @@
----
-
-### File: `sentinel-nexus/docs/getting-started/verifying-services.md`
-
-```markdown
 # Verifying Services & Port Status
 
 Confirm that all three network services exposed by `sentinel-nexus` are bound and accepting traffic.
@@ -60,5 +55,3 @@ curl -N http://localhost:9444/stream
 event: fleet_tick
 data: {"timestamp_ns":1791172800184000000,"online_nodes":1,"total_drops_today":1420,"fleet_sla_us":0.82}
 ```
-```
-
