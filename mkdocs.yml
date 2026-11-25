@@ -19,7 +19,6 @@ theme:
         icon: material/brightness-4
         name: Switch to dark mode
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.expand
     - navigation.top
@@ -27,6 +26,12 @@ theme:
     - search.highlight
     - content.code.copy
 
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home & Master Map: index.md
+  
 markdown_extensions:
   - admonition
   - pymdownx.details
