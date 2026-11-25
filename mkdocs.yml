@@ -1,0 +1,74 @@
+site_name: Aryorithm / Blackbox Sentinel — Master Ecosystem Documentation
+site_url: https://docs.aryorithm.com
+site_description: Unified Engineering, Architecture, Operations, and Investor Documentation across all 14 Repositories.
+site_author: Kamran Saberifard (Aryorithm Technologies B.V.)
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+
+nav:
+  - Home & Master Map: index.md
+  - 1. Executive & Fundraising:
+      - Vision & Competitive Moat: 01-executive-and-fundraising/01-executive-summary-and-moat.md
+      - Verified Benchmarks & DOI: 01-executive-and-fundraising/02-verified-benchmarks-and-doi.md
+      - 50-Product Portfolio Matrix: 01-executive-and-fundraising/03-portfolio-50-products.md
+      - Commercialization & Next Steps: 01-executive-and-fundraising/04-commercialization-and-next-steps.md
+  - 2. System Architecture:
+      - 5-Tier Dependency DAG (14 Repos): 02-architecture/01-five-tier-dependency-dag.md
+      - Sovereign Sentinel Filesystem (SSFS): 02-architecture/02-ssfs-storage-architecture.md
+      - Data Plane (eBPF/XDP & xInfer): 02-architecture/03-data-plane-ebpf-and-xinfer.md
+      - Multi-Bus Ingress & ModelRouter: 02-architecture/04-multi-bus-ingress-and-router.md
+      - Control Plane (Nexus, Forge, Lab): 02-architecture/05-control-plane-c2-and-forge.md
+  - 3. Developer & SDK:
+      - Master Build Order & Linkage: 03-developer-and-sdk/01-master-build-and-linkage-dag.md
+      - Cartridge & 3-Tier Plugin SDK: 03-developer-and-sdk/02-cartridge-and-plugin-sdk.md
+      - Binary Formats (.spkg/.slab/.aryopack): 03-developer-and-sdk/03-binary-formats-specification.md
+  - 4. Domain Cartridges:
+      - Overview & 50/50 Coverage: 04-domain-cartridges/00-cartridges-overview.md
+      - "Cartridge #1: ics-guard": 04-domain-cartridges/01-ics-guard.md
+      - "Cartridge #2: ccsds-guard": 04-domain-cartridges/02-ccsds-guard.md
+      - "Cartridge #3: net-guard": 04-domain-cartridges/03-net-guard.md
+      - "Cartridge #4: motion-guard": 04-domain-cartridges/04-motion-guard.md
+      - "Cartridge #5: vision-guard": 04-domain-cartridges/05-vision-guard.md
+  - 5. Operations & Scenarios:
+      - Master CLI (aryo, sentinel-ctl, sfs): 05-operations-and-cli/01-cli-reference.md
+      - 50-Recipe Scenario Catalog: 05-operations-and-cli/02-50-scenario-catalog.md
+  - 6. Compliance & Assurance:
+      - EU NIS2, IEC 62443, CMMC & TPM 2.0: 06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md
+  - 7. Investor Live Demos:
+      - 5-Minute Digital Twin Playbooks: 07-investor-and-customer-demos/01-five-minute-demos.md
+  - 8. Component Docs (Synced): 08-components/README.md
+  - 9. Business & Research Archive: 09-archive-business-and-research/README.md
