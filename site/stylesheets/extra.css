@@ -1,0 +1,86 @@
+/* ==============================================================================
+   ARYORITHM MASTER DOCUMENTATION — OPERATIONS DASHBOARD DESIGN SYSTEM
+   ============================================================================== */
+
+/* 1. Full-Width Viewport Canvas Expansion */
+.md-grid {
+  max-width: 98% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 2. Primary Navigation Rail: Console Dashboard Styling */
+.md-sidebar--primary {
+  width: 18.5rem !important;
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  background-color: #090d16;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+[data-md-color-scheme="default"] .md-sidebar--primary .md-sidebar__scrollwrap {
+  background-color: #0f172a;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Section Demarcation & Category Micro-Typography */
+.md-nav__item--section > .md-nav__link,
+.md-nav__item--nested > .md-nav__link,
+.md-nav__item--nested > label.md-nav__link {
+  text-transform: uppercase !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #64748b !important;
+  margin-top: 0.85rem !important;
+  padding: 0.35rem 0.6rem !important;
+}
+
+/* 4. Navigation Links: Dashboard Pill Geometry */
+.md-nav__link {
+  border-radius: 6px !important;
+  padding: 0.32rem 0.65rem !important;
+  margin: 0.1rem 0.2rem !important;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-size: 0.82rem !important;
+}
+
+/* Hover State */
+.md-nav__link:hover {
+  background-color: rgba(0, 240, 255, 0.07) !important;
+  color: #00f0ff !important;
+}
+
+/* Active State: Cyber-Physical Cyan Accent Indicator */
+.md-nav__item--active > .md-nav__link {
+  background-color: rgba(0, 240, 255, 0.12) !important;
+  color: #00f0ff !important;
+  font-weight: 600 !important;
+  border-left: 3px solid #00f0ff !important;
+  padding-left: 0.55rem !important;
+}
+
+/* 5. Sleek Custom Scrollbar Ergonomics */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 2px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* 6. Content Pane Header Cleanliness */
+.md-content {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
