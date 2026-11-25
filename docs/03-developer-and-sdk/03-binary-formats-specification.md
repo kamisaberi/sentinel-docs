@@ -1,14 +1,8 @@
-# Binary Formats Specification (.spkg, .slab, .blueprint, .aryopack)
-
+Binary Formats Specification (.spkg, .slab, .blueprint, .aryopack)
 Aryorithm enforces strict, packed binary container layouts across all offline artifact pipelines.
-
----
-
-## 1. Sentinel Distribution Package (`.spkg`)
-
-All cryptographic reflex rules and dissectors are encapsulated within a sealed `.spkg` container:
-
-```text
+1. Sentinel Distribution Package (.spkg)
+All cryptographic reflex rules and dissectors are encapsulated within a sealed .spkg container:
+Text
 ┌─────────────────────────┬──────────────────────┬───────────────────────────────────────────────────────┐
 │ Field                   │ Type                 │ Description                                           │
 ├─────────────────────────┼──────────────────────┼───────────────────────────────────────────────────────┤
@@ -22,18 +16,35 @@ All cryptographic reflex rules and dissectors are encapsulated within a sealed `
 │ test_vector_len         │ uint32_t (4B)        │ Byte length of pre-flight validation frame (.bin)     │
 │ reserved                │ uint32_t (4B)        │ Reserved for future silicon alignment flags           │
 └─────────────────────────┴──────────────────────┴───────────────────────────────────────────────────────┘
-```
-
-The 64-byte Ed25519 signature is computed over a **4-way Merkle tree**:
-$$\text{MerkleRoot} = \text{SHA256}(\text{SHA256}(\text{manifest}) \parallel \text{SHA256}(\text{payload}) \parallel \text{SHA256}(\text{source}) \parallel \text{SHA256}(\text{test\_vector}))$$
-
----
-
-## 2. Sentinel Lab Research Dataset (`.slab`)
-
-The `.slab` format is a zero-copy, binary streaming protocol designed for high-throughput packet replay and telemetry storage (`> 40M EPS`):
-
-```text
+The 64-byte Ed25519 signature is computed over a 4-way Merkle tree:
+MerkleRoot
+=
+SHA256
+(
+SHA256
+(
+manifest
+)
+∥
+SHA256
+(
+payload
+)
+∥
+SHA256
+(
+source
+)
+∥
+SHA256
+(
+test_vector
+)
+)
+MerkleRoot=SHA256(SHA256(manifest)∥SHA256(payload)∥SHA256(source)∥SHA256(test_vector))
+2. Sentinel Lab Research Dataset (.slab)
+The .slab format is a zero-copy, binary streaming protocol designed for high-throughput packet replay and telemetry storage (> 40M EPS):
+Text
 ┌─────────────────────────┬──────────────────────┬───────────────────────────────────────────────────────┐
 │ Field                   │ Type                 │ Description                                           │
 ├─────────────────────────┼──────────────────────┼───────────────────────────────────────────────────────┤
@@ -43,4 +54,3 @@ The `.slab` format is a zero-copy, binary streaming protocol designed for high-t
 │ tensor_dim              │ uint32_t (4B)        │ Feature dimension (e.g., 32, 64, or 128 float32s)     │
 │ features                │ float32[tensor_dim]  │ Big-Endian IEEE-754 single-precision sensor readings  │
 └─────────────────────────┴──────────────────────┴───────────────────────────────────────────────────────┘
-```
