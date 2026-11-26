@@ -43452,7 +43452,7 @@
 <h3 id="the-edge-security-trilemma">The Edge Security Trilemma</h3>
 <p>Before this implementation, extending <code>blackbox-sentinel</code> required writing native C++ code directly inside the daemon source tree and recompiling the entire appliance. In production critical cyber-physical systems (CPS), this creates a classic engineering trilemma:</p>
 <ol>
-<li><strong>Performance:</strong> Industrial protocols (Siemens S7, GOOSE, Modbus) demand <strong>sub-microsecond ($&lt; 1.0\,\mu\text{s}$)</strong> line-rate evaluation.</li>
+<li><strong>Performance:</strong> Industrial protocols (Siemens S7, GOOSE, Modbus) demand <strong>sub-microsecond (<span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span>)</strong> line-rate evaluation.</li>
 <li><strong>Safety &amp; Sandboxing:</strong> Running untrusted third-party or community-written dissectors directly in the daemon process risks memory corruption, segfaults, or daemon crashes.</li>
 <li><strong>Agility:</strong> Responding to active zero-day exploits (e.g., Log4j, HTTP Rapid Reset) cannot wait for a daemon restart, compile cycle, or appliance reboot.</li>
 </ol>
@@ -43486,7 +43486,7 @@ Wasm Micro-Sandbox   LuaJIT Hot-Reload (inotify)
 <tr>
 <td style="text-align: left;"><strong>Tier A</strong></td>
 <td style="text-align: left;"><strong>Native C++20 SDK</strong> (<code>.so</code>)</td>
-<td style="text-align: left;"><strong>$&lt; 150\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 150\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Process-native (trusted)</td>
 <td style="text-align: left;">Dynamic <code>dlopen</code></td>
 <td style="text-align: left;">Ultra-fast OT/SCADA industrial dissectors (Modbus, S7, GOOSE)</td>
@@ -43494,7 +43494,7 @@ Wasm Micro-Sandbox   LuaJIT Hot-Reload (inotify)
 <tr>
 <td style="text-align: left;"><strong>Tier C</strong></td>
 <td style="text-align: left;"><strong>LuaJIT Hot-Reload</strong> (<code>.lua</code>)</td>
-<td style="text-align: left;"><strong>$&lt; 450\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 450\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Lua State Sandbox</td>
 <td style="text-align: left;">Kernel <code>inotify</code> (0-downtime)</td>
 <td style="text-align: left;">Emergency zero-day signatures, packet heuristics, rate limiters</td>
@@ -43502,7 +43502,7 @@ Wasm Micro-Sandbox   LuaJIT Hot-Reload (inotify)
 <tr>
 <td style="text-align: left;"><strong>Tier B</strong></td>
 <td style="text-align: left;"><strong>Wasm Micro-Sandbox</strong> (<code>.wasm</code>)</td>
-<td style="text-align: left;"><strong>$&lt; 1.5\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 1.5\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">Strict Linear Memory VM</td>
 <td style="text-align: left;">Isolated Bytecode Load</td>
 <td style="text-align: left;">Untrusted community plugins, complex L7 app logic (DICOM, HL7, V2X)</td>
@@ -43560,7 +43560,7 @@ Wasm Micro-Sandbox   LuaJIT Hot-Reload (inotify)
 </ul>
 <h3 id="43-tier-b-webassembly-wasm-micro-sandbox-srcsdkwasmsandboxcpp">4.3 Tier B: WebAssembly (Wasm) Micro-Sandbox (<code>src/sdk/WasmSandbox.cpp</code>)</h3>
 <ul>
-<li><strong>Engine Choice:</strong> Embedded <strong>Wasm3</strong>, the fastest interpreted WebAssembly engine. It adds $&lt; 100\,\text{KB}$ to the binary footprint and requires no multi-second LLVM JIT warmup.</li>
+<li><strong>Engine Choice:</strong> Embedded <strong>Wasm3</strong>, the fastest interpreted WebAssembly engine. It adds <span class="arithmatex">\(&lt; 100\,\text{KB}\)</span> to the binary footprint and requires no multi-second LLVM JIT warmup.</li>
 <li><strong>Strict Linear Memory Isolation:</strong> The Wasm module cannot access host process memory. The host engine stages the raw packet into the Wasm module's linear memory scratchpad at offset <code>0x1000</code> and executes <code>sentinel_dissect(offset, len)</code>.</li>
 <li><strong>Safe Host Capabilities:</strong> Host system calls (<code>sentinel_host_drop_ipv4</code>, <code>sentinel_host_log</code>, <code>sentinel_host_emit_metric</code>) are explicitly linked via Wasm3 raw function bridges. A trapped or crashing Wasm plugin cannot bring down the parent daemon.</li>
 </ul>
@@ -43670,9 +43670,9 @@ Wasm Micro-Sandbox   LuaJIT Hot-Reload (inotify)
 </code></pre></div>
 <h3 id="key-performance-takeaways">Key Performance Takeaways</h3>
 <ol>
-<li><strong>Tier A (Native C++):</strong> Executes in <strong>$124\,\text{ns}$</strong>—well within the $&lt; 1.0\,\mu\text{s}$ SLA for line-rate physical OT packet defense.</li>
-<li><strong>Tier C (LuaJIT):</strong> Executes in <strong>$376\,\text{ns}$</strong> while allowing instant, zero-downtime hot-reloading.</li>
-<li><strong>Tier B (Wasm Sandbox):</strong> Executes in <strong>$1.38\,\mu\text{s}$</strong> with full hardware and memory isolation for third-party marketplace modules.</li>
+<li><strong>Tier A (Native C++):</strong> Executes in <strong><span class="arithmatex">\(124\,\text{ns}\)</span></strong>—well within the <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span> SLA for line-rate physical OT packet defense.</li>
+<li><strong>Tier C (LuaJIT):</strong> Executes in <strong><span class="arithmatex">\(376\,\text{ns}\)</span></strong> while allowing instant, zero-downtime hot-reloading.</li>
+<li><strong>Tier B (Wasm Sandbox):</strong> Executes in <strong><span class="arithmatex">\(1.38\,\mu\text{s}\)</span></strong> with full hardware and memory isolation for third-party marketplace modules.</li>
 </ol>
 <hr />
 <h2 id="8-operational-cheat-sheet">8. Operational Cheat-Sheet</h2>
@@ -43757,6 +43757,10 @@ sudo<span class="w"> </span>cp<span class="w"> </span>build/my_dissector.so<span
       
       
         <script src="../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43138,8 +43138,8 @@
                   
 
 
-<h1 id="active-learning-the-uncertainty-entropy-gate-040-060">Active Learning: The Uncertainty Entropy Gate ($0.40 - 0.60$)</h1>
-<p>In high-throughput cybersecurity environments ($&gt; 1{,}250{,}000\text{ EPS}$), training on every observed network packet is computationally infeasible and counterproductive. Over $99.9\%$ of network flows represent known benign background noise.</p>
+<h1 id="active-learning-the-uncertainty-entropy-gate-040-060">Active Learning: The Uncertainty Entropy Gate (<span class="arithmatex">\(0.40 - 0.60\)</span>)</h1>
+<p>In high-throughput cybersecurity environments (<span class="arithmatex">\(&gt; 1{,}250{,}000\text{ EPS}\)</span>), training on every observed network packet is computationally infeasible and counterproductive. Over <span class="arithmatex">\(99.9\%\)</span> of network flows represent known benign background noise.</p>
 <p><code>xinfer-forge</code> operates exclusively on data curated within the <strong>Prediction Uncertainty Window</strong>.</p>
 <hr />
 <h2 id="1-uncertainty-gating-mechanics">1. Uncertainty Gating Mechanics</h2>
@@ -43164,9 +43164,9 @@
 <hr />
 <h2 id="2-mathematical-definition-of-boundary-entropy">2. Mathematical Definition of Boundary Entropy</h2>
 <p>Prediction uncertainty is evaluated using binary Shannon entropy over the model's anomaly probability:</p>
-<p>$$\mathcal{H}(p) = -p \log_2(p) - (1 - p) \log_2(1 - p)$$</p>
-<p>$$\mathcal{H}(p) \ge \mathcal{H}(0.40) \approx 0.971\,\text{bits}$$</p>
-<p>When $p \approx 0.50$, entropy is maximized ($1.00\,\text{bit}$). These flows represent edge cases—such as subtle protocol variations or unmodeled industrial shifts—providing the highest information gain during continual fine-tuning.</p>
+<div class="arithmatex">\[\mathcal{H}(p) = -p \log_2(p) - (1 - p) \log_2(1 - p)\]</div>
+<div class="arithmatex">\[\mathcal{H}(p) \ge \mathcal{H}(0.40) \approx 0.971\,\text{bits}\]</div>
+<p>When <span class="arithmatex">\(p \approx 0.50\)</span>, entropy is maximized (<span class="arithmatex">\(1.00\,\text{bit}\)</span>). These flows represent edge cases—such as subtle protocol variations or unmodeled industrial shifts—providing the highest information gain during continual fine-tuning.</p>
 
 
 
@@ -43235,6 +43235,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

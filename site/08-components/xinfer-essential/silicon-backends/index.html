@@ -43182,7 +43182,7 @@
 <td style="text-align: left;">CUDA 12+, TensorRT 8.6–10.x</td>
 <td style="text-align: left;"><code>.engine</code>, <code>.plan</code>, <code>.onnx</code></td>
 <td style="text-align: left;"><code>cudaHostAlloc</code>, Managed Memory</td>
-<td style="text-align: left;">$&lt; 4.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 4.2\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>intel_openvino</code></td>
@@ -43190,7 +43190,7 @@
 <td style="text-align: left;">Intel Level Zero, NPU Driver, i915</td>
 <td style="text-align: left;">OpenVINO IR (<code>.xml</code>/<code>.bin</code>), <code>.onnx</code></td>
 <td style="text-align: left;"><code>ov::RemoteTensor</code>, Host-Pinned</td>
-<td style="text-align: left;">$&lt; 11.4\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 11.4\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>rockchip_rknn</code></td>
@@ -43198,7 +43198,7 @@
 <td style="text-align: left;">RKNPU2, Linux DRM / IOCTL</td>
 <td style="text-align: left;"><code>.rknn</code></td>
 <td style="text-align: left;">Linux Kernel <code>DMA-BUF</code></td>
-<td style="text-align: left;">$&lt; 8.9\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 8.9\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>qualcomm_qnn</code></td>
@@ -43206,7 +43206,7 @@
 <td style="text-align: left;">Hexagon FastRPC, QNN 2.18+</td>
 <td style="text-align: left;">QNN Context Binary (<code>.bin</code>)</td>
 <td style="text-align: left;">FastRPC ION / DMA-BUF</td>
-<td style="text-align: left;">$&lt; 6.8\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 6.8\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>amd_vitis_ai</code></td>
@@ -43214,7 +43214,7 @@
 <td style="text-align: left;">Xilinx Runtime (XRT), DPU</td>
 <td style="text-align: left;"><code>.xmodel</code></td>
 <td style="text-align: left;">XRT Contiguous Memory (BO)</td>
-<td style="text-align: left;">$&lt; 9.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 9.5\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>apple_coreml</code></td>
@@ -43222,7 +43222,7 @@
 <td style="text-align: left;">Metal Performance Shaders, ANE</td>
 <td style="text-align: left;"><code>.mlmodelc</code></td>
 <td style="text-align: left;">Metal Shared Unified Buffers</td>
-<td style="text-align: left;">$&lt; 5.1\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 5.1\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>amd_ryzen_ai</code></td>
@@ -43230,7 +43230,7 @@
 <td style="text-align: left;">AMD XDNA Driver, DirectML/ONNX</td>
 <td style="text-align: left;"><code>.onnx</code></td>
 <td style="text-align: left;">DirectML Shared Committed Memory</td>
-<td style="text-align: left;">$&lt; 12.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 12.0\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>mediatek_neuropilot</code></td>
@@ -43238,7 +43238,7 @@
 <td style="text-align: left;">APU Direct Driver, NeuroPilot SDK</td>
 <td style="text-align: left;"><code>.dla</code>, <code>.pte</code></td>
 <td style="text-align: left;">ION Linux Memory Broker</td>
-<td style="text-align: left;">$&lt; 10.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 10.2\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>hailo_hailort</code></td>
@@ -43246,7 +43246,7 @@
 <td style="text-align: left;">PCIe Driver (<code>/dev/hailo0</code>), HailoRT</td>
 <td style="text-align: left;"><code>.hef</code></td>
 <td style="text-align: left;">HailoRT Zero-Copy Host Buffers</td>
-<td style="text-align: left;">$&lt; 7.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 7.5\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>ambarella_cvflow</code></td>
@@ -43254,7 +43254,7 @@
 <td style="text-align: left;">Cavalry Driver (<code>/dev/cavalry</code>)</td>
 <td style="text-align: left;"><code>.cavalry</code></td>
 <td style="text-align: left;">Cavalry Physical Contiguous RAM</td>
-<td style="text-align: left;">$&lt; 8.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 8.2\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>samsung_enn</code></td>
@@ -43262,7 +43262,7 @@
 <td style="text-align: left;">Exynos Neural Network (ENN) Driver</td>
 <td style="text-align: left;"><code>.nnc</code></td>
 <td style="text-align: left;">ENN Unified Shared Memory</td>
-<td style="text-align: left;">$&lt; 13.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 13.5\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>google_coral</code></td>
@@ -43270,7 +43270,7 @@
 <td style="text-align: left;"><code>libedgetpu1-std</code>, Gasket Driver</td>
 <td style="text-align: left;">Edge TPU Compiled <code>.tflite</code></td>
 <td style="text-align: left;">Paged Physical Direct RAM</td>
-<td style="text-align: left;">$&lt; 28.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 28.0\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>intel_fpga_ai</code></td>
@@ -43278,7 +43278,7 @@
 <td style="text-align: left;">Intel FPGA AI Suite, OpenCL BSP</td>
 <td style="text-align: left;">Compiled Bitstream (<code>.aocx</code>)</td>
 <td style="text-align: left;">FPGA PCIe DMA Ring Buffers</td>
-<td style="text-align: left;">$&lt; 6.1\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 6.1\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>microchip_vectorblox</code></td>
@@ -43286,7 +43286,7 @@
 <td style="text-align: left;">CoreVectorBlox AXI IP Driver</td>
 <td style="text-align: left;">VectorBlox Model (<code>.blob</code>)</td>
 <td style="text-align: left;">AXI4 Non-Cached Scratchpad</td>
-<td style="text-align: left;">$&lt; 34.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 34.0\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>lattice_sensai</code></td>
@@ -43294,7 +43294,7 @@
 <td style="text-align: left;">Direct SPI / Wishbone Driver</td>
 <td style="text-align: left;">sensAI Binary (<code>.bin</code>)</td>
 <td style="text-align: left;">SPI FIFO Double-Buffering</td>
-<td style="text-align: left;">$&lt; 115.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 115.0\,\mu\text{s}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -43395,6 +43395,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

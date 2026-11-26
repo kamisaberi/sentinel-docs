@@ -43609,7 +43609,7 @@ python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</spa
 <span class="s2">"</span>
 </code></pre></div>
 <h4 id="3-inject-physical-chaos-red-team-attack">3. Inject Physical Chaos / Red-Team Attack:</h4>
-<p>Simulate the <strong>Oldsmar Water Treatment cyber-attack</strong> (forcing caustic soda dosing $\to$ chemical pH drops dangerously to 2.1):</p>
+<p>Simulate the <strong>Oldsmar Water Treatment cyber-attack</strong> (forcing caustic soda dosing <span class="arithmatex">\(\to\)</span> chemical pH drops dangerously to 2.1):</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inject chemical dosing runaway fault through master CLI:</span>
 aryo<span class="w"> </span>sensor<span class="w"> </span>fault<span class="w"> </span>s061_inline_water_ph_oxidation_reduction_orp_probe<span class="w"> </span>drop_to_val<span class="w"> </span><span class="m">2</span>.1
 
@@ -43617,7 +43617,7 @@ aryo<span class="w"> </span>sensor<span class="w"> </span>fault<span class="w"> 
 <span class="c1"># Water pH will read 2.100 pH!</span>
 </code></pre></div>
 <h4 id="4-assert-active-in-kernel-defense">4. Assert Active In-Kernel Defense:</h4>
-<p>Observe <code>blackbox-sentinel</code> logs. Because the commanded network state (<code>"Normal Operating Conditions"</code>) contradicts the physical sensor invariant ($6.5 \le \text{pH} \le 8.5$), the <strong>ThreatCorrelator</strong> trips:
+<p>Observe <code>blackbox-sentinel</code> logs. Because the commanded network state (<code>"Normal Operating Conditions"</code>) contradicts the physical sensor invariant (<span class="arithmatex">\(6.5 \le \text{pH} \le 8.5\)</span>), the <strong>ThreatCorrelator</strong> trips:
 <div class="highlight"><pre><span></span><code>[CORRELATOR VIOLATION] Sensor s061 reads 2.10 pH (Allowed: 6.5 - 8.5)
 --&gt; In-Kernel eBPF Action: Hard Drop on attacker IP executed in &lt; 0.84 µs!
 --&gt; Plant Critical Clearing Time: T_crit = 38.4 ms preserved!
@@ -43761,6 +43761,10 @@ sudo<span class="w"> </span>aryo<span class="w"> </span>blueprint<span class="w"
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

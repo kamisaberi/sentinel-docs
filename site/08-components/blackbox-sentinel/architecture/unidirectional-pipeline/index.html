@@ -43139,7 +43139,7 @@
 
 
 <h1 id="the-unidirectional-processing-pipeline">The Unidirectional Processing Pipeline</h1>
-<p>To maintain high throughput ($&gt; 1{,}250{,}000\text{ EPS}$) and avoid thread synchronization deadlocks, <code>blackbox-sentinel</code> processes all network data through a <strong>five-stage unidirectional pipeline</strong>. Packets flow strictly forward from physical ingress to kernel mitigation.</p>
+<p>To maintain high throughput (<span class="arithmatex">\(&gt; 1{,}250{,}000\text{ EPS}\)</span>) and avoid thread synchronization deadlocks, <code>blackbox-sentinel</code> processes all network data through a <strong>five-stage unidirectional pipeline</strong>. Packets flow strictly forward from physical ingress to kernel mitigation.</p>
 <hr />
 <h2 id="1-five-stage-execution-flow">1. Five-Stage Execution Flow</h2>
 <div class="highlight"><pre><span></span><code> [ PHYSICAL INGRESS: 10GbE Fiber / SPAN Port / TAP ]
@@ -43253,6 +43253,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

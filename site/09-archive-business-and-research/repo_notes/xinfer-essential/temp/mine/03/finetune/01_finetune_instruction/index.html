@@ -43339,7 +43339,7 @@
 <li><strong>Leverages the Entire PyTorch Ecosystem:</strong>
    In PyTorch, you already have access to battle-tested algorithms: <strong>LoRA (Low-Rank Adaptation), QLoRA, PEFT, AdamW, Masked Autoencoders (MAE), and SimCLR</strong>. You can write a complete self-supervised adaptation pipeline in 150 lines of Python instead of 10,000 lines of complex C++ autograd math.</li>
 <li><strong>Decoupled Execution Times:</strong></li>
-<li><strong>Inference (<code>xinfer</code>):</strong> Runs at line-rate in <strong>microseconds</strong> ($&lt;1\,\text{ms}$) on incoming packets.</li>
+<li><strong>Inference (<code>xinfer</code>):</strong> Runs at line-rate in <strong>microseconds</strong> (<span class="arithmatex">\(&lt;1\,\text{ms}\)</span>) on incoming packets.</li>
 <li><strong>Fine-Tuning (Tuner Service):</strong> Runs asynchronously in the background (e.g., once every 24 hours at 2:00 AM, or during idle CPU periods) without slowing down the active defense engine.</li>
 </ol>
 <hr />
@@ -43498,6 +43498,10 @@ The active defense daemon never stops, never drops packets, and immediately star
       
       
         <script src="../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -26717,7 +26717,7 @@
   <a href="#2-masked-reconstruction-loss-mathcall_textmae" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Masked Reconstruction Loss ($\mathcal{L}_{\text{MAE}}$)
+        2. Masked Reconstruction Loss (<span class="arithmatex">\(\mathcal{L}_{\text{MAE}}\)</span>)
       </span>
     </span>
   </a>
@@ -43125,7 +43125,7 @@
   <a href="#2-masked-reconstruction-loss-mathcall_textmae" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Masked Reconstruction Loss ($\mathcal{L}_{\text{MAE}}$)
+        2. Masked Reconstruction Loss (<span class="arithmatex">\(\mathcal{L}_{\text{MAE}}\)</span>)
       </span>
     </span>
   </a>
@@ -43161,18 +43161,18 @@
 
 
 <h1 id="composite-loss-optimization-formulation">Composite Loss Optimization Formulation</h1>
-<p>During continual training cycles, <code>xinfer-forge</code> optimizes a composite loss objective combining the <strong>Masked Reconstruction Error ($\mathcal{L}_{\text{MAE}}$)</strong> and the <strong>Temporal Contrastive Penalty ($\mathcal{L}_{\text{InfoNCE}}$)</strong>.</p>
+<p>During continual training cycles, <code>xinfer-forge</code> optimizes a composite loss objective combining the <strong>Masked Reconstruction Error (<span class="arithmatex">\(\mathcal{L}_{\text{MAE}}\)</span>)</strong> and the <strong>Temporal Contrastive Penalty (<span class="arithmatex">\(\mathcal{L}_{\text{InfoNCE}}\)</span>)</strong>.</p>
 <hr />
 <h2 id="1-total-loss-formulation">1. Total Loss Formulation</h2>
-<p>$$\mathcal{L}<em>{\text{total}}(\theta) = \mathcal{L}</em>{\text{MAE}}(x, \hat{x}; \theta) + \lambda \cdot \mathcal{L}_{\text{InfoNCE}}(z; \theta)$$</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{total}}(\theta) = \mathcal{L}_{\text{MAE}}(x, \hat{x}; \theta) + \lambda \cdot \mathcal{L}_{\text{InfoNCE}}(z; \theta)\]</div>
 <p>Where:
-* $\theta$ denotes the trainable parameter set of <code>TabularMAE</code>.
-* $\lambda = 0.15$ is the contrastive regularization weight.</p>
+* <span class="arithmatex">\(\theta\)</span> denotes the trainable parameter set of <code>TabularMAE</code>.
+* <span class="arithmatex">\(\lambda = 0.15\)</span> is the contrastive regularization weight.</p>
 <hr />
-<h2 id="2-masked-reconstruction-loss-mathcall_textmae">2. Masked Reconstruction Loss ($\mathcal{L}_{\text{MAE}}$)</h2>
+<h2 id="2-masked-reconstruction-loss-mathcall_textmae">2. Masked Reconstruction Loss (<span class="arithmatex">\(\mathcal{L}_{\text{MAE}}\)</span>)</h2>
 <p>Reconstruction loss is evaluated using Mean Squared Error (MSE), with double weighting applied to masked dimensions to force predictive inference:</p>
-<p>$$\mathcal{L}<em>{\text{MAE}} = \frac{1}{D} \sum</em>{i=1}^{D} \left[ w_i \cdot \left(x_i - \hat{x}_i\right)^2 \right]$$</p>
-<p>$$w_i = \begin{cases} 2.0, &amp; \text{if } m_i = 1 \text{ (Masked Dimension)} \ 1.0, &amp; \text{if } m_i = 0 \text{ (Unmasked Context)} \end{cases}$$</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{MAE}} = \frac{1}{D} \sum_{i=1}^{D} \left[ w_i \cdot \left(x_i - \hat{x}_i\right)^2 \right]\]</div>
+<div class="arithmatex">\[w_i = \begin{cases} 2.0, &amp; \text{if } m_i = 1 \text{ (Masked Dimension)} \\ 1.0, &amp; \text{if } m_i = 0 \text{ (Unmasked Context)} \end{cases}\]</div>
 <hr />
 <h2 id="3-pytorch-composite-loss-function-trainerpy">3. PyTorch Composite Loss Function (<code>trainer.py</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
@@ -43267,6 +43267,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

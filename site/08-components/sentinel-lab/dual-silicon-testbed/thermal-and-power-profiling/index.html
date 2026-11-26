@@ -43184,12 +43184,12 @@
 
 <h1 id="thermal-power-consumption-profiling-joules-per-classification">Thermal &amp; Power Consumption Profiling (Joules per Classification)</h1>
 <p>In industrial field hardware, edge devices operate under strict power and thermal budgets. Evaluating models solely by inference speed ignores energy efficiency.</p>
-<p><code>sentinel-lab</code> benchmarks silicon efficiency using <strong>Energy per Classification ($J/\text{inf}$)</strong>.</p>
+<p><code>sentinel-lab</code> benchmarks silicon efficiency using <strong>Energy per Classification (<span class="arithmatex">\(J/\text{inf}\)</span>)</strong>.</p>
 <hr />
 <h2 id="1-energy-calculation-formula">1. Energy Calculation Formula</h2>
-<p>Instantaneous active power ($P(t)$ in Watts) is sampled via hardware current sensors throughout a continuous 50,000-packet saturation benchmark:</p>
-<p>$$\text{Energy per Inference (Joules)} = \frac{\int_{0}^{T} P_{\text{active}}(t)\, dt}{N_{\text{total}}}$$</p>
-<p>$$\text{Efficiency} = \frac{\text{Classifications}}{1.0\,\text{Joule}} = \frac{1}{\text{Energy per Inference}}$$</p>
+<p>Instantaneous active power (<span class="arithmatex">\(P(t)\)</span> in Watts) is sampled via hardware current sensors throughout a continuous 50,000-packet saturation benchmark:</p>
+<div class="arithmatex">\[\text{Energy per Inference (Joules)} = \frac{\int_{0}^{T} P_{\text{active}}(t)\, dt}{N_{\text{total}}}\]</div>
+<div class="arithmatex">\[\text{Efficiency} = \frac{\text{Classifications}}{1.0\,\text{Joule}} = \frac{1}{\text{Energy per Inference}}\]</div>
 <hr />
 <h2 id="2-hardware-power-instrumentation-setup">2. Hardware Power Instrumentation Setup</h2>
 <div class="highlight"><pre><span></span><code> [ Physical Edge Device Under Test ]
@@ -43203,13 +43203,13 @@
 </code></pre></div>
 <hr />
 <h2 id="3-empirical-silicon-energy-efficiency-results">3. Empirical Silicon Energy Efficiency Results</h2>
-<p>Workload: <strong>32-dimensional Tabular Threat Autoencoder</strong> ($N=1$, Sustained 50k Packet Stream).</p>
+<p>Workload: <strong>32-dimensional Tabular Threat Autoencoder</strong> (<span class="arithmatex">\(N=1\)</span>, Sustained 50k Packet Stream).</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Silicon Architecture</th>
 <th style="text-align: left;">Operating Power</th>
-<th style="text-align: left;">Median Latency ($p50$)</th>
+<th style="text-align: left;">Median Latency (<span class="arithmatex">\(p50\)</span>)</th>
 <th style="text-align: left;">Energy per Inference</th>
 <th style="text-align: left;">Classifications per Joule</th>
 </tr>
@@ -43217,39 +43217,39 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Intel Core Ultra 7 (NPU.3720)</strong></td>
-<td style="text-align: left;"><strong>$6.2\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$8.4\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$52.0\,\mu\text{J}$</strong></td>
-<td style="text-align: left;"><strong>$19{,}230$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.2\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.4\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(52.0\,\mu\text{J}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(19{,}230\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NVIDIA Jetson AGX Orin</strong></td>
-<td style="text-align: left;"><strong>$12.5\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$3.8\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$47.5\,\mu\text{J}$</strong></td>
-<td style="text-align: left;"><strong>$21{,}050$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(12.5\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(3.8\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(47.5\,\mu\text{J}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(21{,}050\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Rockchip RK3588 (1 NPU Core)</strong></td>
-<td style="text-align: left;"><strong>$2.4\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$8.9\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$21.3\,\mu\text{J}$</strong></td>
-<td style="text-align: left;"><strong>$46{,}940$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(2.4\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.9\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(21.3\,\mu\text{J}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(46{,}940\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel Xeon Platinum 8480+</strong></td>
-<td style="text-align: left;">$285.0\,\text{W}$</td>
-<td style="text-align: left;"><strong>$0.92\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$262.2\,\mu\text{J}$</td>
-<td style="text-align: left;">$3{,}810$</td>
+<td style="text-align: left;"><span class="arithmatex">\(285.0\,\text{W}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.92\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(262.2\,\mu\text{J}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(3{,}810\)</span></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="4-key-takeaways">4. Key Takeaways</h2>
 <ul>
-<li><strong>Embedded ARM/NPU Silicon Leads Energy Efficiency:</strong> The Rockchip RK3588 and NVIDIA Jetson deliver up to <strong>$46{,}940\text{ classifications per Joule}$</strong>, making them suitable for solar-powered or battery-backed field nodes.</li>
-<li><strong>Server CPUs Prioritize Raw Speed:</strong> While the Intel Xeon CPU achieves the lowest absolute latency ($0.92\,\mu\text{s}$), it consumes $\sim 5\times$ more energy per classification than integrated NPU coprocessors.</li>
+<li><strong>Embedded ARM/NPU Silicon Leads Energy Efficiency:</strong> The Rockchip RK3588 and NVIDIA Jetson deliver up to <strong><span class="arithmatex">\(46{,}940\text{ classifications per Joule}\)</span></strong>, making them suitable for solar-powered or battery-backed field nodes.</li>
+<li><strong>Server CPUs Prioritize Raw Speed:</strong> While the Intel Xeon CPU achieves the lowest absolute latency (<span class="arithmatex">\(0.92\,\mu\text{s}\)</span>), it consumes <span class="arithmatex">\(\sim 5\times\)</span> more energy per classification than integrated NPU coprocessors.</li>
 </ul>
 
 
@@ -43319,6 +43319,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

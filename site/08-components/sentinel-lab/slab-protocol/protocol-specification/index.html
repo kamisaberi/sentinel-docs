@@ -43223,7 +43223,7 @@
 <td style="text-align: left;"><strong><code>dimensions</code></strong></td>
 <td style="text-align: left;"><code>uint32_t</code></td>
 <td style="text-align: left;">4 Bytes</td>
-<td style="text-align: left;">Dimensionality $D$ of the trailing tensor (e.g. 32, 42, 80).</td>
+<td style="text-align: left;">Dimensionality <span class="arithmatex">\(D\)</span> of the trailing tensor (e.g. 32, 42, 80).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>flags</code></strong></td>
@@ -43234,16 +43234,16 @@
 <tr>
 <td style="text-align: left;"><strong><code>tensor</code></strong></td>
 <td style="text-align: left;"><code>float[D]</code></td>
-<td style="text-align: left;">$D \times 4\text{ Bytes}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(D \times 4\text{ Bytes}\)</span></td>
 <td style="text-align: left;">Contiguous, normalized IEEE 754 float features.</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="3-total-wire-footprint">3. Total Wire Footprint</h2>
-<p>For a standard 32-dimensional NetFlow feature vector ($D = 32$):</p>
-<p>$$\text{Payload Size} = 24\,\text{bytes (Header)} + (32 \times 4\,\text{bytes}) = 152\,\text{bytes}$$</p>
-<p>The entire packet easily fits within standard $1500\text{-byte}$ Ethernet Maximum Transmission Units (MTU), eliminating network IP fragmentation.</p>
+<p>For a standard 32-dimensional NetFlow feature vector (<span class="arithmatex">\(D = 32\)</span>):</p>
+<div class="arithmatex">\[\text{Payload Size} = 24\,\text{bytes (Header)} + (32 \times 4\,\text{bytes}) = 152\,\text{bytes}\]</div>
+<p>The entire packet easily fits within standard <span class="arithmatex">\(1500\text{-byte}\)</span> Ethernet Maximum Transmission Units (MTU), eliminating network IP fragmentation.</p>
 
 
 
@@ -43312,6 +43312,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43160,7 +43160,7 @@
                   
 
 
-<h1 id="injecting-1000mutexts-sla-latency-breaches-make-chaos-latency">Injecting $&gt; 1{,}000\,\mu\text{s}$ SLA Latency Breaches (<code>make chaos-latency</code>)</h1>
+<h1 id="injecting-1000mutexts-sla-latency-breaches-make-chaos-latency">Injecting <span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span> SLA Latency Breaches (<code>make chaos-latency</code>)</h1>
 <p>To verify that <code>RollbackGuard</code> on <code>sentinel-nexus</code> automatically aborts degraded neural network deployments, <code>sentinel-matrix</code> provides a command to inject artificial compute latency into the active Canary edge node.</p>
 <hr />
 <h2 id="1-latency-injection-command">1. Latency Injection Command</h2>
@@ -43186,7 +43186,7 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
  │ t = 15s : Latency = 1419.8 µs──► 3RD BREACH: ROLLBACK GUARD!│
  └─────────────────────────────────────────────────────────────┘
 </code></pre></div>
-<p>When three consecutive heartbeat reports breach the $1{,}000\,\mu\text{s}$ ceiling, <code>RollbackGuard</code> trips the automated abort circuit.</p>
+<p>When three consecutive heartbeat reports breach the <span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> ceiling, <code>RollbackGuard</code> trips the automated abort circuit.</p>
 
 
 
@@ -43255,6 +43255,10 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

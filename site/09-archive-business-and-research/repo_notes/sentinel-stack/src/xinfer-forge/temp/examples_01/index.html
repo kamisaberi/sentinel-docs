@@ -43318,7 +43318,7 @@
 
 <p>Here are two complete, real-world runnable examples for <strong><code>xinfer-forge</code></strong>:</p>
 <ol>
-<li><strong><code>examples/01_continuous_network_adaptation.py</code>:</strong> An end-to-end continuous adaptation pipeline. It collects real network flows from a local facility, runs self-supervised masked feature reconstruction (SSL) to adapt to the site's unique baseline, passes the model through the safety regression gate, exports <code>models/network_threat_v2.onnx</code>, and triggers zero-downtime hot-reloading on Blackbox Sentinel. It concludes by mathematically proving that Version 2 reduced false positives while maintaining a $0.95+$ detection score on real attacks.</li>
+<li><strong><code>examples/01_continuous_network_adaptation.py</code>:</strong> An end-to-end continuous adaptation pipeline. It collects real network flows from a local facility, runs self-supervised masked feature reconstruction (SSL) to adapt to the site's unique baseline, passes the model through the safety regression gate, exports <code>models/network_threat_v2.onnx</code>, and triggers zero-downtime hot-reloading on Blackbox Sentinel. It concludes by mathematically proving that Version 2 reduced false positives while maintaining a <span class="arithmatex">\(0.95+\)</span> detection score on real attacks.</li>
 <li><strong><code>examples/02_adversarial_poisoning_defense.py</code>:</strong> Demonstrates how the <strong>Regression Safety Gate</strong> detects and blocks an attacker attempting to poison the unsupervised learning baseline.</li>
 </ol>
 <hr />
@@ -43735,6 +43735,10 @@ Attacker generated 1,500 poisoned flow vectors targeting port 502/SYN scans.
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43155,13 +43155,13 @@
  └─────────────────────────────────────────────────────────────┘
 </code></pre></div>
 <ul>
-<li><strong>Zero Memory Creep:</strong> After each adaptation cycle, <code>forge-cli</code> invokes <code>torch.cuda.empty_cache()</code> and explicit Python garbage collection (<code>gc.collect()</code>), returning RSS to baseline idle ($&lt; 220\text{ MB}$).</li>
+<li><strong>Zero Memory Creep:</strong> After each adaptation cycle, <code>forge-cli</code> invokes <code>torch.cuda.empty_cache()</code> and explicit Python garbage collection (<code>gc.collect()</code>), returning RSS to baseline idle (<span class="arithmatex">\(&lt; 220\text{ MB}\)</span>).</li>
 </ul>
 <hr />
 <h2 id="2-checkpoint-retention-policy-checkpoint_dir">2. Checkpoint Retention Policy (<code>checkpoint_dir</code>)</h2>
 <p>To prevent storage exhaustion on local NVMe or eMMC flash storage:
-* <strong>Active Verified Baseline:</strong> Stored as <code>network_threat_v1.onnx</code> ($7.4\text{ KB}$).
-* <strong>Candidate Checkpoint:</strong> Stored as <code>candidate_weights.pt</code> ($18.2\text{ KB}$).
+* <strong>Active Verified Baseline:</strong> Stored as <code>network_threat_v1.onnx</code> (<span class="arithmatex">\(7.4\text{ KB}\)</span>).
+* <strong>Candidate Checkpoint:</strong> Stored as <code>candidate_weights.pt</code> (<span class="arithmatex">\(18.2\text{ KB}\)</span>).
 * <strong>Pruning Invariant:</strong> Only the <strong>latest verified checkpoint</strong> and the <strong>active production model</strong> are retained on disk. Intermediate epoch checkpoints are discarded automatically upon training completion.</p>
 
 
@@ -43231,6 +43231,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

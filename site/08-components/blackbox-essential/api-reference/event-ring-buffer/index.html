@@ -43241,7 +43241,7 @@ Namespace: <code>blackbox</code></p>
 <h3 id="try_enqueue"><code>try_enqueue</code></h3>
 <p><div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">try_enqueue</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FlowEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
-Called exclusively by the single network driver ingestion thread. Evaluates in $O(1)$ time with zero system calls. If the ring is saturated, increments <code>dropped_count_</code> and returns <code>false</code> (Tail Drop).</p>
+Called exclusively by the single network driver ingestion thread. Evaluates in <span class="arithmatex">\(O(1)\)</span> time with zero system calls. If the ring is saturated, increments <code>dropped_count_</code> and returns <code>false</code> (Tail Drop).</p>
 <hr />
 <h3 id="try_dequeue"><code>try_dequeue</code></h3>
 <p><div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">try_dequeue</span><span class="p">(</span><span class="n">FlowEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_event</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
@@ -43315,6 +43315,10 @@ Safe for concurrent invocation by multiple worker threads. Uses an atomic Compar
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

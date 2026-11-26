@@ -43694,7 +43694,7 @@
 <strong>Public Platform:</strong> <code>aryorithm.com</code> | <code>app.aryorithm.com</code> | <code>hub.aryorithm.com</code><br />
 <strong>Founder &amp; CTO:</strong> Kamran Saberifard (<code>github.com/kamisaberi</code>)<br />
 <strong>Ecosystem Position:</strong> <code>sentinel-lab</code> (Tier 5: Research Testbed &amp; Scientific Evaluation Engine)<br />
-<strong>Core SLA Baseline:</strong> Sub-Microsecond Kernel Drops ($&lt; 0.84\,\mu\text{s}$) | 10M+ EPS via AF_XDP Zero-Copy UMEM  </p>
+<strong>Core SLA Baseline:</strong> Sub-Microsecond Kernel Drops (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) | 10M+ EPS via AF_XDP Zero-Copy UMEM  </p>
 <hr />
 <h2 id="1-executive-summary">1. Executive Summary</h2>
 <p>This master evaluation report presents the full architectural, mathematical, and operational specification of all <strong>14 Scientific Research Features</strong> added to <strong><code>sentinel-lab</code></strong>. </p>
@@ -43741,33 +43741,33 @@
 <h3 id="pillar-i-real-time-determinism-hardware-microarchitecture-cryptography">Pillar I: Real-Time Determinism, Hardware Microarchitecture &amp; Cryptography</h3>
 <h4 id="feature-7-extreme-value-wcet-determinism-engine">Feature 7: Extreme Value WCET Determinism Engine</h4>
 <ul>
-<li><strong>Mathematical Foundation:</strong> Mean or $p95$ latencies do not guarantee hard real-time safety. Option 7 applies <strong>Extreme Value Theory (EVT)</strong> to block maxima extracted from nanosecond latency sample arrays.</li>
+<li><strong>Mathematical Foundation:</strong> Mean or <span class="arithmatex">\(p95\)</span> latencies do not guarantee hard real-time safety. Option 7 applies <strong>Extreme Value Theory (EVT)</strong> to block maxima extracted from nanosecond latency sample arrays.</li>
 <li><strong>Gumbel Parameter Estimation (Method of Moments):</strong>
-  $$\mu = \bar{x}<em>{max} - \gamma \cdot \sigma</em>{Gumbel}, \quad \sigma_{Gumbel} = \frac{s \cdot \sqrt{6}}{\pi} \quad (\gamma \approx 0.577215)$$</li>
+  $<span class="arithmatex">\(\mu = \bar{x}_{max} - \gamma \cdot \sigma_{Gumbel}, \quad \sigma_{Gumbel} = \frac{s \cdot \sqrt{6}}{\pi} \quad (\gamma \approx 0.577215)\)</span>$</li>
 <li><strong>WCET Quantile Bound Equation:</strong>
-  $$x_p = \mu - \sigma_{Gumbel} \cdot \ln\left( -\ln(p) \right)$$
-  Calculates $p99.999\%$ statistical upper bounds to verify whether real-time deadlines ($100\,\mu\text{s}$) are satisfied.</li>
+  $<span class="arithmatex">\(x_p = \mu - \sigma_{Gumbel} \cdot \ln\left( -\ln(p) \right)\)</span>$
+  Calculates <span class="arithmatex">\(p99.999\%\)</span> statistical upper bounds to verify whether real-time deadlines (<span class="arithmatex">\(100\,\mu\text{s}\)</span>) are satisfied.</li>
 </ul>
 <h4 id="feature-3-microarchitectural-hardware-pmu-profiler">Feature 3: Microarchitectural Hardware PMU Profiler</h4>
 <ul>
 <li><strong>System Mechanism:</strong> Utilizes Linux native <code>perf_event_open()</code> system calls (<code>&lt;linux/perf_event.h&gt;</code>) without external dependencies.</li>
 <li><strong>Hardware Counters Profiled:</strong></li>
-<li><code>PERF_COUNT_HW_CPU_CYCLES</code> &amp; <code>PERF_COUNT_HW_INSTRUCTIONS</code> $\longrightarrow$ <strong>Instructions Per Cycle (IPC)</strong>.</li>
-<li><code>PERF_COUNT_HW_CACHE_MISSES</code> &amp; <code>PERF_COUNT_HW_CACHE_REFERENCES</code> $\longrightarrow$ <strong>Last-Level Cache (LLC) Miss Rate (%)</strong>.</li>
-<li><code>PERF_COUNT_HW_BUS_CYCLES</code> $\longrightarrow$ <strong>Memory Bus Lock Stalls</strong>.</li>
+<li><code>PERF_COUNT_HW_CPU_CYCLES</code> &amp; <code>PERF_COUNT_HW_INSTRUCTIONS</code> <span class="arithmatex">\(\longrightarrow\)</span> <strong>Instructions Per Cycle (IPC)</strong>.</li>
+<li><code>PERF_COUNT_HW_CACHE_MISSES</code> &amp; <code>PERF_COUNT_HW_CACHE_REFERENCES</code> <span class="arithmatex">\(\longrightarrow\)</span> <strong>Last-Level Cache (LLC) Miss Rate (%)</strong>.</li>
+<li><code>PERF_COUNT_HW_BUS_CYCLES</code> <span class="arithmatex">\(\longrightarrow\)</span> <strong>Memory Bus Lock Stalls</strong>.</li>
 </ul>
 <h4 id="feature-8-multi-silicon-precision-drift-profiler">Feature 8: Multi-Silicon Precision Drift Profiler</h4>
 <ul>
 <li><strong>Mathematical Foundation:</strong> Measures neural quantization drift when FP32 baseline models are compressed to FP16 or INT8 for low-power edge chips (Intel NPU, NVIDIA TensorRT, Rockchip RKNN) via <code>libxinfer.so</code>.</li>
 <li><strong>Metrics Calculated:</strong></li>
 <li><strong>Cosine Similarity:</strong>
-    $$\text{Cosine Similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}|_2 |\mathbf{B}|_2}$$</li>
+    $<span class="arithmatex">\(\text{Cosine Similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\|_2 \|\mathbf{B}\|_2}\)</span>$</li>
 <li><strong>MRD XAI Rank Inversion Rate (%):</strong> Calculates Spearman rank correlation on feature attribution vectors to verify explanation integrity across silicon targets.</li>
 </ul>
 <h4 id="feature-9-post-quantum-cryptography-pqc-ot-overhead-profiler">Feature 9: Post-Quantum Cryptography (PQC) OT Overhead Profiler</h4>
 <ul>
 <li><strong>Scientific Motivation:</strong> NIST PQC algorithms (ML-KEM / Kyber, ML-DSA / Dilithium) introduce significantly larger public keys and signatures (e.g. Dilithium-3 signature is 3,293 bytes vs. ECDSA 64 bytes).</li>
-<li><strong>System Mechanism:</strong> Simulates IP packet fragmentation over MTU boundaries ($1500\text{ bytes}$ or $512\text{ bytes}$), calculates reassembly buffer allocations, and evaluates total latency penalties against sub-millisecond OT control loop SLAs ($1.0\,\text{ms}$).</li>
+<li><strong>System Mechanism:</strong> Simulates IP packet fragmentation over MTU boundaries (<span class="arithmatex">\(1500\text{ bytes}\)</span> or <span class="arithmatex">\(512\text{ bytes}\)</span>), calculates reassembly buffer allocations, and evaluates total latency penalties against sub-millisecond OT control loop SLAs (<span class="arithmatex">\(1.0\,\text{ms}\)</span>).</li>
 </ul>
 <hr />
 <h3 id="pillar-ii-cyber-physical-physics-formal-control-safety-deception">Pillar II: Cyber-Physical Physics, Formal Control Safety &amp; Deception</h3>
@@ -43775,62 +43775,62 @@
 <ul>
 <li><strong>Scientific Mechanics:</strong> Dynamically couples packet injection jitter in <code>sentinel-lab</code> to 4th-order Runge-Kutta (RK4) numerical ODE solvers in <code>sentinel-matrix</code> (<code>plant_ode.c</code>).</li>
 <li><strong>Continuous State Integration:</strong>
-  $$\dot{x}(t) = f(x(t), u(t)) + w(t)$$
-  Calculates <strong>Critical Clearing Time ($T_{crit}$)</strong> (maximum tolerable mitigation delay before physical destruction) and the <strong>Lyapunov Stability Exponent ($\lambda$)</strong>.</li>
+  $<span class="arithmatex">\(\dot{x}(t) = f(x(t), u(t)) + w(t)\)</span>$
+  Calculates <strong>Critical Clearing Time (<span class="arithmatex">\(T_{crit}\)</span>)</strong> (maximum tolerable mitigation delay before physical destruction) and the <strong>Lyapunov Stability Exponent (<span class="arithmatex">\(\lambda\)</span>)</strong>.</li>
 </ul>
 <h4 id="feature-10-formal-barrier-function-cbf-reachability-verifier">Feature 10: Formal Barrier Function (CBF) &amp; Reachability Verifier</h4>
 <ul>
-<li><strong>Mathematical Foundation:</strong> Uses Control Barrier Functions $h(x) \ge 0$ to formally prove that an active defense response mathematically guarantees the physical state $x(t)$ <em>never</em> enters the unsafe failure set $\mathcal{U}$.</li>
+<li><strong>Mathematical Foundation:</strong> Uses Control Barrier Functions <span class="arithmatex">\(h(x) \ge 0\)</span> to formally prove that an active defense response mathematically guarantees the physical state <span class="arithmatex">\(x(t)\)</span> <em>never</em> enters the unsafe failure set <span class="arithmatex">\(\mathcal{U}\)</span>.</li>
 <li><strong>Ames / Nagumo Forward-Invariance Inequality:</strong>
-  $$\dot{h}(x, u) + \alpha \cdot h(x) \ge 0$$
-  Generates a formal verification certificate proving forward-invariance of safe set $\mathcal{C} = {x \mid h(x) \ge 0}$.</li>
+  $<span class="arithmatex">\(\dot{h}(x, u) + \alpha \cdot h(x) \ge 0\)</span>$
+  Generates a formal verification certificate proving forward-invariance of safe set <span class="arithmatex">\(\mathcal{C} = \{x \mid h(x) \ge 0\}\)</span>.</li>
 </ul>
 <h4 id="feature-5-cross-modal-causal-fdia-suite-stuxnet-triton-deception">Feature 5: Cross-Modal Causal FDIA Suite (Stuxnet / TRITON Deception)</h4>
 <ul>
-<li><strong>Threat Model:</strong> Simulates Stuxnet/TRITON style attacks by injecting spoofed network SCADA traffic reporting <code>NORMAL</code> status ($85^\circ\text{C}$) while driving out-of-band physical thermal probes to $140^\circ\text{C}$.</li>
-<li><strong>Metrics Calculated:</strong> <strong>Time-to-Divergence Detection ($T_{det}$)</strong> in <code>blackbox-sentinel</code>'s Stage 4 <code>ThreatCorrelator</code> and Causal F1-Score under active network blinding.</li>
+<li><strong>Threat Model:</strong> Simulates Stuxnet/TRITON style attacks by injecting spoofed network SCADA traffic reporting <code>NORMAL</code> status (<span class="arithmatex">\(85^\circ\text{C}\)</span>) while driving out-of-band physical thermal probes to <span class="arithmatex">\(140^\circ\text{C}\)</span>.</li>
+<li><strong>Metrics Calculated:</strong> <strong>Time-to-Divergence Detection (<span class="arithmatex">\(T_{det}\)</span>)</strong> in <code>blackbox-sentinel</code>'s Stage 4 <code>ThreatCorrelator</code> and Causal F1-Score under active network blinding.</li>
 </ul>
 <h4 id="feature-12-hardware-side-channel-powerem-telemetry-correlator">Feature 12: Hardware Side-Channel Power/EM Telemetry Correlator</h4>
 <ul>
 <li><strong>Scientific Motivation:</strong> Nation-state malware or hardware implants can forge clean network packets while executing unauthorized operations. However, physical execution creates unavoidable power consumption and electromagnetic (EM) radiation spikes.</li>
-<li><strong>System Mechanism:</strong> Ingests oscilloscope/PMU power and EM trace files, calculating the <strong>Pearson Cross-Correlation Coefficient ($\rho$)</strong> against network packet arrival rates:
-  $$\rho(X, Y) = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum (X_i - \bar{X})^2 \sum (Y_i - \bar{Y})^2}}$$</li>
+<li><strong>System Mechanism:</strong> Ingests oscilloscope/PMU power and EM trace files, calculating the <strong>Pearson Cross-Correlation Coefficient (<span class="arithmatex">\(\rho\)</span>)</strong> against network packet arrival rates:
+  $<span class="arithmatex">\(\rho(X, Y) = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum (X_i - \bar{X})^2 \sum (Y_i - \bar{Y})^2}}\)</span>$</li>
 </ul>
 <hr />
 <h3 id="pillar-iii-protocol-fuzzing-evasion-robustness-parser-security">Pillar III: Protocol Fuzzing, Evasion Robustness &amp; Parser Security</h3>
 <h4 id="feature-2-grammar-constrained-adversarial-perturbator">Feature 2: Grammar-Constrained Adversarial Perturbator</h4>
 <ul>
-<li><strong>System Mechanism:</strong> Applies bounded perturbations ($\epsilon$-ball in $L_\infty$ or $L_2$ norm) exclusively to continuous feature fields while freezing protocol header fields (indices 0, 1, 2). This tests edge AI evasion without corrupting packet CRCs or framing syntax.</li>
+<li><strong>System Mechanism:</strong> Applies bounded perturbations (<span class="arithmatex">\(\epsilon\)</span>-ball in <span class="arithmatex">\(L_\infty\)</span> or <span class="arithmatex">\(L_2\)</span> norm) exclusively to continuous feature fields while freezing protocol header fields (indices 0, 1, 2). This tests edge AI evasion without corrupting packet CRCs or framing syntax.</li>
 </ul>
 <h4 id="feature-4-differential-parser-desync-fuzzer-scada-bug-hunter">Feature 4: Differential Parser Desync Fuzzer (SCADA Bug Hunter)</h4>
 <ul>
 <li><strong>Threat Model:</strong> Discrepancies between how security filters (<code>blackbox-sentinel</code>) and field devices (<code>sentinel-matrix</code> mock PLCs) parse ambiguous frames lead to <strong>SCADA Request Smuggling</strong>.</li>
 <li><strong>Differential Oracle:</strong> Mutates MBAP length headers, COTP headers, and trailing padding, flagging a zero-day vulnerability when:
-  $$V_{gateway} == \text{PASS} \quad \land \quad V_{plc} == \text{STATE_CHANGED}$$</li>
+  $<span class="arithmatex">\(V_{gateway} == \text{PASS} \quad \land \quad V_{plc} == \text{STATE\_CHANGED}\)</span>$</li>
 </ul>
 <h4 id="feature-11-generative-stateful-scada-fuzzer">Feature 11: Generative Stateful SCADA Fuzzer</h4>
 <ul>
 <li><strong>Threat Model:</strong> Stateless fuzzers mutate single packets in isolation, which are easily caught by session firewalls. Real APTs execute multi-step session state graphs.</li>
 <li><strong>State Machine Graph Traversal:</strong>
-  $$\text{UNCONNECTED} \longrightarrow \text{COTP_ESTABLISHED} \longrightarrow \text{S7_SESSION_READY} \longrightarrow \text{BENIGN_POLLING} \longrightarrow \text{STEALTH_INJECTION}$$
+  $<span class="arithmatex">\(\text{UNCONNECTED} \longrightarrow \text{COTP\_ESTABLISHED} \longrightarrow \text{S7\_SESSION\_READY} \longrightarrow \text{BENIGN\_POLLING} \longrightarrow \text{STEALTH\_INJECTION}\)</span>$
   Tests whether deep packet inspection (DPI) state trackers accurately maintain session state.</li>
 </ul>
 <h4 id="feature-14-automated-exploit-neutralization-patch-regression-engine">Feature 14: Automated Exploit Neutralization &amp; Patch Regression Engine</h4>
 <ul>
 <li><strong>Operational Workflow:</strong> Executes automated pre-patch baseline sweeps versus post-patch candidate sweeps when deploying new <code>.spkg</code> reflex rules.</li>
-<li><strong>Differential Scorecard Output:</strong> Calculates Exploit Neutralization Rate ($100\%$ target), Throughput Delta ($\Delta \text{EPS} \le 0.5\%$), Latency Delta ($\Delta t \le 120\,\text{ns}$), and False Positive Delta ($\Delta \text{FPR} = 0$).</li>
+<li><strong>Differential Scorecard Output:</strong> Calculates Exploit Neutralization Rate (<span class="arithmatex">\(100\%\)</span> target), Throughput Delta (<span class="arithmatex">\(\Delta \text{EPS} \le 0.5\%\)</span>), Latency Delta (<span class="arithmatex">\(\Delta t \le 120\,\text{ns}\)</span>), and False Positive Delta (<span class="arithmatex">\(\Delta \text{FPR} = 0\)</span>).</li>
 </ul>
 <hr />
 <h3 id="pillar-iv-continual-ai-learning-drift-federated-safety">Pillar IV: Continual AI Learning, Drift &amp; Federated Safety</h3>
 <h4 id="feature-6-continual-learning-drift-profiler">Feature 6: Continual Learning Drift Profiler</h4>
 <ul>
-<li><strong>Mathematical Foundation:</strong> Evaluates model performance across sequential threat epochs ($T_1 \dots T_N$) to measure <strong>Catastrophic Forgetting</strong>.</li>
+<li><strong>Mathematical Foundation:</strong> Evaluates model performance across sequential threat epochs (<span class="arithmatex">\(T_1 \dots T_N\)</span>) to measure <strong>Catastrophic Forgetting</strong>.</li>
 <li><strong>Backward Transfer (BWT) &amp; Forward Transfer (FWT):</strong>
-  $$\text{BWT} = \frac{1}{N - 1} \sum_{i=1}^{N - 1} \left( R_{N-1, i} - R_{i, i} \right), \quad \text{FWT} = \frac{1}{N - 1} \sum_{i=1}^{N - 1} \left( R_{i-1, i} - \tilde{R}_i \right)$$</li>
+  $<span class="arithmatex">\(\text{BWT} = \frac{1}{N - 1} \sum_{i=1}^{N - 1} \left( R_{N-1, i} - R_{i, i} \right), \quad \text{FWT} = \frac{1}{N - 1} \sum_{i=1}^{N - 1} \left( R_{i-1, i} - \tilde{R}_i \right)\)</span>$</li>
 </ul>
 <h4 id="feature-13-federated-ai-byzantine-poisoning-evaluator">Feature 13: Federated AI &amp; Byzantine Poisoning Evaluator</h4>
 <ul>
-<li><strong>Threat Model:</strong> $K$ out of $N$ edge appliances are compromised and send poisoned gradient updates ($\Delta W_{poison}$) or sign-flipped updates during federated learning aggregation.</li>
+<li><strong>Threat Model:</strong> <span class="arithmatex">\(K\)</span> out of <span class="arithmatex">\(N\)</span> edge appliances are compromised and send poisoned gradient updates (<span class="arithmatex">\(\Delta W_{poison}\)</span>) or sign-flipped updates during federated learning aggregation.</li>
 <li><strong>Robust Aggregation Benchmarking:</strong> Benchmarks standard <strong>FedAvg</strong> against <strong>Krum</strong>, <strong>Trimmed-Mean</strong>, and <strong>Median</strong> robust aggregation algorithms, measuring Poisoning Attack Success Rate (PASR %) and Euclidean gradient distance.</li>
 </ul>
 <hr />
@@ -43975,6 +43975,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

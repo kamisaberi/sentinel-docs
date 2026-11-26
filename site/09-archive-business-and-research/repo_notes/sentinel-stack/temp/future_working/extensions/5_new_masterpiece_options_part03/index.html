@@ -43438,49 +43438,49 @@
 <h4 id="1-idea-06-cyber-physical-actuator-watermarking-replay-attack-blinding-sentry">1. Idea 06: Cyber-Physical Actuator Watermarking &amp; Replay-Attack Blinding Sentry</h4>
 <ul>
 <li><strong>The Problem:</strong> The classic Stuxnet/Industroyer attack technique is the <strong>"Record &amp; Replay Attack."</strong> Attackers record legitimate sensor telemetry during normal operating conditions, replay those static loops back to the human operators on SCADA screens, and secretly drive the real centrifuges or turbines into physical destruction in the background. Passive firewalls cannot detect this because every replayed packet is syntactically valid.</li>
-<li><strong>The Mechanism:</strong> <code>blackbox-sentinel</code>'s physical safety layer injects an imperceptible, mathematically pseudo-random <strong>physical dither signal</strong> (e.g. $\pm 0.05\%$ high-frequency voltage excitation) into the PLC actuator control loop. The <code>ThreatCorrelator</code> computes the rolling cross-correlation between the injected watermark and the resulting sensor feedback using RK4 dynamics. If the physical watermark does not reflect in the sensor readings, <strong>it mathematically proves the telemetry is replayed or faked</strong>, exposing the attack in $&lt; 200\text{ ms}$.</li>
+<li><strong>The Mechanism:</strong> <code>blackbox-sentinel</code>'s physical safety layer injects an imperceptible, mathematically pseudo-random <strong>physical dither signal</strong> (e.g. <span class="arithmatex">\(\pm 0.05\%\)</span> high-frequency voltage excitation) into the PLC actuator control loop. The <code>ThreatCorrelator</code> computes the rolling cross-correlation between the injected watermark and the resulting sensor feedback using RK4 dynamics. If the physical watermark does not reflect in the sensor readings, <strong>it mathematically proves the telemetry is replayed or faked</strong>, exposing the attack in <span class="arithmatex">\(&lt; 200\text{ ms}\)</span>.</li>
 <li><strong>CLI Command:</strong> <code>aryo watermark status</code> / <code>aryo watermark enable --amplitude 0.005</code>.</li>
 </ul>
 <hr />
 <h4 id="2-idea-07-zero-knowledge-proof-zkp-industrial-telemetry-regulatory-attestation">2. Idea 07: Zero-Knowledge Proof (ZKP) Industrial Telemetry &amp; Regulatory Attestation</h4>
 <ul>
 <li><strong>The Problem:</strong> Critical infrastructure utilities are legally mandated to prove compliance (NERC CIP, NIS2, IEC 62443, EPA safety) to external regulators, carbon auditors, or cyber insurance underwriters. However, sharing raw network captures or exact telemetry logs leaks trade secrets, proprietary chemical formulas, and exact grid vulnerabilities.</li>
-<li><strong>The Mechanism:</strong> Integrates a lightweight zero-knowledge proof circuit generator (zk-SNARK / zk-STARK) into <code>sentinel-lab</code> and <code>sentinel-nexus</code>. The edge appliance generates a compact, cryptographically verifiable mathematical proof asserting: <em>"All reactor pressures remained inside safe region $h(x) \ge 0$, zero unauthorized IPs connected, and 100% of firmware matched TPM 2.0 baselines,"</em> <strong>without revealing a single actual pressure reading or internal IP address</strong>.</li>
+<li><strong>The Mechanism:</strong> Integrates a lightweight zero-knowledge proof circuit generator (zk-SNARK / zk-STARK) into <code>sentinel-lab</code> and <code>sentinel-nexus</code>. The edge appliance generates a compact, cryptographically verifiable mathematical proof asserting: <em>"All reactor pressures remained inside safe region <span class="arithmatex">\(h(x) \ge 0\)</span>, zero unauthorized IPs connected, and 100% of firmware matched TPM 2.0 baselines,"</em> <strong>without revealing a single actual pressure reading or internal IP address</strong>.</li>
 <li><strong>CLI Command:</strong> <code>aryo zkp generate-proof --policy /etc/sentinel/compliance.yaml</code> / <code>aryo zkp verify-proof &lt;proof.bin&gt;</code>.</li>
 </ul>
 <hr />
 <h4 id="3-idea-08-dnp3-secure-authentication-sav5-rogue-rtu-decoupler">3. Idea 08: DNP3 Secure Authentication (SAv5) &amp; Rogue RTU Decoupler</h4>
 <ul>
 <li><strong>The Problem:</strong> Electrical grids and municipal water utilities across North America and Australia rely heavily on <strong>IEEE 1815 (DNP3)</strong> over TCP port 20000. Legacy DNP3 is unauthenticated. The 3GPP/IEEE DNP3-SAv5 standard introduces cryptographic challenge-response authentication, but legacy 16-bit Remote Terminal Units (RTUs) lack the processing power to execute SAv5 without incurring massive communication timeouts.</li>
-<li><strong>The Mechanism:</strong> Implements an in-kernel eBPF bump-in-the-wire proxy in <code>blackbox-essential</code>. It intercepts DNP3 Application Layer objects, terminates the SAv5 challenge-response sequence (HMAC-SHA256) on behalf of the legacy RTU in $&lt; 100\,\mu\text{s}$, verifies cryptographic user roles (Operator vs Engineer), and drops unauthenticated trip commands at $&lt; 0.84\,\mu\text{s}$ before they reach the RTU hardware.</li>
+<li><strong>The Mechanism:</strong> Implements an in-kernel eBPF bump-in-the-wire proxy in <code>blackbox-essential</code>. It intercepts DNP3 Application Layer objects, terminates the SAv5 challenge-response sequence (HMAC-SHA256) on behalf of the legacy RTU in <span class="arithmatex">\(&lt; 100\,\mu\text{s}\)</span>, verifies cryptographic user roles (Operator vs Engineer), and drops unauthenticated trip commands at <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> before they reach the RTU hardware.</li>
 <li><strong>CLI Command:</strong> <code>aryo dnp3-sa status</code> / <code>aryo dnp3-sa enforce --rtu-ip 10.240.0.50</code>.</li>
 </ul>
 <hr />
 <h4 id="4-idea-09-physical-fiber-optic-acoustic-tapping-macro-bend-intrusion-guard-das">4. Idea 09: Physical Fiber-Optic Acoustic Tapping &amp; Macro-Bend Intrusion Guard (DAS)</h4>
 <ul>
 <li><strong>The Problem:</strong> Adversaries physically tap fiber-optic SCADA lines between substations and control centers using <strong>macro-bending clips</strong> (bending the optical cable slightly to leak light photons into an external photodiode receiver without cutting the glass) or physical digging near buried optical trunks.</li>
-<li><strong>The Mechanism:</strong> Connects directly to Distributed Acoustic Sensing (DAS) and Optical Time-Domain Reflectometry (OTDR) interrogator units. Ingests raw Rayleigh/Brillouin backscatter telemetry over AF_XDP. <code>xinfer-essential</code> runs 1D-CNN spatial vibration models on edge NPUs, detecting macro-bending light leakage or the acoustic signature of physical digging near the cable within <strong>$&lt; 10\text{ ms}$</strong>, pinpointing the physical tap location to within $\pm 1\text{ meter}$.</li>
+<li><strong>The Mechanism:</strong> Connects directly to Distributed Acoustic Sensing (DAS) and Optical Time-Domain Reflectometry (OTDR) interrogator units. Ingests raw Rayleigh/Brillouin backscatter telemetry over AF_XDP. <code>xinfer-essential</code> runs 1D-CNN spatial vibration models on edge NPUs, detecting macro-bending light leakage or the acoustic signature of physical digging near the cable within <strong><span class="arithmatex">\(&lt; 10\text{ ms}\)</span></strong>, pinpointing the physical tap location to within <span class="arithmatex">\(\pm 1\text{ meter}\)</span>.</li>
 <li><strong>CLI Command:</strong> <code>aryo fiber monitor --otdr-dev /dev/otdr0</code> / <code>aryo fiber status</code>.</li>
 </ul>
 <hr />
 <h4 id="5-idea-10-decentralized-peer-consensus-mesh-air-gapped-swarm-self-immunization">5. Idea 10: Decentralized Peer Consensus Mesh (Air-Gapped Swarm Self-Immunization)</h4>
 <ul>
 <li><strong>The Problem:</strong> In severe warfighting environments, physical cable severance, or targeted cyber-attacks, remote edge facilities (e.g. offshore platforms, islanded microgrids) lose all network connection to the central <code>sentinel-nexus</code> orchestrator. If one node detects a novel zero-day, it cannot rely on Nexus to broadcast the vaccine to neighboring nodes.</li>
-<li><strong>The Mechanism:</strong> Implements a localized <strong>Practical Byzantine Fault Tolerant (PBFT) / Raft micro-consensus protocol</strong> operating directly over peer-to-peer multicast between edge appliances. When Appliance A detects an exploit and synthesizes an <code>.spkg</code> vaccine, the local cluster votes, cryptographically verifies the Ed25519 Merkle tree, and hot-swaps the vaccine across all local cluster nodes simultaneously in $&lt; 15\text{ ms}$, <strong>tolerating up to 33% compromised or offline peers</strong>.</li>
+<li><strong>The Mechanism:</strong> Implements a localized <strong>Practical Byzantine Fault Tolerant (PBFT) / Raft micro-consensus protocol</strong> operating directly over peer-to-peer multicast between edge appliances. When Appliance A detects an exploit and synthesizes an <code>.spkg</code> vaccine, the local cluster votes, cryptographically verifies the Ed25519 Merkle tree, and hot-swaps the vaccine across all local cluster nodes simultaneously in <span class="arithmatex">\(&lt; 15\text{ ms}\)</span>, <strong>tolerating up to 33% compromised or offline peers</strong>.</li>
 <li><strong>CLI Command:</strong> <code>aryo swarm status</code> / <code>aryo swarm init-cluster --peers 10.240.0.0/24</code>.</li>
 </ul>
 <hr />
 <h4 id="6-idea-11-directed-energy-emp-surge-high-power-microwave-hpm-crowbar-guard">6. Idea 11: Directed-Energy / EMP Surge &amp; High-Power Microwave (HPM) Crowbar Guard</h4>
 <ul>
-<li><strong>The Problem:</strong> Intentional Electromagnetic Interference (IEMI) and High-Power Microwave (HPM) weapons can blast localized gigawatt RF pulses into industrial control cabinets, coupling high-voltage transients ($&gt; 10\text{ kV}$) into Ethernet cables and destroying network card PHY transceivers before software can react.</li>
-<li><strong>The Mechanism:</strong> Interfaces with ultra-fast RF peak-detector diode circuits and surge sensors via hardware GPIO. When an electromagnetic transient exceeding $10\text{ kV/m}$ is detected, an in-kernel fast-path command triggers a solid-state optical bypass switch and electronic crowbar circuit within <strong>$&lt; 50\text{ nanoseconds}$</strong>, grounding the front-end transceiver and isolating the computing core before physical silicon destruction occurs.</li>
+<li><strong>The Problem:</strong> Intentional Electromagnetic Interference (IEMI) and High-Power Microwave (HPM) weapons can blast localized gigawatt RF pulses into industrial control cabinets, coupling high-voltage transients (<span class="arithmatex">\(&gt; 10\text{ kV}\)</span>) into Ethernet cables and destroying network card PHY transceivers before software can react.</li>
+<li><strong>The Mechanism:</strong> Interfaces with ultra-fast RF peak-detector diode circuits and surge sensors via hardware GPIO. When an electromagnetic transient exceeding <span class="arithmatex">\(10\text{ kV/m}\)</span> is detected, an in-kernel fast-path command triggers a solid-state optical bypass switch and electronic crowbar circuit within <strong><span class="arithmatex">\(&lt; 50\text{ nanoseconds}\)</span></strong>, grounding the front-end transceiver and isolating the computing core before physical silicon destruction occurs.</li>
 <li><strong>CLI Command:</strong> <code>aryo emp status</code> / <code>aryo emp arm-crowbar</code>.</li>
 </ul>
 <hr />
 <h4 id="7-idea-12-opc-ua-pubsub-iec-62541-14-tsn-wire-speed-serialization-firewall">7. Idea 12: OPC UA PubSub (IEC 62541-14) TSN Wire-Speed Serialization Firewall</h4>
 <ul>
 <li><strong>The Problem:</strong> Modern smart factories use <strong>OPC UA PubSub over TSN</strong> (EtherType <code>0xB62C</code> / UDP port 4840) to exchange industrial telemetry between PLCs. Attackers use malformed UADP (Universal Architecture Data Packet) chunks, forged Security Parameter Indexes (SPI), and rogue DataSetMessage injections to disrupt automated assembly lines.</li>
-<li><strong>The Mechanism:</strong> An in-kernel eBPF UADP dissector in <code>blackbox-essential</code> that validates binary DataSetWriter IDs, checks message sequence numbers against sliding-window reordering tables, verifies cryptographic symmetric HMAC signatures, and drops malformed or unauthenticated PubSub chunks in $&lt; 120\text{ ns}$.</li>
+<li><strong>The Mechanism:</strong> An in-kernel eBPF UADP dissector in <code>blackbox-essential</code> that validates binary DataSetWriter IDs, checks message sequence numbers against sliding-window reordering tables, verifies cryptographic symmetric HMAC signatures, and drops malformed or unauthenticated PubSub chunks in <span class="arithmatex">\(&lt; 120\text{ ns}\)</span>.</li>
 <li><strong>CLI Command:</strong> <code>aryo opcua status</code> / <code>aryo opcua guard-pubsub --interface eth0</code>.</li>
 </ul>
 <hr />
@@ -43493,8 +43493,8 @@
 <hr />
 <h4 id="9-idea-14-micro-pqc-distributed-pki-engine-for-low-bandwidth-radios-lms-xmss">9. Idea 14: Micro-PQC Distributed PKI Engine for Low-Bandwidth Radios (LMS / XMSS)</h4>
 <ul>
-<li><strong>The Problem:</strong> Upgrading thousands of legacy field RTUs operating over low-bandwidth $900\text{ MHz}$ serial or satellite links to Post-Quantum Cryptography fails because standard NIST ML-DSA signatures (2,420 bytes) exhaust narrow radio channels.</li>
-<li><strong>The Mechanism:</strong> Implements <strong>Stateful Hash-Based Signatures (NIST SP 800-208: Leighton-Micali Signatures / LMS and XMSS)</strong> inside <code>sentinel-nexus</code> and <code>blackbox-sentinel</code>. LMS produces microsecond-verifiable signatures as small as <strong>$800\text{ bytes}$</strong> with ultra-fast public verification ($&lt; 35\,\mu\text{s}$), allowing legacy low-bandwidth radios to achieve certified quantum-resistant authentication without channel saturation.</li>
+<li><strong>The Problem:</strong> Upgrading thousands of legacy field RTUs operating over low-bandwidth <span class="arithmatex">\(900\text{ MHz}\)</span> serial or satellite links to Post-Quantum Cryptography fails because standard NIST ML-DSA signatures (2,420 bytes) exhaust narrow radio channels.</li>
+<li><strong>The Mechanism:</strong> Implements <strong>Stateful Hash-Based Signatures (NIST SP 800-208: Leighton-Micali Signatures / LMS and XMSS)</strong> inside <code>sentinel-nexus</code> and <code>blackbox-sentinel</code>. LMS produces microsecond-verifiable signatures as small as <strong><span class="arithmatex">\(800\text{ bytes}\)</span></strong> with ultra-fast public verification (<span class="arithmatex">\(&lt; 35\,\mu\text{s}\)</span>), allowing legacy low-bandwidth radios to achieve certified quantum-resistant authentication without channel saturation.</li>
 <li><strong>CLI Command:</strong> <code>aryo pki-pqc status</code> / <code>aryo pki-pqc issue-lms --device-id RTU_42</code>.</li>
 </ul>
 <hr />
@@ -43578,6 +43578,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

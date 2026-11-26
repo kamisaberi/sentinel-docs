@@ -43157,12 +43157,12 @@
 </code></pre></div>
 <hr />
 <h2 id="2-dynamic-heatmap-scaling">2. Dynamic Heatmap Scaling</h2>
-<p>Matrix cells are shaded dynamically based on rolling incident frequency ($N_{\text{incidents}}$):</p>
-<p>$$\text{Shade Intensity} = \min\left(1.0,\, \frac{N_{\text{incidents}}}{50}\right)$$</p>
+<p>Matrix cells are shaded dynamically based on rolling incident frequency (<span class="arithmatex">\(N_{\text{incidents}}\)</span>):</p>
+<div class="arithmatex">\[\text{Shade Intensity} = \min\left(1.0,\, \frac{N_{\text{incidents}}}{50}\right)\]</div>
 <ul>
 <li><strong>Zero Incidents:</strong> Dark Slate Gray (<code>#1E222B</code>).</li>
-<li><strong>Low Activity ($1 - 10$ events):</strong> Amber Warning (<code>#FFB300</code>).</li>
-<li><strong>High Activity ($&gt; 50$ events):</strong> Saturated Red Alert (<code>#FF1744</code>).</li>
+<li><strong>Low Activity (<span class="arithmatex">\(1 - 10\)</span> events):</strong> Amber Warning (<code>#FFB300</code>).</li>
+<li><strong>High Activity (<span class="arithmatex">\(&gt; 50\)</span> events):</strong> Saturated Red Alert (<code>#FF1744</code>).</li>
 </ul>
 <p>Clicking any cell opens the <strong>XAI Root-Cause Drawer</strong>, displaying the top-3 feature attributions for that specific MITRE technique.</p>
 
@@ -43233,6 +43233,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

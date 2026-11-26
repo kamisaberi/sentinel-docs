@@ -43349,7 +43349,7 @@
   <h1>01 Strucutre</h1>
 
 <p>Building an <strong>interactive web command center</strong> for <strong>Blackbox Sentinel</strong> is a natural and necessary step. </p>
-<p>For enterprise and defense clients, <strong>the web dashboard is the product</strong>. CISOs, plant managers, and security analysts rarely log into an SSH terminal—they judge the value of a \$25,000 appliance by the responsiveness, control, and clarity of its web interface.</p>
+<p>For enterprise and defense clients, <strong>the web dashboard is the product</strong>. CISOs, plant managers, and security analysts rarely log into an SSH terminal—they judge the value of a $25,000 appliance by the responsiveness, control, and clarity of its web interface.</p>
 <hr />
 <h3 id="key-requirements-for-an-air-gapped-security-ui">Key Requirements for an Air-Gapped Security UI</h3>
 <p>Because Blackbox Sentinel is designed for <strong>air-gapped and sovereign networks</strong>, the web application must adhere to two strict rules:
@@ -43426,12 +43426,12 @@
 <h3 id="backend-rest-endpoints-needed-in-srcapirest_controllercpp">Backend REST Endpoints Needed in <code>src/api/rest_controller.cpp</code></h3>
 <p>To support these interactive controls, the Sentinel C++ REST server handles these actions:</p>
 <ol>
-<li><code>GET /api/v1/status</code> $\rightarrow$ Returns engine run state, hardware metrics, and active model.</li>
-<li><code>POST /api/v1/control/start</code> $\rightarrow$ Calls <code>security_engine.start()</code>.</li>
-<li><code>POST /api/v1/control/stop</code> $\rightarrow$ Calls <code>security_engine.stop()</code>.</li>
-<li><code>GET /api/v1/blocked-ips</code> $\rightarrow$ Returns the list of currently blocked IP addresses.</li>
-<li><code>POST /api/v1/unblock-ip</code> $\rightarrow$ Calls <code>security_engine.unblock_ip_address(ip)</code>.</li>
-<li><code>POST /api/v1/simulate-attack</code> $\rightarrow$ Triggers a background attack script (e.g., Modbus or port scan) for interactive evaluation.</li>
+<li><code>GET /api/v1/status</code> <span class="arithmatex">\(\rightarrow\)</span> Returns engine run state, hardware metrics, and active model.</li>
+<li><code>POST /api/v1/control/start</code> <span class="arithmatex">\(\rightarrow\)</span> Calls <code>security_engine.start()</code>.</li>
+<li><code>POST /api/v1/control/stop</code> <span class="arithmatex">\(\rightarrow\)</span> Calls <code>security_engine.stop()</code>.</li>
+<li><code>GET /api/v1/blocked-ips</code> <span class="arithmatex">\(\rightarrow\)</span> Returns the list of currently blocked IP addresses.</li>
+<li><code>POST /api/v1/unblock-ip</code> <span class="arithmatex">\(\rightarrow\)</span> Calls <code>security_engine.unblock_ip_address(ip)</code>.</li>
+<li><code>POST /api/v1/simulate-attack</code> <span class="arithmatex">\(\rightarrow\)</span> Triggers a background attack script (e.g., Modbus or port scan) for interactive evaluation.</li>
 </ol>
 <hr />
 <h3 id="conclusion">Conclusion</h3>
@@ -43504,6 +43504,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

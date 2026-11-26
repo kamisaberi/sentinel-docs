@@ -43236,9 +43236,9 @@
 <p><strong><code>xinfer-essential</code> (<code>libxinfer.so</code>)</strong> is an open-core, native C++20 execution engine engineered for mission-critical edge appliances, robotics, and cyber-physical systems. Bypassing Python interpreters, JVM garbage collection, and dynamic heap reallocation, xInfer delivers deterministic sub-microsecond tensor execution directly across <strong>15 heterogeneous hardware architectures</strong> via unified memory-mapped DMA buffers.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ View on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/xinfer</code></li>
-<li><code>[ Download C++ SDK / libxinfer.so ]</code> $\rightarrow$ <code>#quickstart</code></li>
-<li><code>[ Explore 15 Silicon Targets ]</code> $\rightarrow$ <code>#silicon-matrix</code></li>
+<li><code>[ View on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/xinfer</code></li>
+<li><code>[ Download C++ SDK / libxinfer.so ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#quickstart</code></li>
+<li><code>[ Explore 15 Silicon Targets ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#silicon-matrix</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43266,9 +43266,9 @@
 <p>Modern deep learning frameworks are designed for hyperscale cloud data centers where batch throughput matters more than individual packet latency. When deploying threat detection, drone avionics, or SCADA physical constraint validators to low-power edge nodes, traditional runtimes introduce critical failure modes:</p>
 <ol>
 <li><strong>Unpredictable Latency Jitter (Garbage Collection &amp; GIL):</strong><br />
-   Python-based inference engines and JVM wrappers introduce non-deterministic garbage collection pauses ranging from $15\,\text{ms}$ to over $250\,\text{ms}$. In a physical system where an overpressure valve must be actuated in under $3\,\text{ms}$, non-deterministic execution causes mechanical failure.</li>
+   Python-based inference engines and JVM wrappers introduce non-deterministic garbage collection pauses ranging from <span class="arithmatex">\(15\,\text{ms}\)</span> to over <span class="arithmatex">\(250\,\text{ms}\)</span>. In a physical system where an overpressure valve must be actuated in under <span class="arithmatex">\(3\,\text{ms}\)</span>, non-deterministic execution causes mechanical failure.</li>
 <li><strong>Memory Copy Bottlenecks:</strong><br />
-   Standard pipelines copy data repeatedly: Network Driver $\rightarrow$ OS Socket Buffer $\rightarrow$ Userspace Application $\rightarrow$ Framework Tensor $\rightarrow$ Device Memory. Every copy operations consumes memory bus bandwidth and degrades CPU cache locality.</li>
+   Standard pipelines copy data repeatedly: Network Driver <span class="arithmatex">\(\rightarrow\)</span> OS Socket Buffer <span class="arithmatex">\(\rightarrow\)</span> Userspace Application <span class="arithmatex">\(\rightarrow\)</span> Framework Tensor <span class="arithmatex">\(\rightarrow\)</span> Device Memory. Every copy operations consumes memory bus bandwidth and degrades CPU cache locality.</li>
 <li><strong>Bloated Container Images &amp; Dependency Fragility:</strong><br />
    Deploying an edge model with standard toolchains requires bundling multiple gigabytes of CUDA toolkits, Python interpreters, and conflicting dynamic libraries. <code>libxinfer.so</code> compiles down to a <strong>single lightweight shared object under 15 megabytes</strong>, making it ideal for bare metal, embedded Yocto Linux, and air-gapped microcontrollers.</li>
 </ol>
@@ -43438,7 +43438,7 @@
 ========================================================================================================
 </code></pre></div>
 <h3 id="eliminating-the-memory-bus-bottleneck">Eliminating the Memory Bus Bottleneck</h3>
-<p>Traditional machine learning frameworks allocate a new memory buffer every time an input sample is passed to the runtime. At high packet rates ($&gt; 1{,}000{,}000\,\text{EPS}$), this triggers:
+<p>Traditional machine learning frameworks allocate a new memory buffer every time an input sample is passed to the runtime. At high packet rates (<span class="arithmatex">\(&gt; 1{,}000{,}000\,\text{EPS}\)</span>), this triggers:
 * Continuous Translation Lookaside Buffer (TLB) shootdowns.
 * Rapid CPU L1/L2 cache invalidations.
 * Heap fragmentation that degrades throughput over hours of runtime.</p>
@@ -43594,8 +43594,8 @@
 </code></pre></div>
 <h3 id="key-performance-findings">Key Performance Findings</h3>
 <ul>
-<li><strong>8.5$\times$ Lower Memory Footprint:</strong> By eliminating heavy framework runtimes, <code>libxinfer.so</code> operates with an idle footprint of <strong>$18\,\text{MB}$</strong>, fitting into resource-constrained industrial embedded systems.</li>
-<li><strong>Deterministic Tail Latency ($p99$):</strong> While Python-wrapped ONNX Runtime exhibits significant tail spikes ($450\,\mu\text{s}$) due to interpreter scheduling, <code>xinfer</code> maintains flat $p99$ latency ($14\,\mu\text{s}$) under saturation.</li>
+<li><strong>8.5<span class="arithmatex">\(\times\)</span> Lower Memory Footprint:</strong> By eliminating heavy framework runtimes, <code>libxinfer.so</code> operates with an idle footprint of <strong><span class="arithmatex">\(18\,\text{MB}\)</span></strong>, fitting into resource-constrained industrial embedded systems.</li>
+<li><strong>Deterministic Tail Latency (<span class="arithmatex">\(p99\)</span>):</strong> While Python-wrapped ONNX Runtime exhibits significant tail spikes (<span class="arithmatex">\(450\,\mu\text{s}\)</span>) due to interpreter scheduling, <code>xinfer</code> maintains flat <span class="arithmatex">\(p99\)</span> latency (<span class="arithmatex">\(14\,\mu\text{s}\)</span>) under saturation.</li>
 <li><strong>Sustained Single-Node Throughput:</strong> Achieves <strong>1,250,000 events/second</strong> on a single node when paired with <code>libblackbox.so</code>'s lock-free SPMC ring buffer.</li>
 </ul>
 <hr />
@@ -43632,7 +43632,7 @@
 <h4 id="q-can-xinfer-run-multiple-models-concurrently-on-the-same-chip">Q: Can <code>xinfer</code> run multiple models concurrently on the same chip?</h4>
 <p><strong>A:</strong> Yes. <code>InferenceEngine</code> instances are lightweight and completely thread-safe. Multiple engines can share a single physical accelerator (e.g., executing a primary NetFlow autoencoder alongside a secondary vision classifier on an NVIDIA GPU or Intel NPU) using dedicated, asynchronous hardware queues without memory collisions.</p>
 <h4 id="q-does-xinfer-require-compiling-models-from-scratch-on-every-boot">Q: Does <code>xinfer</code> require compiling models from scratch on every boot?</h4>
-<p><strong>A:</strong> No. <code>xinfer</code> caches compiled, hardware-specific binaries (<code>.engine</code>, <code>.rknn</code>, <code>.hef</code>) on local disk. Once a model is compiled for target silicon, subsequent launches load the pre-compiled binary in less than <strong>$5\,\text{milliseconds}$</strong>.</p>
+<p><strong>A:</strong> No. <code>xinfer</code> caches compiled, hardware-specific binaries (<code>.engine</code>, <code>.rknn</code>, <code>.hef</code>) on local disk. Once a model is compiled for target silicon, subsequent launches load the pre-compiled binary in less than <strong><span class="arithmatex">\(5\,\text{milliseconds}\)</span></strong>.</p>
 <h4 id="q-how-does-xinfer-handle-custom-or-unsupported-neural-operators">Q: How does <code>xinfer</code> handle custom or unsupported neural operators?</h4>
 <p><strong>A:</strong> Through the <code>IInferencePlugin</code> architecture. If a specialized layer (e.g., custom geometric transform or non-standard activation) is not natively supported by the silicon vendor's driver, a developer compiles the operator as an isolated C++ <code>.so</code> plugin. <code>xinfer</code> dynamically injects the operator into the execution graph at load time.</p>
 <hr />
@@ -43715,6 +43715,10 @@
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

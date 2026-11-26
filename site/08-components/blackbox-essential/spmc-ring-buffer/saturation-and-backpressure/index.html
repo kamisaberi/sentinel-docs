@@ -43202,7 +43202,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-hardware-backpressure-signaling-to-ebpf">3. Hardware Backpressure Signaling to eBPF</h2>
-<p>If saturation exceeds $95\%$, <code>libblackbox.so</code> signals the in-kernel eBPF filter (<code>xdp_filter.o</code>) to enable aggressive rate limiting:</p>
+<p>If saturation exceeds <span class="arithmatex">\(95\%\)</span>, <code>libblackbox.so</code> signals the in-kernel eBPF filter (<code>xdp_filter.o</code>) to enable aggressive rate limiting:</p>
 <div class="highlight"><pre><span></span><code>[ RingBuffer Saturation &gt; 95% ]
                │
                ▼ Control Plane Updates BPF Flag
@@ -43280,6 +43280,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

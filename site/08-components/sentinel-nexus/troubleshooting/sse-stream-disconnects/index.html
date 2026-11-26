@@ -43195,7 +43195,7 @@
 
 
 <h1 id="troubleshooting-real-time-sse-stream-disconnects-port-9444">Troubleshooting Real-Time SSE Stream Disconnects (Port 9444)</h1>
-<p>The Server-Sent Events (SSE) telemetry pipeline pushes updates at up to $100\text{ Hz}$ to the Web Command Center. If intermediary reverse proxies (such as Nginx, HAProxy, or Envoy) or browser timeouts interrupt the stream, the UI topology will freeze.</p>
+<p>The Server-Sent Events (SSE) telemetry pipeline pushes updates at up to <span class="arithmatex">\(100\text{ Hz}\)</span> to the Web Command Center. If intermediary reverse proxies (such as Nginx, HAProxy, or Envoy) or browser timeouts interrupt the stream, the UI topology will freeze.</p>
 <hr />
 <h2 id="1-symptom-visual-indicator">1. Symptom &amp; Visual Indicator</h2>
 <p>On the Web Command Center (port 9443):
@@ -43226,7 +43226,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-keepalive-heartbeat-verification">3. Keepalive Heartbeat Verification</h2>
-<p><code>sentinel-nexus</code> emits an empty comment frame (<code>: keepalive\n\n</code>) every $15.0\text{ seconds}$ to prevent firewall state tables from closing idle TCP connections. </p>
+<p><code>sentinel-nexus</code> emits an empty comment frame (<code>: keepalive\n\n</code>) every <span class="arithmatex">\(15.0\text{ seconds}\)</span> to prevent firewall state tables from closing idle TCP connections. </p>
 <p>Verify the raw stream output from the command line:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-N<span class="w"> </span>-v<span class="w"> </span>http://localhost:9444/stream
 </code></pre></div>
@@ -43298,6 +43298,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -24282,7 +24282,7 @@
   <a href="#q5-how-can-i-achieve-1mutexts-latency-on-cpu-execution" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q5: How can I achieve $&lt; 1\,\mu\text{s}$ latency on CPU execution?
+        Q5: How can I achieve <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> latency on CPU execution?
       </span>
     </span>
   </a>
@@ -43180,7 +43180,7 @@
   <a href="#q5-how-can-i-achieve-1mutexts-latency-on-cpu-execution" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q5: How can I achieve $&lt; 1\,\mu\text{s}$ latency on CPU execution?
+        Q5: How can I achieve <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> latency on CPU execution?
       </span>
     </span>
   </a>
@@ -43216,15 +43216,15 @@
 <p><code>xinfer-essential</code> isolates driver errors at the <code>IInferencePlugin</code> boundary. If an accelerator encounters a hardware fault (e.g., PCIe timeout or driver crash), the engine catches the low-level failure, releases driver resources safely, and throws a typed <code>InferenceException</code>. If configured, it automatically redirects the next inference pass to the optimized SIMD CPU reference backend.</p>
 <hr />
 <h3 id="q4-does-xinfer-transmit-any-metrics-or-telemetry-over-the-internet">Q4: Does <code>xinfer</code> transmit any metrics or telemetry over the internet?</h3>
-<p><strong>No.</strong> <code>xinfer-essential</code> enforces a $\$0.00$ cloud egress model. It creates zero background threads, telemetry sockets, or external network connections. External HTTPS communication occurs only if you explicitly invoke <code>xinfer::ModelHub</code> with remote synchronization enabled. In air-gapped deployments, setting <code>enable_offline_mode = true</code> ensures zero socket operations occur.</p>
+<p><strong>No.</strong> <code>xinfer-essential</code> enforces a <span class="arithmatex">\(\$0.00\)</span> cloud egress model. It creates zero background threads, telemetry sockets, or external network connections. External HTTPS communication occurs only if you explicitly invoke <code>xinfer::ModelHub</code> with remote synchronization enabled. In air-gapped deployments, setting <code>enable_offline_mode = true</code> ensures zero socket operations occur.</p>
 <hr />
-<h3 id="q5-how-can-i-achieve-1mutexts-latency-on-cpu-execution">Q5: How can I achieve $&lt; 1\,\mu\text{s}$ latency on CPU execution?</h3>
+<h3 id="q5-how-can-i-achieve-1mutexts-latency-on-cpu-execution">Q5: How can I achieve <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> latency on CPU execution?</h3>
 <p>To achieve sub-microsecond latency on CPUs (such as Intel Xeon or Core Ultra):
 1. Use models with small parameter footprints (e.g., 32-dim tabular autoencoders).
 2. Compile with AVX-512 enabled (<code>-march=native</code>).
 3. Isolate the execution CPU core using the Linux kernel boot parameter <code>isolcpus=&lt;core_id&gt;</code>.
 4. Lock CPU core frequency to maximum using <code>cpupower frequency-set -g performance</code>.
-5. Pre-warm CPU caches with at least $1{,}000$ discard passes.</p>
+5. Pre-warm CPU caches with at least <span class="arithmatex">\(1{,}000\)</span> discard passes.</p>
 
 
 
@@ -43293,6 +43293,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

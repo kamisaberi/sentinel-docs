@@ -43191,7 +43191,7 @@
 <p><strong>Yes.</strong> The SLAB protocol is dimension-agnostic. Use <code>tools/csv_to_slab.py</code> to convert any labeled CSV file into a <code>.slab</code> binary file by specifying your target dimensions (e.g., <code>--dimensions 42</code> for UNSW-NB15). The testbed engine will read the dimension field from the packet header and allocate tensor views automatically.</p>
 <hr />
 <h3 id="q3-does-sentinel-lab-require-specialized-10gbe-hardware">Q3: Does <code>sentinel-lab</code> require specialized 10GbE hardware?</h3>
-<p><strong>No.</strong> While bare-metal multi-core servers with 10GbE Intel adapters provide the highest line-rate throughput ($&gt; 60{,}000\text{ EPS}$), the entire testbed can run on student laptops, standard desktop PCs, or inside VMware/KVM virtual machines using the local loopback interface (<code>--interface lo</code>).</p>
+<p><strong>No.</strong> While bare-metal multi-core servers with 10GbE Intel adapters provide the highest line-rate throughput (<span class="arithmatex">\(&gt; 60{,}000\text{ EPS}\)</span>), the entire testbed can run on student laptops, standard desktop PCs, or inside VMware/KVM virtual machines using the local loopback interface (<code>--interface lo</code>).</p>
 <hr />
 <h3 id="q4-how-do-i-cite-the-research-paper-in-my-thesis">Q4: How do I cite the research paper in my thesis?</h3>
 <p>Please cite our academic preprint published on CERN/Zenodo:</p>
@@ -43267,6 +43267,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

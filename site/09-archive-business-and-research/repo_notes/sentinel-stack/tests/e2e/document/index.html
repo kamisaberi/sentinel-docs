@@ -44686,7 +44686,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <ul>
 <li><strong>Target Endpoint:</strong> <code>POST /api/v1/hub/blueprints/publish</code>, <code>PUT /api/v1/hub/assets/blueprint/{slug}/visibility</code>, <code>GET /api/v1/hub/blueprints/{slug}/download</code></li>
 <li><strong>CLI Command:</strong> <code>aryo blueprint new</code>, <code>aryo blueprint pack</code>, <code>aryo blueprint inspect</code>, <code>sudo aryo blueprint deploy</code>, <code>sudo aryo blueprint rollback</code></li>
-<li><strong>Invariants Tested:</strong> Scaffolds physical edge blueprints with hardware NIC bindings (<code>ens160</code>), packs 4-stage ModelRouter DAGs (<code>model_routes.yaml</code>), publishes, deploys atomically with backup to <code>/etc/sentinel/.blueprint_backup/</code>, and tests $&lt; 2\text{ ms}$ RCU rollback.</li>
+<li><strong>Invariants Tested:</strong> Scaffolds physical edge blueprints with hardware NIC bindings (<code>ens160</code>), packs 4-stage ModelRouter DAGs (<code>model_routes.yaml</code>), publishes, deploys atomically with backup to <code>/etc/sentinel/.blueprint_backup/</code>, and tests <span class="arithmatex">\(&lt; 2\text{ ms}\)</span> RCU rollback.</li>
 </ul>
 <h4 id="test-10-cache-management-usb-sneakernet-10_test_cache_sneakernetsh">Test 10: Cache Management &amp; USB Sneakernet (<code>10_test_cache_sneakernet.sh</code>)</h4>
 <ul>
@@ -44699,7 +44699,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <ul>
 <li><strong>Target Endpoint:</strong> <code>POST /api/v1/compliance/sbom/attest</code>, <code>GET /api/v1/ai/trism/policy</code></li>
 <li><strong>CLI Command:</strong> <code>aryo sbom generate</code>, <code>aryo sbom enforce</code>, <code>aryo sbom test-drift</code>, <code>aryo 5g status</code>, <code>aryo trism test-jailbreak</code>, <code>aryo space status</code></li>
-<li><strong>Invariants Tested:</strong> Tests Live-SBOM $W\oplus X$ memory drift $&lt; 1.0\,\mu\text{s}$ <code>SIGKILL</code>, 3GPP 5G GTP-U slicing guard, AI TRiSM prompt firewall, and CCSDS space packet dissector in a single execution.</li>
+<li><strong>Invariants Tested:</strong> Tests Live-SBOM <span class="arithmatex">\(W\oplus X\)</span> memory drift <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span> <code>SIGKILL</code>, 3GPP 5G GTP-U slicing guard, AI TRiSM prompt firewall, and CCSDS space packet dissector in a single execution.</li>
 </ul>
 <h4 id="test-09-honeynet-exploit-vaccine-loop-09_test_honeynet_vaccinesh">Test 09: Honeynet Exploit &amp; Vaccine Loop (<code>09_test_honeynet_vaccine.sh</code>)</h4>
 <ul>
@@ -44715,12 +44715,12 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-17-3-tier-plugin-supervisor-sla-17_test_plugin_supervisor_slash">Test 17: 3-Tier Plugin Supervisor &amp; SLA (<code>17_test_plugin_supervisor_sla.sh</code>)</h4>
 <ul>
 <li><strong>Target Binary:</strong> <code>/home/kami/blackbox-sentinel/run_extensibility_suite.sh</code></li>
-<li><strong>Invariants Tested:</strong> Compiles native C++20 reference plugin (<code>sentinel_modbus_guard.so</code>), provisions Lua rules, executes <code>test_extensibility</code>, and asserts microsecond SLAs (Tier A C++20 $&lt; 120\,\text{ns}$, Tier C LuaJIT $&lt; 450\,\text{ns}$, Tier B Wasm3 $&lt; 1.5\,\mu\text{s}$).</li>
+<li><strong>Invariants Tested:</strong> Compiles native C++20 reference plugin (<code>sentinel_modbus_guard.so</code>), provisions Lua rules, executes <code>test_extensibility</code>, and asserts microsecond SLAs (Tier A C++20 <span class="arithmatex">\(&lt; 120\,\text{ns}\)</span>, Tier C LuaJIT <span class="arithmatex">\(&lt; 450\,\text{ns}\)</span>, Tier B Wasm3 <span class="arithmatex">\(&lt; 1.5\,\mu\text{s}\)</span>).</li>
 </ul>
 <h4 id="test-18-hil-continuous-ode-physics-18_test_hil_rk4_physicssh">Test 18: HIL Continuous ODE Physics (<code>18_test_hil_rk4_physics.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/range/lab-bench</code></li>
-<li><strong>Invariants Tested:</strong> Runs continuous 4th-Order Runge-Kutta (RK4) generator swing ODE solver (<code>hil_co_simulator.py</code>), audits 14 scientific lab metrics, and asserts physical Critical Clearing Time $T_{\text{crit}} = 38.4\,\text{ms} \le 50.0\,\text{ms}$.</li>
+<li><strong>Invariants Tested:</strong> Runs continuous 4th-Order Runge-Kutta (RK4) generator swing ODE solver (<code>hil_co_simulator.py</code>), audits 14 scientific lab metrics, and asserts physical Critical Clearing Time <span class="arithmatex">\(T_{\text{crit}} = 38.4\,\text{ms} \le 50.0\,\text{ms}\)</span>.</li>
 </ul>
 <h4 id="test-19-dfir-firmware-cdr-sanitization-19_test_dfir_firmware_cdrsh">Test 19: DFIR Firmware &amp; CDR Sanitization (<code>19_test_dfir_firmware_cdr.sh</code>)</h4>
 <ul>
@@ -44738,12 +44738,12 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-11-cloud-forge-gpu-adaptation-11_test_forge_trainingsh">Test 11: Cloud Forge GPU Adaptation (<code>11_test_forge_training.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>POST /api/v1/forge/train</code>, <code>GET /api/v1/forge/jobs/{job_id}</code>, <code>GET /api/v1/forge/models/{job_id}/download</code></li>
-<li><strong>Invariants Tested:</strong> Uploads <code>.slab</code> telemetry dataset to cloud Forge, polls status (<code>queued</code> $\to$ <code>training</code> $\to$ <code>completed</code>), asserts 100% recall on Golden Safety Gate, and downloads retrained INT8 ONNX model.</li>
+<li><strong>Invariants Tested:</strong> Uploads <code>.slab</code> telemetry dataset to cloud Forge, polls status (<code>queued</code> <span class="arithmatex">\(\to\)</span> <code>training</code> <span class="arithmatex">\(\to\)</span> <code>completed</code>), asserts 100% recall on Golden Safety Gate, and downloads retrained INT8 ONNX model.</li>
 </ul>
 <h4 id="test-12-model-vault-golden-gate-ota-12_test_model_vault_otash">Test 12: Model Vault &amp; Golden Gate OTA (<code>12_test_model_vault_ota.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/model-vault/{slug}</code>, <code>POST /api/v1/model-vault/{slug}/versions/{version}/verify-safety</code>, <code>POST /api/v1/model-vault/{slug}/versions/{version}/promote</code>, <code>GET /api/v1/model-vault/{slug}/versions/{version}/download</code></li>
-<li><strong>Invariants Tested:</strong> Inspects version tree, validates Golden Safety Gate ($100\%$ recall), promotes through Canary OTA stages (<code>SHADOW_MODE</code> $\to$ <code>CANARY_5_PERCENT</code> $\to$ <code>FLEET_PRODUCTION</code>), and downloads production weights.</li>
+<li><strong>Invariants Tested:</strong> Inspects version tree, validates Golden Safety Gate (<span class="arithmatex">\(100\%\)</span> recall), promotes through Canary OTA stages (<code>SHADOW_MODE</code> <span class="arithmatex">\(\to\)</span> <code>CANARY_5_PERCENT</code> <span class="arithmatex">\(\to\)</span> <code>FLEET_PRODUCTION</code>), and downloads production weights.</li>
 </ul>
 <h4 id="test-22-multi-silicon-ai-compiler-service-22_test_ai_silicon_compilersh">Test 22: Multi-Silicon AI Compiler Service (<code>22_test_ai_silicon_compiler.sh</code>)</h4>
 <ul>
@@ -44794,7 +44794,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-23-cyber-range-enclave-attack-replay-23_test_range_twin_attack_replaysh">Test 23: Cyber-Range Enclave &amp; Attack Replay (<code>23_test_range_twin_attack_replay.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/range/blueprints</code>, <code>POST /api/v1/range/instances/provision</code>, <code>POST /api/v1/range/instances/{id}/pause</code>, <code>POST /api/v1/range/attacks/replay</code>, <code>POST /api/v1/range/resilience/certify</code>, <code>DELETE /api/v1/range/instances/{id}</code></li>
-<li><strong>Invariants Tested:</strong> Provisions twin enclave on <code>10.240.0.x</code>, tests <code>PAUSE</code> $\to$ <code>RESUME</code>, replays Industroyer2 malware attack, streams signed PDF resilience certificate (<code>%PDF</code>), and terminates instance.</li>
+<li><strong>Invariants Tested:</strong> Provisions twin enclave on <code>10.240.0.x</code>, tests <code>PAUSE</code> <span class="arithmatex">\(\to\)</span> <code>RESUME</code>, replays Industroyer2 malware attack, streams signed PDF resilience certificate (<code>%PDF</code>), and terminates instance.</li>
 </ul>
 <h4 id="test-32-sentinel-nexus-c2-security-gate-32_test_nexus_c2_security_gatesh">Test 32: Sentinel-Nexus C2 Security Gate (<code>32_test_nexus_c2_security_gate.sh</code>)</h4>
 <ul>
@@ -44821,7 +44821,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-29-real-time-sse-streams-mrd-xai-29_test_sse_streaming_xaish">Test 29: Real-Time SSE Streams &amp; MRD XAI (<code>29_test_sse_streaming_xai.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/overview/metrics</code>, <code>GET /api/v1/overview/latency-distribution</code>, <code>GET /api/v1/xai/recent</code>, <code>GET /api/v1/xai/{incident_id}</code>, <code>GET /api/v1/stream/telemetry</code></li>
-<li><strong>Invariants Tested:</strong> Audits global metrics (drops, mean SLA $&lt; 0.84\,\mu\text{s}$), latency distribution histogram, MRD autoencoder feature attributions ($&lt; 80\text{ ns}$ SLA), and samples real-time SSE telemetry stream.</li>
+<li><strong>Invariants Tested:</strong> Audits global metrics (drops, mean SLA <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>), latency distribution histogram, MRD autoencoder feature attributions (<span class="arithmatex">\(&lt; 80\text{ ns}\)</span> SLA), and samples real-time SSE telemetry stream.</li>
 </ul>
 <h4 id="test-30-plans-matrix-ransomware-vault-30_test_plans_ransomware_vaultsh">Test 30: Plans Matrix &amp; Ransomware Vault (<code>30_test_plans_ransomware_vault.sh</code>)</h4>
 <ul>
@@ -44831,23 +44831,23 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-31-4-stage-modelrouter-cascade-dag-31_test_model_router_cascadesh">Test 31: 4-Stage ModelRouter Cascade DAG (<code>31_test_model_router_cascade.sh</code>)</h4>
 <ul>
 <li><strong>Target Binary:</strong> <code>/home/kami/blackbox-sentinel/build/test_model_router</code></li>
-<li><strong>Invariants Tested:</strong> Tests 4-stage pipeline (SPKG Reflex $\to$ Dissectors $\to$ AI Inference $\to$ ThreatCorrelator Fusion) and validates cascade short-circuiting (Reflexive DROP at Stage 1 bypasses Stages 2–4 with 0 wasted cycles).</li>
+<li><strong>Invariants Tested:</strong> Tests 4-stage pipeline (SPKG Reflex <span class="arithmatex">\(\to\)</span> Dissectors <span class="arithmatex">\(\to\)</span> AI Inference <span class="arithmatex">\(\to\)</span> ThreatCorrelator Fusion) and validates cascade short-circuiting (Reflexive DROP at Stage 1 bypasses Stages 2–4 with 0 wasted cycles).</li>
 </ul>
 <h4 id="test-33-multi-protocol-scada-dissectors-33_test_scada_dissectors_benchsh">Test 33: Multi-Protocol SCADA Dissectors (<code>33_test_scada_dissectors_bench.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Benchmarks native C++20 dissectors on synthetic frames: Modbus TCP FC 05/15 ($&lt; 88\text{ ns}$), S7Comm COTP + CPU STOP 0x29 ($&lt; 110\text{ ns}$), DNP3 Direct Operate ($&lt; 95\text{ ns}$), and IEC 60870-5-104 ASDU Type 45/46 ($&lt; 90\text{ ns}$).</li>
+<li><strong>Invariants Tested:</strong> Benchmarks native C++20 dissectors on synthetic frames: Modbus TCP FC 05/15 (<span class="arithmatex">\(&lt; 88\text{ ns}\)</span>), S7Comm COTP + CPU STOP 0x29 (<span class="arithmatex">\(&lt; 110\text{ ns}\)</span>), DNP3 Direct Operate (<span class="arithmatex">\(&lt; 95\text{ ns}\)</span>), and IEC 60870-5-104 ASDU Type 45/46 (<span class="arithmatex">\(&lt; 90\text{ ns}\)</span>).</li>
 </ul>
 <h4 id="test-34-evt-p99999-wcet-pmu-counters-34_test_evt_wcet_pmu_counterssh">Test 34: EVT p99.999% WCET &amp; PMU Counters (<code>34_test_evt_wcet_pmu_counters.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Fits 3-parameter Gumbel Extreme Value distribution over 100 block maxima, asserting $p99.999\%$ WCET bound $\le 1.82\,\mu\text{s}$ ($\ll 100\,\mu\text{s}$ SLA). Audits Linux PMU hardware counters (<code>perf_event_open</code> IPC $\ge 2.0$, LLC miss rate $\le 0.5\%$).</li>
+<li><strong>Invariants Tested:</strong> Fits 3-parameter Gumbel Extreme Value distribution over 100 block maxima, asserting <span class="arithmatex">\(p99.999\%\)</span> WCET bound <span class="arithmatex">\(\le 1.82\,\mu\text{s}\)</span> (<span class="arithmatex">\(\ll 100\,\mu\text{s}\)</span> SLA). Audits Linux PMU hardware counters (<code>perf_event_open</code> IPC <span class="arithmatex">\(\ge 2.0\)</span>, LLC miss rate <span class="arithmatex">\(\le 0.5\%\)</span>).</li>
 </ul>
 <h4 id="test-36-af_xdp-zero-copy-umem-multi-queue-36_test_af_xdp_umem_line_ratesh">Test 36: AF_XDP Zero-Copy UMEM Multi-Queue (<code>36_test_af_xdp_umem_line_rate.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Audits 4-ring lock-free AF_XDP UMEM descriptor rings (RX, TX, Fill, Completion), 4096-byte chunk alignment, Multi-Queue RSS queue pinning, and $0.84\,\mu\text{s}$ in-kernel driver drop SLA.</li>
+<li><strong>Invariants Tested:</strong> Audits 4-ring lock-free AF_XDP UMEM descriptor rings (RX, TX, Fill, Completion), 4096-byte chunk alignment, Multi-Queue RSS queue pinning, and <span class="arithmatex">\(0.84\,\mu\text{s}\)</span> in-kernel driver drop SLA.</li>
 </ul>
 <h4 id="test-37-continual-ai-golden-attack-gate-37_test_forge_cli_golden_gatesh">Test 37: Continual AI &amp; Golden Attack Gate (<code>37_test_forge_cli_golden_gate.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Evaluates Tabular MAE + InfoNCE loss convergence ($L &lt; 0.0500$), enforces immutable Golden Attack Regression Gate (<code>configs/safety/golden_attacks.yaml</code> strictly $100.0\%$ recall), and asserts INT8 PTQ quantization latency ($&lt; 20\,\mu\text{s}$).</li>
+<li><strong>Invariants Tested:</strong> Evaluates Tabular MAE + InfoNCE loss convergence (<span class="arithmatex">\(L &lt; 0.0500\)</span>), enforces immutable Golden Attack Regression Gate (<code>configs/safety/golden_attacks.yaml</code> strictly <span class="arithmatex">\(100.0\%\)</span> recall), and asserts INT8 PTQ quantization latency (<span class="arithmatex">\(&lt; 20\,\mu\text{s}\)</span>).</li>
 </ul>
 <h4 id="test-38-cernzenodo-research-doi-modules-38_test_sentinel_lab_scientific_doish">Test 38: CERN/Zenodo Research DOI Modules (<code>38_test_sentinel_lab_scientific_doi.sh</code>)</h4>
 <ul>
@@ -44855,7 +44855,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 </ul>
 <h4 id="test-39-in-kernel-deception-rfc-1624-dnat-39_test_deception_dnat_rfc1624sh">Test 39: In-Kernel Deception &amp; RFC 1624 DNAT (<code>39_test_deception_dnat_rfc1624.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Audits eBPF <code>deception_map</code> redirection to decoy PLC on port 15502, tests RFC 1624 16-bit 1's complement incremental checksum recalculation ($\Delta = \sim m + m'$, $C' = \sim (\sim C + \Delta)$), and audits honeynet spool directory <code>/var/run/sentinel/honeynet_spool</code>.</li>
+<li><strong>Invariants Tested:</strong> Audits eBPF <code>deception_map</code> redirection to decoy PLC on port 15502, tests RFC 1624 16-bit 1's complement incremental checksum recalculation (<span class="arithmatex">\(\Delta = \sim m + m'\)</span>, <span class="arithmatex">\(C' = \sim (\sim C + \Delta)\)</span>), and audits honeynet spool directory <code>/var/run/sentinel/honeynet_spool</code>.</li>
 </ul>
 <h4 id="test-40-airgap-sneakernet-tenant-barriers-40_test_airgap_sync_tenant_barrierssh">Test 40: Airgap Sneakernet &amp; Tenant Barriers (<code>40_test_airgap_sync_tenant_barriers.sh</code>)</h4>
 <ul>
@@ -44870,7 +44870,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <h4 id="test-42-fleet-decommission-stale-timeout-42_test_fleet_decommission_enclavessh">Test 42: Fleet Decommission &amp; Stale Timeout (<code>42_test_fleet_decommission_enclaves.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/fleet/enclaves</code>, <code>POST /api/v1/fleet/sync</code>, <code>POST /api/v1/fleet/nodes/{id}/restart</code>, <code>DELETE /api/v1/fleet/nodes/{id}</code></li>
-<li><strong>Invariants Tested:</strong> Audits 3-zone enclaves, registers test node via <code>/fleet/sync</code>, dispatches remote node restart, executes node decommissioning + sensor purge (<code>DECOMMISSIONED</code>), and verifies stale heartbeat logic ($&gt; 15\text{s} \to \text{OFFLINE}$).</li>
+<li><strong>Invariants Tested:</strong> Audits 3-zone enclaves, registers test node via <code>/fleet/sync</code>, dispatches remote node restart, executes node decommissioning + sensor purge (<code>DECOMMISSIONED</code>), and verifies stale heartbeat logic (<span class="arithmatex">\(&gt; 15\text{s} \to \text{OFFLINE}\)</span>).</li>
 </ul>
 <h4 id="test-43-sdk-scaffolding-source-extraction-43_test_sdk_source_extraction_auditsh">Test 43: SDK Scaffolding &amp; Source Extraction (<code>43_test_sdk_source_extraction_audit.sh</code>)</h4>
 <ul>
@@ -44879,11 +44879,11 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 </ul>
 <h4 id="test-44-fdia-cross-modal-causality-interlock-44_test_fdia_causality_interlocksh">Test 44: FDIA Cross-Modal Causality Interlock (<code>44_test_fdia_causality_interlock.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Simulates stealthy cyber telemetry spoofing (Modbus flow = 10 GPM) against thermodynamic physical probe ($T = 142.5^\circ\text{C}$), evaluates causal residual $R_{\text{causal}} = |y_{\text{cyber}} - \hat{y}_{\text{physics}}| &gt; \tau$, and asserts cross-modal interlock drop ($&lt; 100\text{ ns}$).</li>
+<li><strong>Invariants Tested:</strong> Simulates stealthy cyber telemetry spoofing (Modbus flow = 10 GPM) against thermodynamic physical probe (<span class="arithmatex">\(T = 142.5^\circ\text{C}\)</span>), evaluates causal residual <span class="arithmatex">\(R_{\text{causal}} = |y_{\text{cyber}} - \hat{y}_{\text{physics}}| &gt; \tau\)</span>, and asserts cross-modal interlock drop (<span class="arithmatex">\(&lt; 100\text{ ns}\)</span>).</li>
 </ul>
 <h4 id="test-45-nist-post-quantum-cryptography-pqc-45_test_pqc_post_quantum_signaturessh">Test 45: NIST Post-Quantum Cryptography PQC (<code>45_test_pqc_post_quantum_signatures.sh</code>)</h4>
 <ul>
-<li><strong>Invariants Tested:</strong> Evaluates NIST FIPS 203 (ML-KEM-768) key encapsulation parameters, NIST FIPS 204 (ML-DSA-65) post-quantum digital signatures, and asserts quantum-resistant signature verification under the $150\,\mu\text{s}$ overhead SLA limit.</li>
+<li><strong>Invariants Tested:</strong> Evaluates NIST FIPS 203 (ML-KEM-768) key encapsulation parameters, NIST FIPS 204 (ML-DSA-65) post-quantum digital signatures, and asserts quantum-resistant signature verification under the <span class="arithmatex">\(150\,\mu\text{s}\)</span> overhead SLA limit.</li>
 </ul>
 <h4 id="test-46-3gpp-5g-gtp-u-in-kernel-slicing-46_test_5g_gtp_u_dual_headersh">Test 46: 3GPP 5G GTP-U In-Kernel Slicing (<code>46_test_5g_gtp_u_dual_header.sh</code>)</h4>
 <ul>
@@ -44895,24 +44895,24 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
 <ul>
 <li><strong>Target Endpoint:</strong> <code>POST /api/v1/compliance/sbom/attest</code></li>
 <li><strong>CLI Command:</strong> <code>aryo sbom generate</code>, <code>aryo sbom enforce</code>, <code>aryo sbom test-drift</code>, <code>aryo sbom attest</code></li>
-<li><strong>Invariants Tested:</strong> Generates CycloneDX 1.6 runtime manifest <code>/etc/sentinel/live_sbom.json</code> anchored to TPM 2.0 PCR[10], enforces <code>sys_enter_mprotect</code> $W\oplus X$ monitor, executes sandboxed fileless shellcode drill, asserts $&lt; 1.0\,\mu\text{s}$ <code>SIGKILL</code>, and attests to cloud dashboard.</li>
+<li><strong>Invariants Tested:</strong> Generates CycloneDX 1.6 runtime manifest <code>/etc/sentinel/live_sbom.json</code> anchored to TPM 2.0 PCR[10], enforces <code>sys_enter_mprotect</code> <span class="arithmatex">\(W\oplus X\)</span> monitor, executes sandboxed fileless shellcode drill, asserts <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span> <code>SIGKILL</code>, and attests to cloud dashboard.</li>
 </ul>
 <h4 id="test-48-ai-trism-token-tool-governor-48_test_trism_token_governorsh">Test 48: AI TRiSM Token &amp; Tool Governor (<code>48_test_trism_token_governor.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>GET /api/v1/ai/trism/policy</code></li>
 <li><strong>CLI Command:</strong> <code>aryo trism status</code>, <code>aryo trism inspect</code>, <code>aryo trism test-jailbreak</code>, <code>aryo trism policy pull</code>, <code>aryo trism policy show</code></li>
-<li><strong>Invariants Tested:</strong> Audits Aho-Corasick automaton token filter ($&lt; 150\text{ ns}$ SLA), inspects prompt for special token delimiters (<code>&lt;|im_start|&gt;</code>), neutralizes 4 red-team jailbreak classes, pulls fleet-wide policy JSON/YAML from backend, and verifies tool governor blocking physical actuation.</li>
+<li><strong>Invariants Tested:</strong> Audits Aho-Corasick automaton token filter (<span class="arithmatex">\(&lt; 150\text{ ns}\)</span> SLA), inspects prompt for special token delimiters (<code>&lt;|im_start|&gt;</code>), neutralizes 4 red-team jailbreak classes, pulls fleet-wide policy JSON/YAML from backend, and verifies tool governor blocking physical actuation.</li>
 </ul>
 <h4 id="test-49-space-ccsdsstanag-orbital-guard-49_test_space_ccsds_stanagsh">Test 49: Space CCSDS/STANAG Orbital Guard (<code>49_test_space_ccsds_stanag.sh</code>)</h4>
 <ul>
 <li><strong>CLI Command:</strong> <code>aryo space status</code>, <code>aryo space blast-sim</code></li>
-<li><strong>Invariants Tested:</strong> Audits native C++20 space dissector <code>ccsds-guard</code> ($&lt; 120\text{ ns}$ SLA), parses CCSDS 133.0-B-2 and NATO STANAG 4586 DLI frames, verifies 11-bit APID ACLs and 14-bit sequence counter sliding-window monotonicity, and replays satellite telecommand injection drill.</li>
+<li><strong>Invariants Tested:</strong> Audits native C++20 space dissector <code>ccsds-guard</code> (<span class="arithmatex">\(&lt; 120\text{ ns}\)</span> SLA), parses CCSDS 133.0-B-2 and NATO STANAG 4586 DLI frames, verifies 11-bit APID ACLs and 14-bit sequence counter sliding-window monotonicity, and replays satellite telecommand injection drill.</li>
 </ul>
 <h4 id="test-50-honeynet-deception-fleet-broadcast-50_test_honeynet_vaccine_broadcastsh">Test 50: Honeynet Deception &amp; Fleet Broadcast (<code>50_test_honeynet_vaccine_broadcast.sh</code>)</h4>
 <ul>
 <li><strong>Target Endpoint:</strong> <code>POST /api/v1/threats/vaccines/share</code>, <code>GET /api/v1/threats/vaccines/feed</code>, <code>GET /api/v1/threats/vaccines/{id}/download</code></li>
 <li><strong>CLI Command:</strong> <code>sentinel-artifact synthesize-vaccine</code>, <code>sentinel-artifact test</code></li>
-<li><strong>Invariants Tested:</strong> Spools zero-day SCADA exploit in <code>/var/run/sentinel/honeynet_spool/</code>, synthesizes signed Tier C LuaJIT reflex vaccine (<code>.spkg</code>), asserts in-sandbox preflight test, broadcasts vaccine fleet-wide via gRPC / REST ($&lt; 50\text{ ms}$ SLA), audits global feed, and downloads sealed artifact.</li>
+<li><strong>Invariants Tested:</strong> Spools zero-day SCADA exploit in <code>/var/run/sentinel/honeynet_spool/</code>, synthesizes signed Tier C LuaJIT reflex vaccine (<code>.spkg</code>), asserts in-sandbox preflight test, broadcasts vaccine fleet-wide via gRPC / REST (<span class="arithmatex">\(&lt; 50\text{ ms}\)</span> SLA), audits global feed, and downloads sealed artifact.</li>
 </ul>
 <hr />
 <h3 id="verification-command">Verification Command</h3>
@@ -44991,6 +44991,10 @@ sudo<span class="w"> </span>bash<span class="w"> </span>/home/kami/sentinel-stac
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

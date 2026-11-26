@@ -43161,7 +43161,7 @@
 
 
 <h1 id="core-mission-sub-microsecond-active-defense">Core Mission: Sub-Microsecond Active Defense</h1>
-<p>Modern industrial plants, power substations, autonomous vehicles, and financial switches cannot tolerate retrospective detection. Commercial Endpoint Detection and Response (EDR) and Security Information and Event Management (SIEM) platforms process events in user-space or the cloud, introducing <strong>$15 - 60\text{ second}$ alert latencies</strong>.</p>
+<p>Modern industrial plants, power substations, autonomous vehicles, and financial switches cannot tolerate retrospective detection. Commercial Endpoint Detection and Response (EDR) and Security Information and Event Management (SIEM) platforms process events in user-space or the cloud, introducing <strong><span class="arithmatex">\(15 - 60\text{ second}\)</span> alert latencies</strong>.</p>
 <p><code>blackbox-essential</code> transitions cyber-physical security from delayed alerting to <strong>autonomous, sub-microsecond edge mitigation</strong>.</p>
 <hr />
 <h2 id="1-why-userspace-security-fails-at-line-rate">1. Why Userspace Security Fails at Line Rate</h2>
@@ -43184,7 +43184,7 @@
        ▼ (5) Kernel System Call (iptables -A INPUT -s ... -j DROP)
 [ Update Netfilter Ruleset ] ────► Triggers Global Table Lock Contention
 </code></pre></div>
-<p>Under heavy volumetric attacks (e.g., $10\text{ Gbps}$ SYN flood or SCADA Modbus overrides), user-space daemons freeze due to context switching and packet queue exhaustion.</p>
+<p>Under heavy volumetric attacks (e.g., <span class="arithmatex">\(10\text{ Gbps}\)</span> SYN flood or SCADA Modbus overrides), user-space daemons freeze due to context switching and packet queue exhaustion.</p>
 <hr />
 <h2 id="2-the-blackbox-essential-in-kernel-invariant">2. The <code>blackbox-essential</code> In-Kernel Invariant</h2>
 <p><code>blackbox-essential</code> executes packet filtering at the earliest possible execution point in the Linux kernel: inside the network device driver immediately after DMA reception, before memory is allocated for socket buffers (<code>sk_buff</code>):</p>
@@ -43207,7 +43207,7 @@
 <hr />
 <h2 id="3-the-3-architectural-pillars-of-libblackboxso">3. The 3 Architectural Pillars of <code>libblackbox.so</code></h2>
 <ol>
-<li><strong>The In-Kernel Packet Filter (<code>xdp_filter.o</code>):</strong> A statically verified eBPF program loaded into the NIC driver space that inspects Ethernet frames, checks IP addresses against an ephemeral in-kernel BPF hash map, and issues <code>XDP_DROP</code> instructions in $&lt; 0.84\,\mu\text{s}$.</li>
+<li><strong>The In-Kernel Packet Filter (<code>xdp_filter.o</code>):</strong> A statically verified eBPF program loaded into the NIC driver space that inspects Ethernet frames, checks IP addresses against an ephemeral in-kernel BPF hash map, and issues <code>XDP_DROP</code> instructions in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>.</li>
 <li><strong>Lock-Free Concurrency Core (<code>EventRingBuffer</code>):</strong> A Single-Producer Multi-Consumer (SPMC) circular ring buffer that streams packet telemetry from driver space to parallel user-space workers without mutex locks, sustaining <strong>1.25M+ events per second</strong>.</li>
 <li><strong>Silicon Hardware Identity (<code>HardwareIdentity</code>):</strong> A multi-tier hardware attestation engine that cryptographically binds the running daemon to physical TPM 2.0 chips, preventing image cloning and unauthorized virtualization.</li>
 </ol>
@@ -43279,6 +43279,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

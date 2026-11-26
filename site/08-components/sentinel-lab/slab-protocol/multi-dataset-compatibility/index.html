@@ -43139,7 +43139,7 @@
 
 
 <h1 id="multi-dataset-cross-compatibility">Multi-Dataset Cross-Compatibility</h1>
-<p>Because the SLAB protocol is self-describing through its <code>dimensions</code> field ($D$), a single <code>sentinel_lab</code> deployment can evaluate disparate intrusion detection benchmarks without recompiling the testbed engine.</p>
+<p>Because the SLAB protocol is self-describing through its <code>dimensions</code> field (<span class="arithmatex">\(D\)</span>), a single <code>sentinel_lab</code> deployment can evaluate disparate intrusion detection benchmarks without recompiling the testbed engine.</p>
 <hr />
 <h2 id="1-supported-academic-dataset-mappings">1. Supported Academic Dataset Mappings</h2>
 <table>
@@ -43147,7 +43147,7 @@
 <tr>
 <th style="text-align: left;">Benchmark Corpus</th>
 <th style="text-align: left;">Originating University</th>
-<th style="text-align: left;">Raw Dimension ($D$)</th>
+<th style="text-align: left;">Raw Dimension (<span class="arithmatex">\(D\)</span>)</th>
 <th style="text-align: left;">SLAB Wire Size</th>
 <th style="text-align: left;">Primary Exploit Vectors</th>
 </tr>
@@ -43156,36 +43156,36 @@
 <tr>
 <td style="text-align: left;"><strong>CIC-IDS-2017</strong></td>
 <td style="text-align: left;">Univ. of New Brunswick (CIC)</td>
-<td style="text-align: left;"><strong>$32$</strong> Features</td>
-<td style="text-align: left;">$152\text{ Bytes}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(32\)</span></strong> Features</td>
+<td style="text-align: left;"><span class="arithmatex">\(152\text{ Bytes}\)</span></td>
 <td style="text-align: left;">PortScan, DoS, BruteForce</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>UNSW-NB15</strong></td>
 <td style="text-align: left;">Australian Cyber Security Centre</td>
-<td style="text-align: left;"><strong>$42$</strong> Features</td>
-<td style="text-align: left;">$192\text{ Bytes}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(42\)</span></strong> Features</td>
+<td style="text-align: left;"><span class="arithmatex">\(192\text{ Bytes}\)</span></td>
 <td style="text-align: left;">Fuzzers, Backdoors, Worms</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NSL-KDD</strong></td>
 <td style="text-align: left;">University of New Brunswick</td>
-<td style="text-align: left;"><strong>$41$</strong> Features</td>
-<td style="text-align: left;">$188\text{ Bytes}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(41\)</span></strong> Features</td>
+<td style="text-align: left;"><span class="arithmatex">\(188\text{ Bytes}\)</span></td>
 <td style="text-align: left;">Legacy SYN Floods, R2L, U2R</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>SCADA Triton</strong></td>
 <td style="text-align: left;">Industrial Testbed (OT)</td>
-<td style="text-align: left;"><strong>$16$</strong> Features</td>
-<td style="text-align: left;">$88\text{ Bytes}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(16\)</span></strong> Features</td>
+<td style="text-align: left;"><span class="arithmatex">\(88\text{ Bytes}\)</span></td>
 <td style="text-align: left;">TriStation Safety Overrides</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>CIC-DDoS-2019</strong></td>
 <td style="text-align: left;">Univ. of New Brunswick (CIC)</td>
-<td style="text-align: left;"><strong>$80$</strong> Features</td>
-<td style="text-align: left;">$344\text{ Bytes}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(80\)</span></strong> Features</td>
+<td style="text-align: left;"><span class="arithmatex">\(344\text{ Bytes}\)</span></td>
 <td style="text-align: left;">Volumetric NTP/DNS Amplification</td>
 </tr>
 </tbody>
@@ -43194,7 +43194,7 @@
 <h2 id="2-dynamic-dimension-handshake">2. Dynamic Dimension Handshake</h2>
 <p>When <code>sentinel_lab</code> parses a packet, it reads <code>header-&gt;dimensions</code>:
 * If the incoming frame dimension matches the loaded AI model's input shape, evaluation executes directly.
-* If a dimension mismatch occurs (e.g. an $80\text{-dim}$ frame arrives at a $32\text{-dim}$ model), the packet is skipped and logged to prevent memory over-runs.</p>
+* If a dimension mismatch occurs (e.g. an <span class="arithmatex">\(80\text{-dim}\)</span> frame arrives at a <span class="arithmatex">\(32\text{-dim}\)</span> model), the packet is skipped and logged to prevent memory over-runs.</p>
 
 
 
@@ -43263,6 +43263,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

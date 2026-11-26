@@ -43139,7 +43139,7 @@
 
 
 <h1 id="the-academic-reproducibility-crisis-in-network-security">The Academic Reproducibility Crisis in Network Security</h1>
-<p>Over $85\%$ of published academic papers in machine learning-based network intrusion detection evaluate models using offline CSV datasets (e.g., loading <code>KDDCup99</code>, <code>NSL-KDD</code>, or <code>CIC-IDS-2017</code> into a Python Jupyter Notebook with Pandas and Scikit-Learn). </p>
+<p>Over <span class="arithmatex">\(85\%\)</span> of published academic papers in machine learning-based network intrusion detection evaluate models using offline CSV datasets (e.g., loading <code>KDDCup99</code>, <code>NSL-KDD</code>, or <code>CIC-IDS-2017</code> into a Python Jupyter Notebook with Pandas and Scikit-Learn). </p>
 <p>This methodology introduces what <code>sentinel-lab</code> defines as the <strong>"CSV Illusion"</strong>.</p>
 <hr />
 <h2 id="1-the-csv-illusion-vs-real-world-systems">1. The "CSV Illusion" vs. Real-World Systems</h2>
@@ -43166,7 +43166,7 @@
 <hr />
 <h2 id="2-why-offline-csv-training-fails-in-production">2. Why Offline CSV Training Fails in Production</h2>
 <ol>
-<li><strong>Feature Extraction Latency is Ignored:</strong> In static CSVs, statistical features (e.g., <code>Flow Duration</code>, <code>Fwd Packet Length StdDev</code>) are already calculated. On a real $10\text{ GbE}$ network, extracting these statistics in user-space consumes hundreds of microseconds—far exceeding line-rate budgets.</li>
+<li><strong>Feature Extraction Latency is Ignored:</strong> In static CSVs, statistical features (e.g., <code>Flow Duration</code>, <code>Fwd Packet Length StdDev</code>) are already calculated. On a real <span class="arithmatex">\(10\text{ GbE}\)</span> network, extracting these statistics in user-space consumes hundreds of microseconds—far exceeding line-rate budgets.</li>
 <li><strong>Missing System Latencies:</strong> An offline model does not account for kernel interrupt handling, softirq NAPI poll loops, socket buffer allocation (<code>sk_buff</code>), or bus contention.</li>
 <li><strong>No Active Mitigation Proof:</strong> Predicting an attack in a notebook provides zero proof that the host operating system can drop the packet before application compromise occurs.</li>
 </ol>
@@ -43239,6 +43239,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

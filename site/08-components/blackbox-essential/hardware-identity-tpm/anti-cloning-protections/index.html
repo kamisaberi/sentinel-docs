@@ -43253,10 +43253,10 @@
 <p><code>blackbox::HardwareIdentity</code> monitors three independent factors to detect unauthorized duplication:</p>
 <h3 id="1-tpm-monotonic-command-counters-tpm2_pt_total_commands">1. TPM Monotonic Command Counters (<code>TPM2_PT_TOTAL_COMMANDS</code>)</h3>
 <p>Physical and virtual TPM chips maintain internal, non-volatile monotonic counters that increment with every transaction:
-$$\text{Counter}_{t+1} &gt; \text{Counter}_t$$
+$<span class="arithmatex">\(\text{Counter}_{t+1} &gt; \text{Counter}_t\)</span>$
 If Nexus observes non-monotonic counter regressions (e.g., Appliance B reports a counter value lower than Appliance A's previous report), snapshot rollback or VM cloning is immediately flagged.</p>
 <h3 id="2-ephemeral-nonce-challenge-windows">2. Ephemeral Nonce Challenge Windows</h3>
-<p>Nexus requires periodic cryptographic attestation quotes every $300\text{ seconds}$. Each challenge uses a unique random nonce with a <strong>$2.0\text{ second}$ execution window</strong>. Two cloned appliances sharing the same identity cannot answer challenges concurrently without colliding on nonce responses.</p>
+<p>Nexus requires periodic cryptographic attestation quotes every <span class="arithmatex">\(300\text{ seconds}\)</span>. Each challenge uses a unique random nonce with a <strong><span class="arithmatex">\(2.0\text{ second}\)</span> execution window</strong>. Two cloned appliances sharing the same identity cannot answer challenges concurrently without colliding on nonce responses.</p>
 <h3 id="3-hypervisor-boot-uuid-verification">3. Hypervisor Boot UUID Verification</h3>
 <p>On VMware and KVM, the engine verifies the hypervisor's runtime UUID against cached bios measurements. If a VM clone is generated, ESXi generates a new virtual BIOS UUID (<code>uuid.bios</code>), causing an immediate mismatch against the TPM's measured PCR 0.</p>
 <hr />
@@ -43344,6 +43344,10 @@ If Nexus observes non-monotonic counter regressions (e.g., Appliance B reports a
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

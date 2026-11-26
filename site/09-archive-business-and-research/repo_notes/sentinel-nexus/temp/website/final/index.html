@@ -44841,7 +44841,7 @@
 <li><strong>Domain:</strong> <code>aryorithm.com</code></li>
 <li><strong>Industry Sector:</strong> Deep-Tech Cyber-Physical Security, Autonomous Edge AI, Heterogeneous Silicon Runtime Engineering.</li>
 <li><strong>Core Tagline:</strong> <em>"Deterministic Sub-Millisecond Active Defense for Sovereign Infrastructure."</em></li>
-<li><strong>Mission Directive:</strong> Transition global cybersecurity defense from retrospective, cloud-bound log querying (15–60s alert delays) to autonomous, air-gapped, sub-millisecond edge mitigation ($&lt; 0.84\,\mu\text{s}$ eBPF kernel drops).</li>
+<li><strong>Mission Directive:</strong> Transition global cybersecurity defense from retrospective, cloud-bound log querying (15–60s alert delays) to autonomous, air-gapped, sub-millisecond edge mitigation (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> eBPF kernel drops).</li>
 </ul>
 <h3 id="12-brand-positioning-voice">1.2 Brand Positioning &amp; Voice</h3>
 <p>Aryorithm is engineered for environments where failure results in physical damage: electrical grids, automated manufacturing lines, hospital networks, naval vessels, and classified military enclaves. The corporate voice is:
@@ -45004,7 +45004,7 @@
 <tr>
 <td style="text-align: left;"><strong>Mitigation Latency</strong></td>
 <td style="text-align: left;">15.0 – 60.0 Seconds</td>
-<td style="text-align: left;"><strong>0.84 Microseconds ($&lt; 1.0\,\mu\text{s}$)</strong></td>
+<td style="text-align: left;"><strong>0.84 Microseconds (<span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span>)</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Mitigation Point</strong></td>
@@ -45014,7 +45014,7 @@
 <tr>
 <td style="text-align: left;"><strong>Network Egress</strong></td>
 <td style="text-align: left;">Terabytes of uncompressed NetFlow to Cloud</td>
-<td style="text-align: left;"><strong>$0$ Egress (Only high-uncertainty embeddings leave edge)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0\)</span> Egress (Only high-uncertainty embeddings leave edge)</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Machine Trust</strong></td>
@@ -45052,7 +45052,7 @@
 <h4 id="2-deep-technical-capabilities">2. Deep Technical Capabilities</h4>
 <ul>
 <li><strong>Collective Immunity Engine (<code>IocBroadcaster</code>):</strong> When Node #01 detects an exploit or unauthorized SCADA command, Nexus broadcasts the attack signature over bidirectional gRPC streams. Within 50ms, all connected appliances inject the IP into their local eBPF <code>blocked_ip_map</code> kernel hash tables.</li>
-<li><strong>Continuous Active Learning Feeder (<code>ForgeBridge</code> &amp; <code>DatasetCurator</code>):</strong> Instead of flooding WAN connections, edge nodes send only feature vectors with high classification uncertainty ($0.40 \le p \le 0.60$) or autoencoder novelty loss ($&gt;0.75$). Nexus curates these samples and feeds them to <code>xinfer-forge</code>.</li>
+<li><strong>Continuous Active Learning Feeder (<code>ForgeBridge</code> &amp; <code>DatasetCurator</code>):</strong> Instead of flooding WAN connections, edge nodes send only feature vectors with high classification uncertainty (<span class="arithmatex">\(0.40 \le p \le 0.60\)</span>) or autoencoder novelty loss (<span class="arithmatex">\(&gt;0.75\)</span>). Nexus curates these samples and feeds them to <code>xinfer-forge</code>.</li>
 <li><strong>Automated Over-The-Air (OTA) Canary Pipeline:</strong>
   <div class="highlight"><pre><span></span><code>[ Forge Output: network_threat_v2.onnx ]
                    │
@@ -45065,7 +45065,7 @@
                    ▼ (RollbackGuard: Latency &lt; 1000µs &amp; No False Positive Surges)
 [ Stage 3: FLEET-WIDE PROMOTE ] ─&gt; Zero-downtime hot-reload across all 5,000 nodes
 </code></pre></div></li>
-<li><strong>RollbackGuard Automated Safety Circuit:</strong> Real-time watchdog evaluating every canary heartbeat. If mitigation latency exceeds $1{,}000\,\mu\text{s}$ or drop rates spike abnormally, an emergency rollback to stable weights executes automatically.</li>
+<li><strong>RollbackGuard Automated Safety Circuit:</strong> Real-time watchdog evaluating every canary heartbeat. If mitigation latency exceeds <span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> or drop rates spike abnormally, an emergency rollback to stable weights executes automatically.</li>
 <li><strong>Hardware Identity &amp; Attestation Validator:</strong> Validates TPM 2.0 PCR quotes against pre-registered golden identities, revoking rogue or cloned appliances immediately.</li>
 </ul>
 <h4 id="3-administrative-interface-nexus-ctl-terminal-showcase">3. Administrative Interface: <code>nexus-ctl</code> Terminal Showcase</h4>
@@ -45091,7 +45091,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 </ul>
 <h4 id="2-appliance-form-factors">2. Appliance Form Factors</h4>
 <ol>
-<li><strong>Model S-1000 (Industrial DIN-Rail):</strong> Ultra-ruggedized fanless chassis, operating range $-40^\circ\text{C}$ to $+85^\circ\text{C}$, physical TPM 2.0, dual redundant power, Rockchip RK3588 NPU or Intel Atom OpenVINO.</li>
+<li><strong>Model S-1000 (Industrial DIN-Rail):</strong> Ultra-ruggedized fanless chassis, operating range <span class="arithmatex">\(-40^\circ\text{C}\)</span> to <span class="arithmatex">\(+85^\circ\text{C}\)</span>, physical TPM 2.0, dual redundant power, Rockchip RK3588 NPU or Intel Atom OpenVINO.</li>
 <li><strong>Model S-5000 (Enterprise 1U Rackmount):</strong> Dual Intel Xeon / AMD EPYC, NVIDIA L4 GPU accelerator, dual 10/25GbE Intel SFP+ with native <code>AF_XDP</code> driver support, physical TPM 2.0 cryptoprocessor.</li>
 <li><strong>Model V-Edge (Virtual Appliance):</strong> Pre-hardened OVA/QCOW2 image for VMware vSphere, KVM, and Proxmox with adaptive vTPM and DMI UUID hardware fallback.</li>
 </ol>
@@ -45298,7 +45298,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 </code></pre></div>
 <h4 id="3-core-architectural-modules">3. Core Architectural Modules</h4>
 <ul>
-<li><strong>eBPF/XDP Kernel Filter (<code>bpf/xdp_filter.c</code>):</strong> Compiled via Clang directly into BPF bytecode. Intercepts incoming network frames before the Linux kernel allocates an <code>sk_buff</code> socket buffer, executing line-rate packet drops in $0.84\,\mu\text{s}$.</li>
+<li><strong>eBPF/XDP Kernel Filter (<code>bpf/xdp_filter.c</code>):</strong> Compiled via Clang directly into BPF bytecode. Intercepts incoming network frames before the Linux kernel allocates an <code>sk_buff</code> socket buffer, executing line-rate packet drops in <span class="arithmatex">\(0.84\,\mu\text{s}\)</span>.</li>
 <li><strong>Lock-Free SPMC Ring Buffer (<code>EventRingBuffer</code>):</strong> Single-Producer Multi-Consumer circular ring buffer coordinating high-speed packet ingestion across multiple inference threads without mutex contention or thread locks.</li>
 <li><strong>Three-Tier Adaptive Hardware Identity Engine:</strong></li>
 <li><em>Physical TPM 2.0:</em> Interfaces directly with <code>/dev/tpmrm0</code> via TCG TSS2 specifications.</li>
@@ -45315,7 +45315,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 </ul>
 <h4 id="2-the-continual-learning-pipeline">2. The Continual Learning Pipeline</h4>
 <ul>
-<li><strong>Self-Supervised Masked Autoencoding (MAE):</strong> Telemetry flows through an autoencoder that masks $30\%$ of the 32-dimensional NetFlow feature vector, learning the underlying normal topology of site-specific industrial traffic without manual labeling.</li>
+<li><strong>Self-Supervised Masked Autoencoding (MAE):</strong> Telemetry flows through an autoencoder that masks <span class="arithmatex">\(30\%\)</span> of the 32-dimensional NetFlow feature vector, learning the underlying normal topology of site-specific industrial traffic without manual labeling.</li>
 <li><strong>InfoNCE Contrastive Representation Learning:</strong> Maximizes the mutual information between normal ambient traffic representations while establishing a clear hyper-plane separation for novel threat vectors.</li>
 <li><strong>The Non-Negotiable Regression Safety Gate (<code>forge/safety/</code>):</strong>
   Every fine-tuned candidate model is automatically evaluated against an immutable suite of historical attacks (<code>configs/safety/golden_attacks.yaml</code>).
@@ -45484,7 +45484,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 <ul>
 <li><strong>CMMC 2.0 (Level 2) &amp; NIST SP 800-171:</strong></li>
 <li>Control <code>AC.L2-3.1.1</code> (Access Control): Hardware-enforced identity bound to TPM 2.0 silicon.</li>
-<li>Control <code>SI.L2-3.14.1</code> (System &amp; Information Integrity): Incident response and kernel threat mitigation verified $&lt; 1.0\,\text{ms}$.</li>
+<li>Control <code>SI.L2-3.14.1</code> (System &amp; Information Integrity): Incident response and kernel threat mitigation verified <span class="arithmatex">\(&lt; 1.0\,\text{ms}\)</span>.</li>
 <li>Control <code>AU.L2-3.3.1</code> (Audit Logging): Cryptographically signed tamper-evident PCAP evidence carving (<code>22_dfir</code>).</li>
 <li><strong>IEC 62443-3-3 &amp; IEC 62443-4-2 (Industrial Automation &amp; Control Systems):</strong></li>
 <li>Deterministic zone boundary protection and protocol constraint validation for Modbus, DNP3, PROFINET, and S7Comm.</li>
@@ -45502,7 +45502,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 <li><strong>UX Concept:</strong> A split-screen real-time timer animation.</li>
 <li><strong>Interaction:</strong> Visitor clicks <code>[ Simulate Exploit Ingestion ]</code>.</li>
 <li><strong>Left Screen (Aryorithm eBPF/XDP):</strong> A high-speed microsecond clock fires: <code>0.00084 ms</code>. An animated green packet hits the driver ring and is dropped immediately (<code>XDP_DROP</code>).</li>
-<li><strong>Right Screen (Cloud SIEM):</strong> A clock ticks continuously: <code>1s... 5s... 12s... 28s</code>. The animation depicts packet buffering $\rightarrow$ WAN egress $\rightarrow$ cloud ingestion queue $\rightarrow$ Lucene/Elastic indexing $\rightarrow$ rule evaluation $\rightarrow$ ticket generation $\rightarrow$ manual drop alert.</li>
+<li><strong>Right Screen (Cloud SIEM):</strong> A clock ticks continuously: <code>1s... 5s... 12s... 28s</code>. The animation depicts packet buffering <span class="arithmatex">\(\rightarrow\)</span> WAN egress <span class="arithmatex">\(\rightarrow\)</span> cloud ingestion queue <span class="arithmatex">\(\rightarrow\)</span> Lucene/Elastic indexing <span class="arithmatex">\(\rightarrow\)</span> rule evaluation <span class="arithmatex">\(\rightarrow\)</span> ticket generation <span class="arithmatex">\(\rightarrow\)</span> manual drop alert.</li>
 </ul>
 <h3 id="52-the-15-platform-silicon-matrix-interactive-selector">5.2 The 15-Platform Silicon Matrix Interactive Selector</h3>
 <ul>
@@ -45516,10 +45516,10 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
 <ul>
 <li><strong>UX Concept:</strong> An embedded dark terminal emulator at the bottom of technology pages.</li>
 <li><strong>Commands Supported:</strong></li>
-<li><code>nexus-ctl fleet list</code> $\rightarrow$ Outputs simulated multi-site appliance table.</li>
-<li><code>nexus-ctl threat drop 198.51.100.77</code> $\rightarrow$ Animates sub-50ms fanout across all nodes.</li>
-<li><code>nexus-ctl ota status</code> $\rightarrow$ Shows candidate model canary staging progression.</li>
-<li><code>nexus-ctl report cmmc</code> $\rightarrow$ Displays CMMC Level 2 control verification proofs.</li>
+<li><code>nexus-ctl fleet list</code> <span class="arithmatex">\(\rightarrow\)</span> Outputs simulated multi-site appliance table.</li>
+<li><code>nexus-ctl threat drop 198.51.100.77</code> <span class="arithmatex">\(\rightarrow\)</span> Animates sub-50ms fanout across all nodes.</li>
+<li><code>nexus-ctl ota status</code> <span class="arithmatex">\(\rightarrow\)</span> Shows candidate model canary staging progression.</li>
+<li><code>nexus-ctl report cmmc</code> <span class="arithmatex">\(\rightarrow\)</span> Displays CMMC Level 2 control verification proofs.</li>
 </ul>
 <h3 id="54-air-gapped-html5-canvas-fleet-topology-visualizer">5.4 Air-Gapped HTML5 Canvas Fleet Topology Visualizer</h3>
 <ul>
@@ -45610,6 +45610,10 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>threat<span class="w">
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

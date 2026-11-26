@@ -43138,13 +43138,13 @@
                   
 
 
-<h1 id="active-learning-uncertainty-sampling-040-060">Active Learning: Uncertainty Sampling ($0.40 - 0.60$)</h1>
+<h1 id="active-learning-uncertainty-sampling-040-060">Active Learning: Uncertainty Sampling (<span class="arithmatex">\(0.40 - 0.60\)</span>)</h1>
 <p>In cyber-physical networks, training on redundant telemetry consumes compute resources without improving model accuracy. The <code>DatasetCurator</code> enforces <strong>Uncertainty Sampling</strong> to select the highest-entropy feature vectors.</p>
 <hr />
 <h2 id="1-information-entropy-gating-formulation">1. Information Entropy Gating Formulation</h2>
-<p>Let $f(x; \theta) \in [0.0, 1.0]$ represent the model's predicted anomaly probability for flow $x$.</p>
-<p>The binary classification entropy $\mathcal{H}(x)$ is maximized when the model is most uncertain ($f(x) \approx 0.50$):</p>
-<p>$$\mathcal{H}(x) = -f(x)\log_2 f(x) - (1 - f(x))\log_2(1 - f(x))$$</p>
+<p>Let <span class="arithmatex">\(f(x; \theta) \in [0.0, 1.0]\)</span> represent the model's predicted anomaly probability for flow <span class="arithmatex">\(x\)</span>.</p>
+<p>The binary classification entropy <span class="arithmatex">\(\mathcal{H}(x)\)</span> is maximized when the model is most uncertain (<span class="arithmatex">\(f(x) \approx 0.50\)</span>):</p>
+<div class="arithmatex">\[\mathcal{H}(x) = -f(x)\log_2 f(x) - (1 - f(x))\log_2(1 - f(x))\]</div>
 <div class="highlight"><pre><span></span><code> Entropy H(x)
   1.00 ──┐                     .-.
          │                   /     \
@@ -43170,19 +43170,19 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>$[0.00, 0.40)$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\([0.00, 0.40)\)</span></strong></td>
 <td style="text-align: left;">Confident Benign</td>
 <td style="text-align: left;"><strong>Discard</strong></td>
 <td style="text-align: left;">Redundant normal baseline; adds no informational value.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>$[0.40, 0.60]$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\([0.40, 0.60]\)</span></strong></td>
 <td style="text-align: left;"><strong>Uncertain Boundary</strong></td>
 <td style="text-align: left;"><strong>Curate into Queue</strong></td>
 <td style="text-align: left;">Model decision boundary is ambiguous; high information gain.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>$(0.60, 1.00]$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\((0.60, 1.00]\)</span></strong></td>
 <td style="text-align: left;">Confident Anomaly</td>
 <td style="text-align: left;"><strong>Discard from Training</strong></td>
 <td style="text-align: left;">Already detected and dropped by in-kernel eBPF filter.</td>
@@ -43257,6 +43257,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

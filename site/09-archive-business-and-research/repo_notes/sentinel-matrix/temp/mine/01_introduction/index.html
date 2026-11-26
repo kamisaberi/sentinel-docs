@@ -43313,7 +43313,7 @@
 <li><code>xinfer-forge</code> automatically detects batch quotas, runs self-supervised MAE adaptation, validates safety against <code>golden_attacks.yaml</code>, and pushes <code>network_threat_v2.onnx</code> to Nexus.</li>
 <li>All 5 edge nodes pull the new model and execute zero-downtime hot-reloading.</li>
 <li><strong>Live Web &amp; Terminal Observability:</strong> While running, you can watch the entire simulation live at <code>http://localhost:9443</code> (interactive radial topology, MITRE ATT&amp;CK heatmap, eBPF drop counters) or via a rich terminal UI (<code>LiveDashboard.py</code>).</li>
-<li><strong>Chaos Testing Engine:</strong> Periodically injects simulated SLA latency breaches ($&gt;1{,}000\,\mu\text{s}$) or terminates edge appliances to verify instant 0ms graceful disconnects and automated model rollbacks.</li>
+<li><strong>Chaos Testing Engine:</strong> Periodically injects simulated SLA latency breaches (<span class="arithmatex">\(&gt;1{,}000\,\mu\text{s}\)</span>) or terminates edge appliances to verify instant 0ms graceful disconnects and automated model rollbacks.</li>
 </ol>
 <hr />
 <h3 id="ready-to-proceed">Ready to proceed?</h3>
@@ -43391,6 +43391,10 @@
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43307,7 +43307,7 @@
 <td style="text-align: left;">Lineage Graph MLP</td>
 <td style="text-align: left;"><code>input</code>: <code>[1, 24]</code> (FP32)</td>
 <td style="text-align: left;"><code>scores</code>: <code>[1, 1]</code> (FP32)</td>
-<td style="text-align: left;">Illegitimate child process spawning (e.g. <code>nginx</code> $\rightarrow$ <code>sh</code>), reflective DLL injection.</td>
+<td style="text-align: left;">Illegitimate child process spawning (e.g. <code>nginx</code> <span class="arithmatex">\(\rightarrow\)</span> <code>sh</code>), reflective DLL injection.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>07</strong></td>
@@ -43469,7 +43469,7 @@
 <td style="text-align: left;">Continuous Regressor MLP</td>
 <td style="text-align: left;"><code>input</code>: <code>[1, 20]</code> (FP32)</td>
 <td style="text-align: left;"><code>scores</code>: <code>[1, 1]</code> (FP32)</td>
-<td style="text-align: left;">Dynamic device trust score calculation $\in [0, 100]$ to adjust micro-segmentation.</td>
+<td style="text-align: left;">Dynamic device trust score calculation <span class="arithmatex">\(\in [0, 100]\)</span> to adjust micro-segmentation.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>25</strong></td>
@@ -43527,9 +43527,9 @@
 <hr />
 <h3 id="how-these-models-are-hosted-and-managed">How These Models are Hosted and Managed</h3>
 <ol>
-<li><strong>Lightweight Models ($&lt;10\,\text{MB}$):</strong> Modules 01 through 15, 17, 18, 21, and 24 through 26 use compact MLPs, Autoencoders, and 1D-CNNs. They are generated via PyTorch scripts in <code>xinfer-forge</code> and compile to under 50\,KB to 5\,MB each.</li>
-<li><strong>Medium Models ($10\,\text{MB} - 50\,\text{MB}$):</strong> Modules 16 (<code>cdr</code>), 19 (<code>swg</code>), 20 (<code>fse</code>), and 22 (<code>dfir</code>) use deeper 1D-ResNets and character CNNs.</li>
-<li><strong>Transformer Models ($50\,\text{MB} - 400\,\text{MB}$):</strong> Module 23 (<code>ai_trism_prompt_guard.onnx</code>) uses a quantized MiniLM or DistilBERT backbone downloaded via <code>xinfer::ModelHub</code>.</li>
+<li><strong>Lightweight Models (<span class="arithmatex">\(&lt;10\,\text{MB}\)</span>):</strong> Modules 01 through 15, 17, 18, 21, and 24 through 26 use compact MLPs, Autoencoders, and 1D-CNNs. They are generated via PyTorch scripts in <code>xinfer-forge</code> and compile to under 50\,KB to 5\,MB each.</li>
+<li><strong>Medium Models (<span class="arithmatex">\(10\,\text{MB} - 50\,\text{MB}\)</span>):</strong> Modules 16 (<code>cdr</code>), 19 (<code>swg</code>), 20 (<code>fse</code>), and 22 (<code>dfir</code>) use deeper 1D-ResNets and character CNNs.</li>
+<li><strong>Transformer Models (<span class="arithmatex">\(50\,\text{MB} - 400\,\text{MB}\)</span>):</strong> Module 23 (<code>ai_trism_prompt_guard.onnx</code>) uses a quantized MiniLM or DistilBERT backbone downloaded via <code>xinfer::ModelHub</code>.</li>
 </ol>
 <p>Every single model in this table is fully compatible with <strong>OpenVINO (CPU/NPU)</strong>, <strong>TensorRT (GPU)</strong>, and <strong>Rockchip (RKNN)</strong>, executing within the microsecond latency budget of Sentinel.</p>
 
@@ -43600,6 +43600,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

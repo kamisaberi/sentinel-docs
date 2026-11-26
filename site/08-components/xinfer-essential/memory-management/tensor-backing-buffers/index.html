@@ -43212,7 +43212,7 @@
 </code></pre></div>
 <hr />
 <h2 id="2-lock-free-pre-allocated-tensor-pool">2. Lock-Free Pre-Allocated Tensor Pool</h2>
-<p>For high-throughput workloads ($&gt; 1,000,000\text{ EPS}$), <code>xinfer-essential</code> uses a lock-free fixed-capacity pool to recycle tensor buffers without making runtime kernel allocations:</p>
+<p>For high-throughput workloads (<span class="arithmatex">\(&gt; 1,000,000\text{ EPS}\)</span>), <code>xinfer-essential</code> uses a lock-free fixed-capacity pool to recycle tensor buffers without making runtime kernel allocations:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xinfer/tensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
@@ -43265,7 +43265,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-double-buffering-for-asynchronous-pipelines">3. Double-Buffering for Asynchronous Pipelines</h2>
-<p>To maximize compute utilization, <code>xinfer-essential</code> implements double-buffering across inference runs. The host prepares buffer $N+1$ while the hardware accelerator processes buffer $N$:</p>
+<p>To maximize compute utilization, <code>xinfer-essential</code> implements double-buffering across inference runs. The host prepares buffer <span class="arithmatex">\(N+1\)</span> while the hardware accelerator processes buffer <span class="arithmatex">\(N\)</span>:</p>
 <div class="highlight"><pre><span></span><code>Time Step T:
    Host CPU:            [ Populate Input Buffer B (Pinned RAM) ]
    Accelerator Core:    [ Executing Compute on Buffer A (Device SRAM) ]
@@ -43362,6 +43362,10 @@ Time Step T+1:
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

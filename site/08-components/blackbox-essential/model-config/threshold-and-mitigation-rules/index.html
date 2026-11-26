@@ -43220,9 +43220,9 @@
 <hr />
 <h2 id="3-dynamic-ttl-adaptation">3. Dynamic TTL Adaptation</h2>
 <p>Under active attack conditions, <code>MitigationArbiter</code> scales TTL durations dynamically:
-* <strong>First Offense:</strong> Blocks for $60\,\text{seconds}$.
+* <strong>First Offense:</strong> Blocks for <span class="arithmatex">\(60\,\text{seconds}\)</span>.
 * <strong>Repeated Violations:</strong> If an IP triggers an anomaly again within a 10-minute window, the TTL scales exponentially:</p>
-<p>$$\text{TTL}<em>{\text{new}} = \min\left(\text{TTL}</em>{\text{base}} \times 2^{\text{repeat_count}},\, 86400\,\text{s}\right)$$</p>
+<div class="arithmatex">\[\text{TTL}_{\text{new}} = \min\left(\text{TTL}_{\text{base}} \times 2^{\text{repeat\_count}},\, 86400\,\text{s}\right)\]</div>
 <p>This mechanism shields critical infrastructure while allowing transient network glitches to clear automatically without manual operator intervention.</p>
 
 
@@ -43292,6 +43292,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

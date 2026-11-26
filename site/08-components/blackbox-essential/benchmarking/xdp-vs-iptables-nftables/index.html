@@ -43176,7 +43176,7 @@ BLACKBOX-ESSENTIAL (eBPF / XDP):
 </code></pre></div>
 <hr />
 <h2 id="2-empirical-benchmark-10gbe-wire-speed-flood-1488-mpps">2. Empirical Benchmark: 10GbE Wire-Speed Flood (14.88 Mpps)</h2>
-<p><strong>Workload:</strong> 64-byte UDP packet flood targeting port 80 with $10{,}000$ active IP block rules:</p>
+<p><strong>Workload:</strong> 64-byte UDP packet flood targeting port 80 with <span class="arithmatex">\(10{,}000\)</span> active IP block rules:</p>
 <table>
 <thead>
 <tr>
@@ -43190,30 +43190,30 @@ BLACKBOX-ESSENTIAL (eBPF / XDP):
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Linux <code>iptables</code></strong></td>
-<td style="text-align: left;">$1.85\text{ Mpps}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1.85\text{ Mpps}\)</span></td>
 <td style="text-align: left;"><strong>100% (All Cores Saturated)</strong></td>
 <td style="text-align: left;"><strong>87.5% Dropped (Collateral)</strong></td>
-<td style="text-align: left;">$\sim 18.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 18.5\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Linux <code>nftables</code></strong></td>
-<td style="text-align: left;">$2.30\text{ Mpps}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(2.30\text{ Mpps}\)</span></td>
 <td style="text-align: left;"><strong>100% (All Cores Saturated)</strong></td>
 <td style="text-align: left;"><strong>84.1% Dropped (Collateral)</strong></td>
-<td style="text-align: left;">$\sim 14.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 14.2\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>blackbox-essential</code> (XDP)</strong></td>
-<td style="text-align: left;"><strong>$14.88\text{ Mpps}$ (Line Rate)</strong></td>
-<td style="text-align: left;"><strong>$&lt; 8\%$ (1 Isolated Core)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14.88\text{ Mpps}\)</span> (Line Rate)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 8\%\)</span> (1 Isolated Core)</strong></td>
 <td style="text-align: left;"><strong>0.0% Dropped (0 Loss)</strong></td>
-<td style="text-align: left;"><strong>$&lt; 0.84\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="3-failure-mode-of-netfilter-under-attack">3. Failure Mode of Netfilter Under Attack</h2>
-<p>When traffic exceeds $2.5\text{ Mpps}$, Netfilter experiences:
+<p>When traffic exceeds <span class="arithmatex">\(2.5\text{ Mpps}\)</span>, Netfilter experiences:
 1. <strong>Slab Allocator Starvation:</strong> The kernel spends all available CPU cycles allocating and freeing <code>struct sk_buff</code> memory in <code>kmem_cache_alloc</code>.
 2. <strong>Ksoftirqd Thrashing:</strong> The kernel softirq daemon consumes 100% of CPU time, starving user-space security daemons of execution cycles.
 3. <strong>Collateral Packet Loss:</strong> Legitimate control frames (e.g., Modbus, SSH) are discarded in the hardware ring buffer because the host cannot process packets fast enough.</p>
@@ -43286,6 +43286,10 @@ BLACKBOX-ESSENTIAL (eBPF / XDP):
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

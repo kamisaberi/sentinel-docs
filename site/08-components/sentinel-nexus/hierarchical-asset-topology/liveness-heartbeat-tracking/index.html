@@ -43147,9 +43147,9 @@
  [   ONLINE   ]  [   ONLINE   ]  [   GRACE   ]  [ TRANSITION: UNREACHABLE ]
 </code></pre></div>
 <ul>
-<li><strong>Heartbeat Period:</strong> Edge nodes report every $5.0\text{ seconds}$.</li>
-<li><strong>Grace Period Window:</strong> $15.0\text{ seconds}$ (3 consecutive missed heartbeats).</li>
-<li><strong>State Transition:</strong> If $t_{\text{current}} - t_{\text{last_heartbeat}} &gt; 15.0\,\text{s}$, the node status changes from <code>ONLINE</code> to <code>UNREACHABLE</code>.</li>
+<li><strong>Heartbeat Period:</strong> Edge nodes report every <span class="arithmatex">\(5.0\text{ seconds}\)</span>.</li>
+<li><strong>Grace Period Window:</strong> <span class="arithmatex">\(15.0\text{ seconds}\)</span> (3 consecutive missed heartbeats).</li>
+<li><strong>State Transition:</strong> If <span class="arithmatex">\(t_{\text{current}} - t_{\text{last\_heartbeat}} &gt; 15.0\,\text{s}\)</span>, the node status changes from <code>ONLINE</code> to <code>UNREACHABLE</code>.</li>
 </ul>
 <hr />
 <h2 id="2-in-engine-liveness-sweeper-livenesstrackercpp">2. In-Engine Liveness Sweeper (<code>LivenessTracker.cpp</code>)</h2>
@@ -43247,6 +43247,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43218,14 +43218,14 @@
 
 <h1 id="emergency-global-false-positive-ip-purge">Emergency Global False-Positive IP Purge</h1>
 <p>If a critical business partner IP, corporate gateway, or authorized engineering workstation is mistakenly blocked by an edge anomaly rule, security operators must be able to remove the block fleet-wide instantly.</p>
-<p><code>sentinel-nexus</code> provides an <strong>Emergency Global IP Purge</strong> command that removes the blocked address across all 5,000 edge kernel maps in <strong>under $50\,\text{milliseconds}$</strong>.</p>
+<p><code>sentinel-nexus</code> provides an <strong>Emergency Global IP Purge</strong> command that removes the blocked address across all 5,000 edge kernel maps in <strong>under <span class="arithmatex">\(50\,\text{milliseconds}\)</span></strong>.</p>
 <hr />
 <h2 id="1-global-purge-command-execution">1. Global Purge Command Execution</h2>
 <h3 id="via-cli-nexus-ctl">Via CLI (<code>nexus-ctl</code>):</h3>
 <div class="highlight"><pre><span></span><code>nexus-ctl<span class="w"> </span>threat<span class="w"> </span>unblock<span class="w"> </span>--ip<span class="w"> </span><span class="m">198</span>.51.100.42<span class="w"> </span>--reason<span class="w"> </span><span class="s2">"Authorized Engineering Workstation"</span>
 </code></pre></div>
 <h3 id="via-web-command-center-port-9443">Via Web Command Center (Port 9443):</h3>
-<p>Navigate to <strong>Threat Management $\to$ Active In-Kernel Rules</strong>, select the target IP, and click <strong><code>[GLOBAL FLEET UNBLOCK]</code></strong>.</p>
+<p>Navigate to <strong>Threat Management <span class="arithmatex">\(\to\)</span> Active In-Kernel Rules</strong>, select the target IP, and click <strong><code>[GLOBAL FLEET UNBLOCK]</code></strong>.</p>
 <hr />
 <h2 id="2-purge-fanout-protocol">2. Purge Fanout Protocol</h2>
 <div class="highlight"><pre><span></span><code> Administrator executes Global Unblock for 198.51.100.42
@@ -43317,6 +43317,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

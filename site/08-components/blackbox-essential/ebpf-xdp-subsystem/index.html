@@ -43123,7 +43123,7 @@
 <li><a href="./xdp-filter-architecture/">XDP Filter Architecture</a>: Frame ingress lifecycle in <code>xdp_threat_filter()</code> and return codes (<code>XDP_DROP</code>, <code>XDP_PASS</code>).</li>
 <li><a href="./driver-mode-vs-skb-mode/">Driver Mode vs SKB Mode</a>: Comparing Native Driver mode (<code>XDP_FLAGS_DRV_MODE</code>) with Generic SKB mode.</li>
 <li><a href="./3gpp-5g-gtp-u-slicing-guard/">3GPP 5G GTP-U Slicing Guard</a>: In-kernel N3 GTP-U dual-header parser &amp; S-NSSAI TEID slice isolation guard.</li>
-<li><a href="./live-sbom-mprotect-wx/">Live-SBOM W^X Protection</a>: In-kernel tracepoint driver enforcing $W\oplus X$ memory invariants and $&lt; 1.0\,\mu\text{s}$ <code>SIGKILL</code>.</li>
+<li><a href="./live-sbom-mprotect-wx/">Live-SBOM W^X Protection</a>: In-kernel tracepoint driver enforcing <span class="arithmatex">\(W\oplus X\)</span> memory invariants and <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span> <code>SIGKILL</code>.</li>
 <li><a href="./bpf-verifier-guarantees/">BPF Verifier Guarantees</a>: Memory safety proofs, bounds checking, and register state tracking.</li>
 <li><a href="./compiling-bpf-bytecode/">Compiling BPF Bytecode</a>: Clang/LLVM compilation pipeline, <code>build_bpf.sh</code>, and disassembly analysis.</li>
 <li><a href="./bpf-map-management/">BPF Map Management</a>: Pinned namespaces in <code>/sys/fs/bpf/blackbox</code> and <code>BPF_MAP_TYPE_HASH</code> mechanics.</li>
@@ -43198,6 +43198,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

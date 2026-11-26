@@ -43315,7 +43315,7 @@
   <h1>01</h1>
 
 <h3 id="extensibility-architecture-tiered-execution-model">Extensibility Architecture &amp; Tiered Execution Model</h3>
-<p>To maintain the $&lt; 1.0\,\mu\text{s}$ edge mitigation invariant while opening the engine to third-party developers, the Sentinel Extensibility Framework adopts a <strong>3-Tier Execution Model</strong>. Each execution tier targets a distinct balance between line-rate execution speed and memory-safety sandboxing:</p>
+<p>To maintain the <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span> edge mitigation invariant while opening the engine to third-party developers, the Sentinel Extensibility Framework adopts a <strong>3-Tier Execution Model</strong>. Each execution tier targets a distinct balance between line-rate execution speed and memory-safety sandboxing:</p>
 <div class="highlight"><pre><span></span><code>========================================================================================================
                                SENTINEL 3-TIER EXTENSIBILITY ARCHITECTURE
 ========================================================================================================
@@ -43379,14 +43379,14 @@
 </ul>
 <h3 id="22-embedded-webassembly-wasm-micro-sandbox">2.2 Embedded WebAssembly (Wasm) Micro-Sandbox</h3>
 <ul>
-<li><strong>Engine Choice:</strong> <strong>Wasm3</strong> (Ultra-fast, interpreted, $&lt; 100\,\text{KB}$ binary footprint, zero JIT compilation latency) for low-memory appliances; switchable to <strong>Wasmtime</strong> on multi-core appliances.</li>
-<li><strong>Memory Isolation:</strong> Each Wasm module runs inside an isolated $64\,\text{KB}$ - $4\,\text{MB}$ linear memory page. The host copies the frame header into Wasm linear memory at offset 0, executes <code>dissect()</code>, and retrieves the 64-bit verdict integer.</li>
-<li><strong>Gas / Instruction Limit:</strong> Strict execution quota ($50{,}000$ instructions max per frame). Infinite loops in third-party code trigger an instant trap and module quarantine.</li>
+<li><strong>Engine Choice:</strong> <strong>Wasm3</strong> (Ultra-fast, interpreted, <span class="arithmatex">\(&lt; 100\,\text{KB}\)</span> binary footprint, zero JIT compilation latency) for low-memory appliances; switchable to <strong>Wasmtime</strong> on multi-core appliances.</li>
+<li><strong>Memory Isolation:</strong> Each Wasm module runs inside an isolated <span class="arithmatex">\(64\,\text{KB}\)</span> - <span class="arithmatex">\(4\,\text{MB}\)</span> linear memory page. The host copies the frame header into Wasm linear memory at offset 0, executes <code>dissect()</code>, and retrieves the 64-bit verdict integer.</li>
+<li><strong>Gas / Instruction Limit:</strong> Strict execution quota (<span class="arithmatex">\(50{,}000\)</span> instructions max per frame). Infinite loops in third-party code trigger an instant trap and module quarantine.</li>
 </ul>
 <h3 id="23-luajit-dynamic-hot-reload-engine">2.3 LuaJIT Dynamic Hot-Reload Engine</h3>
 <ul>
 <li><strong>Runtime:</strong> LuaJIT 2.1 with trace-compiler optimizations.</li>
-<li><strong>Hot-Reload Trigger:</strong> Linux <code>inotify</code> watches <code>/etc/sentinel/rules.d/</code>. Saving a new <code>threat_*.lua</code> file recompiles and swaps the bytecode state in $&lt; 2\,\text{ms}$ with zero daemon restart or packet loss.</li>
+<li><strong>Hot-Reload Trigger:</strong> Linux <code>inotify</code> watches <code>/etc/sentinel/rules.d/</code>. Saving a new <code>threat_*.lua</code> file recompiles and swaps the bytecode state in <span class="arithmatex">\(&lt; 2\,\text{ms}\)</span> with zero daemon restart or packet loss.</li>
 <li><strong>FFI Bindings:</strong> Direct pointer binding (<code>ffi.cdef</code>) allowing Lua to inspect packet memory buffers with zero copy.</li>
 </ul>
 <hr />
@@ -43440,7 +43440,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Critical Power / Manufacturing</td>
 <td style="text-align: left;">Validates anti-replay challenge-response handshakes; drops unauthorized firmware download attempts targeting S7-1200/1500 PLCs.</td>
-<td style="text-align: left;">$&lt; 180\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 180\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_goose_guard</code></strong></td>
@@ -43448,7 +43448,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Electrical Substations</td>
 <td style="text-align: left;">Inspects layer-2 Ethernet frames (EtherType <code>0x88B8</code>); detects <code>stNum</code> / <code>sqNum</code> sequence rollback and replay injection on circuit breaker trip commands.</td>
-<td style="text-align: left;">$&lt; 120\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 120\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_dnp3_auth</code></strong></td>
@@ -43456,7 +43456,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Water &amp; Wastewater</td>
 <td style="text-align: left;">Dissects DNP3 Function Codes (0x81 / 0x82); blocks unauthorized Direct Operate or Cold Restart commands on remote telemetry units (RTUs).</td>
-<td style="text-align: left;">$&lt; 210\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 210\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_mavlink_kill</code></strong></td>
@@ -43464,7 +43464,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Defense &amp; Drone Fleets</td>
 <td style="text-align: left;">Dissects autonomous UAV telemetry; blocks spoofed <code>COMMAND_LONG</code> (MAV_CMD_NAV_TAKEOFF / LAND) packets originating from unverified radio links.</td>
-<td style="text-align: left;">$&lt; 160\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 160\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_dicom_phi</code></strong></td>
@@ -43472,7 +43472,7 @@
 <td style="text-align: left;">Wasm (Rust)</td>
 <td style="text-align: left;">Healthcare &amp; IoMT</td>
 <td style="text-align: left;">Inspects medical imaging PACS transfers; strips unencrypted Protected Health Information (PHI) metadata tags and flags unauthorized patient data exfiltration.</td>
-<td style="text-align: left;">$&lt; 2.4\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 2.4\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_hl7_taint</code></strong></td>
@@ -43480,15 +43480,15 @@
 <td style="text-align: left;">Wasm (Rust)</td>
 <td style="text-align: left;">Hospital Information Systems</td>
 <td style="text-align: left;">Parses pipe-delimited HL7 message streams (<code>MSH</code>, <code>PID</code>, <code>OBX</code>); detects patient dosage manipulation and SQL injection inside lab result segments.</td>
-<td style="text-align: left;">$&lt; 2.8\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 2.8\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_ais_spoof</code></strong></td>
 <td style="text-align: left;">NMEA 0183 / AIS Vessel</td>
 <td style="text-align: left;">Wasm (Rust)</td>
 <td style="text-align: left;">Maritime Logistics</td>
-<td style="text-align: left;">Analyzes maritime transponder packets; flags impossible vessel velocity ($&gt; 65\,\text{knots}$) and kinetic GPS coordinate teleportation in open water.</td>
-<td style="text-align: left;">$&lt; 1.9\,\mu\text{s}$</td>
+<td style="text-align: left;">Analyzes maritime transponder packets; flags impossible vessel velocity (<span class="arithmatex">\(&gt; 65\,\text{knots}\)</span>) and kinetic GPS coordinate teleportation in open water.</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 1.9\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_bacnet_lock</code></strong></td>
@@ -43496,7 +43496,7 @@
 <td style="text-align: left;">Wasm (Rust)</td>
 <td style="text-align: left;">Smart Buildings &amp; Datacenters</td>
 <td style="text-align: left;">Monitors building management systems; intercepts rogue <code>WriteProperty</code> APDUs attempting to disable chiller loops or emergency fire exhaust fans.</td>
-<td style="text-align: left;">$&lt; 2.1\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 2.1\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_c1222_smart</code></strong></td>
@@ -43504,7 +43504,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Smart Energy Grids</td>
 <td style="text-align: left;">Inspects Advanced Metering Infrastructure mesh packets; validates EPSEM table reads and drops unauthorized remote bulk disconnect commands.</td>
-<td style="text-align: left;">$&lt; 250\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 250\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_kafka_audit</code></strong></td>
@@ -43512,7 +43512,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Financial Services / Fintech</td>
 <td style="text-align: left;">Decodes Kafka binary frames; enforces row-level schema validation and blocks untrusted ledger transaction publications at the transport boundary.</td>
-<td style="text-align: left;">$&lt; 310\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 310\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_grpc_shield</code></strong></td>
@@ -43520,7 +43520,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Cloud-Native Microservices</td>
 <td style="text-align: left;">Unpacks length-delimited Protobuf messages; terminates malicious field payloads and denial-of-service gRPC stream multiplexing attacks.</td>
-<td style="text-align: left;">$&lt; 380\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 380\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_arinc429_eth</code></strong></td>
@@ -43528,7 +43528,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Commercial Avionics</td>
 <td style="text-align: left;">Decodes avionics databus packets tunneled over UDP; detects illegal label overrides and bus skew across flight management systems.</td>
-<td style="text-align: left;">$&lt; 140\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 140\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_profinet_dcp</code></strong></td>
@@ -43536,7 +43536,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Automotive Manufacturing</td>
 <td style="text-align: left;">Intercepts Layer-2 Discovery and Basic Configuration Protocol frames; blocks rogue Factory Reset and IP re-assignment sweeps on the factory floor.</td>
-<td style="text-align: left;">$&lt; 150\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 150\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_log4j_patch</code></strong></td>
@@ -43544,7 +43544,7 @@
 <td style="text-align: left;">LuaJIT</td>
 <td style="text-align: left;">IT &amp; Cloud Edge</td>
 <td style="text-align: left;">Hot-reloadable zero-day rule; scans sliding window buffers for <code>${jndi:ldap://</code> patterns and issues immediate kernel-level IP drops via eBPF.</td>
-<td style="text-align: left;">$&lt; 420\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 420\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_cve_http_rapid</code></strong></td>
@@ -43552,7 +43552,7 @@
 <td style="text-align: left;">LuaJIT</td>
 <td style="text-align: left;">Enterprise Web / DMZ</td>
 <td style="text-align: left;">Hot-swappable 10-line heuristic against emerging HTTP zero-days (e.g., header smuggling, continuous chunk extensions, rapid reset sweeps).</td>
-<td style="text-align: left;">$&lt; 480\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 480\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_modbus_coil_cap</code></strong></td>
@@ -43560,7 +43560,7 @@
 <td style="text-align: left;">LuaJIT</td>
 <td style="text-align: left;">Oil &amp; Gas Pipelines</td>
 <td style="text-align: left;">Dynamic safety interlock; intercepts Function Code 05/15 and enforces a physical rate limit (e.g., maximum 2 valve state changes per 60 seconds).</td>
-<td style="text-align: left;">$&lt; 390\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 390\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_kerb_roast</code></strong></td>
@@ -43568,7 +43568,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Enterprise Active Directory</td>
 <td style="text-align: left;">Dissects Kerberos authentication tickets; detects RC4 encryption downgrade requests (<code>rc4-hmac</code>) indicative of ticket roasting campaigns.</td>
-<td style="text-align: left;">$&lt; 290\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 290\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_ja4_anomaly</code></strong></td>
@@ -43576,7 +43576,7 @@
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">NDR / SOC Operations</td>
 <td style="text-align: left;">Extracts TLS cipher suites, extensions, and ALPN order to construct live JA4 fingerprints; flags known cobalt-strike and malware C2 beaconing.</td>
-<td style="text-align: left;">$&lt; 220\,\text{ns}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 220\,\text{ns}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_canary_honey</code></strong></td>
@@ -43584,15 +43584,15 @@
 <td style="text-align: left;">Wasm (Rust)</td>
 <td style="text-align: left;">Active Defense / Deception</td>
 <td style="text-align: left;">Emulates responsive Siemens, Rockwell, or generic Telnet services on deception VIPs; tags scanners and generates automated collective defense rules.</td>
-<td style="text-align: left;">$&lt; 1.8\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 1.8\,\mu\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>mod_shannon_pcap</code></strong></td>
 <td style="text-align: left;">Raw TCP/UDP Stream</td>
 <td style="text-align: left;">Native C++20</td>
 <td style="text-align: left;">Anti-Ransomware / EDR</td>
-<td style="text-align: left;">Calculates rolling 8-bit Shannon entropy on network payloads; triggers local alerts when outbound encrypted data streams breach $7.92\,\text{bits/byte}$.</td>
-<td style="text-align: left;">$&lt; 350\,\text{ns}$</td>
+<td style="text-align: left;">Calculates rolling 8-bit Shannon entropy on network payloads; triggers local alerts when outbound encrypted data streams breach <span class="arithmatex">\(7.92\,\text{bits/byte}\)</span>.</td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 350\,\text{ns}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -43669,6 +43669,10 @@
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

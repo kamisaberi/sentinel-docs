@@ -43140,7 +43140,7 @@
 
 <h1 id="edge-explainable-ai-xai-attribution-aggregator-overview">Edge Explainable AI (XAI) Attribution Aggregator Overview</h1>
 <p>In high-concurrency packet filtering, traditional post-hoc explainability techniques (such as kernel SHAP or LIME) are computationally prohibitive: evaluating thousands of model permutations introduces seconds of calculation delay, making real-time attribution impossible at line rate.</p>
-<p><code>sentinel-nexus</code> aggregates <strong>Microsecond Residual Decomposition (MRD)</strong> records computed in under <strong>$80\,\text{nanoseconds}$</strong> by edge appliances, providing security operations centers (SOCs) and compliance auditors with clear physical root-cause attributions for every automated mitigation.</p>
+<p><code>sentinel-nexus</code> aggregates <strong>Microsecond Residual Decomposition (MRD)</strong> records computed in under <strong><span class="arithmatex">\(80\,\text{nanoseconds}\)</span></strong> by edge appliances, providing security operations centers (SOCs) and compliance auditors with clear physical root-cause attributions for every automated mitigation.</p>
 <hr />
 <h2 id="1-end-to-end-xai-ingestion-architecture">1. End-to-End XAI Ingestion Architecture</h2>
 <div class="highlight"><pre><span></span><code> [ EDGE APPLIANCE: blackbox-sentinel ]
@@ -43170,7 +43170,7 @@
 <h2 id="2-invariants-performance">2. Invariants &amp; Performance</h2>
 <ul>
 <li><strong>Zero Inference Stall:</strong> Edge appliances compute feature attributions directly from the forward-pass output tensor without re-evaluating the neural network.</li>
-<li><strong>Semantic Normalization:</strong> Converts abstract continuous values ($[-1.0, 1.0]$) back into physical units (e.g., $9{,}850\,\text{PSI}$, $3{,}600\,\text{RPM}$, $75{,}000\,\text{pps}$).</li>
+<li><strong>Semantic Normalization:</strong> Converts abstract continuous values (<span class="arithmatex">\([-1.0, 1.0]\)</span>) back into physical units (e.g., <span class="arithmatex">\(9{,}850\,\text{PSI}\)</span>, <span class="arithmatex">\(3{,}600\,\text{RPM}\)</span>, <span class="arithmatex">\(75{,}000\,\text{pps}\)</span>).</li>
 <li><strong>Centralized Correlation:</strong> Correlates simultaneous attributions across multiple substations to identify coordinated campaign signatures.</li>
 </ul>
 
@@ -43241,6 +43241,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

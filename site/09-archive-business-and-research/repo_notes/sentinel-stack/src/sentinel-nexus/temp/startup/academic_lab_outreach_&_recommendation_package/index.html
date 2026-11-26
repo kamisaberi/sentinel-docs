@@ -43397,7 +43397,7 @@
 </blockquote>
 <h3 id="abstract">Abstract</h3>
 <p>Modern Network Intrusion Detection and SIEM systems rely on userspace socket buffers (<code>AF_PACKET</code>, <code>NFQUEUE</code>) or retrospective cloud indexing pipelines, introducing non-deterministic latencies between 5.0 milliseconds and 60 seconds. In critical cyber-physical systems (SCADA, industrial IoT, energy microgrids), this detection window is sufficient for physical damage. </p>
-<p>We formalize and evaluate <strong>Sentinel-Lab</strong>, an open reproducible testbed engineered in native C++20 and Linux kernel eBPF/XDP. By executing quantized neural threat representations directly across heterogeneous edge silicon (<strong>Intel OpenVINO CPU/NPU</strong> and <strong>NVIDIA TensorRT GPU</strong>) and coupling inference scores directly to driver-level XDP filter maps, the architecture executes inline packet mitigation in <strong>$0.84\,\mu\text{s}$</strong> at line rates exceeding <strong>1,250,000 events per second</strong>. </p>
+<p>We formalize and evaluate <strong>Sentinel-Lab</strong>, an open reproducible testbed engineered in native C++20 and Linux kernel eBPF/XDP. By executing quantized neural threat representations directly across heterogeneous edge silicon (<strong>Intel OpenVINO CPU/NPU</strong> and <strong>NVIDIA TensorRT GPU</strong>) and coupling inference scores directly to driver-level XDP filter maps, the architecture executes inline packet mitigation in <strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong> at line rates exceeding <strong>1,250,000 events per second</strong>. </p>
 <p>We introduce the <strong>SLAB dynamic binary wire protocol</strong>, enabling zero-copy cross-evaluation of arbitrary feature spaces (CIC-IDS-2017, UNSW-NB15) without reallocating kernel or userspace memory structures.</p>
 <h3 id="key-benchmark-validation-bare-metal-testbed-intel-core-i9-14900k-10gbe-sfp-intel-x520">Key Benchmark Validation (Bare-Metal Testbed: Intel Core i9-14900K, 10GbE SFP+ Intel X520)</h3>
 <table>
@@ -43413,10 +43413,10 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Mitigation Latency</strong></td>
-<td style="text-align: left;"><strong>$0.84\,\mu\text{s}$ ($&lt;1.0\,\text{ms}$ SLA)</strong></td>
-<td style="text-align: left;">$5.0 – 15.0\,\text{ms}$</td>
-<td style="text-align: left;">$3.0 – 10.0\,\text{s}$</td>
-<td style="text-align: left;">$15.0 – 60.0\,\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span> (<span class="arithmatex">\(&lt;1.0\,\text{ms}\)</span> SLA)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(5.0 – 15.0\,\text{ms}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(3.0 – 10.0\,\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(15.0 – 60.0\,\text{s}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Mitigation Hook</strong></td>
@@ -43674,6 +43674,10 @@ Prof. / Dr. [Evaluator Name]
       
       
         <script src="../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

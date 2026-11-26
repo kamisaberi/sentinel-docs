@@ -43167,7 +43167,7 @@
 <hr />
 <h3 id="the-redesigned-specification-configsmodel_routesyaml">The Redesigned Specification: <code>configs/model_routes.yaml</code></h3>
 <p>This redesign incorporates the 4-stage pipeline:<br />
-<strong>Sensor $\rightarrow$ <code>.spkg</code> Pre-Filter $\rightarrow$ Built-in Plugin $\rightarrow$ Subsystem Model Chain $\rightarrow$ Cross-Modal Fusion</strong>.</p>
+<strong>Sensor <span class="arithmatex">\(\rightarrow\)</span> <code>.spkg</code> Pre-Filter <span class="arithmatex">\(\rightarrow\)</span> Built-in Plugin <span class="arithmatex">\(\rightarrow\)</span> Subsystem Model Chain <span class="arithmatex">\(\rightarrow\)</span> Cross-Modal Fusion</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ============================================================================</span>
 <span class="c1"># ARYORITHM TECHNOLOGIES: MULTI-MODAL SENSOR &amp; MODEL ROUTING SPECIFICATION</span>
 <span class="c1"># Architecture: 3-Tier Execution Pipeline (SPKG -&gt; Plugins -&gt; Subsystems -&gt; XAI)</span>
@@ -43406,7 +43406,7 @@
 <tr>
 <td style="text-align: left;"><strong>Stage 1 Reflex Handling</strong></td>
 <td style="text-align: left;">Absent (All packets hit heavy AI models)</td>
-<td style="text-align: left;"><strong><code>spkg_prefilter</code> runs first:</strong> drops known zero-days in $&lt; 120\,\text{ns}$, bypassing NPU entirely.</td>
+<td style="text-align: left;"><strong><code>spkg_prefilter</code> runs first:</strong> drops known zero-days in <span class="arithmatex">\(&lt; 120\,\text{ns}\)</span>, bypassing NPU entirely.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Feature Normalization</strong></td>
@@ -43426,7 +43426,7 @@
 <tr>
 <td style="text-align: left;"><strong>Explainability (XAI)</strong></td>
 <td style="text-align: left;">Unconfigured</td>
-<td style="text-align: left;">Explicit <strong><code>xai_explainer: "MRD_XAI"</code></strong> calculates residual attribution in $&lt; 80\,\text{ns}$.</td>
+<td style="text-align: left;">Explicit <strong><code>xai_explainer: "MRD_XAI"</code></strong> calculates residual attribution in <span class="arithmatex">\(&lt; 80\,\text{ns}\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Multi-Modal Fusion</strong></td>
@@ -43508,6 +43508,10 @@
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

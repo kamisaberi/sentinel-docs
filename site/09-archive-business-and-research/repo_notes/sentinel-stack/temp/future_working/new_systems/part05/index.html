@@ -43736,14 +43736,14 @@
 <hr />
 <h2 id="project-21-autonomous-drone-flight-override-avionics-flight-safety-net">Project 21: Autonomous Drone Flight Override (Avionics &amp; Flight Safety Net)</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Commercial delivery drones, cargo uncrewed aircraft, and electric vertical takeoff and landing (eVTOL) passenger prototypes (Zipline, Wing, Joby) rely on heavy onboard AI perception stacks and deep Vision-Language-Action (VLA) models for autonomous navigation. Under intense sunlight glare, camera sensor blinding, sudden optical illusions, or GPU memory lock contention, primary AI navigation pipelines occasionally hallucinate or freeze ($&gt; 100\text{ ms}$). </p>
-<p>In urban environments or shared national airspace, if an autonomous drone flying at $80\text{ km/h}$ enters an uncommanded dive or loses attitude stabilization and the backup system takes longer than <strong>$20\text{ ms}$</strong> to intervene, aerodynamic control authority is lost, resulting in a fatal ground impact.</p>
+<p>Commercial delivery drones, cargo uncrewed aircraft, and electric vertical takeoff and landing (eVTOL) passenger prototypes (Zipline, Wing, Joby) rely on heavy onboard AI perception stacks and deep Vision-Language-Action (VLA) models for autonomous navigation. Under intense sunlight glare, camera sensor blinding, sudden optical illusions, or GPU memory lock contention, primary AI navigation pipelines occasionally hallucinate or freeze (<span class="arithmatex">\(&gt; 100\text{ ms}\)</span>). </p>
+<p>In urban environments or shared national airspace, if an autonomous drone flying at <span class="arithmatex">\(80\text{ km/h}\)</span> enters an uncommanded dive or loses attitude stabilization and the backup system takes longer than <strong><span class="arithmatex">\(20\text{ ms}\)</span></strong> to intervene, aerodynamic control authority is lost, resulting in a fatal ground impact.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy memory bridge streaming raw IMU gyro/accelerometer readings and optical flow vectors into edge tensor engines without serialization overhead.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filter (<code>xdp_drop.o</code>) intercepts the internal <strong>CAN-FD and serial UART uORB</strong> flight control bus, isolating the low-level flight controller from runaway AI companion computers.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 flight envelope validator executing within the <strong>$&lt; 88\text{ ns}$</strong> SLA, evaluating vehicle bank angle, roll rate, and descent velocity.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes emergency obstacle avoidance and auto-landing neural graphs into INT8 QDQ ONNX models executing in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 flight envelope validator executing within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, evaluating vehicle bank angle, roll rate, and descent velocity.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes emergency obstacle avoidance and auto-landing neural graphs into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously integrating 6-DOF rigid-body aircraft equations of motion in real time.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Synchronizes flight status and emergency waypoint overrides to ground air traffic control (UTM) via sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin quadrotor and fixed-wing aerodynamic wind-shear recovery scenarios.</li>
@@ -43761,14 +43761,14 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>MAVLink v2</strong>, <strong>CAN-FD (ISO 11898-1)</strong>, <strong>PX4 / ArduPilot uORB Message Bus</strong>.</li>
 <li><strong>Mathematical Invariant (Control Barrier Function for Flight Envelope Protection):</strong>
-  $$h(\mathbf{x}) = \theta_{max} - |\mathbf{\theta}(t)|<em>2 \ge 0, \quad h</em>{alt}(\mathbf{x}) = z(t) - z_{terrain}(\mathbf{p}) - d_{safe} \ge 0$$
-  The system computes the Lie derivative along aerodynamic dynamics $\dot{h}(\mathbf{x}) = \nabla h(\mathbf{x}) \cdot \mathbf{f}(\mathbf{x}, \mathbf{u})$. If the primary companion computer commands a motor thrust vector $\mathbf{u}$ that violates:
-  $$\dot{h}(\mathbf{x}) + \alpha h(\mathbf{x}) &lt; 0$$
-  the eBPF driver cuts the companion computer's control channel in <strong>$&lt; 5\,\mu\text{s}$</strong>, commanding an immediate autonomous hover hold or ballistic parachute ejection.</li>
+  $<span class="arithmatex">\(h(\mathbf{x}) = \theta_{max} - \|\mathbf{\theta}(t)\|_2 \ge 0, \quad h_{alt}(\mathbf{x}) = z(t) - z_{terrain}(\mathbf{p}) - d_{safe} \ge 0\)</span>$
+  The system computes the Lie derivative along aerodynamic dynamics <span class="arithmatex">\(\dot{h}(\mathbf{x}) = \nabla h(\mathbf{x}) \cdot \mathbf{f}(\mathbf{x}, \mathbf{u})\)</span>. If the primary companion computer commands a motor thrust vector <span class="arithmatex">\(\mathbf{u}\)</span> that violates:
+  $<span class="arithmatex">\(\dot{h}(\mathbf{x}) + \alpha h(\mathbf{x}) &lt; 0\)</span>$
+  the eBPF driver cuts the companion computer's control channel in <strong><span class="arithmatex">\(&lt; 5\,\mu\text{s}\)</span></strong>, commanding an immediate autonomous hover hold or ballistic parachute ejection.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> NVIDIA Jetson Orin Nano / Rockchip RK3588 companion board drawing $&lt; 15\text{W}$, linked to a Pixhawk Autopilot via CAN-FD.</li>
+<li><strong>Target Hardware:</strong> NVIDIA Jetson Orin Nano / Rockchip RK3588 companion board drawing <span class="arithmatex">\(&lt; 15\text{W}\)</span>, linked to a Pixhawk Autopilot via CAN-FD.</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified avionics-grade fail-safe redundancy for commercial drone delivery fleets, satisfying FAA Part 135 and EASA Specific Category airworthiness requirements.</li>
 </ul>
 <hr />
@@ -43779,11 +43779,11 @@
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory abstractions streaming high-rate tactical IP radio frames directly to cryptographic verification pipelines.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver (<code>xdp_drop.o</code>) captures raw STANAG 4586 DLI frames over UDP/IP at line rate (10.25M+ EPS), dropping unauthenticated network sources in <strong>$&lt; 0.84\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 STANAG dissector (<code>stanag_guard.cpp</code>) operating within an SLA of <strong>$&lt; 120\text{ ns}$</strong>, validating 16-bit Message IDs, CUCS Station IDs, and vehicle UUIDs.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver (<code>xdp_drop.o</code>) captures raw STANAG 4586 DLI frames over UDP/IP at line rate (10.25M+ EPS), dropping unauthenticated network sources in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 STANAG dissector (<code>stanag_guard.cpp</code>) operating within an SLA of <strong><span class="arithmatex">\(&lt; 120\text{ ns}\)</span></strong>, validating 16-bit Message IDs, CUCS Station IDs, and vehicle UUIDs.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Evaluates Post-Quantum Cryptography (PQC) signature models (NIST ML-DSA-44 / Dilithium) to verify tamper-proof telecommand authorization.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 04 (Differential SCADA Fuzzer) and Module 09 (PQC OT Profiler) over tactical DLI streams to identify command desynchronization attacks.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Distributes rogue ground station identifiers across tactical mesh nodes globally in $&lt; 50\text{ ms}$.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Distributes rogue ground station identifiers across tactical mesh nodes globally in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin tactical drone flight plans under active jamming conditions.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo uas stanag --vehicle-id 0x4142 --dli-port 50050</code>.</li>
 </ul>
@@ -43802,9 +43802,9 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>NATO STANAG 4586 Edition 3 / 4</strong> (DLI Message Type <code>2000</code> Mission Plan, Type <code>1000</code> Steering, Type <code>100</code> Emergency), <strong>MIL-STD-188-220</strong>.</li>
 <li><strong>Mathematical Invariant (Geofence Inclusion &amp; Kinetic Limit Invariant):</strong>
-  $$\mathbf{p}<em>{waypoint} \in \mathcal{P}</em>{geofence_convex_hull}$$
-  $$\left| \frac{d z_{cmd}}{dt} \right| \le \dot{z}<em>{max}, \quad \left| \frac{d \psi</em>{cmd}}{dt} \right| \le \dot{\psi}_{max}$$
-  If an incoming steering message commands a climb rate or turn rate exceeding physical aerodynamic limits ($|\dot{z}| &gt; 20\text{ m/s}$), or commands coordinates outside the military operational geofence, the message is <strong>instantly dropped in $&lt; 120\text{ ns}$</strong>.</li>
+  $<span class="arithmatex">\(\mathbf{p}_{waypoint} \in \mathcal{P}_{geofence\_convex\_hull}\)</span>$
+  $<span class="arithmatex">\(\left| \frac{d z_{cmd}}{dt} \right| \le \dot{z}_{max}, \quad \left| \frac{d \psi_{cmd}}{dt} \right| \le \dot{\psi}_{max}\)</span>$
+  If an incoming steering message commands a climb rate or turn rate exceeding physical aerodynamic limits (<span class="arithmatex">\(|\dot{z}| &gt; 20\text{ m/s}\)</span>), or commands coordinates outside the military operational geofence, the message is <strong>instantly dropped in <span class="arithmatex">\(&lt; 120\text{ ns}\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43814,14 +43814,14 @@
 <hr />
 <h2 id="project-23-mining-haul-truck-collision-preventer-mining-automation">Project 23: Mining Haul Truck Collision Preventer (Mining Automation)</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Ultra-class autonomous mining haul trucks (Caterpillar 797F, Komatsu 980E-5) weigh over <strong>$600\text{ metric tons}$</strong> and stand nearly four stories tall. In open-pit copper and iron mines, these massive vehicles operate in extreme conditions: blinding dust clouds, dense fog, diesel soot, and continuous mechanical vibration. </p>
-<p>Operator blind spots extend over 15 meters in front of the bumper. Single-modality obstacle detection (vision or optical LiDAR alone) fails completely in heavy dust storms due to laser backscatter. Stopping distance for a loaded 600-ton truck traveling at $40\text{ km/h}$ exceeds <strong>60 meters</strong>. If multi-sensor radar/thermal fusion lags by <strong>$100\text{ ms}$</strong>, the truck travels over a meter blind, resulting in lethal crushing collisions with light service pickups or excavators.</p>
+<p>Ultra-class autonomous mining haul trucks (Caterpillar 797F, Komatsu 980E-5) weigh over <strong><span class="arithmatex">\(600\text{ metric tons}\)</span></strong> and stand nearly four stories tall. In open-pit copper and iron mines, these massive vehicles operate in extreme conditions: blinding dust clouds, dense fog, diesel soot, and continuous mechanical vibration. </p>
+<p>Operator blind spots extend over 15 meters in front of the bumper. Single-modality obstacle detection (vision or optical LiDAR alone) fails completely in heavy dust storms due to laser backscatter. Stopping distance for a loaded 600-ton truck traveling at <span class="arithmatex">\(40\text{ km/h}\)</span> exceeds <strong>60 meters</strong>. If multi-sensor radar/thermal fusion lags by <strong><span class="arithmatex">\(100\text{ ms}\)</span></strong>, the truck travels over a meter blind, resulting in lethal crushing collisions with light service pickups or excavators.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a multi-modal zero-copy tensor passing bridge: combining FMCW millimeter-wave radar raw point targets with radiometric thermal LWIR frames without memory copies.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests high-bandwidth raw radar CAN-FD and industrial Ethernet streams in-kernel via multi-queue AF_XDP at line rate.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates spatial-temporal cross-modal invariants, cross-referencing radar Doppler velocity spikes with thermal human heat signatures.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-sensor radar-thermal fusion neural graphs into INT8 QDQ ONNX running in <strong>$&lt; 15\,\mu\text{s}$</strong> on edge NPUs.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-sensor radar-thermal fusion neural graphs into INT8 QDQ ONNX running in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong> on edge NPUs.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving heavy vehicle hydraulic brake pressure and tire-soil friction ODEs.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command coordinates haul truck right-of-way and dynamic intersection yielding across the entire open-pit mine via sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous 600-ton braking dynamics (<code>plant_ode.c</code>) under varied road gradients and wet gravel friction coefficients.</li>
@@ -43839,27 +43839,27 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>CAN-FD (ISO 11898-1)</strong>, <strong>SAE J1939 Heavy Duty Vehicle Bus</strong>, <strong>77 GHz FMCW Automotive Radar over Ethernet</strong>.</li>
 <li><strong>Mathematical Invariant (Heavy Vehicle Stopping Distance ODE &amp; Control Barrier Function):</strong>
-  $$m \frac{dv}{dt} = -F_{retarder} - F_{friction}(\mu_{soil}) - m \cdot g \cdot \sin(\theta_{grade})$$
-  $$h(d_{rel}, v) = d_{rel} - \left( v \cdot t_{reaction} + \frac{m \cdot v^2}{2 (F_{brake} + m g \sin\theta)} + d_{safety} \right) \ge 0$$
-  When $h(d_{rel}, v) &lt; 0$, the system bypasses driver input and commands the hydraulic retarder and secondary emergency disk brakes over the SAE J1939 powertrain bus in <strong>$&lt; 1.5\text{ ms}$</strong>.</li>
+  $<span class="arithmatex">\(m \frac{dv}{dt} = -F_{retarder} - F_{friction}(\mu_{soil}) - m \cdot g \cdot \sin(\theta_{grade})\)</span>$
+  $<span class="arithmatex">\(h(d_{rel}, v) = d_{rel} - \left( v \cdot t_{reaction} + \frac{m \cdot v^2}{2 (F_{brake} + m g \sin\theta)} + d_{safety} \right) \ge 0\)</span>$
+  When <span class="arithmatex">\(h(d_{rel}, v) &lt; 0\)</span>, the system bypasses driver input and commands the hydraulic retarder and secondary emergency disk brakes over the SAE J1939 powertrain bus in <strong><span class="arithmatex">\(&lt; 1.5\text{ ms}\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Ruggedized NVIDIA Jetson AGX Orin Industrial (IP69K sealed, -40°C to +85°C rated) drawing $&lt; 50\text{W}$.</li>
+<li><strong>Target Hardware:</strong> Ruggedized NVIDIA Jetson AGX Orin Industrial (IP69K sealed, -40°C to +85°C rated) drawing <span class="arithmatex">\(&lt; 50\text{W}\)</span>.</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified zero-blind-spot collision prevention in heavy dust storms where optical cameras fail, saving mining operators multi-million-dollar vehicle losses and preventing catastrophic fatalities.</li>
 </ul>
 <hr />
 <h2 id="project-24-live-drone-insulator-fault-finder-power-line-qa">Project 24: Live Drone Insulator Fault Finder (Power Line QA)</h2>
 <h3 id="1-operational-challenge-failure-mode_3">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Electrical transmission utilities maintain millions of high-voltage porcelain and composite insulators strung across tens of thousands of kilometers of remote terrain. Environmental contamination, lightning strikes, and mechanical stress cause micro-fissures and dielectric breakdown, resulting in flashover arcs and dropped power lines that trigger massive wildfires (e.g. California Camp Fire). </p>
-<p>Autonomous utility inspection drones fly along high-voltage transmission corridors at speeds up to <strong>$50\text{ km/h}$</strong>. Drones cannot stream uncompressed 4K optical and radiometric thermal video over remote cellular networks. If defect classification cannot execute <strong>onboard the drone flight computer in real time ($&lt; 25\text{ ms}$ per pylon)</strong>, the drone flies past defective insulators without logging their GPS coordinates, requiring costly re-flights or helicopter inspections ($$3{,}000 - $5{,}000 per hour$).</p>
+<p>Autonomous utility inspection drones fly along high-voltage transmission corridors at speeds up to <strong><span class="arithmatex">\(50\text{ km/h}\)</span></strong>. Drones cannot stream uncompressed 4K optical and radiometric thermal video over remote cellular networks. If defect classification cannot execute <strong>onboard the drone flight computer in real time (<span class="arithmatex">\(&lt; 25\text{ ms}\)</span> per pylon)</strong>, the drone flies past defective insulators without logging their GPS coordinates, requiring costly re-flights or helicopter inspections ($$3{,}000 - <span class="arithmatex">\(5{,}000 per hour\)</span>).</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF bridge passing high-resolution 4K optical and radiometric thermal frames directly into edge NPU memory.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF network filters isolate the inspection payload computer from the flight autopilot, preventing sensor communications from interfering with flight telemetry.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code>: Stage 1 (Fast visual crop of pylon/insulator) $\to$ Stage 3 (Dual-stream INT8 defect segmentation running in $&lt; 15\,\mu\text{s}$).</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes porcelain flashover and cracked polymer segmentation models into INT8 QDQ ONNX models, compressing memory footprints from $800\text{ MB} \to &lt; 95\text{ MB}$.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically guaranteeing that defect classification completes within <strong>$&lt; 18.5\text{ ms}$</strong>, well before the drone clears the inspection field-of-view.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code>: Stage 1 (Fast visual crop of pylon/insulator) <span class="arithmatex">\(\to\)</span> Stage 3 (Dual-stream INT8 defect segmentation running in <span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span>).</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes porcelain flashover and cracked polymer segmentation models into INT8 QDQ ONNX models, compressing memory footprints from <span class="arithmatex">\(800\text{ MB} \to &lt; 95\text{ MB}\)</span>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically guaranteeing that defect classification completes within <strong><span class="arithmatex">\(&lt; 18.5\text{ ms}\)</span></strong>, well before the drone clears the inspection field-of-view.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Transmits compact, cryptographically signed JSON defect coordinate summaries to utility GIS databases over low-bandwidth satellite links (Iridium / Starlink Direct-to-Cell).</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Simulates drone gimbal tracking kinematics and wind-gust compensations.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo vision powerline --thermal-cam /dev/video1 --rgb-cam /dev/video0</code>.</li>
@@ -43876,28 +43876,28 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>Radiometric Thermal Video</strong>, <strong>GigE Vision / MIPI-CSI2</strong>, <strong>MAVLink v2 Gimbal Protocol</strong>.</li>
 <li><strong>Mathematical Invariant (Radiometric Core Thermal Delta Invariant):</strong>
-  $$\Delta T_{insulator} = T_{core}(x, y) - T_{ambient} &gt; \tau_{corona}$$
-  $$\text{DefectScore} = w_1 \cdot \mathcal{S}<em>{optical}(\text{CrackArea}) + w_2 \cdot \frac{\Delta T</em>{insulator}}{\sigma_{ambient}}$$
-  When $\text{DefectScore} \ge 0.85$, the camera captures a high-resolution raw lossless still frame, pairs it with RTK-corrected GNSS coordinates ($\pm 2\text{ cm}$), and queues a compressed alert packet for low-bandwidth satellite burst transmission.</li>
+  $<span class="arithmatex">\(\Delta T_{insulator} = T_{core}(x, y) - T_{ambient} &gt; \tau_{corona}\)</span>$
+  $<span class="arithmatex">\(\text{DefectScore} = w_1 \cdot \mathcal{S}_{optical}(\text{CrackArea}) + w_2 \cdot \frac{\Delta T_{insulator}}{\sigma_{ambient}}\)</span>$
+  When <span class="arithmatex">\(\text{DefectScore} \ge 0.85\)</span>, the camera captures a high-resolution raw lossless still frame, pairs it with RTK-corrected GNSS coordinates (<span class="arithmatex">\(\pm 2\text{ cm}\)</span>), and queues a compressed alert packet for low-bandwidth satellite burst transmission.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Hailo-8 M.2 AI acceleration module paired with a Raspberry Pi CM4 or NVIDIA Jetson Orin Nano ($&lt; 15\text{W}$ payload weight $&lt; 250\text{g}$).</li>
+<li><strong>Target Hardware:</strong> Hailo-8 M.2 AI acceleration module paired with a Raspberry Pi CM4 or NVIDIA Jetson Orin Nano (<span class="arithmatex">\(&lt; 15\text{W}\)</span> payload weight <span class="arithmatex">\(&lt; 250\text{g}\)</span>).</li>
 <li><strong>Commercial Advantage:</strong> Enables commercial utility drones to inspect <strong>over 250 kilometers of transmission lines per day</strong> with automated defect detection, eliminating human inspection fatigue and preventing utility-caused wildfires.</li>
 </ul>
 <hr />
 <h2 id="project-25-robotic-bin-picking-3d-vision-controller-factory-logistics">Project 25: Robotic Bin-Picking 3D Vision Controller (Factory Logistics)</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
 <p>In automotive assembly lines, e-commerce distribution centers, and foundry machining cells, industrial robot arms must pick randomly oriented, overlapping, and shiny metallic parts (bolts, engine brackets, stamped metal casings) out of deep bins. High-resolution structured light and stereo 3D cameras generate dense surface point clouds (<strong>2 to 5 million 3D points per scan</strong>). </p>
-<p>Traditional bin-picking software running on desktop GPUs takes between <strong>$500\text{ ms} - 1,500\text{ ms}$</strong> to compute a single collision-free grasp pose. This delay creates an unacceptable bottleneck: the robot pauses above the bin waiting for coordinates, stretching cycle times to over 3 seconds per pick and slowing down the entire manufacturing cell. Furthermore, miscalculated grasp vectors frequently cause the robot gripper to crash into the rigid steel bin walls, destroying expensive end-effectors ($15,000+ each).</p>
+<p>Traditional bin-picking software running on desktop GPUs takes between <strong><span class="arithmatex">\(500\text{ ms} - 1,500\text{ ms}\)</span></strong> to compute a single collision-free grasp pose. This delay creates an unacceptable bottleneck: the robot pauses above the bin waiting for coordinates, stretching cycle times to over 3 seconds per pick and slowing down the entire manufacturing cell. Furthermore, miscalculated grasp vectors frequently cause the robot gripper to crash into the rigid steel bin walls, destroying expensive end-effectors ($15,000+ each).</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy host-pinned UMEM memory interface passing dense 3D point cloud surface meshes directly to NPU tensor registers without CPU memory copying.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw structured-light 3D camera frames over 10GbE network interfaces using multi-queue AF_XDP at line rate.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) dispatches point clouds to quantized grasp-pose synthesis neural models in parallel.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Contact-GraspNet / PointNet++ grasp generation networks to INT8 QDQ ONNX, slashing grasp pose calculation to <strong>$&lt; 25\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 10 (Formal Control Barrier Function Verifier), mathematically verifying that the generated 6-DOF trajectory maintains a positive clearance distance from the bin walls ($h(\mathbf{p}_{gripper}) \ge 0$).</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates inventory counts and pick-cycle telemetry across 30+ robotic workcells over gRPC in $&lt; 50\text{ ms}$.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Contact-GraspNet / PointNet++ grasp generation networks to INT8 QDQ ONNX, slashing grasp pose calculation to <strong><span class="arithmatex">\(&lt; 25\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 10 (Formal Control Barrier Function Verifier), mathematically verifying that the generated 6-DOF trajectory maintains a positive clearance distance from the bin walls (<span class="arithmatex">\(h(\mathbf{p}_{gripper}) \ge 0\)</span>).</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates inventory counts and pick-cycle telemetry across 30+ robotic workcells over gRPC in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous 6-DOF robot forward and inverse kinematics ODEs (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo robot bin-pick --camera photoneo0 --robot-ip 10.240.0.100</code>.</li>
 </ul>
@@ -43913,14 +43913,14 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>GenICam over GigE Vision</strong>, <strong>Photoneo / Ensenso 3D Point Cloud Protocol</strong>, <strong>EtherCAT / Modbus TCP</strong>.</li>
 <li><strong>Mathematical Invariant (Force-Closure Grasp Quality &amp; Bin Clearance Boundary):</strong>
-  $$Q(\mathbf{g}) = \min_{\mathbf{w} \in \partial \mathcal{G}} |\mathbf{w}| &gt; \epsilon_{friction_cone}$$
-  $$h_{bin}(\mathbf{p}<em>{gripper}) = \min</em>{\mathbf{y} \in \partial \mathcal{V}<em>{bin}} |\mathbf{p}</em>{gripper} - \mathbf{y}| - d_{clearance} \ge 0$$
-  The system computes the optimal grasp wrench space $\mathcal{G}$ and evaluates collision-free reachability in <strong>$&lt; 45\text{ ms}$ total cycle time</strong>, outputting validated joint trajectory waypoints directly to the robot arm controller.</li>
+  $<span class="arithmatex">\(Q(\mathbf{g}) = \min_{\mathbf{w} \in \partial \mathcal{G}} \|\mathbf{w}\| &gt; \epsilon_{friction\_cone}\)</span>$
+  $<span class="arithmatex">\(h_{bin}(\mathbf{p}_{gripper}) = \min_{\mathbf{y} \in \partial \mathcal{V}_{bin}} \|\mathbf{p}_{gripper} - \mathbf{y}\| - d_{clearance} \ge 0\)</span>$
+  The system computes the optimal grasp wrench space <span class="arithmatex">\(\mathcal{G}\)</span> and evaluates collision-free reachability in <strong><span class="arithmatex">\(&lt; 45\text{ ms}\)</span> total cycle time</strong>, outputting validated joint trajectory waypoints directly to the robot arm controller.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
 <li><strong>Target Hardware:</strong> Intel Arc Pro GPU or NVIDIA Jetson Orin NX paired with an industrial PC running real-time Linux.</li>
-<li><strong>Commercial Advantage:</strong> Reduces robotic bin-picking cycle times from $2.5\text{s} \to &lt; 0.8\text{ seconds}$ per pick on a $2,000 edge box, increasing factory throughput by <strong>over $200\%$</strong> while eliminating mechanical gripper collisions.</li>
+<li><strong>Commercial Advantage:</strong> Reduces robotic bin-picking cycle times from <span class="arithmatex">\(2.5\text{s} \to &lt; 0.8\text{ seconds}\)</span> per pick on a $2,000 edge box, increasing factory throughput by <strong>over <span class="arithmatex">\(200\%\)</span></strong> while eliminating mechanical gripper collisions.</li>
 </ul>
 <hr />
 <h3 id="confirmation-to-proceed">Confirmation to Proceed</h3>
@@ -43994,6 +43994,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

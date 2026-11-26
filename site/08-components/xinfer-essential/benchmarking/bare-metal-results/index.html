@@ -43165,13 +43165,13 @@
 <hr />
 <h2 id="1-test-workload-specifications">1. Test Workload Specifications</h2>
 <ul>
-<li><strong>Workload A (NetFlow Autoencoder):</strong> 32-dimensional dense tabular vector ($N=1$). Evaluates sub-microsecond threat scoring SLA.</li>
-<li><strong>Workload B (SCADA Modbus Guard):</strong> 16-dimensional tabular industrial register vector ($N=1$).</li>
-<li><strong>Workload C (YOLOv8s Industrial Vision):</strong> $640 \times 640 \times 3$ image input ($N=1$). Full inference plus tensor decoding.</li>
+<li><strong>Workload A (NetFlow Autoencoder):</strong> 32-dimensional dense tabular vector (<span class="arithmatex">\(N=1\)</span>). Evaluates sub-microsecond threat scoring SLA.</li>
+<li><strong>Workload B (SCADA Modbus Guard):</strong> 16-dimensional tabular industrial register vector (<span class="arithmatex">\(N=1\)</span>).</li>
+<li><strong>Workload C (YOLOv8s Industrial Vision):</strong> <span class="arithmatex">\(640 \times 640 \times 3\)</span> image input (<span class="arithmatex">\(N=1\)</span>). Full inference plus tensor decoding.</li>
 </ul>
 <hr />
 <h2 id="2-bare-metal-hardware-results-matrix">2. Bare-Metal Hardware Results Matrix</h2>
-<p>All benchmarks reflect $1{,}000{,}000$ iterations after a $10{,}000$-pass warm-up. Memory allocation was configured for zero-copy pinned RAM.</p>
+<p>All benchmarks reflect <span class="arithmatex">\(1{,}000{,}000\)</span> iterations after a <span class="arithmatex">\(10{,}000\)</span>-pass warm-up. Memory allocation was configured for zero-copy pinned RAM.</p>
 <table>
 <thead>
 <tr>
@@ -43191,9 +43191,9 @@
 <td style="text-align: left;">NPU.3720 (Level Zero)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$8.4\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$11.2\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$14.1\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.4\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(11.2\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(14.1\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">119,000</td>
 </tr>
 <tr>
@@ -43201,9 +43201,9 @@
 <td style="text-align: left;">NPU.3720 (Level Zero)</td>
 <td style="text-align: left;">FP16</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$11.4\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$14.8\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$18.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(11.4\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14.8\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(18.2\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">87,700</td>
 </tr>
 <tr>
@@ -43211,9 +43211,9 @@
 <td style="text-align: left;">TensorRT (Tensor Cores)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$3.8\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$4.9\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$6.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(3.8\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(4.9\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(6.2\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">263,000</td>
 </tr>
 <tr>
@@ -43221,9 +43221,9 @@
 <td style="text-align: left;">TensorRT (Tensor Cores)</td>
 <td style="text-align: left;">FP16</td>
 <td style="text-align: left;">Workload C</td>
-<td style="text-align: left;"><strong>$6.2\,\text{ms}$</strong></td>
-<td style="text-align: left;"><strong>$7.1\,\text{ms}$</strong></td>
-<td style="text-align: left;">$8.4\,\text{ms}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.2\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(7.1\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(8.4\,\text{ms}\)</span></td>
 <td style="text-align: left;">161 FPS</td>
 </tr>
 <tr>
@@ -43231,9 +43231,9 @@
 <td style="text-align: left;">RKNPU2 (1 Core)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$8.9\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$12.1\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$15.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.9\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(12.1\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(15.5\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">112,000</td>
 </tr>
 <tr>
@@ -43241,9 +43241,9 @@
 <td style="text-align: left;">RKNPU2 (3 Cores)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload C</td>
-<td style="text-align: left;"><strong>$12.3\,\text{ms}$</strong></td>
-<td style="text-align: left;"><strong>$14.1\,\text{ms}$</strong></td>
-<td style="text-align: left;">$16.8\,\text{ms}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(12.3\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14.1\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(16.8\,\text{ms}\)</span></td>
 <td style="text-align: left;">81 FPS</td>
 </tr>
 <tr>
@@ -43251,9 +43251,9 @@
 <td style="text-align: left;">Reference SIMD (AVX-512)</td>
 <td style="text-align: left;">FP32</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$0.92\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$1.15\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$1.42\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.92\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(1.15\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1.42\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">1,086,000</td>
 </tr>
 <tr>
@@ -43261,9 +43261,9 @@
 <td style="text-align: left;">Reference SIMD (AVX-512)</td>
 <td style="text-align: left;">FP32</td>
 <td style="text-align: left;">Workload B</td>
-<td style="text-align: left;"><strong>$0.51\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$0.72\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$0.88\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.51\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.72\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.88\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">1,960,000</td>
 </tr>
 <tr>
@@ -43271,9 +43271,9 @@
 <td style="text-align: left;">HailoRT (<code>/dev/hailo0</code>)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$7.5\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$9.8\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$12.4\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(7.5\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(9.8\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(12.4\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">133,000</td>
 </tr>
 <tr>
@@ -43281,9 +43281,9 @@
 <td style="text-align: left;">HailoRT (<code>/dev/hailo0</code>)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload C</td>
-<td style="text-align: left;"><strong>$5.4\,\text{ms}$</strong></td>
-<td style="text-align: left;"><strong>$6.1\,\text{ms}$</strong></td>
-<td style="text-align: left;">$7.2\,\text{ms}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(5.4\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.1\,\text{ms}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(7.2\,\text{ms}\)</span></td>
 <td style="text-align: left;">185 FPS</td>
 </tr>
 <tr>
@@ -43291,9 +43291,9 @@
 <td style="text-align: left;">Vitis AI (DPUCZDX8G)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$9.5\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$11.9\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$13.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(9.5\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(11.9\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(13.2\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">105,000</td>
 </tr>
 <tr>
@@ -43301,20 +43301,20 @@
 <td style="text-align: left;"><code>libedgetpu1</code> (Apex)</td>
 <td style="text-align: left;">INT8</td>
 <td style="text-align: left;">Workload A</td>
-<td style="text-align: left;"><strong>$28.0\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$34.2\,\mu\text{s}$</strong></td>
-<td style="text-align: left;">$42.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(28.0\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(34.2\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(42.0\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">35,700</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="3-microsecond-jitter-analysis">3. Microsecond Jitter Analysis</h2>
-<p>Jitter standard deviation ($\sigma$) measures the deterministic behavior of the execution pipeline over continuous runtime. In cyber-physical systems, low jitter is critical to preventing packet queue buffer overflows.</p>
-<p>$$\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (t_i - \mu)^2}$$</p>
+<p>Jitter standard deviation (<span class="arithmatex">\(\sigma\)</span>) measures the deterministic behavior of the execution pipeline over continuous runtime. In cyber-physical systems, low jitter is critical to preventing packet queue buffer overflows.</p>
+<div class="arithmatex">\[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (t_i - \mu)^2}\]</div>
 <ul>
-<li><strong>xInfer on Intel Core Ultra NPU:</strong> $\sigma = 0.42\,\mu\text{s}$ (Extremely flat distribution; zero paging traps).</li>
-<li><strong>xInfer on Xeon AVX-512:</strong> $\sigma = 0.08\,\mu\text{s}$ (Deterministic cache residency).</li>
+<li><strong>xInfer on Intel Core Ultra NPU:</strong> <span class="arithmatex">\(\sigma = 0.42\,\mu\text{s}\)</span> (Extremely flat distribution; zero paging traps).</li>
+<li><strong>xInfer on Xeon AVX-512:</strong> <span class="arithmatex">\(\sigma = 0.08\,\mu\text{s}\)</span> (Deterministic cache residency).</li>
 </ul>
 
 
@@ -43384,6 +43384,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

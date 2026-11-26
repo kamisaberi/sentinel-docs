@@ -43315,7 +43315,7 @@ ninja<span class="w"> </span>-C<span class="w"> </span>build<span class="w"> </s
 <hr />
 <h2 id="5-deployment-guidelines">5. Deployment Guidelines</h2>
 <ol>
-<li><strong>Context Binaries:</strong> For deterministic startup times ($&lt; 50\,\text{ms}$), deploy pre-compiled <code>.bin</code> context models instead of compiling ONNX models on the edge node.</li>
+<li><strong>Context Binaries:</strong> For deterministic startup times (<span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>), deploy pre-compiled <code>.bin</code> context models instead of compiling ONNX models on the edge node.</li>
 <li><strong>Thermal Dissipation:</strong> Sustained execution under <code>BURST</code> mode on fanless edge appliances may trigger thermal mitigation. For steady-state workloads, use <code>SUSTAINED_HIGH_PERFORMANCE</code>.</li>
 </ol>
 
@@ -43386,6 +43386,10 @@ ninja<span class="w"> </span>-C<span class="w"> </span>build<span class="w"> </s
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

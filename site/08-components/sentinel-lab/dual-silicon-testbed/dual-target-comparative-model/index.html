@@ -43139,7 +43139,7 @@
 
 
 <h1 id="dual-target-comparative-methodology-1-to-1-stream-parity">Dual-Target Comparative Methodology: 1-to-1 Stream Parity</h1>
-<p>In academic literature, comparing artificial intelligence accelerators (such as comparing an Intel NPU against an NVIDIA GPU) is often biased by divergent benchmark harnesses: evaluating one framework in Python while profiling another in native C++, or running batch sizes of $N=64$ on GPU while restricting CPU tests to $N=1$.</p>
+<p>In academic literature, comparing artificial intelligence accelerators (such as comparing an Intel NPU against an NVIDIA GPU) is often biased by divergent benchmark harnesses: evaluating one framework in Python while profiling another in native C++, or running batch sizes of <span class="arithmatex">\(N=64\)</span> on GPU while restricting CPU tests to <span class="arithmatex">\(N=1\)</span>.</p>
 <p><code>sentinel-lab</code> eliminates benchmarking bias through <strong>1-to-1 Stream Parity</strong>.</p>
 <hr />
 <h2 id="1-experimental-parity-architecture">1. Experimental Parity Architecture</h2>
@@ -43170,7 +43170,7 @@
 <ol>
 <li><strong>Identical Mathematical Weights:</strong> Both silicon engines execute identical trained weights (<code>network_threat_v2.onnx</code>), quantized using standardized symmetric INT8 calibration.</li>
 <li><strong>Identical Memory Boundaries:</strong> Both harnesses measure time starting from the moment packet bytes enter the raw socket buffer until the prediction score is written to RAM.</li>
-<li><strong>Single-Frame Fast Path ($N=1$):</strong> Benchmarks strictly evaluate batch size $N=1$ to reflect real-world, inline wire-speed packet mitigation constraints.</li>
+<li><strong>Single-Frame Fast Path (<span class="arithmatex">\(N=1\)</span>):</strong> Benchmarks strictly evaluate batch size <span class="arithmatex">\(N=1\)</span> to reflect real-world, inline wire-speed packet mitigation constraints.</li>
 </ol>
 
 
@@ -43240,6 +43240,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

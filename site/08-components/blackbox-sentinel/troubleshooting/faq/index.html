@@ -8339,7 +8339,7 @@
   <a href="#q3-how-does-the-appliance-maintain-084mutexts-drops-under-heavy-network-loads" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q3: How does the appliance maintain $&lt; 0.84\,\mu\text{s}$ drops under heavy network loads?
+        Q3: How does the appliance maintain <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops under heavy network loads?
       </span>
     </span>
   </a>
@@ -43147,7 +43147,7 @@
   <a href="#q3-how-does-the-appliance-maintain-084mutexts-drops-under-heavy-network-loads" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q3: How does the appliance maintain $&lt; 0.84\,\mu\text{s}$ drops under heavy network loads?
+        Q3: How does the appliance maintain <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops under heavy network loads?
       </span>
     </span>
   </a>
@@ -43189,11 +43189,11 @@
 <hr />
 <h3 id="q2-what-happens-if-the-central-sentinel-nexus-hub-goes-down">Q2: What happens if the central <code>sentinel-nexus</code> hub goes down?</h3>
 <p>The edge appliance operates with full local autonomy:
-* In-kernel packet mitigation ($&lt; 0.84\,\mu\text{s}$) continues uninterrupted.
+* In-kernel packet mitigation (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) continues uninterrupted.
 * Local SIEM log correlation and web command center management remain operational.
 * Emitted telemetry and forensic PCAP files are buffered in local circular memory until the Nexus connection is restored.</p>
 <hr />
-<h3 id="q3-how-does-the-appliance-maintain-084mutexts-drops-under-heavy-network-loads">Q3: How does the appliance maintain $&lt; 0.84\,\mu\text{s}$ drops under heavy network loads?</h3>
+<h3 id="q3-how-does-the-appliance-maintain-084mutexts-drops-under-heavy-network-loads">Q3: How does the appliance maintain <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops under heavy network loads?</h3>
 <p>The mitigation fast-path runs inside the network interface card (NIC) driver space using Linux eBPF/XDP. When an incoming frame matches an active threat rule, the kernel returns <code>XDP_DROP</code> and recycles the hardware descriptor immediately, avoiding the CPU and memory costs of allocating Linux <code>sk_buff</code> socket buffers.</p>
 <hr />
 <h3 id="q4-can-i-run-third-party-security-agents-eg-splunk-crowdstrike-alongside-sentinel">Q4: Can I run third-party security agents (e.g., Splunk, CrowdStrike) alongside <code>sentinel</code>?</h3>
@@ -43266,6 +43266,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

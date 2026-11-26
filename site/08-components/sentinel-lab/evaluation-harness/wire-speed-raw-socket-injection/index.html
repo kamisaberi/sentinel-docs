@@ -43139,7 +43139,7 @@
 
 
 <h1 id="wire-speed-packet-injection-via-linux-raw-sockets-af_packet">Wire-Speed Packet Injection via Linux Raw Sockets (<code>AF_PACKET</code>)</h1>
-<p>To evaluate driver-level mitigation realistically, <code>sentinel-lab</code> transmits SLAB binary frames over native Linux raw packet sockets (<strong><code>AF_PACKET</code> / <code>SOCK_RAW</code></strong>), sustaining transmission rates exceeding <strong>$60{,}000\text{ packets/second}$</strong> from user space.</p>
+<p>To evaluate driver-level mitigation realistically, <code>sentinel-lab</code> transmits SLAB binary frames over native Linux raw packet sockets (<strong><code>AF_PACKET</code> / <code>SOCK_RAW</code></strong>), sustaining transmission rates exceeding <strong><span class="arithmatex">\(60{,}000\text{ packets/second}\)</span></strong> from user space.</p>
 <hr />
 <h2 id="1-raw-socket-transmission-architecture">1. Raw Socket Transmission Architecture</h2>
 <div class="highlight"><pre><span></span><code> [ Python Dataset Ingestion Loop (socket_injector.py) ]
@@ -43274,6 +43274,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

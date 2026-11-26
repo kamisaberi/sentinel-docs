@@ -43161,8 +43161,8 @@
 
 
 <h1 id="automated-int8-post-training-quantization-ptq-qdq-graph-compilation">Automated INT8 Post-Training Quantization (PTQ) &amp; QDQ Graph Compilation</h1>
-<p>To execute neural threat autoencoders on edge NPUs and embedded DSPs in <strong>$&lt; 20\,\mu\text{s}$</strong>, <code>xinfer-forge</code> incorporates <strong>Automated INT8 Post-Training Quantization (PTQ)</strong> (<code>forge/exporter/quantizer.py</code>).</p>
-<p>The quantizer converts 32-bit floating-point PyTorch weights into <strong>8-bit QuantizeDequantize (QDQ)</strong> ONNX graphs, reducing model memory footprints to $18.2\text{ KB}$ while preserving numerical detection accuracy.</p>
+<p>To execute neural threat autoencoders on edge NPUs and embedded DSPs in <strong><span class="arithmatex">\(&lt; 20\,\mu\text{s}\)</span></strong>, <code>xinfer-forge</code> incorporates <strong>Automated INT8 Post-Training Quantization (PTQ)</strong> (<code>forge/exporter/quantizer.py</code>).</p>
+<p>The quantizer converts 32-bit floating-point PyTorch weights into <strong>8-bit QuantizeDequantize (QDQ)</strong> ONNX graphs, reducing model memory footprints to <span class="arithmatex">\(18.2\text{ KB}\)</span> while preserving numerical detection accuracy.</p>
 <hr />
 <h2 id="1-quantizedequantize-qdq-graph-transformation">1. QuantizeDequantize (QDQ) Graph Transformation</h2>
 <div class="highlight"><pre><span></span><code> [ FP32 PyTorch Model: candidate_weights.pt ]
@@ -43239,15 +43239,15 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Model Size on Disk</strong></td>
-<td style="text-align: left;">$72.4\,\text{KB}$</td>
-<td style="text-align: left;"><strong>$18.2\,\text{KB}$</strong></td>
-<td style="text-align: left;"><strong>$4.0\times$ Footprint Reduction</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(72.4\,\text{KB}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(18.2\,\text{KB}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(4.0\times\)</span> Footprint Reduction</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel NPU Latency</strong></td>
-<td style="text-align: left;">$38.4\,\mu\text{s}$</td>
-<td style="text-align: left;"><strong>$&lt; 18.2\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$2.1\times$ Speedup</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(38.4\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 18.2\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(2.1\times\)</span> Speedup</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Safety Gate Parity</strong></td>
@@ -43325,6 +43325,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

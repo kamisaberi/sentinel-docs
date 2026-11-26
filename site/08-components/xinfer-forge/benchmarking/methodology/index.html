@@ -43204,7 +43204,7 @@
 </table>
 <hr />
 <h2 id="2-dynamic-drift-simulation-protocol">2. Dynamic Drift Simulation Protocol</h2>
-<p>Experiments simulate realistic network drift across $180\text{ operational days}$ by injecting three distinct statistical shifts:</p>
+<p>Experiments simulate realistic network drift across <span class="arithmatex">\(180\text{ operational days}\)</span> by injecting three distinct statistical shifts:</p>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ CONTINUAL DRIFT GENERATION TIMELINE (180 Days)              │
  ├─────────────────────────────────────────────────────────────┤
@@ -43220,12 +43220,12 @@
 <hr />
 <h2 id="3-evaluation-metrics-recorded">3. Evaluation Metrics Recorded</h2>
 <ul>
-<li><strong>Reconstruction Mean Squared Error ($\mathcal{L}_{\text{MSE}}$):</strong> Baseline reconstruction loss on ambient traffic.</li>
+<li><strong>Reconstruction Mean Squared Error (<span class="arithmatex">\(\mathcal{L}_{\text{MSE}}\)</span>):</strong> Baseline reconstruction loss on ambient traffic.</li>
 <li><strong>Area Under the ROC Curve (ROC-AUC):</strong> Metric tracking true positive vs. false positive rate across 52 golden attacks.</li>
-<li><strong>Catastrophic Forgetting Ratio ($R_{\text{forget}}$):</strong> Degradation in detection accuracy on Day 0 attacks after Day 180 adaptation:</li>
+<li><strong>Catastrophic Forgetting Ratio (<span class="arithmatex">\(R_{\text{forget}}\)</span>):</strong> Degradation in detection accuracy on Day 0 attacks after Day 180 adaptation:</li>
 </ul>
-<p>$$R_{\text{forget}} = \frac{\text{Accuracy}<em>{\text{Day 0}}(\theta</em>{\text{Day 0}}) - \text{Accuracy}<em>{\text{Day 0}}(\theta</em>{\text{Day 180}})}{\text{Accuracy}<em>{\text{Day 0}}(\theta</em>{\text{Day 0}})}$$</p>
-<p>In <code>xinfer-forge</code>, the Golden Attacks Safety Gate mathematically bounds $R_{\text{forget}} = 0.000$.</p>
+<div class="arithmatex">\[R_{\text{forget}} = \frac{\text{Accuracy}_{\text{Day 0}}(\theta_{\text{Day 0}}) - \text{Accuracy}_{\text{Day 0}}(\theta_{\text{Day 180}})}{\text{Accuracy}_{\text{Day 0}}(\theta_{\text{Day 0}})}\]</div>
+<p>In <code>xinfer-forge</code>, the Golden Attacks Safety Gate mathematically bounds <span class="arithmatex">\(R_{\text{forget}} = 0.000\)</span>.</p>
 
 
 
@@ -43294,6 +43294,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

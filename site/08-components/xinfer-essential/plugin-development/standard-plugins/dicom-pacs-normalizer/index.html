@@ -43166,8 +43166,8 @@
 <p>The DICOM PACS Normalizer plugin converts 16-bit medical radiological imagery (CT, MRI, X-ray) into normalized floating-point tensors. It applies Hounsfield Unit (HU) windowing and leveling, rescale slope/intercept transformations, and photometric un-inversion.</p>
 <hr />
 <h2 id="1-radiometric-transformation-workflow">1. Radiometric Transformation Workflow</h2>
-<p>$$\text{HU} = (DN \times \text{RescaleSlope}) + \text{RescaleIntercept}$$</p>
-<p>$$\text{Pixel}_{\text{norm}} = \text{clip}\left(\frac{\text{HU} - (\text{WindowCenter} - 0.5)}{\text{WindowWidth} - 1} + 0.5,\, 0.0,\, 1.0\right)$$</p>
+<div class="arithmatex">\[\text{HU} = (DN \times \text{RescaleSlope}) + \text{RescaleIntercept}\]</div>
+<div class="arithmatex">\[\text{Pixel}_{\text{norm}} = \text{clip}\left(\frac{\text{HU} - (\text{WindowCenter} - 0.5)}{\text{WindowWidth} - 1} + 0.5,\, 0.0,\, 1.0\right)\]</div>
 <hr />
 <h2 id="2-interface-normalization-logic">2. Interface &amp; Normalization Logic</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
@@ -43220,7 +43220,7 @@
 <h2 id="3-operational-guarantees">3. Operational Guarantees</h2>
 <ul>
 <li><strong>Zero Dynamic Allocations:</strong> Processes directly into pre-allocated model input tensors.</li>
-<li><strong>Latency Profile:</strong> $&lt; 1.1\,\text{ms}$ for a full $512\times512$ 16-bit CT slice on Intel Xeon processors with AVX-512.</li>
+<li><strong>Latency Profile:</strong> <span class="arithmatex">\(&lt; 1.1\,\text{ms}\)</span> for a full <span class="arithmatex">\(512\times512\)</span> 16-bit CT slice on Intel Xeon processors with AVX-512.</li>
 </ul>
 
 
@@ -43290,6 +43290,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

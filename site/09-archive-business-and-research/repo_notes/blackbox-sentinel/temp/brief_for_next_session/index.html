@@ -43646,7 +43646,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Mitigation Latency</strong></td>
-<td style="text-align: left;"><strong>0.84\,$\mu$s ($&lt;1.0$\,ms)</strong></td>
+<td style="text-align: left;"><strong>0.84\,<span class="arithmatex">\(\mu\)</span>s (<span class="arithmatex">\(&lt;1.0\)</span>\,ms)</strong></td>
 <td style="text-align: left;">15.0 – 60.0\,s</td>
 <td style="text-align: left;">3.0 – 10.0\,s</td>
 <td style="text-align: left;">10.0 – 45.0\,s</td>
@@ -43713,7 +43713,7 @@
 <hr />
 <h2 id="4-key-architectural-safeguards-enforced-across-codebases">4. Key Architectural Safeguards Enforced Across Codebases</h2>
 <ol>
-<li><strong>Unidirectional Event Pipeline:</strong> Data moves forward strictly through five stages: Ingest $\rightarrow$ Tensor Extraction $\rightarrow$ Correlation $\rightarrow$ Kernel Mitigation $\rightarrow$ Egress Export. No circular event feedback loops are permitted.</li>
+<li><strong>Unidirectional Event Pipeline:</strong> Data moves forward strictly through five stages: Ingest <span class="arithmatex">\(\rightarrow\)</span> Tensor Extraction <span class="arithmatex">\(\rightarrow\)</span> Correlation <span class="arithmatex">\(\rightarrow\)</span> Kernel Mitigation <span class="arithmatex">\(\rightarrow\)</span> Egress Export. No circular event feedback loops are permitted.</li>
 <li><strong>Port Arbitration:</strong> Inspection engines run passively via raw sockets or <code>AF_XDP</code>. Deception and honeypot plugins bind exclusively to secondary virtual IPs (VIPs), preventing port collision on production interfaces.</li>
 <li><strong>Dynamic Linker Isolation:</strong> Plugins are loaded using <code>dlopen(..., RTLD_LAZY | RTLD_LOCAL)</code> to ensure internal third-party dependencies do not collide in the dynamic symbol table.</li>
 <li><strong>Symbol Visibility Exports:</strong> All public interfaces across <code>xinfer</code>, <code>blackbox</code>, and <code>sentinel</code> use explicit visibility attributes (<code>XINFER_API</code> and <code>BLACKBOX_API</code>) paired with CMake's <code>-fvisibility=hidden</code>.</li>
@@ -43834,6 +43834,10 @@ python3<span class="w"> </span>examples/run_full_evaluation.py
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

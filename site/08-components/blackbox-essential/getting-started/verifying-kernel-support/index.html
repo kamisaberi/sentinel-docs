@@ -43220,7 +43220,7 @@
 <p>Before running <code>blackbox-essential</code> in production, verify that your host operating system has enabled the eBPF Just-In-Time (JIT) compiler, the BPF Type Format (BTF) subsystem, and the mounted BPF virtual filesystem (<code>bpffs</code>).</p>
 <hr />
 <h2 id="1-checking-ebpf-jit-status">1. Checking eBPF JIT Status</h2>
-<p>The eBPF JIT compiler translates BPF bytecode instructions into native host machine code (x86-64 or ARM64) during program load. If JIT is disabled, the kernel falls back to an interpreter, increasing mitigation latency from $&lt; 0.84\,\mu\text{s}$ to $&gt; 12.0\,\mu\text{s}$.</p>
+<p>The eBPF JIT compiler translates BPF bytecode instructions into native host machine code (x86-64 or ARM64) during program load. If JIT is disabled, the kernel falls back to an interpreter, increasing mitigation latency from <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> to <span class="arithmatex">\(&gt; 12.0\,\mu\text{s}\)</span>.</p>
 <p>Verify JIT status:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/sys/net/core/bpf_jit_enable
 </code></pre></div>
@@ -43335,6 +43335,10 @@ sudo<span class="w"> </span>sysctl<span class="w"> </span>--system
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

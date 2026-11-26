@@ -43164,15 +43164,15 @@
 <td style="text-align: left;"><strong><code>modbus_actuator_guard.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.modbus_actuator_guard</code></td>
 <td style="text-align: left;"><strong>Tier A</strong> (Native C++)</td>
-<td style="text-align: left;"><strong>$&lt; 120\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 120\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Water, Oil \&amp; Gas, Manufacturing</td>
-<td style="text-align: left;">Blocks unauthorized coil overrides (FC05/15) \&amp; valve jitter ($\text{IEC 62443 FR 3}$).</td>
+<td style="text-align: left;">Blocks unauthorized coil overrides (FC05/15) \&amp; valve jitter (<span class="arithmatex">\(\text{IEC 62443 FR 3}\)</span>).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>s7comm_safety_interlock.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.s7comm_safety_interlock</code></td>
 <td style="text-align: left;"><strong>Tier B</strong> (Rust Wasm)</td>
-<td style="text-align: left;"><strong>$&lt; 1.5\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 1.5\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">Automotive, Fabs, Siemens PLCs</td>
 <td style="text-align: left;">Intercepts rogue S7-1200/1500 CPU Stop \&amp; unauthorized firmware flashing.</td>
 </tr>
@@ -43180,7 +43180,7 @@
 <td style="text-align: left;"><strong><code>iec104_grid_shield.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.iec104_grid_shield</code></td>
 <td style="text-align: left;"><strong>Tier A</strong> (Native C++)</td>
-<td style="text-align: left;"><strong>$&lt; 150\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 150\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Electrical Substations, Grids</td>
 <td style="text-align: left;">Blocks Industroyer2-style rogue breaker trip telegrams (ASDU Type 45).</td>
 </tr>
@@ -43188,7 +43188,7 @@
 <td style="text-align: left;"><strong><code>log4j_jndi_fastdrop.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.log4j_jndi_fastdrop</code></td>
 <td style="text-align: left;"><strong>Tier C</strong> (LuaJIT)</td>
-<td style="text-align: left;"><strong>$&lt; 450\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 450\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Enterprise DMZ, Cloud Edge</td>
 <td style="text-align: left;">Zero-copy sliding window scanner dropping JNDI LDAP/RMI exploit bursts.</td>
 </tr>
@@ -43196,7 +43196,7 @@
 <td style="text-align: left;"><strong><code>http_rapid_reset_shield.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.http_rapid_reset</code></td>
 <td style="text-align: left;"><strong>Tier C</strong> (LuaJIT)</td>
-<td style="text-align: left;"><strong>$&lt; 450\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 450\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Web App Gateways, APIs</td>
 <td style="text-align: left;">Mitigates HTTP/2 CVE-2023-44487 stream cancellation DoS floods.</td>
 </tr>
@@ -43204,15 +43204,15 @@
 <td style="text-align: left;"><strong><code>dicom_phi_sanitizer.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.dicom_phi_sanitizer</code></td>
 <td style="text-align: left;"><strong>Tier B</strong> (Rust Wasm)</td>
-<td style="text-align: left;"><strong>$&lt; 2.0\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 2.0\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">Hospital PACS, Healthcare IoMT</td>
-<td style="text-align: left;">Sanitizes unencrypted Patient Name/PHI tags in medical imaging ($\text{HIPAA}$).</td>
+<td style="text-align: left;">Sanitizes unencrypted Patient Name/PHI tags in medical imaging (<span class="arithmatex">\(\text{HIPAA}\)</span>).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>dnp3_water_telemetry.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.dnp3_water_telemetry</code></td>
 <td style="text-align: left;"><strong>Tier A</strong> (Native C++)</td>
-<td style="text-align: left;"><strong>$&lt; 180\,\text{ns}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 180\,\text{ns}\)</span></strong></td>
 <td style="text-align: left;">Municipal Water Utilities</td>
 <td style="text-align: left;">Clamps analog setpoints on chemical dosing controllers (Oldsmar attack vector).</td>
 </tr>
@@ -43220,7 +43220,7 @@
 <td style="text-align: left;"><strong><code>mavlink_uav_guardian.spkg</code></strong></td>
 <td style="text-align: left;"><code>org.aryorithm.pkg.mavlink_uav_guardian</code></td>
 <td style="text-align: left;"><strong>Tier B</strong> (Rust Wasm)</td>
-<td style="text-align: left;"><strong>$&lt; 1.8\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 1.8\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">Defense, Autonomous Drones</td>
 <td style="text-align: left;">Dissects drone telemetry; blocks unauthenticated force-land/disarm commands.</td>
 </tr>
@@ -43387,6 +43387,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

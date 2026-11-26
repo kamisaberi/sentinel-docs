@@ -43298,7 +43298,7 @@ Unhooks the XDP program from the network device driver and unpins transient maps
 <h3 id="block_ip"><code>block_ip</code></h3>
 <p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">block_ip</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ipv4_net_order</span><span class="p">,</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">ttl_seconds</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">rule_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
-Inserts or updates an entry in the kernel's <code>blocked_ip_map</code>. <code>ipv4_net_order</code> must be in network byte order. Packets from this source address are dropped in $&lt; 0.84\,\mu\text{s}$ until <code>ttl_seconds</code> elapses.</p>
+Inserts or updates an entry in the kernel's <code>blocked_ip_map</code>. <code>ipv4_net_order</code> must be in network byte order. Packets from this source address are dropped in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> until <code>ttl_seconds</code> elapses.</p>
 <hr />
 <h3 id="get_telemetry"><code>get_telemetry</code></h3>
 <p><div class="highlight"><pre><span></span><code><span class="n">KernelTelemetry</span><span class="w"> </span><span class="nf">get_telemetry</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
@@ -43372,6 +43372,10 @@ Gathers per-CPU telemetry counters from the kernel and aggregates processed pack
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

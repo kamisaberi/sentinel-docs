@@ -43220,8 +43220,8 @@
 * <strong>The Danger:</strong> A sophisticated attacker could slowly feed malicious packets designed to shift your self-supervised baseline so that, after 7 days, your model adapts to consider their attack traffic "normal."
 * <strong>The Solution (The Safety Gate):</strong> 
   Before the fine-tuning application exports the model to ONNX and sends it to <code>xinfer</code>, it must automatically evaluate the newly trained weights against a read-only <strong>"Golden Benchmark"</strong> (a set of non-negotiable historical attacks like PortScans, Modbus sabotages, and CVE exploits).
-  * If the newly adapted model passes the safety test with 100% detection rate on historical attacks <strong>and</strong> shows lower false-positives on local ambient traffic $\rightarrow$ <strong>Approved &amp; Hot-Reloaded in <code>xinfer</code></strong>.
-  * If the newly adapted model misses even one golden attack $\rightarrow$ <strong>Rejected automatically</strong>.</p>
+  * If the newly adapted model passes the safety test with 100% detection rate on historical attacks <strong>and</strong> shows lower false-positives on local ambient traffic <span class="arithmatex">\(\rightarrow\)</span> <strong>Approved &amp; Hot-Reloaded in <code>xinfer</code></strong>.
+  * If the newly adapted model misses even one golden attack <span class="arithmatex">\(\rightarrow\)</span> <strong>Rejected automatically</strong>.</p>
 <hr />
 <h3 id="2-name-for-the-application">2. Name for the Application</h3>
 <p>Here are three strong product names fitting your ecosystem:</p>
@@ -43417,6 +43417,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

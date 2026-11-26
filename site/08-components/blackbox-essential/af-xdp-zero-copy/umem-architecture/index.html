@@ -43187,7 +43187,7 @@
 <p><code>blackbox-essential</code> supports both UMEM addressing modes:</p>
 <ol>
 <li><strong>Aligned Mode:</strong> Chunk addresses are strict multiples of the chunk size:
-   $$\text{Addr} = k \times \text{ChunkSize}$$</li>
+   $<span class="arithmatex">\(\text{Addr} = k \times \text{ChunkSize}\)</span>$</li>
 <li>Lower complexity; direct base-offset indexing.</li>
 <li><strong>Unaligned Mode (Recommended):</strong> Allows packet data to start at arbitrary offsets within a chunk:</li>
 <li>Enables zero-copy packet header prepending and direct handoff to downstream frameworks without re-allocating memory.</li>
@@ -43342,6 +43342,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

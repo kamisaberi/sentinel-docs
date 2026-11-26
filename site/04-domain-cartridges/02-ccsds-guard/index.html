@@ -43146,10 +43146,10 @@
 </ul>
 <hr />
 <h2 id="2-planetary-rover-regolith-slip-rollover-cbf-rover_slip_cbfhpp">2. Planetary Rover Regolith Slip &amp; Rollover CBF (<code>rover_slip_cbf.hpp</code>)</h2>
-<p><code>ccsds-guard</code> implements the Burckhardt granular regolith friction model $\mu(\lambda)$:</p>
-<p>$$\mu(\lambda) = c_1 \cdot (1 - e^{-c_2 \lambda}) - c_3 \lambda$$</p>
+<p><code>ccsds-guard</code> implements the Burckhardt granular regolith friction model <span class="arithmatex">\(\mu(\lambda)\)</span>:</p>
+<div class="arithmatex">\[\mu(\lambda) = c_1 \cdot (1 - e^{-c_2 \lambda}) - c_3 \lambda\]</div>
 <p>It models continuous pitch and roll slope dynamics via Runge-Kutta 4th-order integration and clamps hostile drive telecommands using a Nagumo critical rollover barrier:</p>
-<p>$$h_{\text{tip}}(\theta) = \theta_{\text{critical}} - |\theta| \ge 0$$</p>
+<div class="arithmatex">\[h_{\text{tip}}(\theta) = \theta_{\text{critical}} - \|\theta\| \ge 0\]</div>
 <p>Telecommands that would cause rover wheel spinout on granular regolith or vehicle rollover on steep inclines are rejected in under 25 nanoseconds.</p>
 
 
@@ -43219,6 +43219,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

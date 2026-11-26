@@ -43174,11 +43174,11 @@ and datasets under open-access licensing with permanent CERN/Zenodo DOIs.
 <hr />
 <h2 id="2-theoretical-mathematical-formalization">2. Theoretical Mathematical Formalization</h2>
 <p>The manuscript formalizes the mitigation latency gap between traditional user-space systems and driver-level eBPF mitigation:</p>
-<p>$$\Delta t_{\text{mitigate}}^{\text{Legacy}} = t_{\text{DMA}} + t_{\text{NAPI}} + t_{\text{alloc_skb}} + t_{\text{stack}} + t_{\text{context_switch}} + t_{\text{inference}} + t_{\text{syscall_drop}}$$</p>
-<p>$$\Delta t_{\text{mitigate}}^{\text{Sentinel}} = t_{\text{DMA}} + t_{\text{XDP_hook}} + t_{\text{bounds_check}} + t_{\text{bpf_lookup}} + t_{\text{XDP_DROP}}$$</p>
+<div class="arithmatex">\[\Delta t_{\text{mitigate}}^{\text{Legacy}} = t_{\text{DMA}} + t_{\text{NAPI}} + t_{\text{alloc\_skb}} + t_{\text{stack}} + t_{\text{context\_switch}} + t_{\text{inference}} + t_{\text{syscall\_drop}}\]</div>
+<div class="arithmatex">\[\Delta t_{\text{mitigate}}^{\text{Sentinel}} = t_{\text{DMA}} + t_{\text{XDP\_hook}} + t_{\text{bounds\_check}} + t_{\text{bpf\_lookup}} + t_{\text{XDP\_DROP}}\]</div>
 <p>Where:
-* $\Delta t_{\text{mitigate}}^{\text{Legacy}} \ge 15{,}000\,\text{ns}$ to $50{,}000{,}000\,\text{ns}$ ($15\,\mu\text{s}$ to $50\,\text{ms}$).
-* $\Delta t_{\text{mitigate}}^{\text{Sentinel}} \le 840\,\text{ns}$ ($0.84\,\mu\text{s}$ SLA bound).</p>
+* <span class="arithmatex">\(\Delta t_{\text{mitigate}}^{\text{Legacy}} \ge 15{,}000\,\text{ns}\)</span> to <span class="arithmatex">\(50{,}000{,}000\,\text{ns}\)</span> (<span class="arithmatex">\(15\,\mu\text{s}\)</span> to <span class="arithmatex">\(50\,\text{ms}\)</span>).
+* <span class="arithmatex">\(\Delta t_{\text{mitigate}}^{\text{Sentinel}} \le 840\,\text{ns}\)</span> (<span class="arithmatex">\(0.84\,\mu\text{s}\)</span> SLA bound).</p>
 
 
 
@@ -43247,6 +43247,10 @@ and datasets under open-access licensing with permanent CERN/Zenodo DOIs.
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

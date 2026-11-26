@@ -43236,9 +43236,9 @@ compilation terminated.
 <hr />
 <h2 id="2-root-cause-analysis">2. Root Cause Analysis</h2>
 <p>Running <code>ninja</code> or <code>make -j$(nproc)</code> on a multi-core machine with insufficient RAM attempts to compile too many translation units concurrently:</p>
-<p>$$\text{Memory Demand} = \text{Parallel Jobs} \times 2.5\,\text{GB}$$</p>
+<div class="arithmatex">\[\text{Memory Demand} = \text{Parallel Jobs} \times 2.5\,\text{GB}\]</div>
 <p>For an 8-core CPU with only 8 GB of RAM:
-$$\text{Demand} = 8 \times 2.5\,\text{GB} = 20\,\text{GB} \gg 8\,\text{GB Available} \implies \text{KERNEL OOM KILL}$$</p>
+$<span class="arithmatex">\(\text{Demand} = 8 \times 2.5\,\text{GB} = 20\,\text{GB} \gg 8\,\text{GB Available} \implies \text{KERNEL OOM KILL}\)</span>$</p>
 <hr />
 <h2 id="3-permanent-remediation">3. Permanent Remediation</h2>
 <h3 id="option-a-throttle-parallel-compilation-jobs">Option A: Throttle Parallel Compilation Jobs</h3>
@@ -43327,6 +43327,10 @@ free<span class="w"> </span>-h
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

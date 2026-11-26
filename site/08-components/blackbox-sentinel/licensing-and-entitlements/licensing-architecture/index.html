@@ -43194,7 +43194,7 @@
 <h2 id="2-cryptographic-envelopes">2. Cryptographic Envelopes</h2>
 <p>A <code>blackbox-sentinel</code> license file (<code>license.lic</code>) consists of two distinct sections:</p>
 <ol>
-<li><strong>Payload (JSON):</strong> Plaintext operational claims declaring customer name, license tier, allowed network throughput (e.g., $10\text{ GbE}$ line-rate), subsystem bitmask, and locked hardware digest.</li>
+<li><strong>Payload (JSON):</strong> Plaintext operational claims declaring customer name, license tier, allowed network throughput (e.g., <span class="arithmatex">\(10\text{ GbE}\)</span> line-rate), subsystem bitmask, and locked hardware digest.</li>
 <li><strong>Signature (Cryptographic Envelope):</strong> A 64-byte Ed25519 digital signature generated over the canonical JSON string by Aryorithm’s offline certificate authority.</li>
 </ol>
 <hr />
@@ -43271,6 +43271,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

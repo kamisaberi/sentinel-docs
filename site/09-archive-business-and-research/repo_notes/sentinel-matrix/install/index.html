@@ -43838,14 +43838,14 @@ make<span class="w"> </span>tui
 <p>Simulates an unauthorized Modbus coil manipulation against <code>Edge-Substation-01</code>:
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>attack-modbus
 </code></pre></div>
-* <strong>Expected Result:</strong> Edge Node 01 executes an in-kernel eBPF drop ($&lt; 1\,\mu\text{s}$) and emits a <code>ThreatIndicator</code>. Nexus receives it and fans out an eBPF drop rule to Nodes 02 and 03 in $&lt; 50\,\text{ms}$.</p>
+* <strong>Expected Result:</strong> Edge Node 01 executes an in-kernel eBPF drop (<span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span>) and emits a <code>ThreatIndicator</code>. Nexus receives it and fans out an eBPF drop rule to Nodes 02 and 03 in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>.</p>
 <h3 id="b-inject-c2-beacon-exfiltration-wave-t1071">B. Inject C2 Beacon Exfiltration Wave (T1071)</h3>
 <p>Simulates encrypted high-entropy egress beacons from <code>Edge-Hospital-PACS-02</code>:
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>attack-c2
 </code></pre></div>
 * <strong>Expected Result:</strong> MITRE tile <code>T1071</code> increments on the Web UI, and the attacker's IP is added to the active drop table.</p>
 <h3 id="c-test-sla-latency-breach-automated-rollback">C. Test SLA Latency Breach &amp; Automated Rollback</h3>
-<p>Simulates a candidate model causing inference degradation ($&gt; 1{,}000\,\mu\text{s}$):
+<p>Simulates a candidate model causing inference degradation (<span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span>):
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>chaos-latency
 </code></pre></div>
 * <strong>Expected Result:</strong> Nexus's <code>RollbackGuard</code> detects the SLA breach, logs an alert, and automatically rolls back the candidate weights to stable.</p>
@@ -43985,6 +43985,10 @@ sudo<span class="w"> </span>make<span class="w"> </span>down
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

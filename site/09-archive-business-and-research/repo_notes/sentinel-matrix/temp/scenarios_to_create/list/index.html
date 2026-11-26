@@ -43413,9 +43413,9 @@
 <li><strong>Real-World Reference:</strong> <em>Vitens / Waternet Drinking Water Production Facility</em></li>
 <li><strong>Total Containers:</strong> <strong>20 nodes</strong> (1 Nexus, 3 Edge Appliances, 4 Mock PLCs, 12 Field Sensors, 1 Adversary, 1 Traffic-Gen).</li>
 <li><strong>Network Segmentation (Purdue Model):</strong></li>
-<li><code>enterprise_dmz_net</code> (<code>192.168.10.0/24</code>) $\to$ External reporting &amp; Web C2.</li>
-<li><code>water_scada_core_net</code> (<code>10.210.10.0/24</code>, <code>internal: true</code>) $\to$ Supervisory SCADA ring (Strict Air-Gap).</li>
-<li><code>water_fieldbus_net</code> (<code>10.210.20.0/24</code>, <code>internal: true</code>) $\to$ Physical pumping &amp; chemical dosing loop.</li>
+<li><code>enterprise_dmz_net</code> (<code>192.168.10.0/24</code>) <span class="arithmatex">\(\to\)</span> External reporting &amp; Web C2.</li>
+<li><code>water_scada_core_net</code> (<code>10.210.10.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Supervisory SCADA ring (Strict Air-Gap).</li>
+<li><code>water_fieldbus_net</code> (<code>10.210.20.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Physical pumping &amp; chemical dosing loop.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>nexus</code>: Central C2 (Port 9443).</li>
 <li><code>sentinel-edge-intake</code>: Edge box running OpenVINO inspecting raw river intake pumping.</li>
@@ -43443,9 +43443,9 @@
 <li><strong>Real-World Reference:</strong> <em>TenneT / 50Hertz High-Voltage Transmission Substation</em></li>
 <li><strong>Total Containers:</strong> <strong>20 nodes</strong> (1 Nexus, 3 Edge Appliances, 4 Grid IEDs, 11 Substation Sensors, 1 Adversary, 1 Traffic-Gen).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>substation_station_bus</code> (<code>10.240.10.0/24</code>, <code>internal: true</code>) $\to$ Telecontrol dispatch bus.</li>
-<li><code>substation_process_bus</code> (<code>10.240.20.0/24</code>, <code>internal: true</code>) $\to$ Protection relay tripping bus.</li>
-<li><code>tso_wan_telecontrol</code> (<code>192.168.50.0/24</code>) $\to$ TSO wide-area dispatch link.</li>
+<li><code>substation_station_bus</code> (<code>10.240.10.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Telecontrol dispatch bus.</li>
+<li><code>substation_process_bus</code> (<code>10.240.20.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Protection relay tripping bus.</li>
+<li><code>tso_wan_telecontrol</code> (<code>192.168.50.0/24</code>) <span class="arithmatex">\(\to\)</span> TSO wide-area dispatch link.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>sentinel-edge-bay01</code>: Transmission line feeder protection (Intel OpenVINO).</li>
 <li><code>sentinel-edge-bay02</code>: Auto-transformer 500kV/220kV protection (NVIDIA TensorRT).</li>
@@ -43471,9 +43471,9 @@
 <li><strong>Real-World Reference:</strong> <em>BMW / Mercedes-Benz "Factory 56" Private 5G Automotive Assembly Plant</em></li>
 <li><strong>Total Containers:</strong> <strong>24 nodes</strong> (1 Nexus, 4 Edge Appliances, 1 5G UPF Tunnel Gateway, 3 Siemens S7 PACs, 14 Sensors &amp; Robotic Actuators, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>factory_it_net</code> (<code>172.16.10.0/24</code>) $\to$ Manufacturing Operations Management (MOM).</li>
-<li><code>private_5g_n3_tunnel</code> (<code>10.250.10.0/24</code>, <code>internal: true</code>) $\to$ 3GPP GTP-U user plane (UDP 2152).</li>
-<li><code>urllc_robot_cell_net</code> (<code>10.250.20.0/24</code>, <code>internal: true</code>) $\to$ Sub-millisecond robotic welding bus.</li>
+<li><code>factory_it_net</code> (<code>172.16.10.0/24</code>) <span class="arithmatex">\(\to\)</span> Manufacturing Operations Management (MOM).</li>
+<li><code>private_5g_n3_tunnel</code> (<code>10.250.10.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> 3GPP GTP-U user plane (UDP 2152).</li>
+<li><code>urllc_robot_cell_net</code> (<code>10.250.20.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Sub-millisecond robotic welding bus.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>upf-gateway</code>: 3GPP Standalone UPF terminating N3 GTP-U tunnels.</li>
 <li>4 Edge Nodes: Body-in-White Robotic Welding, Paint Shop Conveyors, Battery Pack Insertion, Final Assembly AGVs.</li>
@@ -43501,9 +43501,9 @@
 <li><strong>Real-World Reference:</strong> <em>BASF / TotalEnergies Fluid Catalytic Cracking Unit (FCCU)</em></li>
 <li><strong>Total Containers:</strong> <strong>19 nodes</strong> (1 Nexus, 3 Edge Appliances, 1 Triconex SIS TMR Twin, 3 Distillation PLCs, 13 Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>refinery_dmz_net</code> (<code>192.168.30.0/24</code>) $\to$ Historian &amp; supervisory consoles.</li>
-<li><code>dcs_process_net</code> (<code>10.180.1.0/24</code>, <code>internal: true</code>) $\to$ Continuous refining control loop.</li>
-<li><code>sis_safety_net</code> (<code>10.180.99.0/24</code>, <code>internal: true</code>) $\to$ SIL-3 emergency shutdown bus (Strict Air-Gap).</li>
+<li><code>refinery_dmz_net</code> (<code>192.168.30.0/24</code>) <span class="arithmatex">\(\to\)</span> Historian &amp; supervisory consoles.</li>
+<li><code>dcs_process_net</code> (<code>10.180.1.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Continuous refining control loop.</li>
+<li><code>sis_safety_net</code> (<code>10.180.99.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> SIL-3 emergency shutdown bus (Strict Air-Gap).</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>triconex-sis</code>: Triple Modular Redundant (TMR) safety controller listening on TriStation protocol.</li>
 <li>3 Edge Appliances inspecting Crude Distillation, Catalytic Cracker, and Hydrotreater.</li>
@@ -43530,9 +43530,9 @@
 <li><strong>Real-World Reference:</strong> <em>Port of Rotterdam / Port of Antwerp Automated Container Terminal</em></li>
 <li><strong>Total Containers:</strong> <strong>19 nodes</strong> (1 Nexus, 3 Edge Appliances, 1 5G/LoRa Gateway, 3 Crane PLCs, 11 Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>terminal_ops_net</code> (<code>172.20.0.0/24</code>) $\to$ Terminal Operating System (TOS).</li>
-<li><code>port_5g_wireless_net</code> (<code>10.230.1.0/24</code>) $\to$ Automated Guided Vehicle (AGV) radio mesh.</li>
-<li><code>crane_fieldbus_net</code> (<code>10.230.10.0/24</code>, <code>internal: true</code>) $\to$ Ship-to-Shore (STS) crane drive bus.</li>
+<li><code>terminal_ops_net</code> (<code>172.20.0.0/24</code>) <span class="arithmatex">\(\to\)</span> Terminal Operating System (TOS).</li>
+<li><code>port_5g_wireless_net</code> (<code>10.230.1.0/24</code>) <span class="arithmatex">\(\to\)</span> Automated Guided Vehicle (AGV) radio mesh.</li>
+<li><code>crane_fieldbus_net</code> (<code>10.230.10.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Ship-to-Shore (STS) crane drive bus.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li>3 Edge Appliances: STS Quay Crane 01, Automated Stacking Crane (ASC), AGV Logistics Fleet.</li>
 <li>3 PLCs controlling hoist winches, trolley travel, and automated twistlocks.</li>
@@ -43556,9 +43556,9 @@
 <li><strong>Real-World Reference:</strong> <em>EDF / Vattenfall 1,300 MWe Nuclear Power Plant Secondary Island</em></li>
 <li><strong>Total Containers:</strong> <strong>22 nodes</strong> (1 Nexus, 3 Edge Appliances, 4 Nuclear I&amp;C Controllers, 14 Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>plant_computer_net</code> (<code>192.168.10.0/24</code>) $\to$ Non-safety technical monitoring.</li>
-<li><code>operational_ic_net</code> (<code>10.190.1.0/24</code>, <code>internal: true</code>) $\to$ Reactor secondary control (Strict Air-Gap).</li>
-<li><code>turbine_trip_net</code> (<code>10.190.2.0/24</code>, <code>internal: true</code>) $\to$ Turbine overspeed trip bus (Strict Air-Gap).</li>
+<li><code>plant_computer_net</code> (<code>192.168.10.0/24</code>) <span class="arithmatex">\(\to\)</span> Non-safety technical monitoring.</li>
+<li><code>operational_ic_net</code> (<code>10.190.1.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Reactor secondary control (Strict Air-Gap).</li>
+<li><code>turbine_trip_net</code> (<code>10.190.2.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Turbine overspeed trip bus (Strict Air-Gap).</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li>3 Edge Nodes: Secondary Steam Loop, Turbine Generator, Condenser Cooling Water.</li>
 <li>4 Nuclear I&amp;C Controllers (Teleperm XS twins running S7Comm and discrete I&amp;C).</li>
@@ -43585,9 +43585,9 @@
 <li><strong>Real-World Reference:</strong> <em>Metropolitan Hospital Center Clinical Imaging &amp; Life Support Microgrid</em></li>
 <li><strong>Total Containers:</strong> <strong>18 nodes</strong> (1 Nexus, 3 Edge Appliances, 2 Building Management PLCs, 11 Healthcare Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>hospital_enterprise_net</code> (<code>10.10.0.0/24</code>) $\to$ Electronic Health Records (EHR) &amp; administration.</li>
-<li><code>medical_pacs_vlan</code> (<code>10.10.50.0/24</code>, <code>internal: true</code>) $\to$ DICOM imaging network.</li>
-<li><code>hospital_bms_power_net</code> (<code>10.10.90.0/24</code>, <code>internal: true</code>) $\to$ Backup generators, chillers, medical gas.</li>
+<li><code>hospital_enterprise_net</code> (<code>10.10.0.0/24</code>) <span class="arithmatex">\(\to\)</span> Electronic Health Records (EHR) &amp; administration.</li>
+<li><code>medical_pacs_vlan</code> (<code>10.10.50.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> DICOM imaging network.</li>
+<li><code>hospital_bms_power_net</code> (<code>10.10.90.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Backup generators, chillers, medical gas.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>sentinel-edge-pacs</code>: DICOM C-STORE anomaly inspection (NVIDIA TensorRT).</li>
 <li><code>sentinel-edge-microgrid</code>: Automatic Transfer Switch (ATS) &amp; UPS battery monitoring.</li>
@@ -43612,9 +43612,9 @@
 <li><strong>Real-World Reference:</strong> <em>Gasunie / Enbridge 48-Inch High-Pressure Gas Transmission Network</em></li>
 <li><strong>Total Containers:</strong> <strong>21 nodes</strong> (1 Nexus, 4 Edge Appliances, 4 Pipeline RTUs, 12 Field Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>scada_wan_net</code> (<code>192.168.80.0/24</code>) $\to$ National dispatch SCADA WAN.</li>
-<li><code>compressor_station_net</code> (<code>10.140.1.0/24</code>, <code>internal: true</code>) $\to$ Station gas turbine &amp; compressor control.</li>
-<li><code>pipeline_block_valves_net</code> (<code>10.140.2.0/24</code>, <code>internal: true</code>) $\to$ Remote mainline valve telemetry.</li>
+<li><code>scada_wan_net</code> (<code>192.168.80.0/24</code>) <span class="arithmatex">\(\to\)</span> National dispatch SCADA WAN.</li>
+<li><code>compressor_station_net</code> (<code>10.140.1.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Station gas turbine &amp; compressor control.</li>
+<li><code>pipeline_block_valves_net</code> (<code>10.140.2.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Remote mainline valve telemetry.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li>4 Edge Appliances: Compressor Station Alpha, Mainline Block Valve 14, City Gate Metering Skid, Underground Gas Storage.</li>
 <li>4 RTUs speaking DNP3 (20000) and Modbus TCP (502).</li>
@@ -43639,11 +43639,11 @@
 <li><strong>Real-World Reference:</strong> <em>KSAT / SES Earth Observation Ground Link Terminal</em></li>
 <li><strong>Total Containers:</strong> <strong>18 nodes</strong> (1 Nexus, 3 Edge Appliances, 3 Space Telemetry Transceivers, 11 Ground Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>ground_station_c2_net</code> (<code>192.168.100.0/24</code>) $\to$ Mission Operations Center (MOC).</li>
-<li><code>space_radio_demod_net</code> (<code>10.220.10.0/24</code>) $\to$ High-speed satellite demodulator stream.</li>
-<li><code>antenna_pedestal_net</code> (<code>10.220.20.0/24</code>, <code>internal: true</code>) $\to$ Dish motor servo control bus.</li>
+<li><code>ground_station_c2_net</code> (<code>192.168.100.0/24</code>) <span class="arithmatex">\(\to\)</span> Mission Operations Center (MOC).</li>
+<li><code>space_radio_demod_net</code> (<code>10.220.10.0/24</code>) <span class="arithmatex">\(\to\)</span> High-speed satellite demodulator stream.</li>
+<li><code>antenna_pedestal_net</code> (<code>10.220.20.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Dish motor servo control bus.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
-<li><code>sentinel-edge-ccsds</code>: Inspects CCSDS 133.0-B-2 Space Packets in $&lt; 120\,\text{ns}$.</li>
+<li><code>sentinel-edge-ccsds</code>: Inspects CCSDS 133.0-B-2 Space Packets in <span class="arithmatex">\(&lt; 120\,\text{ns}\)</span>.</li>
 <li><code>sentinel-edge-stanag</code>: Inspects NATO STANAG 4586 UAV telemetry streams.</li>
 <li><code>sentinel-edge-pedestal</code>: Inspects dish tracking motors and elevation resolvers.</li>
 <li><strong>The 11 Ground Link Sensors:</strong></li>
@@ -43666,13 +43666,13 @@
 <li><strong>Real-World Reference:</strong> <em>Continuous Exothermic Polyalkylene Reactor Supervised by an OT LLM Copilot</em></li>
 <li><strong>Total Containers:</strong> <strong>20 nodes</strong> (1 Nexus, 3 Edge Appliances, 1 GenAI SCADA Copilot Agent, 3 Chemical PLCs, 12 Sensors, 1 Adversary).</li>
 <li><strong>Network Segmentation:</strong></li>
-<li><code>plant_operations_dmz</code> (<code>192.168.200.0/24</code>) $\to$ HMI and Copilot Chat Console.</li>
-<li><code>reactor_safety_net</code> (<code>10.160.10.0/24</code>, <code>internal: true</code>) $\to$ Exothermic reactor control (Strict Air-Gap).</li>
-<li><code>ai_tool_calling_bus</code> (<code>10.160.20.0/24</code>, <code>internal: true</code>) $\to$ API bus between Copilot and Modbus PLCs.</li>
+<li><code>plant_operations_dmz</code> (<code>192.168.200.0/24</code>) <span class="arithmatex">\(\to\)</span> HMI and Copilot Chat Console.</li>
+<li><code>reactor_safety_net</code> (<code>10.160.10.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> Exothermic reactor control (Strict Air-Gap).</li>
+<li><code>ai_tool_calling_bus</code> (<code>10.160.20.0/24</code>, <code>internal: true</code>) <span class="arithmatex">\(\to\)</span> API bus between Copilot and Modbus PLCs.</li>
 <li><strong>Nodes &amp; Appliances:</strong></li>
 <li><code>sentinel-edge-trism</code>: Sub-150ns AI TRiSM streaming token firewall inspecting Copilot prompts.</li>
 <li><code>sentinel-edge-reactor</code>: Monitors jacket coolant and catalyst feed lines.</li>
-<li><code>sentinel-edge-sbom</code>: Enforces in-kernel Live-SBOM $W\oplus X$ memory protection on control daemons.</li>
+<li><code>sentinel-edge-sbom</code>: Enforces in-kernel Live-SBOM <span class="arithmatex">\(W\oplus X\)</span> memory protection on control daemons.</li>
 <li><code>copilot-agent</code>: Industrial AI assistant exposing an HTTP tool-calling API.</li>
 <li><strong>The 12 Chemical Reactor Sensors:</strong></li>
 <li>Reactor Core Centerline Thermal Thermocouple (180°C Exothermic Runaway Limit)</li>
@@ -43771,6 +43771,10 @@
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

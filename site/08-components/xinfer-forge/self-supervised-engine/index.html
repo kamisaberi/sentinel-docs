@@ -43120,12 +43120,12 @@
 <p><code>xinfer-forge</code> uses an asymmetric Tabular Masked Autoencoder (MAE) combined with InfoNCE contrastive learning to learn flow representations without manual labels.</p>
 <h2 id="section-navigation">Section Navigation</h2>
 <ul>
-<li><a href="./mae-architecture/">MAE Topology</a>: Asymmetric $32 \to 16 \to 8 \to 16 \to 32$ hourglass autoencoder architecture.</li>
-<li><a href="./stochastic-masking-strategy/">Stochastic Masking Strategy</a>: $30\%$ stochastic Bernoulli feature masking for tabular flow vectors.</li>
+<li><a href="./mae-architecture/">MAE Topology</a>: Asymmetric <span class="arithmatex">\(32 \to 16 \to 8 \to 16 \to 32\)</span> hourglass autoencoder architecture.</li>
+<li><a href="./stochastic-masking-strategy/">Stochastic Masking Strategy</a>: <span class="arithmatex">\(30\%\)</span> stochastic Bernoulli feature masking for tabular flow vectors.</li>
 <li><a href="./infonce-contrastive-learning/">InfoNCE Contrastive Learning</a>: Temporal positive pair construction and cosine similarity loss formulations.</li>
-<li><a href="./latent-embedding-space/">Latent Embedding Space</a>: $8$-dimensional bottleneck geometry ($z \in \mathbb{R}^8$) and outlier separation mechanics.</li>
-<li><a href="./loss-optimization-math/">Loss Optimization Math</a>: Composite loss formulation ($\mathcal{L}<em>{\text{total}} = \mathcal{L}</em>{\text{MAE}} + \lambda \mathcal{L}_{\text{InfoNCE}}$).</li>
-<li><a href="./neural-layer-specifications/">Neural Layer Specifications</a>: Layer dimensions, $1{,}632$ parameter counts, and <code>LeakyReLU(0.1)</code> activations.</li>
+<li><a href="./latent-embedding-space/">Latent Embedding Space</a>: <span class="arithmatex">\(8\)</span>-dimensional bottleneck geometry (<span class="arithmatex">\(z \in \mathbb{R}^8\)</span>) and outlier separation mechanics.</li>
+<li><a href="./loss-optimization-math/">Loss Optimization Math</a>: Composite loss formulation (<span class="arithmatex">\(\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{MAE}} + \lambda \mathcal{L}_{\text{InfoNCE}}\)</span>).</li>
+<li><a href="./neural-layer-specifications/">Neural Layer Specifications</a>: Layer dimensions, <span class="arithmatex">\(1{,}632\)</span> parameter counts, and <code>LeakyReLU(0.1)</code> activations.</li>
 <li><a href="./hyperparameter-tuning/">Hyperparameter Tuning</a>: Production baselines, AdamW optimizer settings, and Cosine Annealing schedules.</li>
 </ul>
 
@@ -43196,6 +43196,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

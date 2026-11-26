@@ -43172,16 +43172,16 @@
          POSITIVE PAIR (z_i, z_j⁺)                               NEGATIVE PAIR (z_i, z_k⁻)
       Same source subnet, adjacent window                        Unrelated background flow
 </code></pre></div>
-<p>Two flows $x_i$ and $x_j$ form a <strong>positive pair</strong> if:
+<p>Two flows <span class="arithmatex">\(x_i\)</span> and <span class="arithmatex">\(x_j\)</span> form a <strong>positive pair</strong> if:
 1. They share identical source subnets or industrial Unit IDs.
-2. Their inter-arrival delta satisfies $|t_i - t_j| &lt; 2.0\,\text{seconds}$.</p>
+2. Their inter-arrival delta satisfies <span class="arithmatex">\(|t_i - t_j| &lt; 2.0\,\text{seconds}\)</span>.</p>
 <hr />
 <h2 id="2-infonce-loss-formulation">2. InfoNCE Loss Formulation</h2>
-<p>For a batch containing a positive pair $(z_i, z_j^+)$ and $K$ negative samples ${z_k^-}_{k=1}^K$, the InfoNCE contrastive loss is defined as:</p>
-<p>$$\mathcal{L}<em>{\text{InfoNCE}} = -\log \frac{\exp\left(\frac{\operatorname{sim}(z_i, z_j^+)}{\tau}\right)}{\exp\left(\frac{\operatorname{sim}(z_i, z_j^+)}{\tau}\right) + \sum</em>{k=1}^{K} \exp\left(\frac{\operatorname{sim}(z_i, z_k^-)}{\tau}\right)}$$</p>
+<p>For a batch containing a positive pair <span class="arithmatex">\((z_i, z_j^+)\)</span> and <span class="arithmatex">\(K\)</span> negative samples <span class="arithmatex">\(\{z_k^-\}_{k=1}^K\)</span>, the InfoNCE contrastive loss is defined as:</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{InfoNCE}} = -\log \frac{\exp\left(\frac{\operatorname{sim}(z_i, z_j^+)}{\tau}\right)}{\exp\left(\frac{\operatorname{sim}(z_i, z_j^+)}{\tau}\right) + \sum_{k=1}^{K} \exp\left(\frac{\operatorname{sim}(z_i, z_k^-)}{\tau}\right)}\]</div>
 <p>Where:
-* $\operatorname{sim}(u, v) = \frac{u \cdot v}{|u|_2 |v|_2}$ represents cosine similarity.
-* $\tau = 0.07$ is the temperature hyperparameter controlling distribution sharpness.</p>
+* <span class="arithmatex">\(\operatorname{sim}(u, v) = \frac{u \cdot v}{\|u\|_2 \|v\|_2}\)</span> represents cosine similarity.
+* <span class="arithmatex">\(\tau = 0.07\)</span> is the temperature hyperparameter controlling distribution sharpness.</p>
 <hr />
 <h2 id="3-pytorch-implementation-lossesinfoncepy">3. PyTorch Implementation (<code>losses/infonce.py</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
@@ -43278,6 +43278,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43153,8 +43153,8 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Rule 1</strong></td>
-<td style="text-align: left;"><strong>Batch Size Invariant ($N=1$)</strong></td>
-<td style="text-align: left;">All latency percentiles must be recorded with batch size $1$. Large batches ($N \ge 64$) are prohibited for fast-path claims.</td>
+<td style="text-align: left;"><strong>Batch Size Invariant (<span class="arithmatex">\(N=1\)</span>)</strong></td>
+<td style="text-align: left;">All latency percentiles must be recorded with batch size <span class="arithmatex">\(1\)</span>. Large batches (<span class="arithmatex">\(N \ge 64\)</span>) are prohibited for fast-path claims.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Rule 2</strong></td>
@@ -43174,18 +43174,18 @@
 <tr>
 <td style="text-align: left;"><strong>Rule 5</strong></td>
 <td style="text-align: left;"><strong>Cache Pre-Warming</strong></td>
-<td style="text-align: left;">Runtimes must execute a minimum of $10{,}000$ warm-up inferences before recording data.</td>
+<td style="text-align: left;">Runtimes must execute a minimum of <span class="arithmatex">\(10{,}000\)</span> warm-up inferences before recording data.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Rule 6</strong></td>
 <td style="text-align: left;"><strong>Sample Size Uniformity</strong></td>
-<td style="text-align: left;">All cumulative distribution functions (CDF) must record a minimum of $N = 50{,}000$ continuous evaluations.</td>
+<td style="text-align: left;">All cumulative distribution functions (CDF) must record a minimum of <span class="arithmatex">\(N = 50{,}000\)</span> continuous evaluations.</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="2-eliminating-python-jitter">2. Eliminating Python Jitter</h2>
-<p>In many academic papers, Python garbage collection or global interpreter lock (GIL) contention introduces latency spikes of $500 - 2000\,\mu\text{s}$. </p>
+<p>In many academic papers, Python garbage collection or global interpreter lock (GIL) contention introduces latency spikes of <span class="arithmatex">\(500 - 2000\,\mu\text{s}\)</span>. </p>
 <p><code>sentinel-lab</code> benchmarks run entirely in <strong>compiled ISO C++20</strong>, eliminating runtime garbage collection pauses and ensuring measurement reproducibility.</p>
 
 
@@ -43255,6 +43255,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -2837,7 +2837,7 @@
   <a href="#1-runtime-invariant-woplus-x-memory-protection" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Runtime Invariant: $W\oplus X$ Memory Protection
+        1. Runtime Invariant: <span class="arithmatex">\(W\oplus X\)</span> Memory Protection
       </span>
     </span>
   </a>
@@ -43114,7 +43114,7 @@
   <a href="#1-runtime-invariant-woplus-x-memory-protection" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Runtime Invariant: $W\oplus X$ Memory Protection
+        1. Runtime Invariant: <span class="arithmatex">\(W\oplus X\)</span> Memory Protection
       </span>
     </span>
   </a>
@@ -43160,14 +43160,14 @@
                   
 
 
-<h1 id="live-sbom-in-kernel-memory-drift-woplus-x-protection">Live-SBOM In-Kernel Memory Drift &amp; $W\oplus X$ Protection</h1>
+<h1 id="live-sbom-in-kernel-memory-drift-woplus-x-protection">Live-SBOM In-Kernel Memory Drift &amp; <span class="arithmatex">\(W\oplus X\)</span> Protection</h1>
 <p>Fileless malware, in-memory buffer overflows, and dynamic process hollowing bypass static software bill of materials (SBOM) auditors by modifying memory page protections at runtime via <code>mprotect()</code> or <code>pkey_mprotect()</code>.</p>
-<p><code>blackbox-essential</code> implements a <strong>Live-SBOM eBPF Tracepoint Driver</strong> (<code>live_sbom.c</code>) that attaches to kernel system call boundaries (<code>syscalls/sys_enter_mprotect</code>), enforcing strict $W\oplus X$ ($Write\oplus Execute$) memory invariants anchored to physical TPM 2.0 PCR[10] baseline measurements.</p>
+<p><code>blackbox-essential</code> implements a <strong>Live-SBOM eBPF Tracepoint Driver</strong> (<code>live_sbom.c</code>) that attaches to kernel system call boundaries (<code>syscalls/sys_enter_mprotect</code>), enforcing strict <span class="arithmatex">\(W\oplus X\)</span> (<span class="arithmatex">\(Write\oplus Execute\)</span>) memory invariants anchored to physical TPM 2.0 PCR[10] baseline measurements.</p>
 <hr />
-<h2 id="1-runtime-invariant-woplus-x-memory-protection">1. Runtime Invariant: $W\oplus X$ Memory Protection</h2>
+<h2 id="1-runtime-invariant-woplus-x-memory-protection">1. Runtime Invariant: <span class="arithmatex">\(W\oplus X\)</span> Memory Protection</h2>
 <p>A memory page must never be simultaneously writable <strong>and</strong> executable:</p>
-<p>$$\text{Prot}<em>{\text{allowed}} \subseteq {\text{PROT_READ},\, \text{PROT_WRITE}} \quad \lor \quad \text{Prot}</em>{\text{allowed}} \subseteq {\text{PROT_READ},\, \text{PROT_EXEC}}$$</p>
-<p>$$\text{PROT_WRITE} \land \text{PROT_EXEC} \implies \mathbf{HARD\ SIGKILL\ (&lt; 1.0\,\mu s)}$$</p>
+<div class="arithmatex">\[\text{Prot}_{\text{allowed}} \subseteq \{\text{PROT\_READ},\, \text{PROT\_WRITE}\} \quad \lor \quad \text{Prot}_{\text{allowed}} \subseteq \{\text{PROT\_READ},\, \text{PROT\_EXEC}\}\]</div>
+<div class="arithmatex">\[\text{PROT\_WRITE} \land \text{PROT\_EXEC} \implies \mathbf{HARD\ SIGKILL\ (&lt; 1.0\,\mu s)}\]</div>
 <hr />
 <h2 id="2-in-kernel-ebpf-tracepoint-driver-srcmitigationlive_sbomc">2. In-Kernel eBPF Tracepoint Driver (<code>src/mitigation/live_sbom.c</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vmlinux.h&gt;</span>
@@ -43211,7 +43211,7 @@
 <hr />
 <h2 id="3-operational-sla-security-invariants">3. Operational SLA &amp; Security Invariants</h2>
 <ul>
-<li><strong>Interception Reaction SLA:</strong> <strong>$&lt; 1.0\,\mu\text{s}$</strong> from <code>mprotect</code> entry to <code>SIGKILL</code> signal dispatch.</li>
+<li><strong>Interception Reaction SLA:</strong> <strong><span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span></strong> from <code>mprotect</code> entry to <code>SIGKILL</code> signal dispatch.</li>
 <li><strong>TPM 2.0 Integration:</strong> Process memory mapping state is hashed continuously against TPM 2.0 PCR[10].</li>
 </ul>
 
@@ -43282,6 +43282,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

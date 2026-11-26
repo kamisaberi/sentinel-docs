@@ -43182,9 +43182,9 @@
 <h2 id="2-resource-isolation-execution-boundaries">2. Resource Isolation &amp; Execution Boundaries</h2>
 <p>Training neural models on multi-purpose edge appliances can compete with real-time packet filtering if not constrained:</p>
 <ol>
-<li><strong>Linux cgroup v2 Constraints:</strong> <code>forge-cli</code> execution runs inside a dedicated slice (<code>sentinel-forge.slice</code>) capped at $50\%$ CPU quota and pinned to lower NUMA nodes.</li>
-<li><strong>Scheduling Priority:</strong> Runs under <code>SCHED_IDLE</code> or <code>nice +19</code>, ensuring in-kernel eBPF packet mitigation ($&lt; 0.84\,\mu\text{s}$) and live inference routines take precedence over retraining loops.</li>
-<li><strong>Dedicated Scratchpad RAM:</strong> Training allocations are constrained to a fixed memory budget ($&lt; 4.0\text{ GB}$), avoiding host swapping.</li>
+<li><strong>Linux cgroup v2 Constraints:</strong> <code>forge-cli</code> execution runs inside a dedicated slice (<code>sentinel-forge.slice</code>) capped at <span class="arithmatex">\(50\%\)</span> CPU quota and pinned to lower NUMA nodes.</li>
+<li><strong>Scheduling Priority:</strong> Runs under <code>SCHED_IDLE</code> or <code>nice +19</code>, ensuring in-kernel eBPF packet mitigation (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) and live inference routines take precedence over retraining loops.</li>
+<li><strong>Dedicated Scratchpad RAM:</strong> Training allocations are constrained to a fixed memory budget (<span class="arithmatex">\(&lt; 4.0\text{ GB}\)</span>), avoiding host swapping.</li>
 </ol>
 
 
@@ -43254,6 +43254,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

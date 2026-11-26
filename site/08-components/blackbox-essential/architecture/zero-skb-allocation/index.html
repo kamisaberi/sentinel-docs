@@ -43252,7 +43252,7 @@
 <h3 id="consequences-under-denial-of-service-conditions">Consequences Under Denial-of-Service Conditions</h3>
 <ol>
 <li><strong>Slab Allocator Lock Contention:</strong> The kernel memory allocator (<code>kmem_cache_alloc</code>) incurs spinlock contention across multiple CPU cores when allocating millions of socket buffers per second.</li>
-<li><strong>CPU Cache Thrashing:</strong> Creating $240\text{ bytes}$ of control metadata per packet displaces Layer 1 and Layer 2 CPU caches, slowing down all running system processes.</li>
+<li><strong>CPU Cache Thrashing:</strong> Creating <span class="arithmatex">\(240\text{ bytes}\)</span> of control metadata per packet displaces Layer 1 and Layer 2 CPU caches, slowing down all running system processes.</li>
 <li><strong>Garbage Collection Overhead:</strong> Dropping a packet late in user-space requires calling <code>kfree_skb()</code>, which invalidates cache lines and issues inter-processor interrupts (IPIs) to free page references.</li>
 </ol>
 <hr />
@@ -43296,7 +43296,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Bytes Allocated in RAM</strong></td>
-<td style="text-align: left;">$\sim 240\text{ bytes} + \text{frame length}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 240\text{ bytes} + \text{frame length}\)</span></td>
 <td style="text-align: left;"><strong>0 bytes</strong></td>
 </tr>
 <tr>
@@ -43306,8 +43306,8 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Max Dropping Capacity</strong></td>
-<td style="text-align: left;">$\sim 1.8\text{ Mpps}$</td>
-<td style="text-align: left;"><strong>$&gt; 14.8\text{ Mpps}$ (Line Rate)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 1.8\text{ Mpps}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&gt; 14.8\text{ Mpps}\)</span> (Line Rate)</strong></td>
 </tr>
 </tbody>
 </table>
@@ -43379,6 +43379,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

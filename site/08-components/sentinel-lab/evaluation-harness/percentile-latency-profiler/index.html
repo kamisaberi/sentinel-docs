@@ -43138,18 +43138,18 @@
                   
 
 
-<h1 id="percentile-latency-profiler-p50-through-p999">Percentile Latency Profiler ($p50$ through $p99.9$)</h1>
-<p>Evaluating systems on mean latency alone hides tail-latency behavior. In safety-critical cyber-physical networks, rare latency spikes ($p99$ or $p99.9$) cause packet buffer overflows and delayed physical safety interlocks.</p>
-<p><code>sentinel-lab</code> records exact nanosecond execution latencies across $N = 50{,}000$ iterations to construct high-resolution Cumulative Distribution Functions (CDF).</p>
+<h1 id="percentile-latency-profiler-p50-through-p999">Percentile Latency Profiler (<span class="arithmatex">\(p50\)</span> through <span class="arithmatex">\(p99.9\)</span>)</h1>
+<p>Evaluating systems on mean latency alone hides tail-latency behavior. In safety-critical cyber-physical networks, rare latency spikes (<span class="arithmatex">\(p99\)</span> or <span class="arithmatex">\(p99.9\)</span>) cause packet buffer overflows and delayed physical safety interlocks.</p>
+<p><code>sentinel-lab</code> records exact nanosecond execution latencies across <span class="arithmatex">\(N = 50{,}000\)</span> iterations to construct high-resolution Cumulative Distribution Functions (CDF).</p>
 <hr />
 <h2 id="1-latency-percentile-formulations">1. Latency Percentile Formulations</h2>
-<p>For a sorted sequence of measured latencies $L = {t_1, t_2, \dots, t_N}$ where $t_1 \le t_2 \le \dots \le t_N$:</p>
-<p>$$p_k = L_{\lfloor \frac{k}{100} \cdot N \rfloor}$$</p>
+<p>For a sorted sequence of measured latencies <span class="arithmatex">\(L = \{t_1, t_2, \dots, t_N\}\)</span> where <span class="arithmatex">\(t_1 \le t_2 \le \dots \le t_N\)</span>:</p>
+<div class="arithmatex">\[p_k = L_{\lfloor \frac{k}{100} \cdot N \rfloor}\]</div>
 <ul>
-<li><strong>$p50$ (Median):</strong> Typical fast-path processing latency.</li>
-<li><strong>$p90$:</strong> Upper bound for 90% of all evaluated frames.</li>
-<li><strong>$p99$ (SLA Boundary):</strong> Primary contract threshold for active edge defense ($&lt; 0.84\,\mu\text{s}$).</li>
-<li><strong>$p99.9$:</strong> Tail latency bound under hardware cache contention and memory bus stalls.</li>
+<li><strong><span class="arithmatex">\(p50\)</span> (Median):</strong> Typical fast-path processing latency.</li>
+<li><strong><span class="arithmatex">\(p90\)</span>:</strong> Upper bound for 90% of all evaluated frames.</li>
+<li><strong><span class="arithmatex">\(p99\)</span> (SLA Boundary):</strong> Primary contract threshold for active edge defense (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
+<li><strong><span class="arithmatex">\(p99.9\)</span>:</strong> Tail latency bound under hardware cache contention and memory bus stalls.</li>
 </ul>
 <hr />
 <h2 id="2-latex-table-exporter-harnesslatex_exporterpy">2. LaTeX Table Exporter (<code>harness/latex_exporter.py</code>)</h2>
@@ -43248,6 +43248,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

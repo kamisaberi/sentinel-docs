@@ -3759,7 +3759,7 @@
   <a href="#1-concurrency-model-1-producer-to-n-consumers" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Concurrency Model: 1 Producer $\to$ N Consumers
+        1. Concurrency Model: 1 Producer <span class="arithmatex">\(\to\)</span> N Consumers
       </span>
     </span>
   </a>
@@ -43103,7 +43103,7 @@
   <a href="#1-concurrency-model-1-producer-to-n-consumers" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Concurrency Model: 1 Producer $\to$ N Consumers
+        1. Concurrency Model: 1 Producer <span class="arithmatex">\(\to\)</span> N Consumers
       </span>
     </span>
   </a>
@@ -43141,7 +43141,7 @@
 <h1 id="lock-free-spmc-architecture-overview">Lock-Free SPMC Architecture Overview</h1>
 <p>The <code>blackbox::EventRingBuffer</code> is an in-memory Single-Producer Multi-Consumer (SPMC) queue designed to transfer telemetry events from high-speed network driver threads to parallel machine learning inference workers without lock contention.</p>
 <hr />
-<h2 id="1-concurrency-model-1-producer-to-n-consumers">1. Concurrency Model: 1 Producer $\to$ N Consumers</h2>
+<h2 id="1-concurrency-model-1-producer-to-n-consumers">1. Concurrency Model: 1 Producer <span class="arithmatex">\(\to\)</span> N Consumers</h2>
 <p>In edge appliances, network frames are ingested sequentially by a single core servicing the NIC driver's interrupt queue (or an AF_XDP polling thread). However, threat scoring using neural networks (<code>xinfer-essential</code>) requires parallel processing across multiple CPU/NPU cores:</p>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ Single Producer: Network Driver Ingress Thread (Core 0)      │
@@ -43167,9 +43167,9 @@
 <li><strong>Wait-Free Producer:</strong> The network driver thread never blocks, sleeps, or spins. If the ring buffer is saturated, it increments an atomic drop counter and returns immediately.</li>
 <li><strong>Lock-Free Consumers:</strong> Consumers claim events using atomic Compare-And-Swap (<code>compare_exchange_weak</code>) operations. Even if a consumer thread pauses, other consumers continue dequeuing without deadlocks.</li>
 <li><strong>Zero Dynamic Allocation:</strong> Buffer slots are pre-allocated during initialization. Processing events involves zero calls to <code>malloc()</code> or <code>free()</code>.</li>
-<li><strong>Power-of-Two Modulo Elimination:</strong> The buffer capacity ($C$) is strictly a power of two ($2^k$). Array indexing replaces expensive integer division with bitwise masking:</li>
+<li><strong>Power-of-Two Modulo Elimination:</strong> The buffer capacity (<span class="arithmatex">\(C\)</span>) is strictly a power of two (<span class="arithmatex">\(2^k\)</span>). Array indexing replaces expensive integer division with bitwise masking:</li>
 </ol>
-<p>$$\text{Slot Index} = \text{Sequence Counter} \ \&amp; \ (C - 1)$$</p>
+<div class="arithmatex">\[\text{Slot Index} = \text{Sequence Counter} \ \&amp; \ (C - 1)\]</div>
 
 
 
@@ -43238,6 +43238,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

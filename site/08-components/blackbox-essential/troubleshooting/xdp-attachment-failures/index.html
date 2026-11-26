@@ -43287,7 +43287,7 @@
 <li><strong>Conflicting Offloads (LRO/GRO):</strong> Native Driver XDP requires Large Receive Offload (LRO) and Generic Receive Offload (GRO) to be disabled.
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ethtool<span class="w"> </span>-K<span class="w"> </span>eth0<span class="w"> </span>lro<span class="w"> </span>off<span class="w"> </span>gro<span class="w"> </span>off<span class="w"> </span>rxvlan<span class="w"> </span>off<span class="w"> </span>txvlan<span class="w"> </span>off
 </code></pre></div></li>
-<li><strong>MTU Exceeds Driver Page Bounds:</strong> Many NIC drivers restrict XDP to standard MTUs ($\le 1500$). If jumbo frames are enabled:
+<li><strong>MTU Exceeds Driver Page Bounds:</strong> Many NIC drivers restrict XDP to standard MTUs (<span class="arithmatex">\(\le 1500\)</span>). If jumbo frames are enabled:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span>
 </code></pre></div></li>
 <li><strong>Driver Lacks Native XDP Support:</strong> If using a legacy adapter (e.g., <code>e1000e</code>), native driver mode is unsupported. Fall back to generic mode:
@@ -43379,6 +43379,10 @@ sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </spa
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

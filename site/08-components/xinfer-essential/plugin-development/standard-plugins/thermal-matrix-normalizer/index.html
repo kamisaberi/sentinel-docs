@@ -43166,10 +43166,10 @@
 <p>The Thermal Matrix Normalizer plugin converts 14-bit and 16-bit raw radiometric pixel streams (from FLIR Lepton, SEEK Thermal, or Hikmicro sensors) into normalized float tensors ready for overheating autoencoders and fire-detection models.</p>
 <hr />
 <h2 id="1-mathematical-normalization">1. Mathematical Normalization</h2>
-<p>Raw thermal sensors output digital numbers ($DN$) proportional to absolute Kelvin temperatures ($T_K = DN \times 0.01$). </p>
+<p>Raw thermal sensors output digital numbers (<span class="arithmatex">\(DN\)</span>) proportional to absolute Kelvin temperatures (<span class="arithmatex">\(T_K = DN \times 0.01\)</span>). </p>
 <p>The normalizer scales raw values into calibrated Celsius degrees, replaces sensor bad pixels using neighbor median filtering, and rescales values into standard floating-point ranges:</p>
-<p>$$T_C = (DN \times S_{cal}) - 273.15$$</p>
-<p>$$X_{norm} = \text{clip}\left(\frac{T_C - T_{min}}{T_{max} - T_{min}},\, 0.0,\, 1.0\right)$$</p>
+<div class="arithmatex">\[T_C = (DN \times S_{cal}) - 273.15\]</div>
+<div class="arithmatex">\[X_{norm} = \text{clip}\left(\frac{T_C - T_{min}}{T_{max} - T_{min}},\, 0.0,\, 1.0\right)\]</div>
 <hr />
 <h2 id="2-c20-simd-normalization-implementation">2. C++20 SIMD Normalization Implementation</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
@@ -43210,8 +43210,8 @@
 <hr />
 <h2 id="3-operational-invariants">3. Operational Invariants</h2>
 <ul>
-<li><strong>Dead Pixel Substitution:</strong> Bad pixels ($DN = 0x0000$ or $DN = 0xFFFF$) are dynamically interpolated using a $3\times3$ kernel.</li>
-<li><strong>Throughput:</strong> Sustained processing $&gt; 250\text{ FPS}$ on a single core for $160\times120$ Lepton 3.5 sensors ($&lt; 8\,\mu\text{s}$ per frame).</li>
+<li><strong>Dead Pixel Substitution:</strong> Bad pixels (<span class="arithmatex">\(DN = 0x0000\)</span> or <span class="arithmatex">\(DN = 0xFFFF\)</span>) are dynamically interpolated using a <span class="arithmatex">\(3\times3\)</span> kernel.</li>
+<li><strong>Throughput:</strong> Sustained processing <span class="arithmatex">\(&gt; 250\text{ FPS}\)</span> on a single core for <span class="arithmatex">\(160\times120\)</span> Lepton 3.5 sensors (<span class="arithmatex">\(&lt; 8\,\mu\text{s}\)</span> per frame).</li>
 </ul>
 
 
@@ -43281,6 +43281,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43197,10 +43197,10 @@
 <h2 id="2-invariant-evaluation-logic">2. Invariant Evaluation Logic</h2>
 <p>When an industrial command packet arrives:
 1. <code>18_cps_sec</code> extracts the target register or coil value.
-2. It verifies that $\text{min} \le \text{Value} \le \text{max}$.
+2. It verifies that <span class="arithmatex">\(\text{min} \le \text{Value} \le \text{max}\)</span>.
 3. It calculates the delta velocity:
-   $$\Delta v = \frac{|\text{Value}<em>{\text{new}} - \text{Value}</em>{\text{current}}|}{\Delta t}$$
-4. If $\Delta v &gt; \text{max_delta_per_second}$, the packet is dropped via <code>XDP_DROP</code> in $&lt; 0.84\,\mu\text{s}$, preventing physical damage to connected field hardware.</p>
+   $<span class="arithmatex">\(\Delta v = \frac{|\text{Value}_{\text{new}} - \text{Value}_{\text{current}}|}{\Delta t}\)</span>$
+4. If <span class="arithmatex">\(\Delta v &gt; \text{max\_delta\_per\_second}\)</span>, the packet is dropped via <code>XDP_DROP</code> in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>, preventing physical damage to connected field hardware.</p>
 
 
 
@@ -43269,6 +43269,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

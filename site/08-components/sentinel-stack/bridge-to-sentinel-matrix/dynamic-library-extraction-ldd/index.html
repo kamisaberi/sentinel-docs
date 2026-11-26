@@ -43139,7 +43139,7 @@
 
 
 <h1 id="dynamic-library-extraction-via-ldd-sharedlib">Dynamic Library Extraction via <code>ldd</code> (<code>shared/lib/</code>)</h1>
-<p>Binaries compiled on the host link against complex external libraries (e.g., <code>libabsl_synchronization.so.20260107</code>, <code>libre2.so.11</code>, <code>libgrpc++.so.1.62</code>, <code>libprotobuf.so.32</code>). Installing full developer packages in every Docker container image increases image sizes by over $2\text{ GB}$.</p>
+<p>Binaries compiled on the host link against complex external libraries (e.g., <code>libabsl_synchronization.so.20260107</code>, <code>libre2.so.11</code>, <code>libgrpc++.so.1.62</code>, <code>libprotobuf.so.32</code>). Installing full developer packages in every Docker container image increases image sizes by over <span class="arithmatex">\(2\text{ GB}\)</span>.</p>
 <p><code>sentinel-stack</code> extracts the exact required dynamic shared objects using automated <code>ldd</code> parsing.</p>
 <hr />
 <h2 id="1-extraction-algorithm-workflow">1. Extraction Algorithm &amp; Workflow</h2>
@@ -43250,6 +43250,10 @@ ldd<span class="w"> </span>/usr/local/bin/sentinel-nexus<span class="w"> </span>
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

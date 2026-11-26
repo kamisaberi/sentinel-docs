@@ -43218,7 +43218,7 @@
 <hr />
 <h2 id="3-resident-set-size-rss-bounding">3. Resident Set Size (RSS) Bounding</h2>
 <ul>
-<li><strong>Maximum Permitted RAM Footprint:</strong> Configured strictly via <code>/etc/sentinel/sentinel.yaml</code> (default: $2.0\text{ GB}$).</li>
+<li><strong>Maximum Permitted RAM Footprint:</strong> Configured strictly via <code>/etc/sentinel/sentinel.yaml</code> (default: <span class="arithmatex">\(2.0\text{ GB}\)</span>).</li>
 <li><strong>Memory Pool Overcommit Prevention:</strong> If an unexpected traffic surge occurs, excess telemetry events trigger <strong>Tail Drop</strong> inside the SPMC ring buffer rather than dynamic memory expansion, preventing host kernel Out-of-Memory (OOM) panic events.</li>
 </ul>
 
@@ -43289,6 +43289,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

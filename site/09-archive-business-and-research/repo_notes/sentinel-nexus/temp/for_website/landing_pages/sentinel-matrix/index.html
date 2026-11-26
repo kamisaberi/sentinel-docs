@@ -43233,9 +43233,9 @@
 <p><strong><code>sentinel-matrix</code></strong> is an encapsulated, containerized digital twin and cyber-range simulation mesh designed for VMware and Linux server environments. Operating over an isolated <strong><code>10.240.0.0/24</code></strong> subnet, it coordinates Sentinel Nexus, xInfer Forge, an active Red-Team adversary node (<code>10.240.0.99</code>), and multiple heterogeneous edge appliances in an <strong>infinite, continuous loop</strong> of ambient NetFlow, live <code>nmap</code> sweeps, authentic SCADA malware replays (Industroyer, Triton, S7Comm), and autonomous self-improving neural hot-reloads.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ View on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/sentinel-matrix</code></li>
-<li><code>[ Explore 7 OmniFlow Channels ]</code> $\rightarrow$ <code>#omniflow-engine</code></li>
-<li><code>[ Launch VMware Range Guide ]</code> $\rightarrow$ <code>#quickstart-runbook</code></li>
+<li><code>[ View on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/sentinel-matrix</code></li>
+<li><code>[ Explore 7 OmniFlow Channels ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#omniflow-engine</code></li>
+<li><code>[ Launch VMware Range Guide ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#quickstart-runbook</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43311,7 +43311,7 @@
 <h3 id="hypervisor-compatibility-adaptations">Hypervisor Compatibility Adaptations</h3>
 <ol>
 <li><strong>Collision-Free Subnet (<code>10.240.0.0/24</code>):</strong> Standard Docker installations pick subnets from <code>172.17.0.0/16</code> through <code>172.31.0.0/16</code>. In VMware environments, VMware's virtual adapters (<code>VMnet1</code> / <code>VMnet8</code>) frequently use these identical ranges, triggering <code>Pool overlaps with other one on this address space</code>. <code>sentinel-matrix</code> uses an isolated <code>10.240.0.0/24</code> block, guaranteeing zero route collisions.</li>
-<li><strong>Generic SKB Mode (<code>XDP_FLAGS_SKB_MODE</code>):</strong> Virtual vNICs (<code>vmxnet3</code>, <code>veth</code>) do not support native hardware-driver XDP hooks. The edge containers automatically engage Generic SKB mode with <code>NET_ADMIN</code> and <code>BPF</code> capabilities, achieving line-rate drops in $&lt; 1\,\mu\text{s}$ within the virtual machine.</li>
+<li><strong>Generic SKB Mode (<code>XDP_FLAGS_SKB_MODE</code>):</strong> Virtual vNICs (<code>vmxnet3</code>, <code>veth</code>) do not support native hardware-driver XDP hooks. The edge containers automatically engage Generic SKB mode with <code>NET_ADMIN</code> and <code>BPF</code> capabilities, achieving line-rate drops in <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> within the virtual machine.</li>
 <li><strong>Silicon Library Dynamic Linking:</strong> Host-compiled C++ binaries requiring newer dependencies (<code>libabsl_*</code>, <code>libre2.so.11</code>, <code>libgrpc++</code>, <code>libprotobuf</code>) are automatically harvested from the host via <code>make init</code> and mounted into <code>/usr/local/lib/matrix-deps</code> with <code>LD_LIBRARY_PATH</code> configuration, eliminating glibc/ABI incompatibilities.</li>
 </ol>
 <hr />
@@ -43371,7 +43371,7 @@
 <p><code>pcap_streamer.py</code> parses PCAP global and packet headers directly in binary:
 * Reconstructs raw Ethernet, IPv4, and TCP/UDP frames.
 * Controls injection rate with microsecond precision (<code>--rate 50</code> packets/second).
-* Emits live threat telemetry to Sentinel Nexus in parallel, demonstrating that <strong>the edge appliance drops the malicious packets in $&lt; 0.84\,\mu\text{s}$ while Nexus fans out collective defense rules across all sister nodes in $&lt; 50\,\text{ms}$</strong>.</p>
+* Emits live threat telemetry to Sentinel Nexus in parallel, demonstrating that <strong>the edge appliance drops the malicious packets in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> while Nexus fans out collective defense rules across all sister nodes in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span></strong>.</p>
 <hr />
 <h2 id="6-the-live-adversary-red-team-node-matrix-adversary">6. The Live Adversary Red-Team Node (<code>matrix-adversary</code>)</h2>
 <p>In addition to PCAP streaming, <code>sentinel-matrix</code> includes an <strong>active, containerized Red-Team adversary node</strong> at IP <strong><code>10.240.0.99</code></strong>.</p>
@@ -43469,13 +43469,13 @@
 <h3 id="1-sla-latency-breach-automated-rollback">1. SLA Latency Breach &amp; Automated Rollback</h3>
 <p><div class="highlight"><pre><span></span><code>make<span class="w"> </span>chaos-latency
 </code></pre></div>
-* <strong>Mechanism:</strong> Simulates inference degradation on an edge appliance ($1{,}650\,\mu\text{s} &gt; 1{,}000\,\mu\text{s}$ limit).
+* <strong>Mechanism:</strong> Simulates inference degradation on an edge appliance (<span class="arithmatex">\(1{,}650\,\mu\text{s} &gt; 1{,}000\,\mu\text{s}\)</span> limit).
 * <strong>Verification:</strong> Nexus's <code>RollbackGuard</code> detects the SLA violation, flags an emergency event, purges the candidate model, and reverts the fleet to the stable model within milliseconds.</p>
 <h3 id="2-instant-0-ms-graceful-disconnect">2. Instant 0 ms Graceful Disconnect</h3>
 <p><div class="highlight"><pre><span></span><code>make<span class="w"> </span>chaos-sever
 </code></pre></div>
 * <strong>Mechanism:</strong> Kills Edge Node 01. Node 01 emits a <code>DeregistrationRequest</code> frame on <code>SIGINT</code>.
-* <strong>Verification:</strong> In the Web UI and TUI, Node 01 transitions from <strong><code>ONLINE</code> (Green)</strong> $\rightarrow$ <strong><code>OFFLINE</code> (Red)</strong> in <strong>0 milliseconds</strong>, bypassing the standard 15-second heartbeat timeout.</p>
+* <strong>Verification:</strong> In the Web UI and TUI, Node 01 transitions from <strong><code>ONLINE</code> (Green)</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong><code>OFFLINE</code> (Red)</strong> in <strong>0 milliseconds</strong>, bypassing the standard 15-second heartbeat timeout.</p>
 <hr />
 <h2 id="10-makefile-command-reference-operations-runbook">10. Makefile Command Reference &amp; Operations Runbook</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># ==============================================================================</span>
@@ -43617,6 +43617,10 @@ make<span class="w"> </span>chaos-sever<span class="w">        </span><span clas
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43139,7 +43139,7 @@
 
 
 <h1 id="microsecond-clock-precision-latency-measurement-physics">Microsecond Clock Precision &amp; Latency Measurement Physics</h1>
-<p>Measuring end-to-end latencies below $1.0\,\mu\text{s}$ requires nanosecond-level instrumentation. Standard operating system calls—such as <code>gettimeofday()</code> or <code>std::chrono::system_clock</code>—introduce measurement overhead ($15 - 30\,\text{ns}$) and are subject to NTP adjustments.</p>
+<p>Measuring end-to-end latencies below <span class="arithmatex">\(1.0\,\mu\text{s}\)</span> requires nanosecond-level instrumentation. Standard operating system calls—such as <code>gettimeofday()</code> or <code>std::chrono::system_clock</code>—introduce measurement overhead (<span class="arithmatex">\(15 - 30\,\text{ns}\)</span>) and are subject to NTP adjustments.</p>
 <p><code>sentinel-lab</code> uses hardware-level timestamping and CPU cycle counters.</p>
 <hr />
 <h2 id="1-timestamping-hierarchy">1. Timestamping Hierarchy</h2>
@@ -43249,6 +43249,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

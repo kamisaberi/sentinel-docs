@@ -43737,15 +43737,15 @@
 <h2 id="project-06-tactical-waveform-classifier-electronic-warfare-sigint">Project 06: Tactical Waveform Classifier (Electronic Warfare &amp; SIGINT)</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Modern military adversaries operate tactical frequency-hopping spread-spectrum (FHSS) and direct-sequence spread-spectrum (DSSS) radios that change carrier frequencies <strong>over 1,000 times per second</strong>. Software-Defined Radio (SDR) digitizers emit raw In-Phase/Quadrature (I/Q) baseband streams at rates exceeding <strong>400 MB/s to 1.2 GB/s</strong>. </p>
-<p>Traditional battlefield signals intelligence (SIGINT) systems process these streams in cloud environments or bulky, power-hungry GPU racks (500W+). Under tactical electronic attack, if the signal classification latency exceeds <strong>$&lt; 50\,\mu\text{s}$</strong>, electronic countermeasures (ECM) miss the hopping window, leaving tactical convoys vulnerable to coordinated drone attacks or radio-detonated improvised explosive devices (RCIEDs).</p>
+<p>Traditional battlefield signals intelligence (SIGINT) systems process these streams in cloud environments or bulky, power-hungry GPU racks (500W+). Under tactical electronic attack, if the signal classification latency exceeds <strong><span class="arithmatex">\(&lt; 50\,\mu\text{s}\)</span></strong>, electronic countermeasures (ECM) miss the hopping window, leaving tactical convoys vulnerable to coordinated drone attacks or radio-detonated improvised explosive devices (RCIEDs).</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides raw DMA-BUF pointer passing, streaming complex I/Q baseband samples from the SDR directly into NPU tensor engines without CPU memory copies.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Captures high-rate digitizer UDP frames via multi-queue RSS AF_XDP sockets pinned to dedicated real-time CPU cores (sustaining line rates up to <strong>40M+ EPS</strong>).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 signal dissector (<code>vita49_dissector</code>) operating within the <strong>$&lt; 88\text{ ns}$</strong> SLA, stripping transport headers and framing digitized I/Q arrays.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 1D-CNN and Complex-Valued ResNet modulation classifiers into INT8 graphs running in <strong>$&lt; 18\,\mu\text{s}$</strong> on edge silicon.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 signal dissector (<code>vita49_dissector</code>) operating within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, stripping transport headers and framing digitized I/Q arrays.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 1D-CNN and Complex-Valued ResNet modulation classifiers into INT8 graphs running in <strong><span class="arithmatex">\(&lt; 18\,\mu\text{s}\)</span></strong> on edge silicon.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 12 (Hardware Side-Channel Power/EM Correlator) and Module 02 (Adversarial Perturbator) to verify modulation identification under heavy Gaussian noise and active jamming.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fan-out fleet engine broadcasts detected adversary hopping tables to all friendly tactical nodes over tactical mesh networks within <strong>$&lt; 50\text{ ms}$</strong>.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fan-out fleet engine broadcasts detected adversary hopping tables to all friendly tactical nodes over tactical mesh networks within <strong><span class="arithmatex">\(&lt; 50\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin SDR spectrum scenarios using captured military RF PCAP datasets.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Commanded via <code>aryo ew classify --stream vita49 --freq 2.4GHz</code>.</li>
 </ul>
@@ -43759,29 +43759,29 @@
 </code></pre></div>
 <h3 id="3-wire-protocol-mathematical-invariants">3. Wire Protocol &amp; Mathematical Invariants</h3>
 <ul>
-<li><strong>Ingress Protocols:</strong> <strong>VITA 49.0 / 49.2 VRT (VITA Radio Transport)</strong> over raw Ethernet/UDP, <strong>SDR I/Q Complex Baseband</strong> ($I(t) + jQ(t)$ sampled at $50\text{ MSPS}$).</li>
+<li><strong>Ingress Protocols:</strong> <strong>VITA 49.0 / 49.2 VRT (VITA Radio Transport)</strong> over raw Ethernet/UDP, <strong>SDR I/Q Complex Baseband</strong> (<span class="arithmatex">\(I(t) + jQ(t)\)</span> sampled at <span class="arithmatex">\(50\text{ MSPS}\)</span>).</li>
 <li><strong>Mathematical Invariant (Spectral Kurtosis &amp; Higher-Order Cumulants):</strong>
-  $$C_{42} = \text{Cum}(y(t), y(t), y^<em>(t), y^</em>(t)) = \mu_{42} - 2\mu_{21}^2 - |\mu_{20}|^2$$
-  The system computes the 4th-order cumulant vector $\mathbf{C} = [C_{20}, C_{21}, C_{40}, C_{42}]$ across an $N=1024$ sample sliding window. If $\mathbf{C}$ matches a known hostile military FHSS signature, the system commands an immediate narrow-band reactive jamming burst.</li>
+  $<span class="arithmatex">\(C_{42} = \text{Cum}(y(t), y(t), y^*(t), y^*(t)) = \mu_{42} - 2\mu_{21}^2 - |\mu_{20}|^2\)</span>$
+  The system computes the 4th-order cumulant vector <span class="arithmatex">\(\mathbf{C} = [C_{20}, C_{21}, C_{40}, C_{42}]\)</span> across an <span class="arithmatex">\(N=1024\)</span> sample sliding window. If <span class="arithmatex">\(\mathbf{C}\)</span> matches a known hostile military FHSS signature, the system commands an immediate narrow-band reactive jamming burst.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Hailo-8 M.2 AI Acceleration Module paired with an ARM Rockchip RK3588 or NVIDIA Jetson Orin Nano ($&lt; 25\text{W}$ total operational power).</li>
+<li><strong>Target Hardware:</strong> Hailo-8 M.2 AI Acceleration Module paired with an ARM Rockchip RK3588 or NVIDIA Jetson Orin Nano (<span class="arithmatex">\(&lt; 25\text{W}\)</span> total operational power).</li>
 <li><strong>Commercial Advantage:</strong> Replaces bulky $150,000 military signal analyzer racks with a lightweight, battery-operated ruggedized box mountable on tactical vehicles or infantry backpacks.</li>
 </ul>
 <hr />
 <h2 id="project-07-air-gapped-weapon-breach-guard-physical-security">Project 07: Air-Gapped Weapon &amp; Breach Guard (Physical Security)</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Critical physical facilities (high-voltage electrical substations, municipal water reservoirs, nuclear plant perimeters, and datacenters) face coordinated armed intrusions and sabotage. Standard physical security relies on security guards watching dozens of video monitors or cloud-connected surveillance systems (e.g. AWS Rekognition, Google Cloud Video Intelligence). </p>
-<p>Cloud-connected cameras present critical vulnerabilities: they leak sensitive visual facility layouts over the Internet (violating CMMC 2.0 / NIS2 / ISO 27001 requirements), drop frames during network congestion, and introduce <strong>$2\text{ to }10\text{ seconds}$</strong> of detection delay.</p>
+<p>Cloud-connected cameras present critical vulnerabilities: they leak sensitive visual facility layouts over the Internet (violating CMMC 2.0 / NIS2 / ISO 27001 requirements), drop frames during network congestion, and introduce <strong><span class="arithmatex">\(2\text{ to }10\text{ seconds}\)</span></strong> of detection delay.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF bridge between Video4Linux2 (<code>V4L2</code>) / RTSP video decoders and the NPU accelerator, processing 4K 60 FPS feeds without CPU overhead.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw camera RTP/UDP video streams using kernel eBPF driver rings, dropping malformed network probes before socket buffer allocation.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code>: Stage 1 (Fast frame difference motion trigger) $\to$ Stage 3 (AI inference via INT8 YOLOv8-World / RT-DETR running in $&lt; 15\,\mu\text{s}$) $\to$ Stage 4 (<code>ThreatCorrelator</code> cross-referencing thermal infrared temperature signatures with weapon bounding boxes).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code>: Stage 1 (Fast frame difference motion trigger) <span class="arithmatex">\(\to\)</span> Stage 3 (AI inference via INT8 YOLOv8-World / RT-DETR running in <span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span>) <span class="arithmatex">\(\to\)</span> Stage 4 (<code>ThreatCorrelator</code> cross-referencing thermal infrared temperature signatures with weapon bounding boxes).</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator enforces a <strong>100% recall invariant</strong> (zero false negatives tolerated on firearm and perimeter breach classes).</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Module 03 (PMU Microarchitectural Profiler) to mathematically verify that multi-camera 4K processing will never exhaust memory bus bandwidth or cause cache thrashing.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Dispatches automated physical lockdown signals over gRPC to electronic turnstiles, gates, and sirens within <strong>$&lt; 38.4\text{ ms}$</strong>.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Dispatches automated physical lockdown signals over gRPC to electronic turnstiles, gates, and sirens within <strong><span class="arithmatex">\(&lt; 38.4\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin simulated perimeter breach drills with synthetic intruder injections.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo vision perimeter --stream rtsp://10.240.0.10:554/live</code>.</li>
 </ul>
@@ -43797,8 +43797,8 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>RTSP (RFC 2326)</strong>, <strong>RTP (RFC 3550)</strong>, <strong>ONVIF Profile S/T</strong>, <strong>H.264/H.265 NAL Units</strong>.</li>
 <li><strong>Mathematical Invariant (Joint Spatio-Temporal Threat Metric):</strong>
-  $$\text{ThreatLevel} = \sigma\left( w_1 \cdot P(\text{Weapon}) + w_2 \cdot \frac{\text{Area}(\text{Box}<em>{weapon} \cap \text{Box}</em>{human})}{\text{Area}(\text{Box}<em>{human})} + w_3 \cdot \mathbb{I}(\Delta T</em>{thermal} &gt; T_{crit}) \right)$$
-  When $\text{ThreatLevel} \ge 0.98$ for two consecutive video frames ($&lt; 33\text{ ms}$), the system triggers local physical dry-contact relay closures to lock facility blast doors without requiring human operator intervention.</li>
+  $<span class="arithmatex">\(\text{ThreatLevel} = \sigma\left( w_1 \cdot P(\text{Weapon}) + w_2 \cdot \frac{\text{Area}(\text{Box}_{weapon} \cap \text{Box}_{human})}{\text{Area}(\text{Box}_{human})} + w_3 \cdot \mathbb{I}(\Delta T_{thermal} &gt; T_{crit}) \right)\)</span>$
+  When <span class="arithmatex">\(\text{ThreatLevel} \ge 0.98\)</span> for two consecutive video frames (<span class="arithmatex">\(&lt; 33\text{ ms}\)</span>), the system triggers local physical dry-contact relay closures to lock facility blast doors without requiring human operator intervention.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43808,15 +43808,15 @@
 <hr />
 <h2 id="project-08-conveyor-micro-defect-sorter-industrial-manufacturing-qa">Project 08: Conveyor Micro-Defect Sorter (Industrial Manufacturing QA)</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>High-speed automated manufacturing lines (semiconductor chip packaging, pharmaceutical blister inspection, and precision automotive stamping) operate at conveyor speeds exceeding <strong>$10\text{ m/s}$</strong>, producing <strong>50 to 200 parts per second</strong>. When an item enters the optical inspection zone, it remains in the camera's field of view for only <strong>$5\text{ ms} - 10\text{ ms}$</strong>. </p>
-<p>Traditional industrial PC vision systems rely on high-power desktop GPUs that introduce unpredictable PCIe transfer and memory copy overhead ($15\text{ ms} - 50\text{ ms}$). If the defect detection engine fails to output a definitive verdict and command the pneumatic air-solenoid rejector before the physical item travels past the ejection point, the defective component slips into final consumer distribution, leading to multi-million-dollar product recalls.</p>
+<p>High-speed automated manufacturing lines (semiconductor chip packaging, pharmaceutical blister inspection, and precision automotive stamping) operate at conveyor speeds exceeding <strong><span class="arithmatex">\(10\text{ m/s}\)</span></strong>, producing <strong>50 to 200 parts per second</strong>. When an item enters the optical inspection zone, it remains in the camera's field of view for only <strong><span class="arithmatex">\(5\text{ ms} - 10\text{ ms}\)</span></strong>. </p>
+<p>Traditional industrial PC vision systems rely on high-power desktop GPUs that introduce unpredictable PCIe transfer and memory copy overhead (<span class="arithmatex">\(15\text{ ms} - 50\text{ ms}\)</span>). If the defect detection engine fails to output a definitive verdict and command the pneumatic air-solenoid rejector before the physical item travels past the ejection point, the defective component slips into final consumer distribution, leading to multi-million-dollar product recalls.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Ingests raw monochrome/Bayer camera buffers directly into unified host/NPU memory pointers, eliminating memory bandwidth saturation at 200 FPS.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw GigE Vision Streaming Protocol (GVSP) frames over AF_XDP in zero-copy UMEM mode, avoiding kernel socket buffer allocations.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Native C++20 dissectors extract image regions of interest (ROI) in <strong>$&lt; 88\text{ ns}$</strong>, feeding them into segmentation models.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes MobileNet-UNet defect segmentation models to INT8 QDQ ONNX, shrinking inference latency to <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (Extreme Value Theory WCET Engine) on 1,000,000 consecutive items, calculating statistical $p99.999\%$ execution bounds to certify the defect decision <strong>will never exceed $250\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Native C++20 dissectors extract image regions of interest (ROI) in <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong>, feeding them into segmentation models.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes MobileNet-UNet defect segmentation models to INT8 QDQ ONNX, shrinking inference latency to <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (Extreme Value Theory WCET Engine) on 1,000,000 consecutive items, calculating statistical <span class="arithmatex">\(p99.999\%\)</span> execution bounds to certify the defect decision <strong>will never exceed <span class="arithmatex">\(250\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Nexus fleet orchestrator aggregates quality metrics across 20+ manufacturing lines, detecting tool wear and mold degradation trends.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Simulates conveyor physics and pneumatic solenoid pressure dynamics via an RK4 ODE model.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo vision aoi --camera gige0 --ejector-port 502</code>.</li>
@@ -43834,8 +43834,8 @@
 <li><strong>Ingress Protocol:</strong> <strong>GigE Vision (GVSP / GVCP)</strong> over UDP port <code>3956</code>, <strong>GenICam Standard</strong>.</li>
 <li><strong>Egress Control Protocol:</strong> <strong>Modbus TCP</strong> (Port 502) or <strong>EtherCAT</strong> digital output to fast pneumatic solenoids.</li>
 <li><strong>Mathematical Invariant (Defect Integral Threshold):</strong>
-  $$\mathcal{D} = \iint_{\Omega_{part}} \left| I_{actual}(x,y) - I_{golden}(x,y) \right| dx dy &gt; \tau_{defect}$$
-  When the defect surface integral $\mathcal{D} &gt; \tau_{defect}$, a high-priority hardware trigger is sent to the physical ejector at timestamp $t_{eject} = t_{detect} + \frac{d_{conveyor}}{v_{conveyor}}$, certified within a microsecond timing envelope.</li>
+  $<span class="arithmatex">\(\mathcal{D} = \iint_{\Omega_{part}} \left| I_{actual}(x,y) - I_{golden}(x,y) \right| dx dy &gt; \tau_{defect}\)</span>$
+  When the defect surface integral <span class="arithmatex">\(\mathcal{D} &gt; \tau_{defect}\)</span>, a high-priority hardware trigger is sent to the physical ejector at timestamp <span class="arithmatex">\(t_{eject} = t_{detect} + \frac{d_{conveyor}}{v_{conveyor}}\)</span>, certified within a microsecond timing envelope.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43846,15 +43846,15 @@
 <h2 id="project-09-battery-energy-storage-system-bess-thermal-runaway-guard">Project 09: Battery Energy Storage System (BESS) Thermal Runaway Guard</h2>
 <h3 id="1-operational-challenge-failure-mode_3">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Grid-scale Battery Energy Storage Systems (BESS)—housing thousands of lithium-ion cells in shipping containers—are critical for stabilizing renewable wind and solar energy. However, manufacturing micro-defects or internal dendrite growth cause localized internal short-circuits. </p>
-<p>Standard Battery Management Systems (BMS) only monitor surface cell temperatures and trigger alarms after thermal runaway has already begun (temperatures $&gt; 80^\circ\text{C}$), when self-sustaining exothermic chemical decomposition is already irreversible. Within <strong>$45\text{ to }90\text{ seconds}$</strong>, a single cell runaway propagates to adjacent cells, producing explosive hydrogen/methane gas mixtures that destroy the entire multi-million-euro storage installation.</p>
+<p>Standard Battery Management Systems (BMS) only monitor surface cell temperatures and trigger alarms after thermal runaway has already begun (temperatures <span class="arithmatex">\(&gt; 80^\circ\text{C}\)</span>), when self-sustaining exothermic chemical decomposition is already irreversible. Within <strong><span class="arithmatex">\(45\text{ to }90\text{ seconds}\)</span></strong>, a single cell runaway propagates to adjacent cells, producing explosive hydrogen/methane gas mixtures that destroy the entire multi-million-euro storage installation.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory arrays ingesting hundreds of cell voltages, currents, and impedance vectors simultaneously.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF filters capture high-rate CANopen and Modbus TCP battery telemetry from hundreds of rack battery management units (BMUs).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates multi-sensor invariants, cross-referencing cell internal resistance ($R_{int} = \frac{\Delta V}{\Delta I}$) with localized temperature rate-of-change ($dT/dt$).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates multi-sensor invariants, cross-referencing cell internal resistance (<span class="arithmatex">\(R_{int} = \frac{\Delta V}{\Delta I}\)</span>) with localized temperature rate-of-change (<span class="arithmatex">\(dT/dt\)</span>).</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Retrains predictive Arrhenius degradation models on historical SLAB battery datasets captured across charge/discharge cycles.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (Closed-Loop Physical HIL Co-Simulation Engine) running a continuous <strong>Arrhenius chemical-thermal ODE</strong> in real time, calculating the Critical Clearing Time ($T_{crit}$) before explosive propagation.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command plane coordinates emergency power de-rating across the wider utility storage park within <strong>$&lt; 38.4\text{ ms}$</strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (Closed-Loop Physical HIL Co-Simulation Engine) running a continuous <strong>Arrhenius chemical-thermal ODE</strong> in real time, calculating the Critical Clearing Time (<span class="arithmatex">\(T_{crit}\)</span>) before explosive propagation.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command plane coordinates emergency power de-rating across the wider utility storage park within <strong><span class="arithmatex">\(&lt; 38.4\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Houses the native C simulation engine (<code>plant_ode.c</code>) solving the 4th-Order Runge-Kutta continuous thermal equations of battery cells.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Monitored via <code>aryo bess monitor --interface can0 --thermal-cutoff 65C</code>.</li>
 </ul>
@@ -43874,29 +43874,29 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>CANopen (CiA 418 / CiA 454)</strong>, <strong>Modbus TCP</strong> (Port 502), <strong>SunSpec Modbus</strong>.</li>
 <li><strong>Mathematical Invariant (Continuous Arrhenius Thermal ODE &amp; Control Barrier Function):</strong>
-  $$\frac{dT}{dt} = \frac{I^2 R_{int} + A \cdot c^n \cdot \exp\left(-\frac{E_a}{R \cdot T(t)}\right) - h A_{surf}(T(t) - T_{ambient})}{m \cdot C_p}$$
-  The engine enforces the <strong>Control Barrier Function (CBF)</strong> $h(x) = T_{critical} - T(t) \ge 0$. If the Nagumo forward-invariance condition:
-  $$\dot{h}(x) + \alpha h(x) &lt; 0$$
+  $<span class="arithmatex">\(\frac{dT}{dt} = \frac{I^2 R_{int} + A \cdot c^n \cdot \exp\left(-\frac{E_a}{R \cdot T(t)}\right) - h A_{surf}(T(t) - T_{ambient})}{m \cdot C_p}\)</span>$
+  The engine enforces the <strong>Control Barrier Function (CBF)</strong> <span class="arithmatex">\(h(x) = T_{critical} - T(t) \ge 0\)</span>. If the Nagumo forward-invariance condition:
+  $<span class="arithmatex">\(\dot{h}(x) + \alpha h(x) &lt; 0\)</span>$
   is detected (indicating exponential chemical self-heating), the guard trips the DC main contactor and fires localized aerosol fire suppression <strong>before smoke detectors can even register the event</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> DIN-rail ARM Cortex-A55 industrial computer with isolated dual-CAN and dual-Ethernet channels ($&lt; 15\text{W}$).</li>
+<li><strong>Target Hardware:</strong> DIN-rail ARM Cortex-A55 industrial computer with isolated dual-CAN and dual-Ethernet channels (<span class="arithmatex">\(&lt; 15\text{W}\)</span>).</li>
 <li><strong>Commercial Advantage:</strong> Predicts thermal runaway <strong>10 to 15 minutes before conventional smoke/gas detectors</strong>, preventing catastrophic battery explosions and reducing insurance premiums for utility energy developers.</li>
 </ul>
 <hr />
 <h2 id="project-10-air-gapped-cloud-workload-protection-cwpp-host-integrity">Project 10: Air-Gapped Cloud Workload Protection (CWPP) &amp; Host Integrity</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Critical infrastructure Linux servers (running SCADA servers, energy management databases, and edge appliance daemons) are prime targets for stealth supply-chain attacks and fileless memory exploits (exemplified by the <strong>XZ-Utils backdoor (CVE-2024-3094)</strong>, SolarWinds, and kernel rootkits). Traditional enterprise Endpoint Detection &amp; Response (EDR) agents rely on continuous cloud connectivity to upload memory dumps and system call logs for analysis. </p>
-<p>In air-gapped critical infrastructure, this cloud architecture fails completely: uploading data violates zero-cloud egress policies, and delayed post-execution cloud alerting ($15\text{s} - 60\text{s}$) cannot stop an in-memory ROP chain from modifying a running PLC binary’s <code>.text</code> segment in RAM.</p>
+<p>In air-gapped critical infrastructure, this cloud architecture fails completely: uploading data violates zero-cloud egress policies, and delayed post-execution cloud alerting (<span class="arithmatex">\(15\text{s} - 60\text{s}\)</span>) cannot stop an in-memory ROP chain from modifying a running PLC binary’s <code>.text</code> segment in RAM.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides host-pinned memory interfaces for real-time memory page hash comparison.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Implements <strong>Idea C</strong> (<code>live_sbom.c</code>): eBPF kernel tracepoints intercepting <code>sys_enter_mprotect</code>, <code>sys_enter_execve</code>, and <code>sys_enter_ptrace</code>, enforcing strict $W \oplus X$ (Write XOR Execute) memory page boundaries with <strong>sub-microsecond <code>bpf_send_signal(SIGKILL)</code></strong>.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Implements <strong>Idea C</strong> (<code>live_sbom.c</code>): eBPF kernel tracepoints intercepting <code>sys_enter_mprotect</code>, <code>sys_enter_execve</code>, and <code>sys_enter_ptrace</code>, enforcing strict <span class="arithmatex">\(W \oplus X\)</span> (Write XOR Execute) memory page boundaries with <strong>sub-microsecond <code>bpf_send_signal(SIGKILL)</code></strong>.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 09 (CWPP Engine) and <code>sentinel-ctl sbom</code> verify live executing process inodes and memory mappings against a cryptographic <strong>Live-SBOM</strong> anchored in physical silicon.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator verifies that newly updated software components match verified Merkle signatures before staging.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler), reading Linux <code>perf_event_open</code> CPU performance counters to detect cache miss spikes and pipeline stalls caused by stealth ROP/JIT payloads.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Isolates compromised host nodes from the collective defense grid in <strong>$&lt; 38.4\text{ ms}$</strong>.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Isolates compromised host nodes from the collective defense grid in <strong><span class="arithmatex">\(&lt; 38.4\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin memory injection drills in sandboxed Linux containers.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Commanded via <code>aryo sbom generate</code>, <code>aryo sbom enforce</code>, <code>aryo sbom status</code>, and <code>aryo sbom test-drift</code>.</li>
 </ul>
@@ -43919,15 +43919,15 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>Linux Kernel System Call ABI</strong> (<code>sys_enter_mprotect</code>, <code>sys_enter_execve</code>), <strong>CycloneDX v1.6 / SPDX 3.0 Runtime Schema</strong>.</li>
 <li><strong>Hardware Anchor:</strong> <strong>Physical TPM 2.0 PCR[10]</strong> sealing the baseline SHA-256 hashes of all authorized host binaries (<code>/usr/local/bin/sentinel</code>, <code>mock_plc</code>, <code>libblackbox.so</code>).</li>
-<li><strong>Mathematical Invariant ($W \oplus X$ Memory Protection):</strong>
-  $$\text{PagePermissions} \cap (\text{PROT_WRITE} \mid \text{PROT_EXEC}) \neq (\text{PROT_WRITE} \mid \text{PROT_EXEC})$$
-  $$\text{Inode}(P) \in \text{LiveSbomManifest} \land \text{SHA256}(\text{TextSegment}) == \text{Baseline}_{\text{TPM}}$$
+<li><strong>Mathematical Invariant (<span class="arithmatex">\(W \oplus X\)</span> Memory Protection):</strong>
+  $<span class="arithmatex">\(\text{PagePermissions} \cap (\text{PROT\_WRITE} \mid \text{PROT\_EXEC}) \neq (\text{PROT\_WRITE} \mid \text{PROT\_EXEC})\)</span>$
+  $<span class="arithmatex">\(\text{Inode}(P) \in \text{LiveSbomManifest} \land \text{SHA256}(\text{TextSegment}) == \text{Baseline}_{\text{TPM}}\)</span>$
   If any process attempts to make an anonymous heap/stack buffer executable (<code>PROT_EXEC</code>), or if a running process's <code>.text</code> code section in RAM deviates from its TPM-sealed hash, the kernel driver immediately issues <code>SIGKILL</code> and freezes its network socket before shellcode executes.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
 <li><strong>Target Hardware:</strong> Any enterprise Linux server (x86_64 or ARM64) equipped with a physical TPM 2.0 chip.</li>
-<li><strong>Commercial Advantage:</strong> Delivers <strong>100% offline, zero-cloud host integrity enforcement</strong>, neutralizing sophisticated XZ-style supply-chain backdoors in $&lt; 1\,\mu\text{s}$ while maintaining $0.00 cloud egress costs.</li>
+<li><strong>Commercial Advantage:</strong> Delivers <strong>100% offline, zero-cloud host integrity enforcement</strong>, neutralizing sophisticated XZ-style supply-chain backdoors in <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> while maintaining $0.00 cloud egress costs.</li>
 </ul>
 <hr />
 <h3 id="confirmation-to-proceed">Confirmation to Proceed</h3>
@@ -44001,6 +44001,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43216,7 +43216,7 @@
                   
 
 
-<h1 id="end-to-end-walkthrough-attack-to-mitigation-to-retrain-to-hot-reload">End-to-End Walkthrough: Attack $\to$ Mitigation $\to$ Retrain $\to$ Hot-Reload</h1>
+<h1 id="end-to-end-walkthrough-attack-to-mitigation-to-retrain-to-hot-reload">End-to-End Walkthrough: Attack <span class="arithmatex">\(\to\)</span> Mitigation <span class="arithmatex">\(\to\)</span> Retrain <span class="arithmatex">\(\to\)</span> Hot-Reload</h1>
 <p>This tutorial demonstrates the complete closed-loop lifecycle of the Aryorithm ecosystem inside <code>sentinel-matrix</code>. Within <strong>60 seconds</strong>, an adversary launches a novel exploit, an edge appliance mitigates the attack in kernel space, Nexus curates training data, Forge retrains weights, and the edge fleet hot-reloads the updated model without packet loss.</p>
 <hr />
 <h2 id="1-test-execution-sequence">1. Test Execution Sequence</h2>
@@ -43262,7 +43262,7 @@ make<span class="w"> </span>tui
 </code></pre></div>
 <h3 id="observation-in-terminal-1-tui-dashboard">Observation in Terminal 1 (TUI Dashboard):</h3>
 <ol>
-<li><strong>Under 1 Millisecond:</strong> <code>sentinel-node-01</code> increments its drop counter. The XAI panel renders the root-cause deviation (<code>MODBUS_REGISTER_SETPOINT_40001</code> delta: $+7{,}750\,\text{PSI}$).</li>
+<li><strong>Under 1 Millisecond:</strong> <code>sentinel-node-01</code> increments its drop counter. The XAI panel renders the root-cause deviation (<code>MODBUS_REGISTER_SETPOINT_40001</code> delta: <span class="arithmatex">\(+7{,}750\,\text{PSI}\)</span>).</li>
 <li><strong>At 15 Seconds:</strong> The bottom status bar indicates: <code>DatasetCurator: Packaged 5,000 samples to /shared/datasets/</code>.</li>
 <li><strong>At 35 Seconds:</strong> The TUI logs: <code>Forge: Candidate weights verified by Safety Gate (52/52). Compiled to ONNX Opset 17.</code></li>
 <li><strong>At 45 Seconds:</strong> Nexus promotes the model: <code>OTA Canary: Node 01 hot-reloaded to network_threat_v2.onnx (0.00ms downtime).</code></li>
@@ -43335,6 +43335,10 @@ make<span class="w"> </span>tui
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43166,14 +43166,14 @@
 <h2 id="1-the-core-verifier-guarantees">1. The Core Verifier Guarantees</h2>
 <ol>
 <li><strong>Memory Safety:</strong> The program can only read or write within explicitly bounded packet memory (<code>ctx-&gt;data</code> to <code>ctx-&gt;data_end</code>) or allocated map elements.</li>
-<li><strong>Termination:</strong> Unbounded loops are forbidden. All execution paths must reach an exit point within $1{,}000{,}000$ verified instructions.</li>
+<li><strong>Termination:</strong> Unbounded loops are forbidden. All execution paths must reach an exit point within <span class="arithmatex">\(1{,}000{,}000\)</span> verified instructions.</li>
 <li><strong>Type Safety:</strong> Pointer types are strictly tracked. A pointer to a packet cannot be cast to an arbitrary kernel memory address.</li>
 <li><strong>Stack Boundary:</strong> The eBPF call frame stack is capped at <strong>512 bytes</strong>. Exceeding this boundary fails verification.</li>
 </ol>
 <hr />
 <h2 id="2-mathematical-proof-of-bounds-checking">2. Mathematical Proof of Bounds Checking</h2>
 <p>Every packet memory access in <code>xdp_filter.c</code> is preceded by an explicit bounds check. The BPF verifier enforces the invariant that all offsets must satisfy:</p>
-<p>$$\text{data} + \text{offset} + \text{sizeof}(\text{struct}) \le \text{data_end}$$</p>
+<div class="arithmatex">\[\text{data} + \text{offset} + \text{sizeof}(\text{struct}) \le \text{data\_end}\]</div>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ ctx-&gt;data                                                   │
  └──────┬──────────────────────────────────────────────────────┘
@@ -43299,6 +43299,10 @@ R1 min value is outside of the allowed memory range
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

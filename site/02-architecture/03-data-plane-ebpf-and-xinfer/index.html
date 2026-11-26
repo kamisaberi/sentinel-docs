@@ -43156,7 +43156,7 @@
 <li><strong>Dynamic Tensor Discovery:</strong> Introspects input and output tensor names automatically (<code>engine-&gt;input_names()</code>, <code>engine-&gt;output_names()</code>), executing models regardless of whether inputs are labeled <code>"input"</code>, <code>"data"</code>, or <code>"images"</code>.</li>
 <li><strong>Stable Softmax Entropy Scoring:</strong> For public multi-class classification models (such as ImageNet 1000-class models), <code>ModelRouter</code> calculates normalized Shannon entropy:</li>
 </ul>
-<p>$$H(p) = -\sum_{i=1}^{N} \frac{p_i \ln p_i}{\ln N}$$</p>
+<div class="arithmatex">\[H(p) = -\sum_{i=1}^{N} \frac{p_i \ln p_i}{\ln N}\]</div>
 <p>This prevents false-positive logit clamping and guarantees that model outputs map deterministically into an anomaly score between <code>0.0</code> and <code>1.0</code>.</p>
 
 
@@ -43226,6 +43226,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

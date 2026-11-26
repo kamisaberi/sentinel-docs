@@ -43161,15 +43161,15 @@
 
 
 <h1 id="extreme-value-theory-evt-worst-case-execution-time-wcet">Extreme Value Theory (EVT) &amp; Worst-Case Execution Time (WCET)</h1>
-<p>In safety-critical cyber-physical systems, measuring average or $p99$ latency is insufficient to guarantee hard real-time safety. System certification requires proving a mathematical upper bound on the <strong>Worst-Case Execution Time (WCET)</strong>.</p>
-<p><code>sentinel-lab</code> incorporates <strong>Extreme Value Theory (EVT)</strong> (<code>src/modules/wcet_engine.cpp</code>) to model tail latency extremes and calculate the $p99.999\%$ ($1 - 10^{-5}$) WCET bound.</p>
+<p>In safety-critical cyber-physical systems, measuring average or <span class="arithmatex">\(p99\)</span> latency is insufficient to guarantee hard real-time safety. System certification requires proving a mathematical upper bound on the <strong>Worst-Case Execution Time (WCET)</strong>.</p>
+<p><code>sentinel-lab</code> incorporates <strong>Extreme Value Theory (EVT)</strong> (<code>src/modules/wcet_engine.cpp</code>) to model tail latency extremes and calculate the <span class="arithmatex">\(p99.999\%\)</span> (<span class="arithmatex">\(1 - 10^{-5}\)</span>) WCET bound.</p>
 <hr />
 <h2 id="1-generalized-extreme-value-gev-distribution-fitting">1. Generalized Extreme Value (GEV) Distribution Fitting</h2>
-<p>Block maxima latency samples $M_n = \max(X_1, \dots, X_n)$ are fitted to the Gumbel Extreme Value cumulative distribution function:</p>
-<p>$$F(x; \mu, \sigma) = \exp\left(-\exp\left(-\frac{x - \mu}{\sigma}\right)\right)$$</p>
+<p>Block maxima latency samples <span class="arithmatex">\(M_n = \max(X_1, \dots, X_n)\)</span> are fitted to the Gumbel Extreme Value cumulative distribution function:</p>
+<div class="arithmatex">\[F(x; \mu, \sigma) = \exp\left(-\exp\left(-\frac{x - \mu}{\sigma}\right)\right)\]</div>
 <p>Where:
-* $\mu$: Location parameter (representing typical tail latency).
-* $\sigma$: Scale parameter (representing dispersion of extreme outliers).</p>
+* <span class="arithmatex">\(\mu\)</span>: Location parameter (representing typical tail latency).
+* <span class="arithmatex">\(\sigma\)</span>: Scale parameter (representing dispersion of extreme outliers).</p>
 <div class="highlight"><pre><span></span><code> Extreme Value Latency Distribution (Gumbel Fit)
   Probability Density
    ▲
@@ -43244,11 +43244,11 @@
 </code></pre></div>
 <hr />
 <h2 id="3-empirical-verification-results">3. Empirical Verification Results</h2>
-<p>For $N = 100{,}000$ consecutive packet drops on an Intel Core Ultra testbed:
-* <strong>Fitted Location ($\mu$):</strong> $0.74\,\mu\text{s}$
-* <strong>Fitted Scale ($\sigma$):</strong> $0.092\,\mu\text{s}$
-* <strong>Calculated $p99.999\%$ WCET Bound:</strong> <strong>$1.82\,\mu\text{s}$</strong></p>
-<p>This proves that even under extreme $5\sigma$ tail latency conditions, the active mitigation path will never exceed $1.82\,\mu\text{s}$, safely below the $50.0\text{ ms}$ plant clearing limit ($T_{\text{crit}} = 38.4\text{ ms}$).</p>
+<p>For <span class="arithmatex">\(N = 100{,}000\)</span> consecutive packet drops on an Intel Core Ultra testbed:
+* <strong>Fitted Location (<span class="arithmatex">\(\mu\)</span>):</strong> <span class="arithmatex">\(0.74\,\mu\text{s}\)</span>
+* <strong>Fitted Scale (<span class="arithmatex">\(\sigma\)</span>):</strong> <span class="arithmatex">\(0.092\,\mu\text{s}\)</span>
+* <strong>Calculated <span class="arithmatex">\(p99.999\%\)</span> WCET Bound:</strong> <strong><span class="arithmatex">\(1.82\,\mu\text{s}\)</span></strong></p>
+<p>This proves that even under extreme <span class="arithmatex">\(5\sigma\)</span> tail latency conditions, the active mitigation path will never exceed <span class="arithmatex">\(1.82\,\mu\text{s}\)</span>, safely below the <span class="arithmatex">\(50.0\text{ ms}\)</span> plant clearing limit (<span class="arithmatex">\(T_{\text{crit}} = 38.4\text{ ms}\)</span>).</p>
 
 
 
@@ -43317,6 +43317,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

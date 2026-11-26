@@ -43143,7 +43143,7 @@
 <hr />
 <h2 id="1-dynamic-parallelism-sizing-algorithm">1. Dynamic Parallelism Sizing Algorithm</h2>
 <p>Phase 0 (<code>00_check_system.sh</code>) evaluates total system RAM and dynamically scales compiler parallelism:</p>
-<p>$$\text{Jobs} = \min\left(\text{CPU Cores},\, \max\left(1,\, \left\lfloor \frac{\text{RAM}_{\text{Total GB}}}{2.5} \right\rfloor\right)\right)$$</p>
+<div class="arithmatex">\[\text{Jobs} = \min\left(\text{CPU Cores},\, \max\left(1,\, \left\lfloor \frac{\text{RAM}_{\text{Total GB}}}{2.5} \right\rfloor\right)\right)\]</div>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ RAM-Aware Parallelism Allocation Rule                       │
  ├─────────────────────────────────────────────────────────────┤
@@ -43236,6 +43236,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

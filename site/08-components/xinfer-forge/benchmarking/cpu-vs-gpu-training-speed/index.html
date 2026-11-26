@@ -43202,49 +43202,49 @@
 <td style="text-align: left;"><strong>Rockchip RK3588</strong></td>
 <td style="text-align: left;">8-Core ARM64 CPU</td>
 <td style="text-align: left;">64</td>
-<td style="text-align: left;">$24.8\,\text{seconds}$</td>
-<td style="text-align: left;">$1{,}008\text{ flows/s}$</td>
-<td style="text-align: left;">$185.2\,\text{J}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(24.8\,\text{seconds}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1{,}008\text{ flows/s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(185.2\,\text{J}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel Core Ultra 7 165H</strong></td>
 <td style="text-align: left;">4 P-Cores (AVX2)</td>
 <td style="text-align: left;">64</td>
-<td style="text-align: left;">$18.2\,\text{seconds}$</td>
-<td style="text-align: left;">$1{,}373\text{ flows/s}$</td>
-<td style="text-align: left;">$218.4\,\text{J}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(18.2\,\text{seconds}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1{,}373\text{ flows/s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(218.4\,\text{J}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel Xeon Platinum 8480+</strong></td>
 <td style="text-align: left;">16 Cores (AVX-512)</td>
 <td style="text-align: left;">128</td>
-<td style="text-align: left;"><strong>$6.4\,\text{seconds}$</strong></td>
-<td style="text-align: left;">$3{,}906\text{ flows/s}$</td>
-<td style="text-align: left;">$672.0\,\text{J}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.4\,\text{seconds}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(3{,}906\text{ flows/s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(672.0\,\text{J}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NVIDIA Jetson AGX Orin</strong></td>
 <td style="text-align: left;">Ampere GPU (CUDA)</td>
 <td style="text-align: left;">128</td>
-<td style="text-align: left;"><strong>$4.1\,\text{seconds}$</strong></td>
-<td style="text-align: left;">$6{,}097\text{ flows/s}$</td>
-<td style="text-align: left;"><strong>$98.4\,\text{J}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(4.1\,\text{seconds}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(6{,}097\text{ flows/s}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(98.4\,\text{J}\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NVIDIA RTX A4000</strong></td>
 <td style="text-align: left;">6,144 CUDA Cores</td>
 <td style="text-align: left;">128</td>
-<td style="text-align: left;"><strong>$2.1\,\text{seconds}$</strong></td>
-<td style="text-align: left;">$11{,}904\text{ flows/s}$</td>
-<td style="text-align: left;">$147.0\,\text{J}$</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(2.1\,\text{seconds}\)</span></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(11{,}904\text{ flows/s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(147.0\,\text{J}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NVIDIA L4 Enterprise</strong></td>
 <td style="text-align: left;">Ada Lovelace GPU</td>
 <td style="text-align: left;">256</td>
-<td style="text-align: left;"><strong>$1.8\,\text{seconds}$</strong></td>
-<td style="text-align: left;"><strong>$13{,}888\text{ flows/s}$</strong></td>
-<td style="text-align: left;"><strong>$112.5\,\text{J}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(1.8\,\text{seconds}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(13{,}888\text{ flows/s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(112.5\,\text{J}\)</span></strong></td>
 </tr>
 </tbody>
 </table>
@@ -43252,7 +43252,7 @@
 <h2 id="2-key-takeaways">2. Key Takeaways</h2>
 <ol>
 <li><strong>Edge CPU Feasibility:</strong> Even on fanless edge hardware lacking a discrete GPU (e.g., Intel Core Ultra or Rockchip), adaptation completes in <strong>under 25 seconds</strong>, easily fitting within an hourly adaptation cycle.</li>
-<li><strong>Negligible Thermal Impact:</strong> Consuming under $220\,\text{Joules}$ per adaptation cycle ensures edge appliances do not trigger thermal throttling.</li>
+<li><strong>Negligible Thermal Impact:</strong> Consuming under <span class="arithmatex">\(220\,\text{Joules}\)</span> per adaptation cycle ensures edge appliances do not trigger thermal throttling.</li>
 </ol>
 
 
@@ -43322,6 +43322,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

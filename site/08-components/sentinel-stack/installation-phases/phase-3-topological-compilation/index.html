@@ -43117,7 +43117,7 @@
 
 
 <h1 id="phase-3-topological-dag-compilation-03_build_all_tierssh">Phase 3: Topological DAG Compilation (<code>03_build_all_tiers.sh</code>)</h1>
-<p>Phase 3 is the compilation engine of <code>sentinel-stack</code>. It compiles all six runtime tiers in strict topological order ($T_1 \to T_6$), updating <code>/etc/ld.so.cache</code> after each tier build to satisfy linker dependencies.</p>
+<p>Phase 3 is the compilation engine of <code>sentinel-stack</code>. It compiles all six runtime tiers in strict topological order (<span class="arithmatex">\(T_1 \to T_6\)</span>), updating <code>/etc/ld.so.cache</code> after each tier build to satisfy linker dependencies.</p>
 <hr />
 <h2 id="1-script-implementation-scripts03_build_all_tierssh">1. Script Implementation (<code>scripts/03_build_all_tiers.sh</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -43280,6 +43280,10 @@ build_cmake_tier<span class="w"> </span><span class="s2">"sentinel-nexus"</span>
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

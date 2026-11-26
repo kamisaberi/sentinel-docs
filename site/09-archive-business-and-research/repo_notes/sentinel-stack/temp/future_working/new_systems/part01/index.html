@@ -43739,15 +43739,15 @@
 <hr />
 <h2 id="project-01-substation-busbar-trip-engine">Project 01: Substation Busbar Trip Engine</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
-<p>In high-voltage electrical substations ($110\text{kV} - 765\text{kV}$), a busbar short circuit produces fault currents exceeding $40{,}000\text{ A}$. If not cleared within <strong>$15\text{ ms}–30\text{ ms}$</strong>, the massive thermal energy vaporizes copper conductors, resulting in catastrophic transformer explosions and regional grid collapse. Traditional Protection &amp; Control (P&amp;C) IEDs (Intelligent Electronic Devices) use proprietary ASICs costing upwards of $50{,}000 each. Commercial off-the-shelf Linux servers cannot reliably run busbar protection due to non-deterministic operating system network stack jitter ($2\text{ ms} - 15\text{ ms}$).</p>
+<p>In high-voltage electrical substations (<span class="arithmatex">\(110\text{kV} - 765\text{kV}\)</span>), a busbar short circuit produces fault currents exceeding <span class="arithmatex">\(40{,}000\text{ A}\)</span>. If not cleared within <strong><span class="arithmatex">\(15\text{ ms}–30\text{ ms}\)</span></strong>, the massive thermal energy vaporizes copper conductors, resulting in catastrophic transformer explosions and regional grid collapse. Traditional Protection &amp; Control (P&amp;C) IEDs (Intelligent Electronic Devices) use proprietary ASICs costing upwards of <span class="arithmatex">\(50{,}000 each. Commercial off-the-shelf Linux servers cannot reliably run busbar protection due to non-deterministic operating system network stack jitter (\)</span>2\text{ ms} - 15\text{ ms}$).</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Maps zero-copy host-pinned DMA-BUF memory buffers directly from network cards to edge NPUs/CPUs for running deep-learning transient fault classifiers.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Attaches in-kernel eBPF filters (<code>xdp_drop.o</code>) directly to the fiber Ethernet rings to parse raw Layer-2 <strong>IEC 61850-9-2 Sampled Values (SV)</strong> frames at wire speed, bypassing the entire Linux networking stack.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a Tier A native C++20 dissector (<code>iec61850_sv_guard</code>) with an SLA of <strong>$&lt; 88\text{ ns}$</strong>, evaluating Kirchhoff’s Current Law across up to 24 bay feeders simultaneously.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes transient fault recognition neural networks into INT8 QDQ ONNX graphs running in <strong>$&lt; 18\,\mu\text{s}$</strong> to predict arc-flash development before current peaks.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Evaluates Extreme Value Theory (EVT) Worst-Case Execution Time (WCET) bounds (Module 07) to mathematically prove the trip decision will <strong>never exceed $850\,\mu\text{s}$</strong> under $100\%$ CPU saturation.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Synchronizes trip logs and busbar health telemetry to the central utility command center over gRPC in $&lt; 50\text{ ms}$.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a Tier A native C++20 dissector (<code>iec61850_sv_guard</code>) with an SLA of <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong>, evaluating Kirchhoff’s Current Law across up to 24 bay feeders simultaneously.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes transient fault recognition neural networks into INT8 QDQ ONNX graphs running in <strong><span class="arithmatex">\(&lt; 18\,\mu\text{s}\)</span></strong> to predict arc-flash development before current peaks.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Evaluates Extreme Value Theory (EVT) Worst-Case Execution Time (WCET) bounds (Module 07) to mathematically prove the trip decision will <strong>never exceed <span class="arithmatex">\(850\,\mu\text{s}\)</span></strong> under <span class="arithmatex">\(100\%\)</span> CPU saturation.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Synchronizes trip logs and busbar health telemetry to the central utility command center over gRPC in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin substation short-circuit scenarios (<code>mock_plc</code> + <code>plant_ode.c</code>) using an RK4 numerical model of the inductive-capacitive power grid.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Exposes <code>aryo grid busbar-status</code> and <code>aryo grid test-trip</code>.</li>
 </ul>
@@ -43763,8 +43763,8 @@
 <li><strong>Ingress Protocol:</strong> <strong>IEC 61850-9-2 LE (Light Edition)</strong> over Ethernet Type <code>0x88BA</code> (Sampled Values: 4,000 samples/sec at 50Hz, 4,800 samples/sec at 60Hz).</li>
 <li><strong>Egress Trip Protocol:</strong> <strong>IEC 61850-8-1 GOOSE</strong> over Ethernet Type <code>0x88B8</code> (Priority Tagged VLAN, AppID <code>0x0001</code>).</li>
 <li><strong>Mathematical Invariant (Kirchhoff's Current Law):</strong>
-  $$\left| \sum_{k=1}^{N} I_k(t) \right| \le I_{threshold}$$
-  If differential current $\Delta I(t) &gt; I_{threshold}$, the in-kernel engine immediately injects an authentic IEC 61850 GOOSE trip frame to open circuit breakers in <strong>$&lt; 1.2\text{ ms}$</strong>.</li>
+  $<span class="arithmatex">\(\left\| \sum_{k=1}^{N} I_k(t) \right\| \le I_{threshold}\)</span>$
+  If differential current <span class="arithmatex">\(\Delta I(t) &gt; I_{threshold}\)</span>, the in-kernel engine immediately injects an authentic IEC 61850 GOOSE trip frame to open circuit breakers in <strong><span class="arithmatex">\(&lt; 1.2\text{ ms}\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43774,15 +43774,15 @@
 <hr />
 <h2 id="project-02-synchrophasor-grid-stability-guard">Project 02: Synchrophasor Grid Stability Guard</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Wide-Area Monitoring Systems (WAMS) monitor inter-area oscillations across continental power grids. When long-distance AC transmission corridors exceed transmission limits, rotor angles between generators diverge. If undamped inter-area power swings ($0.1\text{ Hz} - 1.0\text{ Hz}$) persist for longer than <strong>$3\text{ to }5\text{ seconds}$</strong>, generators automatically disconnect to save their shafts, triggering widespread cascading blackouts (e.g., the 2003 Northeast Blackout). Cloud-based energy management systems (EMS) are too slow ($5\text{s} - 30\text{s}$ latency) to compute real-time stability solutions.</p>
+<p>Wide-Area Monitoring Systems (WAMS) monitor inter-area oscillations across continental power grids. When long-distance AC transmission corridors exceed transmission limits, rotor angles between generators diverge. If undamped inter-area power swings (<span class="arithmatex">\(0.1\text{ Hz} - 1.0\text{ Hz}\)</span>) persist for longer than <strong><span class="arithmatex">\(3\text{ to }5\text{ seconds}\)</span></strong>, generators automatically disconnect to save their shafts, triggering widespread cascading blackouts (e.g., the 2003 Northeast Blackout). Cloud-based energy management systems (EMS) are too slow (<span class="arithmatex">\(5\text{s} - 30\text{s}\)</span> latency) to compute real-time stability solutions.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy host pointers to pass multi-channel PMU streams into edge GPUs or NPUs without serialization bottlenecks.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Pins AF_XDP multi-queue RX rings across dedicated CPU cores (<code>queue_ids: [0, 1]</code>) to ingest 60 frames/second continuous UDP/TCP PMU data streams from hundreds of transmission lines simultaneously (40M+ EPS capacity).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (ThreatCorrelator / Invariant Engine) evaluates cross-substation voltage/current phase angle divergence ($\Delta \theta = \theta_A - \theta_B$).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (ThreatCorrelator / Invariant Engine) evaluates cross-substation voltage/current phase angle divergence (<span class="arithmatex">\(\Delta \theta = \theta_A - \theta_B\)</span>).</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Continually fine-tunes physics-informed neural networks (PINNs) predicting dynamic rotor angle divergence using field SLAB datasets.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving the generator swing equation in real time and calculating real-time Lyapunov exponents ($\lambda$).</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command plane coordinates islanding signals across remote grid nodes within <strong>$&lt; 38.4\text{ ms}$</strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving the generator swing equation in real time and calculating real-time Lyapunov exponents (<span class="arithmatex">\(\lambda\)</span>).</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command plane coordinates islanding signals across remote grid nodes within <strong><span class="arithmatex">\(&lt; 38.4\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Simulates grid transmission topologies under dynamic load shedding drills.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Controlled via <code>aryo grid synchrophasor --pmu-stream &lt;ip:port&gt;</code>.</li>
 </ul>
@@ -43801,10 +43801,10 @@
 <ul>
 <li><strong>Ingress Protocol:</strong> <strong>IEEE C37.118.2</strong> Synchrophasor Stream (TCP/UDP, port <code>4712</code>).</li>
 <li><strong>Mathematical Invariant (Generator Swing Dynamics &amp; Lyapunov Stability):</strong>
-  $$M \frac{d^2\delta}{dt^2} + D \frac{d\delta}{dt} = P_m - P_{max} \sin(\delta)$$
+  $<span class="arithmatex">\(M \frac{d^2\delta}{dt^2} + D \frac{d\delta}{dt} = P_m - P_{max} \sin(\delta)\)</span>$
   The system calculates the <strong>Lyapunov stability exponent</strong>:
-  $$\lambda = \lim_{t \to \infty} \frac{1}{t} \ln \frac{|\Delta \delta(t)|}{|\Delta \delta(0)|}$$
-  If $\lambda &gt; 0$ (exponential divergence) for $&gt; 300\text{ ms}$, the guard executes controlled intentional islanding before physical machinery fails.</li>
+  $<span class="arithmatex">\(\lambda = \lim_{t \to \infty} \frac{1}{t} \ln \frac{\|\Delta \delta(t)\|}{\|\Delta \delta(0)\|}\)</span>$
+  If <span class="arithmatex">\(\lambda &gt; 0\)</span> (exponential divergence) for <span class="arithmatex">\(&gt; 300\text{ ms}\)</span>, the guard executes controlled intentional islanding before physical machinery fails.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43814,13 +43814,13 @@
 <hr />
 <h2 id="project-03-upf-slicing-wire-speed-governor">Project 03: UPF Slicing Wire-Speed Governor</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Private 5G Standalone (5G SA) networks in automated ports, automotive gigafactories, and mining sites collapse distinct operational domains onto a single physical infrastructure. The <strong>3GPP User Plane Function (UPF)</strong> connects the radio network (<code>gNodeB</code>) to local edge control networks. If an attacker on an enterprise slice (e.g., guest Wi-Fi or IoT security cameras) manipulates the 32-bit GTP-U Tunnel Endpoint Identifier (<code>TEID</code>), they can inject malicious frames into the ultra-secure <strong>Ultra-Reliable Low-Latency Communication (URLLC)</strong> slice controlling robotic arms and safety PLCs. Standard Linux firewalls cannot look inside GTP-U tunnels without incurring unacceptable packet latency ($&gt; 5\text{ ms}$).</p>
+<p>Private 5G Standalone (5G SA) networks in automated ports, automotive gigafactories, and mining sites collapse distinct operational domains onto a single physical infrastructure. The <strong>3GPP User Plane Function (UPF)</strong> connects the radio network (<code>gNodeB</code>) to local edge control networks. If an attacker on an enterprise slice (e.g., guest Wi-Fi or IoT security cameras) manipulates the 32-bit GTP-U Tunnel Endpoint Identifier (<code>TEID</code>), they can inject malicious frames into the ultra-secure <strong>Ultra-Reliable Low-Latency Communication (URLLC)</strong> slice controlling robotic arms and safety PLCs. Standard Linux firewalls cannot look inside GTP-U tunnels without incurring unacceptable packet latency (<span class="arithmatex">\(&gt; 5\text{ ms}\)</span>).</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory pointers passing decapsulated inner packet payloads directly to AI accelerators.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Implements our <strong>Idea B</strong> in-kernel eBPF dual-header parser (<code>xdp_drop.c</code>) that directly inspects outer UDP port 2152, decapsulates the 3GPP GTP-U header, extracts the 32-bit TEID, and verifies slice policies in <strong>$&lt; 0.84\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Implements our <strong>Idea B</strong> in-kernel eBPF dual-header parser (<code>xdp_drop.c</code>) that directly inspects outer UDP port 2152, decapsulates the 3GPP GTP-U header, extracts the 32-bit TEID, and verifies slice policies in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 27 (5G Slicing Supervisor) dynamically updates the in-kernel <code>teid_slice_map</code> using control-plane telemetry from the 5G Session Management Function (SMF).</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes inner-payload intrusion detection models to INT8 running in <strong>$&lt; 20\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes inner-payload intrusion detection models to INT8 running in <strong><span class="arithmatex">\(&lt; 20\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Module 09 (PQC OT Profiler) and Module 04 (Differential SCADA Fuzzer) over GTP-U encapsulated streams.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command broadcasts zero-day slice violation telemetry across all edge UPFs globally.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays multi-container 10.240.0.0/24 cyber-range tests using synthetic 5G gNodeB packet blasters.</li>
@@ -43837,8 +43837,8 @@
 <ul>
 <li><strong>Transport Protocols:</strong> <strong>3GPP TS 29.281 GTP-U v1</strong> over UDP port <code>2152</code>, <strong>3GPP TS 29.244 PFCP</strong> over UDP port <code>8805</code> (N4 Interface).</li>
 <li><strong>Mathematical Invariant (S-NSSAI Slice Boundary Invariant):</strong>
-  $$\text{PayloadAccess}(P_{inner}) \iff \text{Port}(P_{inner}) \in \text{SlicePolicy}[\text{TEID}].\text{AllowedPorts}$$
-  If an eMBB slice ($\text{SST} = 1$) packet attempts to target industrial ports ($502, 102, 2404$) allocated strictly to the URLLC slice ($\text{SST} = 2$), the packet is dropped in-kernel before memory allocation.</li>
+  $<span class="arithmatex">\(\text{PayloadAccess}(P_{inner}) \iff \text{Port}(P_{inner}) \in \text{SlicePolicy}[\text{TEID}].\text{AllowedPorts}\)</span>$
+  If an eMBB slice (<span class="arithmatex">\(\text{SST} = 1\)</span>) packet attempts to target industrial ports (<span class="arithmatex">\(502, 102, 2404\)</span>) allocated strictly to the URLLC slice (<span class="arithmatex">\(\text{SST} = 2\)</span>), the packet is dropped in-kernel before memory allocation.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43848,12 +43848,12 @@
 <hr />
 <h2 id="project-04-near-rt-ric-security-governor-o-ran">Project 04: Near-RT RIC Security Governor (O-RAN)</h2>
 <h3 id="1-operational-challenge-failure-mode_3">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Open Radio Access Networks (O-RAN) disaggregate monolithic base stations into open, software-defined components controlled by the <strong>Near-Real-Time RAN Intelligent Controller (Near-RT RIC)</strong>. Third-party microservices (called <strong>xApps</strong>) execute control loops ($10\text{ ms} - 1000\text{ ms}$) over the O-RAN <strong>E2 interface</strong> to balance spectrum, control beamforming, and allocate radio resource blocks (PRBs). A compromised, malfunctioning, or poisoned xApp can intentionally starve radio cells, induce massive handover oscillations, or secretly exfiltrate mobile subscriber IMSIs.</p>
+<p>Open Radio Access Networks (O-RAN) disaggregate monolithic base stations into open, software-defined components controlled by the <strong>Near-Real-Time RAN Intelligent Controller (Near-RT RIC)</strong>. Third-party microservices (called <strong>xApps</strong>) execute control loops (<span class="arithmatex">\(10\text{ ms} - 1000\text{ ms}\)</span>) over the O-RAN <strong>E2 interface</strong> to balance spectrum, control beamforming, and allocate radio resource blocks (PRBs). A compromised, malfunctioning, or poisoned xApp can intentionally starve radio cells, induce massive handover oscillations, or secretly exfiltrate mobile subscriber IMSIs.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides low-power execution backends running radio resource anomaly classifiers directly on ARM Neoverse or Intel Xeon platforms.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Inspects the raw <strong>E2AP (E2 Application Protocol)</strong> over SCTP stream connections in-kernel using AF_XDP.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Executes our Tier B <strong>Wasm3 micro-sandbox engine</strong> (<code>sentinel-sdk-rs</code>) to execute and isolate third-party xApps within linear memory boundaries ($&lt; 1.5\,\mu\text{s}$ SLA), preventing unauthorized host system calls.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Executes our Tier B <strong>Wasm3 micro-sandbox engine</strong> (<code>sentinel-sdk-rs</code>) to execute and isolate third-party xApps within linear memory boundaries (<span class="arithmatex">\(&lt; 1.5\,\mu\text{s}\)</span> SLA), preventing unauthorized host system calls.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator ensures newly retrained spectrum optimization models do not cause catastrophic cell degradation.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Module 13 (Federated AI &amp; Byzantine Poisoning Evaluator), verifying Krum and Trimmed-Mean aggregation across distributed O-DU/O-CU nodes against adversarial gradient manipulation.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Acts as the Non-RT RIC management plane distributing signed <code>.spkg</code> xApp extensions fleet-wide.</li>
@@ -43871,8 +43871,8 @@
 <ul>
 <li><strong>Transport Protocol:</strong> <strong>O-RAN.WG3.E2AP-v02.00</strong> running over <strong>SCTP (Stream Control Transmission Protocol)</strong> port <code>36421</code> (or port <code>36422</code> for E2-C).</li>
 <li><strong>Mathematical Invariant (Handover Ping-Pong Limit):</strong>
-  $$\text{Freq}<em>{handover}(UE_i, \Delta t) \le \frac{1}{\tau</em>{min}}$$
-  Where $\tau_{min} = 2.0\text{ seconds}$. If an xApp attempts to toggle user equipment (UE) cell handovers at rates exceeding physical channel stability boundaries, the command is intercepted and replaced with a null-action verdict.</li>
+  $<span class="arithmatex">\(\text{Freq}_{handover}(UE_i, \Delta t) \le \frac{1}{\tau_{min}}\)</span>$
+  Where <span class="arithmatex">\(\tau_{min} = 2.0\text{ seconds}\)</span>. If an xApp attempts to toggle user equipment (UE) cell handovers at rates exceeding physical channel stability boundaries, the command is intercepted and replaced with a null-action verdict.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43882,13 +43882,13 @@
 <hr />
 <h2 id="project-05-optical-rf-counter-uas-anti-drone-tracker">Project 05: Optical / RF Counter-UAS (Anti-Drone) Tracker</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Small commercial uncrewed aerial systems (Class 1 &amp; 2 micro-drones, e.g., DJI, FPV suicide drones) fly under standard air-defense radar horizons at speeds exceeding $150\text{ km/h}$. Neutralizing them requires identifying, classifying, and tracking the threat within <strong>$&lt; 100\text{ ms}$</strong> of line-of-sight exposure. Traditional cloud-connected vision systems drop video frames, cannot run on battery power in tactical environments, and confuse birds with fixed-wing suicide drones, causing catastrophic defense failures.</p>
+<p>Small commercial uncrewed aerial systems (Class 1 &amp; 2 micro-drones, e.g., DJI, FPV suicide drones) fly under standard air-defense radar horizons at speeds exceeding <span class="arithmatex">\(150\text{ km/h}\)</span>. Neutralizing them requires identifying, classifying, and tracking the threat within <strong><span class="arithmatex">\(&lt; 100\text{ ms}\)</span></strong> of line-of-sight exposure. Traditional cloud-connected vision systems drop video frames, cannot run on battery power in tactical environments, and confuse birds with fixed-wing suicide drones, causing catastrophic defense failures.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a <strong>zero-copy DMA-BUF frame bridge</strong>: high-resolution 4K 120 FPS camera frames from GigE Vision or MIPI-CSI2 cameras are passed directly into the AI accelerator's tensor registers without CPU memory copying (<code>memcpy</code>).</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Captures high-rate SDR RF spectrum frames over <strong>VITA 49 (VRT)</strong> over 10GbE network interfaces at line rate (10.25M+ EPS).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code> pipeline: Stage 1 (Fast-Drop non-air targets) $\to$ Stage 2 (Dissectors extract drone RF signature) $\to$ Stage 3 (AI inference via INT8 YOLOv10-seg running in $&lt; 15\,\mu\text{s}$) $\to$ Stage 4 (<code>ThreatCorrelator</code> fuses RF frequency hopping with optical bounding boxes).</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Converts FP32 drone models into INT8 QDQ ONNX engines running on Rockchip RK3588 or NVIDIA Jetson Orin with $4\times$ smaller memory footprints and $&lt; 20\,\mu\text{s}$ latency.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Runs the 4-Stage <code>ModelRouter</code> pipeline: Stage 1 (Fast-Drop non-air targets) <span class="arithmatex">\(\to\)</span> Stage 2 (Dissectors extract drone RF signature) <span class="arithmatex">\(\to\)</span> Stage 3 (AI inference via INT8 YOLOv10-seg running in <span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span>) <span class="arithmatex">\(\to\)</span> Stage 4 (<code>ThreatCorrelator</code> fuses RF frequency hopping with optical bounding boxes).</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Converts FP32 drone models into INT8 QDQ ONNX engines running on Rockchip RK3588 or NVIDIA Jetson Orin with <span class="arithmatex">\(4\times\)</span> smaller memory footprints and <span class="arithmatex">\(&lt; 20\,\mu\text{s}\)</span> latency.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Module 02 (Grammar-Constrained Adversarial Perturbator) to stress-test computer vision models against optical camouflage, glare, and smoke.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Distributes zero-day drone RF fingerprints and drone models across distributed forward-operating base nodes via sub-50ms gRPC fanout.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin ballistic trajectories and drone swarm attacks.</li>
@@ -43909,13 +43909,13 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>GigE Vision (GVSP / GVCP)</strong> over UDP, <strong>VITA 49.0 / 49.2 (VRT)</strong> over raw Ethernet, <strong>MAVLink v2</strong> drone telemetry.</li>
 <li><strong>Mathematical Invariant (Bayesian Cross-Modal Fusion Probability):</strong>
-  $$P(\text{Drone} \mid \text{Optics}, \text{RF}) = \frac{P(\text{Optics} \mid \text{Drone}) \cdot P(\text{RF} \mid \text{Drone}) \cdot P_0}{P(\text{Optics}, \text{RF})}$$
-  A target is only escalated to kinetic/electronic hard-kill effector systems when the joint probability $P(\text{Drone} \mid \text{Optics}, \text{RF}) \ge 0.995$ for three consecutive frames, mathematically eliminating costly false-alarm engagements against birds or civilian aircraft.</li>
+  $<span class="arithmatex">\(P(\text{Drone} \mid \text{Optics}, \text{RF}) = \frac{P(\text{Optics} \mid \text{Drone}) \cdot P(\text{RF} \mid \text{Drone}) \cdot P_0}{P(\text{Optics}, \text{RF})}\)</span>$
+  A target is only escalated to kinetic/electronic hard-kill effector systems when the joint probability <span class="arithmatex">\(P(\text{Drone} \mid \text{Optics}, \text{RF}) \ge 0.995\)</span> for three consecutive frames, mathematically eliminating costly false-alarm engagements against birds or civilian aircraft.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Dual NVIDIA Jetson AGX Orin / Rockchip RK3588 Cluster inside a ruggedized IP67 enclosure drawing $&lt; 60\text{W}$ power.</li>
-<li><strong>Commercial Advantage:</strong> Operates 100% air-gapped on mobile vehicle battery power, delivering military forces and airport perimeters autonomous sub-second drone detection at a fraction of legacy military radar costs ($250\text{k}+$ traditional vs $25\text{k}$ Aryorithm edge box).</li>
+<li><strong>Target Hardware:</strong> Dual NVIDIA Jetson AGX Orin / Rockchip RK3588 Cluster inside a ruggedized IP67 enclosure drawing <span class="arithmatex">\(&lt; 60\text{W}\)</span> power.</li>
+<li><strong>Commercial Advantage:</strong> Operates 100% air-gapped on mobile vehicle battery power, delivering military forces and airport perimeters autonomous sub-second drone detection at a fraction of legacy military radar costs (<span class="arithmatex">\(250\text{k}+\)</span> traditional vs <span class="arithmatex">\(25\text{k}\)</span> Aryorithm edge box).</li>
 </ul>
 <hr />
 <h3 id="confirmation-to-proceed">Confirmation to Proceed</h3>
@@ -43989,6 +43989,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

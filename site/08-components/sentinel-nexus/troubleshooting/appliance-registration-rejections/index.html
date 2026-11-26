@@ -43245,7 +43245,7 @@
 <p>Mutual TLS certificate validity and nonce challenge windows depend on synchronized clocks. Check NTP synchronization on both host and edge nodes:</p>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>tracking
 </code></pre></div>
-<p>Ensure the clock offset is within <strong>$\pm 50\,\text{ms}$</strong>.</p>
+<p>Ensure the clock offset is within <strong><span class="arithmatex">\(\pm 50\,\text{ms}\)</span></strong>.</p>
 <h3 id="step-3-verify-the-golden-pcr-0-measurement">Step 3: Verify the Golden PCR 0 Measurement</h3>
 <p>If an edge node recently received a motherboard BIOS update, its PCR 0 measurement will shift, triggering quote rejections. </p>
 <p>Update the baseline in <code>/etc/sentinel-nexus/nexus.yaml</code>:</p>
@@ -43323,6 +43323,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

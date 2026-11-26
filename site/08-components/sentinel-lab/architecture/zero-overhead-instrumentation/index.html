@@ -43139,7 +43139,7 @@
 
 
 <h1 id="zero-overhead-performance-instrumentation">Zero-Overhead Performance Instrumentation</h1>
-<p>In low-latency systems research, profiling latency can alter execution behavior (the "Observer Effect"). Logging timestamps via dynamic allocations or locks introduces latency spikes that corrupt high-percentile distributions ($p99$ and $p99.9$).</p>
+<p>In low-latency systems research, profiling latency can alter execution behavior (the "Observer Effect"). Logging timestamps via dynamic allocations or locks introduces latency spikes that corrupt high-percentile distributions (<span class="arithmatex">\(p99\)</span> and <span class="arithmatex">\(p99.9\)</span>).</p>
 <p><code>sentinel-lab</code> utilizes <strong>Zero-Overhead Static Instrumentation</strong>.</p>
 <hr />
 <h2 id="1-pre-allocated-logarithmic-histogram-bins">1. Pre-Allocated Logarithmic Histogram Bins</h2>
@@ -43189,7 +43189,7 @@
 <hr />
 <h2 id="2-invariants">2. Invariants</h2>
 <ul>
-<li><strong>$O(1)$ Execution Cost:</strong> Binned recording executes in <strong>under 4 CPU cycles</strong> ($\approx 1.2\,\text{ns}$).</li>
+<li><strong><span class="arithmatex">\(O(1)\)</span> Execution Cost:</strong> Binned recording executes in <strong>under 4 CPU cycles</strong> (<span class="arithmatex">\(\approx 1.2\,\text{ns}\)</span>).</li>
 <li><strong>Zero Mutex Contention:</strong> Atomic relaxation (<code>memory_order_relaxed</code>) ensures worker threads do not stall when updating metrics.</li>
 <li><strong>Cache Isolation:</strong> Histogram bins reside in contiguous, pre-warmed memory pages, eliminating Level 3 cache eviction during benchmark runs.</li>
 </ul>
@@ -43261,6 +43261,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

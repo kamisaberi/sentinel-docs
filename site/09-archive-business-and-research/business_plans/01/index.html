@@ -44115,16 +44115,16 @@
 <h3 id="13-the-problem">1.3 The Problem</h3>
 <p>The global Security Information and Event Management (SIEM) and cybersecurity operations market is dominated by centralized, cloud-native log aggregation platforms (such as Splunk Enterprise, Elastic Security, and Microsoft Sentinel). These platforms suffer from four systemic vulnerabilities:
 1. <strong>Passive Latency Penalty:</strong> Processing pipelines rely on user-space JSON deserialization, disk-bound inverted text indexing, and periodic query polling, introducing detection-to-mitigation latencies between 15 seconds and 3 minutes. In modern automated intrusions, lateral movement and PLC sabotage occur within fractions of a second.
-2. <strong>Cloud Bandwidth Ingestion Egress Tax:</strong> Streaming gigabytes of raw telemetry to cloud analytics clusters costs enterprise organizations between \$10,000 and \$50,000 per month in bandwidth fees alone, separate from software licensing.
+2. <strong>Cloud Bandwidth Ingestion Egress Tax:</strong> Streaming gigabytes of raw telemetry to cloud analytics clusters costs enterprise organizations between $10,000 and $50,000 per month in bandwidth fees alone, separate from software licensing.
 3. <strong>Regulatory and Air-Gap Prohibitions:</strong> Sovereign defense installations, nuclear power facilities, naval vessels, and high-assurance data centers are legally forbidden under compliance standards (CMMC Level 2, NIST SP 800-53, ISO 27001) from transferring internal operational logs across perimeter boundaries.
 4. <strong>Cyber-Physical Blindness:</strong> Conventional SIEMs analyze ASCII log text and are architecturally incapable of ingesting live CCTV camera feeds, acoustic threat signatures, or industrial SCADA protocols in real time.</p>
 <h3 id="14-the-solution">1.4 The Solution</h3>
-<p>Blackbox Sentinel replaces passive cloud log ingestion with an active, on-premise, air-gapped hardware appliance. Operating on a proprietary three-layer C++20 runtime, Blackbox Sentinel couples deep learning models executed via its inference runtime (<code>libxinfer.so</code>) directly to the Linux kernel network driver via eBPF/XDP (<code>libblackbox.so</code>). Threats are identified and dropped at wire speed in under 1 millisecond ($0.84\,\mu\text{s}$ average kernel drop time), completely offline, without human intervention or cloud connectivity.</p>
+<p>Blackbox Sentinel replaces passive cloud log ingestion with an active, on-premise, air-gapped hardware appliance. Operating on a proprietary three-layer C++20 runtime, Blackbox Sentinel couples deep learning models executed via its inference runtime (<code>libxinfer.so</code>) directly to the Linux kernel network driver via eBPF/XDP (<code>libblackbox.so</code>). Threats are identified and dropped at wire speed in under 1 millisecond (<span class="arithmatex">\(0.84\,\mu\text{s}\)</span> average kernel drop time), completely offline, without human intervention or cloud connectivity.</p>
 <h3 id="15-financial-highlights-funding-ask">1.5 Financial Highlights &amp; Funding Ask</h3>
 <ul>
-<li><strong>Funding Request:</strong> Seeking \$2,000,000 in Seed Round venture capital funding.</li>
+<li><strong>Funding Request:</strong> Seeking $2,000,000 in Seed Round venture capital funding.</li>
 <li><strong>Use of Proceeds:</strong> 50% Engineering &amp; Hardware Hardening, 25% Go-To-Market &amp; Enterprise Sales, 15% Inventory &amp; Appliance Provisioning, 10% Legal, Regulatory &amp; Compliance.</li>
-<li><strong>5-Year Financial Target:</strong> Projecting \$32.4M in Annual Recurring Revenue (ARR) by Year 5 with an 84% blended gross margin and EBITDA profitability achieved by Month 30.</li>
+<li><strong>5-Year Financial Target:</strong> Projecting $32.4M in Annual Recurring Revenue (ARR) by Year 5 with an 84% blended gross margin and EBITDA profitability achieved by Month 30.</li>
 </ul>
 <hr />
 <h2 id="2-technology-moat-intellectual-property">2. Technology Moat &amp; Intellectual Property</h2>
@@ -44166,14 +44166,14 @@
 <h3 id="31-total-addressable-market-tam">3.1 Total Addressable Market (TAM)</h3>
 <p>The global cybersecurity market is undergoing structural expansion driven by stricter sovereignty regulations, geopolitical tensions targeting industrial infrastructure, and the failure of passive log monitoring:</p>
 <ul>
-<li><strong>Total Addressable Market (TAM):</strong> \$48.2 Billion</li>
-<li>Global SIEM Market: \$8.5 Billion</li>
-<li>Network Detection &amp; Response (NDR) / Intrusion Prevention (IPS): \$12.1 Billion</li>
-<li>Operational Technology (OT) &amp; SCADA Industrial Security: \$15.4 Billion</li>
-<li>Extended Detection and Response (XDR) Platforms: \$12.2 Billion</li>
-<li><strong>Serviceable Addressable Market (SAM):</strong> \$9.4 Billion</li>
+<li><strong>Total Addressable Market (TAM):</strong> $48.2 Billion</li>
+<li>Global SIEM Market: $8.5 Billion</li>
+<li>Network Detection &amp; Response (NDR) / Intrusion Prevention (IPS): $12.1 Billion</li>
+<li>Operational Technology (OT) &amp; SCADA Industrial Security: $15.4 Billion</li>
+<li>Extended Detection and Response (XDR) Platforms: $12.2 Billion</li>
+<li><strong>Serviceable Addressable Market (SAM):</strong> $9.4 Billion</li>
 <li>High-assurance air-gapped infrastructure, critical utilities, defense outposts, and automated manufacturing.</li>
-<li><strong>Serviceable Obtainable Market (SOM):</strong> \$145 Million (Within 5 years, targeting 1.5% of SAM).</li>
+<li><strong>Serviceable Obtainable Market (SOM):</strong> $145 Million (Within 5 years, targeting 1.5% of SAM).</li>
 </ul>
 <div class="highlight"><pre><span></span><code>[ TAM: $48.2 Billion ]  Global SIEM, NDR, OT/ICS, and XDR Enterprise Markets
       |
@@ -44196,7 +44196,7 @@
 </ul>
 <h4 id="vertical-3-smart-manufacturing-industry-40">Vertical 3: Smart Manufacturing &amp; Industry 4.0</h4>
 <ul>
-<li><strong>Pain Point:</strong> High-speed automotive assembly, semiconductor manufacturing, and bottling lines face downtime costs exceeding \$50,000 per hour during malware or ransomware lateral outbreaks.</li>
+<li><strong>Pain Point:</strong> High-speed automotive assembly, semiconductor manufacturing, and bottling lines face downtime costs exceeding $50,000 per hour during malware or ransomware lateral outbreaks.</li>
 <li><strong>Sentinel Solution:</strong> 1U server appliance deployed at the factory floor edge, enforcing line-rate eBPF micro-segmentation to isolate infected PLCs instantly without shutting down entire production lines.</li>
 </ul>
 <h4 id="vertical-4-high-density-data-centers-financial-institutions">Vertical 4: High-Density Data Centers &amp; Financial Institutions</h4>
@@ -44285,11 +44285,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Hardware Pricing</strong></td>
-<td style="text-align: left;"><strong>$15k–$50k Appliance</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(15k–\)</span>50k Appliance</strong></td>
 <td style="text-align: left;">Software Only</td>
 <td style="text-align: left;">Software Only</td>
 <td style="text-align: left;">Pay-per-GB Cloud</td>
-<td style="text-align: left;">$30k–$80k Appliance</td>
+<td style="text-align: left;"><span class="arithmatex">\(30k–\)</span>80k Appliance</td>
 <td style="text-align: left;">Open-Source Tool</td>
 </tr>
 </tbody>
@@ -44324,7 +44324,7 @@
 <li><strong>Form Factor:</strong> Fanless IP67-rated ruggedized aluminium chassis.</li>
 <li><strong>Target Hardware:</strong> Rockchip RK3588 (8-core ARM) or NVIDIA Jetson Orin NX (40 TOPS).</li>
 <li><strong>Interface:</strong> 4x 1GbE RJ45 ports (eBPF hardware accelerated).</li>
-<li><strong>Power Consumption:</strong> Low-power $&lt;25$\,W (24V DC / Battery compatible).</li>
+<li><strong>Power Consumption:</strong> Low-power <span class="arithmatex">\(&lt;25\)</span>\,W (24V DC / Battery compatible).</li>
 </ul>
 <h4 id="tier-b-sentinel-enterprise-data-centers-critical-infrastructure">Tier B: Sentinel Enterprise (Data Centers, Critical Infrastructure)</h4>
 <ul>
@@ -44356,7 +44356,7 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 <p><strong>Trial Methodology:</strong>
 - Days 1–14: <em>Monitor Mode</em> (Passive logging, zero active blocking, establishing baseline).
 - Days 15–28: <em>Active Enforcement Mode</em> (eBPF XDP kernel drops enabled, active simulated attacks).
-- Day 30: Executive Presentation with automated CMMC/ISO 27001 compliance audit report proving 100% attack mitigation with $&lt;1\,\text{ms}$ latency. Target conversion rate from trial to paid purchase: 60%.</p>
+- Day 30: Executive Presentation with automated CMMC/ISO 27001 compliance audit report proving 100% attack mitigation with <span class="arithmatex">\(&lt;1\,\text{ms}\)</span> latency. Target conversion rate from trial to paid purchase: 60%.</p>
 <h3 id="62-phase-2-channel-partnerships-value-added-resellers-months-618">6.2 Phase 2: Channel Partnerships &amp; Value-Added Resellers (Months 6–18)</h3>
 <p>Direct sales to thousands of factories is inefficient. Sentinel signs distributor and channel partnership agreements with established system integrators:
 - <strong>Industrial Automation Integrators (Siemens, Rockwell, Schneider Electric distributors):</strong> Bundling Sentinel Industrial DIN-rail units into standard factory control cabinet refits.
@@ -44387,7 +44387,7 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 <p>Blackbox Sentinel minimizes capital expenditure by utilizing Commercial Off-The-Shelf (COTS) computing platforms from established industrial hardware manufacturers (Supermicro, Advantech, Axiomtek):
 - Sentinel does not manufacture silicon or solder printed circuit boards.
 - Sentinel sources bare-metal 1U chassis and DIN-rail nodes, inspects hardware components, flashes a proprietary, read-only immutable Linux operating system, and provisions the software stack.
-- Gross hardware margin is maintained at $&gt;70\%$, while overall company margins scale to $&gt;84\%$ as software license volume grows.</p>
+- Gross hardware margin is maintained at <span class="arithmatex">\(&gt;70\%\)</span>, while overall company margins scale to <span class="arithmatex">\(&gt;84\%\)</span> as software license volume grows.</p>
 <h3 id="72-secure-provisioning-zero-trust-supply-chain">7.2 Secure Provisioning &amp; Zero-Trust Supply Chain</h3>
 <p>Every appliance undergoes hardware root-of-trust provisioning before leaving the integration facility:
 1. Motherboard product UUID and physical TPM 2.0 endorsement keys are extracted and stored in an air-gapped registration database.
@@ -44414,13 +44414,13 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 <h3 id="91-revenue-model-assumptions">9.1 Revenue Model &amp; Assumptions</h3>
 <ul>
 <li><strong>Appliance Sales Volume:</strong></li>
-<li>Year 1: 14 Appliances (\$350,000)</li>
-<li>Year 2: 72 Appliances (\$1,800,000)</li>
-<li>Year 3: 208 Appliances (\$5,200,000)</li>
-<li>Year 4: 560 Appliances (\$14,000,000)</li>
-<li>Year 5: 1,296 Appliances (\$32,400,000)</li>
-<li><strong>Average Blended Contract Value:</strong> \$25,000 upfront hardware + \$15,000/year software &amp; plugin subscription per deployed appliance.</li>
-<li><strong>Customer Churn:</strong> Projected at $&lt;4\%$ annually due to physical hardware integration and mission-critical deployment in air-gapped infrastructure.</li>
+<li>Year 1: 14 Appliances ($350,000)</li>
+<li>Year 2: 72 Appliances ($1,800,000)</li>
+<li>Year 3: 208 Appliances ($5,200,000)</li>
+<li>Year 4: 560 Appliances ($14,000,000)</li>
+<li>Year 5: 1,296 Appliances ($32,400,000)</li>
+<li><strong>Average Blended Contract Value:</strong> $25,000 upfront hardware + $15,000/year software &amp; plugin subscription per deployed appliance.</li>
+<li><strong>Customer Churn:</strong> Projected at <span class="arithmatex">\(&lt;4\%\)</span> annually due to physical hardware integration and mission-critical deployment in air-gapped infrastructure.</li>
 </ul>
 <h3 id="92-pro-forma-financial-summary-usd-in-thousands">9.2 Pro-Forma Financial Summary (USD in Thousands)</h3>
 <table>
@@ -44437,51 +44437,51 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Appliance Hardware Revenue</strong></td>
-<td style="text-align: center;">\$350</td>
-<td style="text-align: center;">\$1,800</td>
-<td style="text-align: center;">\$5,200</td>
-<td style="text-align: center;">\$14,000</td>
-<td style="text-align: center;">\$32,400</td>
+<td style="text-align: center;">$350</td>
+<td style="text-align: center;">$1,800</td>
+<td style="text-align: center;">$5,200</td>
+<td style="text-align: center;">$14,000</td>
+<td style="text-align: center;">$32,400</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Recurring Software Licenses (ARR)</strong></td>
-<td style="text-align: center;">\$140</td>
-<td style="text-align: center;">\$860</td>
-<td style="text-align: center;">\$2,940</td>
-<td style="text-align: center;">\$8,540</td>
-<td style="text-align: center;">\$21,500</td>
+<td style="text-align: center;">$140</td>
+<td style="text-align: center;">$860</td>
+<td style="text-align: center;">$2,940</td>
+<td style="text-align: center;">$8,540</td>
+<td style="text-align: center;">$21,500</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Professional Services &amp; Custom Plugins</strong></td>
-<td style="text-align: center;">\$60</td>
-<td style="text-align: center;">\$190</td>
-<td style="text-align: center;">\$460</td>
-<td style="text-align: center;">\$1,100</td>
-<td style="text-align: center;">\$2,100</td>
+<td style="text-align: center;">$60</td>
+<td style="text-align: center;">$190</td>
+<td style="text-align: center;">$460</td>
+<td style="text-align: center;">$1,100</td>
+<td style="text-align: center;">$2,100</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Total Revenue</strong></td>
-<td style="text-align: center;"><strong>\$550</strong></td>
-<td style="text-align: center;"><strong>\$2,850</strong></td>
-<td style="text-align: center;"><strong>\$8,600</strong></td>
-<td style="text-align: center;"><strong>\$23,640</strong></td>
-<td style="text-align: center;"><strong>\$56,000</strong></td>
+<td style="text-align: center;"><strong>$550</strong></td>
+<td style="text-align: center;"><strong>$2,850</strong></td>
+<td style="text-align: center;"><strong>$8,600</strong></td>
+<td style="text-align: center;"><strong>$23,640</strong></td>
+<td style="text-align: center;"><strong>$56,000</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;">Cost of Goods Sold (Hardware COGS)</td>
-<td style="text-align: center;">\$105</td>
-<td style="text-align: center;">\$504</td>
-<td style="text-align: center;">\$1,404</td>
-<td style="text-align: center;">\$3,640</td>
-<td style="text-align: center;">\$8,100</td>
+<td style="text-align: center;">$105</td>
+<td style="text-align: center;">$504</td>
+<td style="text-align: center;">$1,404</td>
+<td style="text-align: center;">$3,640</td>
+<td style="text-align: center;">$8,100</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Gross Profit</strong></td>
-<td style="text-align: center;"><strong>\$445</strong></td>
-<td style="text-align: center;"><strong>\$2,346</strong></td>
-<td style="text-align: center;"><strong>\$7,196</strong></td>
-<td style="text-align: center;"><strong>\$20,000</strong></td>
-<td style="text-align: center;"><strong>\$47,900</strong></td>
+<td style="text-align: center;"><strong>$445</strong></td>
+<td style="text-align: center;"><strong>$2,346</strong></td>
+<td style="text-align: center;"><strong>$7,196</strong></td>
+<td style="text-align: center;"><strong>$20,000</strong></td>
+<td style="text-align: center;"><strong>$47,900</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><em>Gross Margin (\%)</em></td>
@@ -44493,49 +44493,49 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 </tr>
 <tr>
 <td style="text-align: left;">Research \&amp; Development (R\&amp;D)</td>
-<td style="text-align: center;">\$480</td>
-<td style="text-align: center;">\$950</td>
-<td style="text-align: center;">\$2,100</td>
-<td style="text-align: center;">\$4,800</td>
-<td style="text-align: center;">\$9,200</td>
+<td style="text-align: center;">$480</td>
+<td style="text-align: center;">$950</td>
+<td style="text-align: center;">$2,100</td>
+<td style="text-align: center;">$4,800</td>
+<td style="text-align: center;">$9,200</td>
 </tr>
 <tr>
 <td style="text-align: left;">Sales \&amp; Marketing (S\&amp;M)</td>
-<td style="text-align: center;">\$220</td>
-<td style="text-align: center;">\$680</td>
-<td style="text-align: center;">\$1,850</td>
-<td style="text-align: center;">\$4,900</td>
-<td style="text-align: center;">\$11,500</td>
+<td style="text-align: center;">$220</td>
+<td style="text-align: center;">$680</td>
+<td style="text-align: center;">$1,850</td>
+<td style="text-align: center;">$4,900</td>
+<td style="text-align: center;">$11,500</td>
 </tr>
 <tr>
 <td style="text-align: left;">General \&amp; Administrative (G\&amp;A)</td>
-<td style="text-align: center;">\$150</td>
-<td style="text-align: center;">\$320</td>
-<td style="text-align: center;">\$650</td>
-<td style="text-align: center;">\$1,400</td>
-<td style="text-align: center;">\$2,800</td>
+<td style="text-align: center;">$150</td>
+<td style="text-align: center;">$320</td>
+<td style="text-align: center;">$650</td>
+<td style="text-align: center;">$1,400</td>
+<td style="text-align: center;">$2,800</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Total Operating Expenses (OpEx)</strong></td>
-<td style="text-align: center;"><strong>\$850</strong></td>
-<td style="text-align: center;"><strong>\$1,950</strong></td>
-<td style="text-align: center;"><strong>\$4,600</strong></td>
-<td style="text-align: center;"><strong>\$11,100</strong></td>
-<td style="text-align: center;"><strong>\$23,500</strong></td>
+<td style="text-align: center;"><strong>$850</strong></td>
+<td style="text-align: center;"><strong>$1,950</strong></td>
+<td style="text-align: center;"><strong>$4,600</strong></td>
+<td style="text-align: center;"><strong>$11,100</strong></td>
+<td style="text-align: center;"><strong>$23,500</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>EBITDA (Operating Profit)</strong></td>
-<td style="text-align: center;"><strong>-\$405</strong></td>
-<td style="text-align: center;"><strong>+\$396</strong></td>
-<td style="text-align: center;"><strong>+\$2,596</strong></td>
-<td style="text-align: center;"><strong>+\$8,900</strong></td>
-<td style="text-align: center;"><strong>+\$24,400</strong></td>
+<td style="text-align: center;"><strong>-$405</strong></td>
+<td style="text-align: center;"><strong>+$396</strong></td>
+<td style="text-align: center;"><strong>+$2,596</strong></td>
+<td style="text-align: center;"><strong>+$8,900</strong></td>
+<td style="text-align: center;"><strong>+$24,400</strong></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="10-funding-request-capital-allocation">10. Funding Request &amp; Capital Allocation</h2>
-<p>Blackbox Sentinel is seeking <strong>\$2,000,000 in Seed Round financing</strong> in exchange for preferred equity.</p>
+<p>Blackbox Sentinel is seeking <strong>$2,000,000 in Seed Round financing</strong> in exchange for preferred equity.</p>
 <div class="highlight"><pre><span></span><code>+-------------------------------------------------------------------------------+
 |                     SEED ROUND CAPITAL ALLOCATION ($2.0M)                     |
 |                                                                               |
@@ -44546,25 +44546,25 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 </code></pre></div>
 <h3 id="101-allocation-of-funds">10.1 Allocation of Funds</h3>
 <ol>
-<li><strong>Engineering &amp; Kernel Hardening (\$1,000,000 — 50%):</strong></li>
+<li><strong>Engineering &amp; Kernel Hardening ($1,000,000 — 50%):</strong></li>
 <li>Hiring two full-time Linux kernel eBPF/XDP engineers and one embedded hardware integration engineer.</li>
 <li>Ongoing development of the 26 decoupled modules and automated regression test pipelines.</li>
-<li><strong>Sales &amp; Go-To-Market (\$500,000 — 25%):</strong></li>
+<li><strong>Sales &amp; Go-To-Market ($500,000 — 25%):</strong></li>
 <li>Hiring an enterprise cybersecurity sales director experienced in industrial OT and defense procurement.</li>
 <li>Deploying 10 fully funded demonstration loaner units for the Design Partner Program.</li>
 <li>Attending targeted industrial security and defense exhibitions (RSA Conference, Black Hat, SANS ICS Summit).</li>
-<li><strong>Appliance Inventory &amp; Assembly (\$300,000 — 15%):</strong></li>
+<li><strong>Appliance Inventory &amp; Assembly ($300,000 — 15%):</strong></li>
 <li>Sourcing chassis, network cards, and components to maintain a standing inventory of 20 turnkey appliances for rapid deployment.</li>
-<li><strong>Legal, Compliance &amp; Patents (\$200,000 — 10%):</strong></li>
+<li><strong>Legal, Compliance &amp; Patents ($200,000 — 10%):</strong></li>
 <li>Formal patent filings on the zero-copy eBPF/AI tensor correlation loop.</li>
 <li>Completing third-party SOC 2 Type II and CMMC Level 2 laboratory validation certifications.</li>
 </ol>
 <h3 id="102-milestone-targets-for-seed-funding">10.2 Milestone Targets for Seed Funding</h3>
 <ul>
-<li>Achieve <strong>\$2,000,000 in ARR</strong> within 18 months.</li>
+<li>Achieve <strong>$2,000,000 in ARR</strong> within 18 months.</li>
 <li>Convert a minimum of 12 enterprise and defense customers across utilities, manufacturing, and data centers.</li>
 <li>Establish 2 formal Value-Added Reseller (VAR) distribution partnerships.</li>
-<li>Achieve technical readiness for a <strong>Series A round (\$10M–\$15M)</strong> at an enterprise valuation of \$35M–\$50M.</li>
+<li>Achieve technical readiness for a <strong>Series A round ($10M–$15M)</strong> at an enterprise valuation of $35M–$50M.</li>
 </ul>
 <hr />
 <h2 id="11-risk-management-mitigation-matrix">11. Risk Management &amp; Mitigation Matrix</h2>
@@ -44582,7 +44582,7 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
 <td style="text-align: left;"><strong>False-Positive Packet Drops in Critical Networks</strong></td>
 <td style="text-align: center;">High</td>
 <td style="text-align: center;">Low</td>
-<td style="text-align: left;">Sentinel appliances enforce a mandatory 14-day <em>Monitor Mode</em> during customer onboarding. No active eBPF drops occur until the baseline false-positive rate is mathematically verified at $&lt;0.001\%$.</td>
+<td style="text-align: left;">Sentinel appliances enforce a mandatory 14-day <em>Monitor Mode</em> during customer onboarding. No active eBPF drops occur until the baseline false-positive rate is mathematically verified at <span class="arithmatex">\(&lt;0.001\%\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Adversarial AI Model Poisoning</strong></td>
@@ -44682,6 +44682,10 @@ The Design Partner Program  ---&gt; Channel Partner Scaling     ---&gt; The Ente
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43176,7 +43176,7 @@
 <p>When candidate weights fail the Golden Attacks Safety Gate, <code>forge-cli</code> exits with code <code>2</code> (<code>EXIT_SAFETY_VIOLATION</code>), logs the failure to <code>/var/log/sentinel/forge_adaptation.log</code>, and purges the checkpoint file.</p>
 <hr />
 <h2 id="1-diagnosing-failed-attack-vectors">1. Diagnosing Failed Attack Vectors</h2>
-<p>Inspect the adaptation log to identify the specific attack vector that dropped below threshold $\tau = 0.082$:</p>
+<p>Inspect the adaptation log to identify the specific attack vector that dropped below threshold <span class="arithmatex">\(\tau = 0.082\)</span>:</p>
 <div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">30</span><span class="w"> </span>/var/log/sentinel/forge_adaptation.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">2</span><span class="w"> </span>-B<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="s2">"FAIL"</span>
 </code></pre></div>
 <h3 id="sample-log-trace">Sample Log Trace:</h3>
@@ -43198,8 +43198,8 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Overfitting on Small Batch</strong></td>
-<td style="text-align: left;">Sample count $&lt; 1{,}000$ rows in dataset.</td>
-<td style="text-align: left;">Increase minimum batch threshold in <code>DatasetCurator.cpp</code> to $\ge 5{,}000$ flows.</td>
+<td style="text-align: left;">Sample count <span class="arithmatex">\(&lt; 1{,}000\)</span> rows in dataset.</td>
+<td style="text-align: left;">Increase minimum batch threshold in <code>DatasetCurator.cpp</code> to <span class="arithmatex">\(\ge 5{,}000\)</span> flows.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Learning Rate Too High</strong></td>
@@ -43213,7 +43213,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Corrupted Normalization</strong></td>
-<td style="text-align: left;">Feature values exceed $[0.0, 1.0]$ bounds.</td>
+<td style="text-align: left;">Feature values exceed <span class="arithmatex">\([0.0, 1.0]\)</span> bounds.</td>
 <td style="text-align: left;">Re-validate min-max clamping rules in <code>model_config.yaml</code>.</td>
 </tr>
 </tbody>
@@ -43286,6 +43286,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

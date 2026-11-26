@@ -43563,7 +43563,7 @@
 <li><strong>FinTech High-Frequency Trading (HFT):</strong> Exchange gateways and algorithmic order routers must evaluate risk parameters (fat-finger share caps, price collars) at sub-microsecond wire speed to satisfy <strong>SEC Rule 15c3-5</strong> without compromising trade execution queues.</li>
 <li><strong>Post-Quantum Cryptography (PQC) Transition:</strong> Critical conduits must detect and block "Harvest-Now, Decrypt-Later" downgrades to classical cipher suites by enforcing <strong>NIST ML-KEM</strong> key encapsulation in raw TLS 1.3 handshakes.</li>
 </ol>
-<p><code>net-guard</code> is the high-speed wire vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Compiled as a zero-allocation, lock-free C++20 engine linked to <code>blackbox-sentinel</code> and <code>xinfer-essential</code>, it leverages <strong>Linux <code>AF_PACKET</code> raw sockets, <code>AF_XDP</code> kernel bypass, and hardware cycle-accurate TSC timers</strong> to enforce deterministic inspection at <strong>$&lt; 120\,\text{ns}$ latency</strong>.</p>
+<p><code>net-guard</code> is the high-speed wire vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Compiled as a zero-allocation, lock-free C++20 engine linked to <code>blackbox-sentinel</code> and <code>xinfer-essential</code>, it leverages <strong>Linux <code>AF_PACKET</code> raw sockets, <code>AF_XDP</code> kernel bypass, and hardware cycle-accurate TSC timers</strong> to enforce deterministic inspection at <strong><span class="arithmatex">\(&lt; 120\,\text{ns}\)</span> latency</strong>.</p>
 <div class="highlight"><pre><span></span><code>  PHYSICAL FIBER / HIGH-SPEED WIRE INGRESS (10GbE / 25GbE / 100GbE NIC)
                                 │
                                 ▼
@@ -43645,8 +43645,8 @@
 <li><strong>Standards:</strong> NASDAQ TotalView-ITCH 5.0, NASDAQ OUCH 5.0, SEC Rule 15c3-5.</li>
 <li><strong>Pre-Trade Risk Collar Gate:</strong></li>
 <li>Ingests Add Order messages (<code>'A'</code>, <code>'F'</code>) and Enter Order messages (<code>'O'</code>).</li>
-<li><strong>Fat-Finger Quantity Clamp:</strong> Reads 32-bit big-endian share quantities at byte offset 20. Orders exceeding client margin policy (e.g. $&gt; 10,000$ shares) are intercepted in under $15\,\text{ns}$ before hitting the matching engine (<code>REJECT_ITCH_FAT_FINGER_QTY</code>).</li>
-<li><strong>Price Collar Band:</strong> Evaluates 32-bit $10^{-4}$ scaled prices at byte offset 32. Rejects orders outside exchange circuit-breaker collars (<code>REJECT_ITCH_PRICE_COLLAR</code>).</li>
+<li><strong>Fat-Finger Quantity Clamp:</strong> Reads 32-bit big-endian share quantities at byte offset 20. Orders exceeding client margin policy (e.g. <span class="arithmatex">\(&gt; 10,000\)</span> shares) are intercepted in under <span class="arithmatex">\(15\,\text{ns}\)</span> before hitting the matching engine (<code>REJECT_ITCH_FAT_FINGER_QTY</code>).</li>
+<li><strong>Price Collar Band:</strong> Evaluates 32-bit <span class="arithmatex">\(10^{-4}\)</span> scaled prices at byte offset 32. Rejects orders outside exchange circuit-breaker collars (<code>REJECT_ITCH_PRICE_COLLAR</code>).</li>
 </ul>
 <h3 id="d-o-ran-near-rt-ric-e2ap-protocol-sctp-port-36422">D. O-RAN Near-RT RIC E2AP Protocol (SCTP Port 36422)</h3>
 <ul>
@@ -44026,6 +44026,10 @@ make<span class="w"> </span>telco-down
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

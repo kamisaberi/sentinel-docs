@@ -43323,7 +43323,7 @@ ninja<span class="w"> </span>-C<span class="w"> </span>build<span class="w"> </s
 <hr />
 <h2 id="5-performance-tuning-best-practices">5. Performance Tuning &amp; Best Practices</h2>
 <ol>
-<li><strong>Enable CUDA Graphs:</strong> For fixed-size input tensors (e.g., 32-dim tabular flows), setting <code>enable_cuda_graphs = true</code> reduces CPU enqueue overhead from $\sim 8.2\,\mu\text{s}$ down to $&lt; 1.1\,\mu\text{s}$.</li>
+<li><strong>Enable CUDA Graphs:</strong> For fixed-size input tensors (e.g., 32-dim tabular flows), setting <code>enable_cuda_graphs = true</code> reduces CPU enqueue overhead from <span class="arithmatex">\(\sim 8.2\,\mu\text{s}\)</span> down to <span class="arithmatex">\(&lt; 1.1\,\mu\text{s}\)</span>.</li>
 <li><strong>Jetson Unified Memory:</strong> On Jetson AGX Orin, avoid discrete VRAM allocations. Use <code>cudaMallocManaged()</code> with <code>cudaMemAdviseSetPreferredLocation</code> targeting <code>cudaCpuDeviceId</code> to allow the GPU Tensor Cores and CPU to share the same physical LPDDR5 bus.</li>
 </ol>
 
@@ -43394,6 +43394,10 @@ ninja<span class="w"> </span>-C<span class="w"> </span>build<span class="w"> </s
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

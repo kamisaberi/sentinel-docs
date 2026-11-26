@@ -43149,8 +43149,8 @@
 <hr />
 <h2 id="1-malicious-memory-mutation-sequence">1. Malicious Memory Mutation Sequence</h2>
 <p>The capture contains the authentic S7Comm command sequence used to alter frequency drive parameters:
-* <strong>ROSCTR <code>0x01</code> (Job Request) $\to$ Function <code>0x05</code> (Write Variable)</strong>
-* Targets Data Block <strong><code>DB890</code></strong>, modifying frequency registers between $1{,}410\,\text{Hz}$ and $2\,\text{Hz}$ to cause mechanical rotor fatigue.</p>
+* <strong>ROSCTR <code>0x01</code> (Job Request) <span class="arithmatex">\(\to\)</span> Function <code>0x05</code> (Write Variable)</strong>
+* Targets Data Block <strong><code>DB890</code></strong>, modifying frequency registers between <span class="arithmatex">\(1{,}410\,\text{Hz}\)</span> and <span class="arithmatex">\(2\,\text{Hz}\)</span> to cause mechanical rotor fatigue.</p>
 <hr />
 <h2 id="2-replay-execution">2. Replay Execution</h2>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>sentinel-traffic<span class="w"> </span>python3<span class="w"> </span>/app/src/traffic/pcap_streamer.py<span class="w"> </span><span class="se">\</span>
@@ -43226,6 +43226,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

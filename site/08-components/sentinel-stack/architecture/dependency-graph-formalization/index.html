@@ -43153,40 +43153,40 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong><code>libxinfer.so</code></strong> ($T_1$)</td>
+<td style="text-align: left;"><strong><code>libxinfer.so</code></strong> (<span class="arithmatex">\(T_1\)</span>)</td>
 <td style="text-align: left;">Standard POSIX, Level Zero, CUDA</td>
 <td style="text-align: left;">Direct driver APIs</td>
 <td style="text-align: left;"><code>xinfer::InferenceEngine::initialize()</code><br><code>xinfer::Tensor::create_from_raw_host()</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>libblackbox.so</code></strong> ($T_2$)</td>
+<td style="text-align: left;"><strong><code>libblackbox.so</code></strong> (<span class="arithmatex">\(T_2\)</span>)</td>
 <td style="text-align: left;"><code>&lt;xinfer/xinfer.hpp&gt;</code></td>
 <td style="text-align: left;"><code>-lxinfer</code></td>
 <td style="text-align: left;"><code>blackbox::XdpManager::block_ip()</code><br><code>blackbox::EventRingBuffer::try_enqueue()</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>sentinel</code></strong> ($T_3$)</td>
+<td style="text-align: left;"><strong><code>sentinel</code></strong> (<span class="arithmatex">\(T_3\)</span>)</td>
 <td style="text-align: left;"><code>&lt;xinfer/xinfer.hpp&gt;</code><br><code>&lt;blackbox/blackbox.hpp&gt;</code></td>
 <td style="text-align: left;"><code>-lxinfer</code><br><code>-lblackbox</code></td>
 <td style="text-align: left;">Native 26 subsystems, 30 protocol dissectors</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>forge-cli</code></strong> ($T_4$)</td>
+<td style="text-align: left;"><strong><code>forge-cli</code></strong> (<span class="arithmatex">\(T_4\)</span>)</td>
 <td style="text-align: left;">Python C-Extensions</td>
 <td style="text-align: left;">PyTorch, ONNX</td>
-<td style="text-align: left;">Exports <code>network_threat_v2.onnx</code> targeting $T_1$</td>
+<td style="text-align: left;">Exports <code>network_threat_v2.onnx</code> targeting <span class="arithmatex">\(T_1\)</span></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>sentinel_lab</code></strong> ($T_5$)</td>
+<td style="text-align: left;"><strong><code>sentinel_lab</code></strong> (<span class="arithmatex">\(T_5\)</span>)</td>
 <td style="text-align: left;"><code>&lt;xinfer/xinfer.hpp&gt;</code><br><code>&lt;blackbox/blackbox.hpp&gt;</code></td>
 <td style="text-align: left;"><code>-lxinfer</code><br><code>-lblackbox</code></td>
 <td style="text-align: left;">SLAB protocol evaluation harness</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><code>sentinel-nexus</code></strong> ($T_6$)</td>
+<td style="text-align: left;"><strong><code>sentinel-nexus</code></strong> (<span class="arithmatex">\(T_6\)</span>)</td>
 <td style="text-align: left;"><code>&lt;blackbox/abi.hpp&gt;</code></td>
 <td style="text-align: left;"><code>-lgrpc++</code><br><code>-lprotobuf</code></td>
-<td style="text-align: left;">Master command plane coordinating $T_3$ and $T_4$</td>
+<td style="text-align: left;">Master command plane coordinating <span class="arithmatex">\(T_3\)</span> and <span class="arithmatex">\(T_4\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -43271,6 +43271,10 @@ ldconfig
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

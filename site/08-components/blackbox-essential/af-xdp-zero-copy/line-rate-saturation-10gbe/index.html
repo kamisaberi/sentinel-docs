@@ -43161,7 +43161,7 @@
 
 
 <h1 id="10gbe-line-rate-saturation-125m-events-per-second">10GbE Line-Rate Saturation: 1.25M+ Events per Second</h1>
-<p>Achieving sustained line-rate packet ingestion at $10\text{ GbE}$ ($14.88\text{ Mpps}$ for 64-byte packets) requires tuning the Linux network stack, kernel scheduler, and NIC descriptor rings.</p>
+<p>Achieving sustained line-rate packet ingestion at <span class="arithmatex">\(10\text{ GbE}\)</span> (<span class="arithmatex">\(14.88\text{ Mpps}\)</span> for 64-byte packets) requires tuning the Linux network stack, kernel scheduler, and NIC descriptor rings.</p>
 <hr />
 <h2 id="1-production-network-card-compatibility">1. Production Network Card Compatibility</h2>
 <table>
@@ -43178,19 +43178,19 @@
 <td style="text-align: left;"><strong>Intel X520 / 82599ES</strong></td>
 <td style="text-align: left;"><code>ixgbe</code></td>
 <td style="text-align: left;">Yes (<code>XDP_ZEROCOPY</code>)</td>
-<td style="text-align: left;">$14.2\text{ Mpps}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(14.2\text{ Mpps}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel E810-XXVDA2</strong></td>
 <td style="text-align: left;"><code>ice</code></td>
 <td style="text-align: left;">Yes (<code>XDP_ZEROCOPY</code>)</td>
-<td style="text-align: left;">$28.4\text{ Mpps}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(28.4\text{ Mpps}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Mellanox ConnectX-5/6</strong></td>
 <td style="text-align: left;"><code>mlx5_core</code></td>
 <td style="text-align: left;">Yes (<code>XDP_ZEROCOPY</code>)</td>
-<td style="text-align: left;">$35.0\text{ Mpps}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(35.0\text{ Mpps}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -43218,7 +43218,7 @@ sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </s
 </code></pre></div>
 <hr />
 <h2 id="3-empirical-saturation-profile">3. Empirical Saturation Profile</h2>
-<p>Under a sustained $14.88\text{ Mpps}$ packet flood (64-byte frame UDP storm):</p>
+<p>Under a sustained <span class="arithmatex">\(14.88\text{ Mpps}\)</span> packet flood (64-byte frame UDP storm):</p>
 <div class="highlight"><pre><span></span><code>THROUGHPUT SATURATION PROFILE (10GbE Wire Speed):
 
 Packets/Sec (Mpps)
@@ -43230,8 +43230,8 @@ Packets/Sec (Mpps)
    0.00 Mpps ──┴──┴─────────────────────────────────────────────────────────────┴────► Time
 </code></pre></div>
 <ul>
-<li><strong>CPU Core Usage:</strong> $&lt; 8\%$ on a single isolated Intel Xeon core running the XDP driver loop.</li>
-<li><strong>Kernel Memory Impact:</strong> $0$ socket buffer allocation faults.</li>
+<li><strong>CPU Core Usage:</strong> <span class="arithmatex">\(&lt; 8\%\)</span> on a single isolated Intel Xeon core running the XDP driver loop.</li>
+<li><strong>Kernel Memory Impact:</strong> <span class="arithmatex">\(0\)</span> socket buffer allocation faults.</li>
 </ul>
 
 
@@ -43301,6 +43301,10 @@ Packets/Sec (Mpps)
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

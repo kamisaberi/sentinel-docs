@@ -43254,7 +43254,7 @@
 <p>These endpoints provide programmatic access to the <strong>Sub-50ms Collective Defense Bus</strong>, active in-kernel drop tables, MITRE ATT&amp;CK correlation heatmaps, and Explainable AI (XAI) feature attributions.</p>
 <hr />
 <h2 id="1-broadcast-emergency-threat-post-apiv1threatsbroadcast">1. Broadcast Emergency Threat: <code>POST /api/v1/threats/broadcast</code></h2>
-<p>Manually broadcasts an IP drop rule fleet-wide, programming all 5,000 edge kernel <code>blocked_ip_map</code> tables in under $50\,\text{ms}$.</p>
+<p>Manually broadcasts an IP drop rule fleet-wide, programming all 5,000 edge kernel <code>blocked_ip_map</code> tables in under <span class="arithmatex">\(50\,\text{ms}\)</span>.</p>
 <h3 id="request">Request:</h3>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://localhost:9443/api/v1/threats/broadcast<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
@@ -43364,6 +43364,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

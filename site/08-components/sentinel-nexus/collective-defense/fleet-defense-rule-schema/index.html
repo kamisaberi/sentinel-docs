@@ -43174,9 +43174,9 @@
 <hr />
 <h2 id="2-ephemeral-ttl-management">2. Ephemeral TTL Management</h2>
 <p>Every rule includes an explicit <code>ttl_seconds</code> field:
-* <strong>Short-Lived Probes (Scans / Brute-force):</strong> $\text{TTL} = 60\,\text{seconds}$.
-* <strong>Active SCADA Sabotage Attempts:</strong> $\text{TTL} = 3{,}600\,\text{seconds}$ ($1\,\text{hour}$).
-* <strong>Persistent Exploits:</strong> $\text{TTL} = 86{,}400\,\text{seconds}$ ($24\,\text{hours}$).</p>
+* <strong>Short-Lived Probes (Scans / Brute-force):</strong> <span class="arithmatex">\(\text{TTL} = 60\,\text{seconds}\)</span>.
+* <strong>Active SCADA Sabotage Attempts:</strong> <span class="arithmatex">\(\text{TTL} = 3{,}600\,\text{seconds}\)</span> (<span class="arithmatex">\(1\,\text{hour}\)</span>).
+* <strong>Persistent Exploits:</strong> <span class="arithmatex">\(\text{TTL} = 86{,}400\,\text{seconds}\)</span> (<span class="arithmatex">\(24\,\text{hours}\)</span>).</p>
 <p>Edge appliances ingest this duration directly into their in-kernel monotonic timers, allowing stale block rules to expire automatically without requiring deletion broadcasts.</p>
 
 
@@ -43246,6 +43246,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

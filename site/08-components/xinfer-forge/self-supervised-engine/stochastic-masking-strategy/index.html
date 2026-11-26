@@ -26798,7 +26798,7 @@
   <a href="#2-why-30-masking-ratio" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Why $30\%$ Masking Ratio?
+        2. Why <span class="arithmatex">\(30\%\)</span> Masking Ratio?
       </span>
     </span>
   </a>
@@ -43125,7 +43125,7 @@
   <a href="#2-why-30-masking-ratio" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Why $30\%$ Masking Ratio?
+        2. Why <span class="arithmatex">\(30\%\)</span> Masking Ratio?
       </span>
     </span>
   </a>
@@ -43162,13 +43162,13 @@
 
 <h1 id="stochastic-feature-masking-strategy-for-tabular-flow-vectors">Stochastic Feature Masking Strategy for Tabular Flow Vectors</h1>
 <p>In computer vision MAE models (e.g., He et al.), masking is applied to spatial image patches. In tabular cyber-physical telemetry, individual features represent distinct physical and protocol dimensions (e.g., packet counts, TCP window sizes, Modbus register setpoints). </p>
-<p><code>xinfer-forge</code> applies a <strong>$30\%$ Stochastic Bernoulli Masking Strategy</strong>.</p>
+<p><code>xinfer-forge</code> applies a <strong><span class="arithmatex">\(30\%\)</span> Stochastic Bernoulli Masking Strategy</strong>.</p>
 <hr />
 <h2 id="1-tabular-masking-formulation">1. Tabular Masking Formulation</h2>
-<p>Let $x = [x_1, x_2, \dots, x_{32}] \in \mathbb{R}^{32}$ represent a continuous flow vector. A binary mask vector $m \in {0, 1}^{32}$ is sampled independently for each training instance:</p>
-<p>$$m_i \sim \operatorname{Bernoulli}(p_{\text{mask}}), \quad p_{\text{mask}} = 0.30$$</p>
-<p>The corrupted input vector $\tilde{x}$ presented to the encoder is:</p>
-<p>$$\tilde{x}_i = \begin{cases} 0.0, &amp; \text{if } m_i = 1 \ x_i, &amp; \text{if } m_i = 0 \end{cases}$$</p>
+<p>Let <span class="arithmatex">\(x = [x_1, x_2, \dots, x_{32}] \in \mathbb{R}^{32}\)</span> represent a continuous flow vector. A binary mask vector <span class="arithmatex">\(m \in \{0, 1\}^{32}\)</span> is sampled independently for each training instance:</p>
+<div class="arithmatex">\[m_i \sim \operatorname{Bernoulli}(p_{\text{mask}}), \quad p_{\text{mask}} = 0.30\]</div>
+<p>The corrupted input vector <span class="arithmatex">\(\tilde{x}\)</span> presented to the encoder is:</p>
+<div class="arithmatex">\[\tilde{x}_i = \begin{cases} 0.0, &amp; \text{if } m_i = 1 \\ x_i, &amp; \text{if } m_i = 0 \end{cases}\]</div>
 <div class="highlight"><pre><span></span><code> RAW FLOW VECTOR:
  [ Dur: 0.12 | Pkts: 1420 | Bytes: 96000 | TCP Win: 65535 | Reg: 40001 | ... ]
          │
@@ -43180,28 +43180,28 @@
  Model must reconstruct the masked features [Pkts, TCP Win] using remaining physical context!
 </code></pre></div>
 <hr />
-<h2 id="2-why-30-masking-ratio">2. Why $30\%$ Masking Ratio?</h2>
+<h2 id="2-why-30-masking-ratio">2. Why <span class="arithmatex">\(30\%\)</span> Masking Ratio?</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Masking Ratio ($p_{\text{mask}}$)</th>
+<th style="text-align: left;">Masking Ratio (<span class="arithmatex">\(p_{\text{mask}}\)</span>)</th>
 <th style="text-align: left;">Convergence Behavior</th>
 <th style="text-align: left;">Manifold Robustness</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>$10\%$ (Under-Masking)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(10\%\)</span> (Under-Masking)</strong></td>
 <td style="text-align: left;">Model memorizes identity mapping; fails to learn inter-feature correlations.</td>
 <td style="text-align: left;">Low</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>$30\%$ (Optimal Tabular)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(30\%\)</span> (Optimal Tabular)</strong></td>
 <td style="text-align: left;">Forces network to infer missing protocol fields from correlated telemetry without causing information collapse.</td>
 <td style="text-align: left;"><strong>Optimal</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>$75\%$ (Vision-Style)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(75\%\)</span> (Vision-Style)</strong></td>
 <td style="text-align: left;">Exceeds tabular redundancy; causes non-convergent gradient oscillations.</td>
 <td style="text-align: left;">Divergent</td>
 </tr>
@@ -43285,6 +43285,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

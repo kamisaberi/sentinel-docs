@@ -43164,9 +43164,9 @@
 <hr />
 <h2 id="2-testing-standards-invariants">2. Testing Standards &amp; Invariants</h2>
 <ol>
-<li><strong>Packet Profile:</strong> Minimum-sized Ethernet frames ($64\text{ bytes}$ frame payload + $20\text{ bytes}$ preamble/inter-frame gap = $84\text{ bytes}$ on the wire).</li>
-<li><strong>Line-Rate Target:</strong> $14.88\text{ Mpps}$ sustained on $10\text{ GbE}$ interfaces; $37.2\text{ Mpps}$ sustained on $25\text{ GbE}$ interfaces.</li>
-<li><strong>Statistical Sample Size:</strong> Latency and cycle measurements are captured over $N = 10{,}000{,}000$ consecutive packets.</li>
+<li><strong>Packet Profile:</strong> Minimum-sized Ethernet frames (<span class="arithmatex">\(64\text{ bytes}\)</span> frame payload + <span class="arithmatex">\(20\text{ bytes}\)</span> preamble/inter-frame gap = <span class="arithmatex">\(84\text{ bytes}\)</span> on the wire).</li>
+<li><strong>Line-Rate Target:</strong> <span class="arithmatex">\(14.88\text{ Mpps}\)</span> sustained on <span class="arithmatex">\(10\text{ GbE}\)</span> interfaces; <span class="arithmatex">\(37.2\text{ Mpps}\)</span> sustained on <span class="arithmatex">\(25\text{ GbE}\)</span> interfaces.</li>
+<li><strong>Statistical Sample Size:</strong> Latency and cycle measurements are captured over <span class="arithmatex">\(N = 10{,}000{,}000\)</span> consecutive packets.</li>
 <li><strong>Hardware Timestamping:</strong> Latency is measured by reading hardware ingress and egress timestamps directly from the Intel E810 NIC MAC/PHY layer, eliminating host OS timer distortion.</li>
 </ol>
 
@@ -43237,6 +43237,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

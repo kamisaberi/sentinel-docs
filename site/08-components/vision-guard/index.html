@@ -43654,8 +43654,8 @@
 <ul>
 <li><strong>Framing:</strong> 4KB page-aligned slots mapped via POSIX <code>shm_open()</code> in Docker (<code>ipc: shareable</code>) or host memory.</li>
 <li><strong>Monotonic Sequence Enforcement:</strong> Validates <code>frame_seq</code> forward progression. Replayed duplicate frames used by attackers to freeze security displays are dropped immediately (<code>REJECT_VISION_FRAME_FREEZE</code>).</li>
-<li><strong>Optical Blinding &amp; Laser Dazzle Tripwire:</strong> Calculates scene saturation percentage. If laser blinding or optical dazzle flood exceeds safety thresholds ($\text{sat} &gt; 85.0\%$), the anomaly is flagged at line rate (<code>REJECT_VISION_OPTICAL_BLINDING</code>).</li>
-<li><strong>Scene Entropy Collapse:</strong> Monitors spatial Shannon entropy ($H$). A frozen frame, covered lens, or spray-painted camera drops entropy below acceptable baseline thresholds ($H &lt; 0.35$), triggering an immediate tampering alarm.</li>
+<li><strong>Optical Blinding &amp; Laser Dazzle Tripwire:</strong> Calculates scene saturation percentage. If laser blinding or optical dazzle flood exceeds safety thresholds (<span class="arithmatex">\(\text{sat} &gt; 85.0\%\)</span>), the anomaly is flagged at line rate (<code>REJECT_VISION_OPTICAL_BLINDING</code>).</li>
+<li><strong>Scene Entropy Collapse:</strong> Monitors spatial Shannon entropy (<span class="arithmatex">\(H\)</span>). A frozen frame, covered lens, or spray-painted camera drops entropy below acceptable baseline thresholds (<span class="arithmatex">\(H &lt; 0.35\)</span>), triggering an immediate tampering alarm.</li>
 </ul>
 <h3 id="b-conduit-b-gige-vision-control-protocol-gvcp-udp-port-3956">B. Conduit B: GigE Vision Control Protocol (GVCP / UDP Port 3956)</h3>
 <ul>
@@ -43699,14 +43699,14 @@
 <td style="text-align: left;"><strong>Optical Laser Dazzling / Blinding</strong></td>
 <td style="text-align: left;">ShmRing (<code>VIS1</code>)</td>
 <td style="text-align: left;">Laser pointer or optical flare directed at camera lens to blind AI weapon detection</td>
-<td style="text-align: left;"><code>ShmVisionValidator</code>: Evaluates pixel saturation curve; detects overexposure ($\text{sat} &gt; 85\%$)</td>
+<td style="text-align: left;"><code>ShmVisionValidator</code>: Evaluates pixel saturation curve; detects overexposure (<span class="arithmatex">\(\text{sat} &gt; 85\%\)</span>)</td>
 <td style="text-align: left;">Triggers optical blinding alert; switches to secondary LiDAR</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Video Replay / Screen Freeze Attack</strong></td>
 <td style="text-align: left;">ShmRing (<code>VIS1</code>)</td>
 <td style="text-align: left;">Attacker injects recorded video loop of empty hallway into perception memory buffer</td>
-<td style="text-align: left;"><code>ShmVisionValidator</code>: Enforces monotonic sequence numbers and minimum Shannon entropy ($H \ge 0.35$)</td>
+<td style="text-align: left;"><code>ShmVisionValidator</code>: Enforces monotonic sequence numbers and minimum Shannon entropy (<span class="arithmatex">\(H \ge 0.35\)</span>)</td>
 <td style="text-align: left;">Drops replayed frames; alerts Security Operations Center</td>
 </tr>
 <tr>
@@ -44005,6 +44005,10 @@ make<span class="w"> </span>vision-down
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43467,7 +43467,7 @@
 <h4 id="2-idea-17-in-kernel-cip-ethernetip-explicitimplicit-protocol-inspector">2. Idea 17: In-Kernel CIP &amp; EtherNet/IP Explicit/Implicit Protocol Inspector</h4>
 <ul>
 <li><strong>The Problem:</strong> Rockwell Automation / Allen-Bradley PLCs (ControlLogix, CompactLogix) dominate North American manufacturing and automotive factories, communicating via <strong>Common Industrial Protocol (CIP) over EtherNet/IP</strong> (TCP/UDP port 44818 and UDP port 2222). CIP encapsulation attacks allow adversaries to bypass firewalls by nesting malicious write commands inside benign routing paths.</li>
-<li><strong>The Mechanism:</strong> Extends <code>xdp_drop.o</code> with an in-kernel eBPF dissector for EtherNet/IP. It decapsulates <code>SendRRData</code> and <code>SendUnitData</code> encapsulation frames, extracts CIP Service Codes (e.g. <code>0x4C</code> Read Tag vs <code>0x4D</code> Write Tag), validates Class/Instance/Attribute numbers against an immutable whitelist, and drops unauthorized firmware downloads or tag manipulations in <strong>$&lt; 120\text{ ns}$</strong>.</li>
+<li><strong>The Mechanism:</strong> Extends <code>xdp_drop.o</code> with an in-kernel eBPF dissector for EtherNet/IP. It decapsulates <code>SendRRData</code> and <code>SendUnitData</code> encapsulation frames, extracts CIP Service Codes (e.g. <code>0x4C</code> Read Tag vs <code>0x4D</code> Write Tag), validates Class/Instance/Attribute numbers against an immutable whitelist, and drops unauthorized firmware downloads or tag manipulations in <strong><span class="arithmatex">\(&lt; 120\text{ ns}\)</span></strong>.</li>
 <li><strong>CLI Command:</strong> <code>aryo cip status</code> / <code>aryo cip guard --interface eth0 --allow-tags /etc/sentinel/cip_tags.yaml</code>.</li>
 </ul>
 <hr />
@@ -43488,21 +43488,21 @@
 <h4 id="5-idea-20-substation-ballistic-gunshot-physical-sabotage-sentry-metcalf-threat">5. Idea 20: Substation Ballistic Gunshot &amp; Physical Sabotage Sentry (Metcalf Threat)</h4>
 <ul>
 <li><strong>The Problem:</strong> The infamous <strong>2013 Metcalf Substation attack</strong> in California proved that snipers firing high-powered rifles at transformer cooling radiators can drain thousands of gallons of dielectric oil, causing catastrophic thermal explosion without ever touching the network. Traditional cameras miss sniper flashes from distant brush.</li>
-<li><strong>The Mechanism:</strong> Interfaces with a 4-channel acoustic piezoelectric sensor array mounted around the substation perimeter, sampled at $192\text{ kHz}$. <code>xinfer-essential</code> runs a continuous Time-Difference-of-Arrival (TDOA) hyperbolic triangulation engine on edge NPUs. It identifies supersonic ballistic shockwaves, calculates shooter azimuth, elevation, and projectile caliber in <strong>$&lt; 15\text{ ms}$</strong>, and automatically slews high-zoom thermal PTZ cameras while sending automated distress signals to law enforcement dispatch.</li>
+<li><strong>The Mechanism:</strong> Interfaces with a 4-channel acoustic piezoelectric sensor array mounted around the substation perimeter, sampled at <span class="arithmatex">\(192\text{ kHz}\)</span>. <code>xinfer-essential</code> runs a continuous Time-Difference-of-Arrival (TDOA) hyperbolic triangulation engine on edge NPUs. It identifies supersonic ballistic shockwaves, calculates shooter azimuth, elevation, and projectile caliber in <strong><span class="arithmatex">\(&lt; 15\text{ ms}\)</span></strong>, and automatically slews high-zoom thermal PTZ cameras while sending automated distress signals to law enforcement dispatch.</li>
 <li><strong>CLI Command:</strong> <code>aryo acoustic status</code> / <code>aryo acoustic calibrate --mics 4</code>.</li>
 </ul>
 <hr />
 <h4 id="6-idea-21-bgp-autonomous-system-hijack-rpki-substation-wan-route-interceptor">6. Idea 21: BGP Autonomous System Hijack &amp; RPKI Substation WAN Route Interceptor</h4>
 <ul>
 <li><strong>The Problem:</strong> Critical infrastructure utilities interconnected across regional telecommunications providers use BGP (Border Gateway Protocol) for wide-area routing. Nation-state adversaries execute BGP Route Hijacking / Route Leaking, redirecting sensitive SCADA telemetry through overseas proxy networks before delivering it to the legitimate destination.</li>
-<li><strong>The Mechanism:</strong> An in-kernel eBPF BGP packet filter (TCP port 179) that intercepts BGP <code>UPDATE</code> messages directly in the network card ring. It verifies Route Origin Authorizations (ROA) against local RPKI cryptographic caches, detects invalid AS-Path prepends or illegitimate route announcements, and drops poisoned BGP routes in <strong>$&lt; 0.84\,\mu\text{s}$</strong>, forcing immediate route failover to backup dark fiber.</li>
+<li><strong>The Mechanism:</strong> An in-kernel eBPF BGP packet filter (TCP port 179) that intercepts BGP <code>UPDATE</code> messages directly in the network card ring. It verifies Route Origin Authorizations (ROA) against local RPKI cryptographic caches, detects invalid AS-Path prepends or illegitimate route announcements, and drops poisoned BGP routes in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong>, forcing immediate route failover to backup dark fiber.</li>
 <li><strong>CLI Command:</strong> <code>aryo bgp status</code> / <code>aryo bgp verify-rpki --as 65001</code>.</li>
 </ul>
 <hr />
 <h4 id="7-idea-22-voltage-glitch-rail-fault-injection-hardware-brownout-sentry">7. Idea 22: Voltage Glitch &amp; Rail Fault-Injection Hardware Brownout Sentry</h4>
 <ul>
 <li><strong>The Problem:</strong> Adversaries with physical access to field RTUs use electromagnetic fault injection (EMFI) or short power supply rails (voltage glitching) to introduce clock brownouts. This corrupts the CPU program counter or instruction registers right as cryptographic checks or password comparisons execute (<code>CMP -&gt; JNE</code> skipped), bypassing secure boot.</li>
-<li><strong>The Mechanism:</strong> Interfaces with high-speed analog-to-digital converters (ADCs) monitoring internal $3.3\text{V}$, $5\text{V}$, and $12\text{V}$ power rails. If a negative voltage drop transient ($\Delta V &gt; 15\%$ occurring in $&lt; 50\text{ ns}$) is detected without an AC power loss signature, an ultra-fast in-kernel hardware trip routine <strong>immediately zeroizes all cryptographic keys and memory buffers in RAM</strong> before the CPU executes the glitched instruction.</li>
+<li><strong>The Mechanism:</strong> Interfaces with high-speed analog-to-digital converters (ADCs) monitoring internal <span class="arithmatex">\(3.3\text{V}\)</span>, <span class="arithmatex">\(5\text{V}\)</span>, and <span class="arithmatex">\(12\text{V}\)</span> power rails. If a negative voltage drop transient (<span class="arithmatex">\(\Delta V &gt; 15\%\)</span> occurring in <span class="arithmatex">\(&lt; 50\text{ ns}\)</span>) is detected without an AC power loss signature, an ultra-fast in-kernel hardware trip routine <strong>immediately zeroizes all cryptographic keys and memory buffers in RAM</strong> before the CPU executes the glitched instruction.</li>
 <li><strong>CLI Command:</strong> <code>aryo brownout status</code> / <code>aryo brownout arm --threshold 15pct</code>.</li>
 </ul>
 <hr />
@@ -43516,14 +43516,14 @@
 <h4 id="9-idea-24-on-the-fly-plc-bytecode-ladder-logic-decompiler-safety-verifier">9. Idea 24: On-The-Fly PLC Bytecode &amp; Ladder Logic Decompiler / Safety Verifier</h4>
 <ul>
 <li><strong>The Problem:</strong> Sophisticated industrial attacks (like Stuxnet or Triton) upload modified compiled bytecode blocks directly into PLC flash memory over Modbus or S7Comm. Standard firewalls see raw hex payloads and cannot determine what the ladder logic actually does.</li>
-<li><strong>The Mechanism:</strong> Integrates an in-RAM bytecode decompiler into <code>sentinel-artifact</code>. When an S7Comm Block Upload (<code>0x1A</code>) or Modbus script upload occurs, the engine intercepts the bytecode in transit, decompiles the ladder logic into an intermediate representation, evaluates whether the logic attempts to override safety interlocks using the <strong>Control Barrier Function ($h(x) \ge 0$)</strong>, and drops the upload in-kernel if forbidden actuator overrides are detected.</li>
+<li><strong>The Mechanism:</strong> Integrates an in-RAM bytecode decompiler into <code>sentinel-artifact</code>. When an S7Comm Block Upload (<code>0x1A</code>) or Modbus script upload occurs, the engine intercepts the bytecode in transit, decompiles the ladder logic into an intermediate representation, evaluates whether the logic attempts to override safety interlocks using the <strong>Control Barrier Function (<span class="arithmatex">\(h(x) \ge 0\)</span>)</strong>, and drops the upload in-kernel if forbidden actuator overrides are detected.</li>
 <li><strong>CLI Command:</strong> <code>aryo plc-audit status</code> / <code>aryo plc-audit inspect-block &lt;block.bin&gt;</code>.</li>
 </ul>
 <hr />
 <h4 id="10-idea-25-gnss-gps-spoofing-meaconing-anti-deception-grid-clock-sentry">10. Idea 25: GNSS / GPS Spoofing &amp; Meaconing Anti-Deception Grid Clock Sentry</h4>
 <ul>
 <li><strong>The Problem:</strong> Electrical grid synchrophasors (IEEE C37.118) and cellular base stations rely on GPS/GNSS receivers for sub-microsecond 1PPS (Pulse-Per-Second) time synchronization. Adversaries broadcast low-power spoofed GPS signals (meaconing) that slowly drift the clock by microseconds, inducing false phase-angle readings and tricking transmission line protection into tripping grid breakers.</li>
-<li><strong>The Mechanism:</strong> Connects directly to multi-constellation GNSS receivers (GPS, Galileo, BeiDou, GLONASS) and raw 1PPS hardware timer pins. It cross-correlates carrier-to-noise ratio ($C/N_0$), detects pseudorange step discontinuities, and measures time drift against an onboard atomic rubidium/oven-controlled oscillator (OCXO). If spoofing is detected, it decouples the GPS clock and switches to holdover mode in <strong>$&lt; 1\,\mu\text{s}$</strong>, preventing false phase-angle trips.</li>
+<li><strong>The Mechanism:</strong> Connects directly to multi-constellation GNSS receivers (GPS, Galileo, BeiDou, GLONASS) and raw 1PPS hardware timer pins. It cross-correlates carrier-to-noise ratio (<span class="arithmatex">\(C/N_0\)</span>), detects pseudorange step discontinuities, and measures time drift against an onboard atomic rubidium/oven-controlled oscillator (OCXO). If spoofing is detected, it decouples the GPS clock and switches to holdover mode in <strong><span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span></strong>, preventing false phase-angle trips.</li>
 <li><strong>CLI Command:</strong> <code>aryo gnss status</code> / <code>aryo gnss guard --pps-pin gpio18</code>.</li>
 </ul>
 <hr />
@@ -43640,6 +43640,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

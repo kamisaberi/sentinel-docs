@@ -43307,11 +43307,11 @@
 <hr />
 <h3 id="1-the-core-engineering-problem-why-models-arent-hardcoded-inside-spkg">1. The Core Engineering Problem: Why Models Aren’t Hardcoded Inside <code>.spkg</code></h3>
 <p>If an <code>.spkg</code> package contains the neural model weights inside itself:
-* A Rust or C++ <code>.spkg</code> is typically <strong>$18\text{--}40\,\text{KB}$</strong> (code, manifest, test vector).
-* An ONNX neural model (e.g., <code>aryo-netflow-mae-v2.onnx</code>) is <strong>$20\text{--}150\,\text{MB}$</strong>.
+* A Rust or C++ <code>.spkg</code> is typically <strong><span class="arithmatex">\(18\text{--}40\,\text{KB}\)</span></strong> (code, manifest, test vector).
+* An ONNX neural model (e.g., <code>aryo-netflow-mae-v2.onnx</code>) is <strong><span class="arithmatex">\(20\text{--}150\,\text{MB}\)</span></strong>.
 * If 10 different SCADA packages each bundled their own copy of the same 50MB model, appliances would download hundreds of megabytes of duplicated weights, wasting edge disk and memory.</p>
 <h3 id="the-solution-composable-package-to-model-binding">The Solution: Composable Package-to-Model Binding</h3>
-<p>The <code>.spkg</code> package remains lightweight ($&lt; 50\,\text{KB}$). Its manifest declares a <strong>Model Dependency (<code>model_binding</code>)</strong>. When the package is installed, the engine checks local cache for the required model and pulls the verified <code>.onnx</code> weights from <code>hub.aryorithm.com</code> if missing.</p>
+<p>The <code>.spkg</code> package remains lightweight (<span class="arithmatex">\(&lt; 50\,\text{KB}\)</span>). Its manifest declares a <strong>Model Dependency (<code>model_binding</code>)</strong>. When the package is installed, the engine checks local cache for the required model and pulls the verified <code>.onnx</code> weights from <code>hub.aryorithm.com</code> if missing.</p>
 <div class="highlight"><pre><span></span><code>========================================================================================================
                           HOW .SPKG PACKAGES INTERACT WITH CLOUD AI MODELS
 ========================================================================================================
@@ -43343,7 +43343,7 @@
   5. The plugin inspects the output score and returns <code>SENTINEL_VERDICT_KERNEL_DROP</code>.</p>
 <h4 id="mode-b-the-dissector-to-subsystem-handoff-cascade-inference">Mode B: The "Dissector-to-Subsystem Handoff" (Cascade Inference)</h4>
 <p>The <code>.spkg</code> package handles the line-rate pre-filtering, extracts the feature vector, and tags the event:
-* The <code>.spkg</code> inspects for known zero-days (drops in $&lt; 120\,\text{ns}$).
+* The <code>.spkg</code> inspects for known zero-days (drops in <span class="arithmatex">\(&lt; 120\,\text{ns}\)</span>).
 * If clean, it tags the packet with <code>model_id: "aryo-netflow-mae-v2"</code> and passes it to Subsystem <code>18_cps_sec</code>.
 * The Subsystem runs the model via <code>libxinfer.so</code> and executes the deep temporal analysis.</p>
 <hr />
@@ -43433,7 +43433,7 @@
 <hr />
 <h3 id="summary-of-benefits-for-the-ecosystem">Summary of Benefits for the Ecosystem</h3>
 <ol>
-<li><strong>Lightweight Distribution:</strong> Developers distribute small, fast <code>.spkg</code> code files ($&lt; 30\,\text{KB}$).</li>
+<li><strong>Lightweight Distribution:</strong> Developers distribute small, fast <code>.spkg</code> code files (<span class="arithmatex">\(&lt; 30\,\text{KB}\)</span>).</li>
 <li><strong>Shared Foundation Weights:</strong> 20 different SCADA or medical packages can all share the same optimized foundation model (<code>aryo-scada-kinematic-v1.onnx</code>) without downloading it 20 times.</li>
 <li><strong>Hardware Independence:</strong> The <code>.spkg</code> code does not need to know if the target machine has an Intel NPU, an NVIDIA Jetson GPU, or an AMD CPU. It simply asks <code>libxinfer.so</code> to run the model, and the runtime executes it on the local hardware accelerator.</li>
 <li><strong>Marketplace Discovery:</strong> On <code>hub.aryorithm.com</code>, users can filter by:</li>
@@ -43508,6 +43508,10 @@
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

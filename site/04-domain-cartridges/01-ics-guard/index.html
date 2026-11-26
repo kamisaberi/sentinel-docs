@@ -43147,11 +43147,11 @@
 <hr />
 <h2 id="2-mathematical-plant-ode-control-barrier-function-cbf">2. Mathematical Plant ODE &amp; Control Barrier Function (CBF)</h2>
 <p>Beyond protocol syntax validation, <code>ics-guard</code> incorporates an embedded Runge-Kutta 4th-Order (RK4) ODE solver modeling plant thermal and kinetic dynamics:</p>
-<p>$$\dot{T} = \frac{Q_{\text{in}} - U \cdot A \cdot (T - T_{\text{cool}})}{C_{\text{thermal}}}$$</p>
+<div class="arithmatex">\[\dot{T} = \frac{Q_{\text{in}} - U \cdot A \cdot (T - T_{\text{cool}})}{C_{\text{thermal}}}\]</div>
 <p>Physical safety invariance is enforced via a Nagumo barrier function:</p>
-<p>$$h(T) = T_{\text{critical}} - T \ge 0$$</p>
-<p>$$\dot{h}(T) + \gamma \cdot h(T) \ge 0$$</p>
-<p>If incoming telemetry indicates that a setpoint change will breach the critical safety envelope within the critical clearing time ($t_{\text{crit}} \le 38.4\text{ ms}$), the command is intercepted and dropped at line rate.</p>
+<div class="arithmatex">\[h(T) = T_{\text{critical}} - T \ge 0\]</div>
+<div class="arithmatex">\[\dot{h}(T) + \gamma \cdot h(T) \ge 0\]</div>
+<p>If incoming telemetry indicates that a setpoint change will breach the critical safety envelope within the critical clearing time (<span class="arithmatex">\(t_{\text{crit}} \le 38.4\text{ ms}\)</span>), the command is intercepted and dropped at line rate.</p>
 
 
 
@@ -43220,6 +43220,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

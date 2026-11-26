@@ -43188,20 +43188,20 @@
 <td style="text-align: left;"><strong><code>SHADOW_MODE</code></strong></td>
 <td style="text-align: left;">100% of Fleet</td>
 <td style="text-align: left;"><strong>Passive (0% Drops)</strong></td>
-<td style="text-align: left;">Runtime divergence $\le 2.5\%$ for 48 hours.</td>
+<td style="text-align: left;">Runtime divergence <span class="arithmatex">\(\le 2.5\%\)</span> for 48 hours.</td>
 <td style="text-align: left;">Model crash or NPU driver fault.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>CANARY_5_PCT</code></strong></td>
-<td style="text-align: left;">5% of Fleet ($250$ Nodes)</td>
-<td style="text-align: left;"><strong>Active ($&lt; 0.84\,\mu\text{s}$ Drops)</strong></td>
+<td style="text-align: left;">5% of Fleet (<span class="arithmatex">\(250\)</span> Nodes)</td>
+<td style="text-align: left;"><strong>Active (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> Drops)</strong></td>
 <td style="text-align: left;">Zero false-positive surges for 24 hours.</td>
-<td style="text-align: left;">Mitigation latency $&gt; 1{,}000\,\mu\text{s}$ or drops spike $&gt; 5\times$.</td>
+<td style="text-align: left;">Mitigation latency <span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span> or drops spike <span class="arithmatex">\(&gt; 5\times\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>FLEET_WIDE</code></strong></td>
-<td style="text-align: left;">100% of Fleet ($5{,}000$ Nodes)</td>
-<td style="text-align: left;"><strong>Active ($&lt; 0.84\,\mu\text{s}$ Drops)</strong></td>
+<td style="text-align: left;">100% of Fleet (<span class="arithmatex">\(5{,}000\)</span> Nodes)</td>
+<td style="text-align: left;"><strong>Active (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> Drops)</strong></td>
 <td style="text-align: left;">Full deployment across all operational clusters.</td>
 <td style="text-align: left;">Collective Defense SLA breach.</td>
 </tr>
@@ -43275,6 +43275,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43261,7 +43261,7 @@
 
 
 <h1 id="persistent-real-time-telemetry-stream-get-apiv1telemetrystream">Persistent Real-Time Telemetry Stream (<code>GET /api/v1/telemetry/stream</code>)</h1>
-<p><code>sentinel-nexus</code> exposes a persistent <strong>Server-Sent Events (SSE)</strong> endpoint on port <strong>9444</strong> (and proxied via port 9443). It streams fleet telemetry, threat mitigations, and Canary health events at up to $100\text{ Hz}$.</p>
+<p><code>sentinel-nexus</code> exposes a persistent <strong>Server-Sent Events (SSE)</strong> endpoint on port <strong>9444</strong> (and proxied via port 9443). It streams fleet telemetry, threat mitigations, and Canary health events at up to <span class="arithmatex">\(100\text{ Hz}\)</span>.</p>
 <hr />
 <h2 id="1-stream-endpoint-specification">1. Stream Endpoint Specification</h2>
 <ul>
@@ -43374,6 +43374,10 @@ data: {"reason":"LATENCY_SLA_BREACH","observed_latency_us":1420.5,"reverted_to":
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

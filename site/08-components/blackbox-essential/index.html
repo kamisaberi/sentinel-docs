@@ -43197,7 +43197,7 @@
 <em>Tier 2 Foundational Mitigation Engine of the Aryorithm / Blackbox Sentinel Ecosystem</em></p>
 <hr />
 <h2 id="executive-architectural-overview">Executive Architectural Overview</h2>
-<p><code>blackbox-essential</code> is a low-latency, in-kernel defense core written in native ISO C++20 and Linux eBPF/XDP. It bridges the gap between neural threat detection algorithms and hardware-level packet enforcement, executing autonomous packet drops in <strong>under $0.84\,\mu\text{s}$</strong> directly inside the network interface card (NIC) driver space.</p>
+<p><code>blackbox-essential</code> is a low-latency, in-kernel defense core written in native ISO C++20 and Linux eBPF/XDP. It bridges the gap between neural threat detection algorithms and hardware-level packet enforcement, executing autonomous packet drops in <strong>under <span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong> directly inside the network interface card (NIC) driver space.</p>
 <div class="highlight"><pre><span></span><code>====================================================================================================
                        BLACKBOX-ESSENTIAL IN-KERNEL FAST PATH
 ====================================================================================================
@@ -43243,7 +43243,7 @@
 <h3 id="core-invariants">Core Invariants</h3>
 <ol>
 <li><strong>Deterministic Wire-Speed Drop:</strong> Attacks are purged in driver memory before the Linux kernel allocates an <code>sk_buff</code> socket buffer, shielding the operating system from network stack exhaustion.</li>
-<li><strong>Sub-Microsecond Mitigation SLA:</strong> Maximum packet mitigation latency is guaranteed at $&lt; 0.84\,\mu\text{s}$ ($&lt; 1.0\,\text{ms}$ enterprise operational SLA).</li>
+<li><strong>Sub-Microsecond Mitigation SLA:</strong> Maximum packet mitigation latency is guaranteed at <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> (<span class="arithmatex">\(&lt; 1.0\,\text{ms}\)</span> enterprise operational SLA).</li>
 <li><strong>Lock-Free Concurrency:</strong> Single-Producer Multi-Consumer (<code>EventRingBuffer</code>) ring architecture sustaining <strong>1,250,000 events per second</strong> without mutex locks or spinlock thread contention.</li>
 <li><strong>Silicon Hardware Identity:</strong> Cryptographic machine binding rooted in physical <strong>TPM 2.0 Platform Configuration Registers (PCR 0 &amp; PCR 4)</strong> via TCG TSS2 specifications.</li>
 <li><strong>Pure ISO C++20:</strong> Zero managed runtimes (no Python, Java, or Go in the critical packet mitigation or event handling paths).</li>
@@ -43296,10 +43296,10 @@
 <hr />
 <h2 id="key-performance-indicators">Key Performance Indicators</h2>
 <ul>
-<li><strong>Mitigation Latency:</strong> <strong>$0.84\,\mu\text{s}$</strong> from Ethernet preamble detection to driver drop (<code>XDP_DROP</code>).</li>
-<li><strong>Kernel Memory Allocation:</strong> $0$ bytes allocated in the fast path (<code>sk_buff</code> generation bypassed).</li>
-<li><strong>Ring Buffer Throughput:</strong> $1{,}250{,}000\text{ EPS}$ sustained per NUMA node.</li>
-<li><strong>Hardware Attestation:</strong> Physical TPM 2.0 PCR Quote generated and signed in $&lt; 48\,\text{ms}$.</li>
+<li><strong>Mitigation Latency:</strong> <strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong> from Ethernet preamble detection to driver drop (<code>XDP_DROP</code>).</li>
+<li><strong>Kernel Memory Allocation:</strong> <span class="arithmatex">\(0\)</span> bytes allocated in the fast path (<code>sk_buff</code> generation bypassed).</li>
+<li><strong>Ring Buffer Throughput:</strong> <span class="arithmatex">\(1{,}250{,}000\text{ EPS}\)</span> sustained per NUMA node.</li>
+<li><strong>Hardware Attestation:</strong> Physical TPM 2.0 PCR Quote generated and signed in <span class="arithmatex">\(&lt; 48\,\text{ms}\)</span>.</li>
 </ul>
 
 
@@ -43369,6 +43369,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

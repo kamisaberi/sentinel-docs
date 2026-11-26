@@ -41570,7 +41570,7 @@
   <a href="#3-master-cross-mapping-table-commands-to-sensors-1-to-570" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3. Master Cross-Mapping Table: Commands $\to$ Sensors (1 to 570)
+        3. Master Cross-Mapping Table: Commands <span class="arithmatex">\(\to\)</span> Sensors (1 to 570)
       </span>
     </span>
   </a>
@@ -43167,7 +43167,7 @@
   <a href="#3-master-cross-mapping-table-commands-to-sensors-1-to-570" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3. Master Cross-Mapping Table: Commands $\to$ Sensors (1 to 570)
+        3. Master Cross-Mapping Table: Commands <span class="arithmatex">\(\to\)</span> Sensors (1 to 570)
       </span>
     </span>
   </a>
@@ -43206,11 +43206,11 @@
 
 <h3 id="structural-analysis-connecting-sentinel-lab-to-the-570-sensors">Structural Analysis: Connecting <code>sentinel-lab</code> to the 570 Sensors</h3>
 <p>Currently, <code>sentinel-lab</code> provides <strong>14 scientific research modules</strong> (such as <code>hil</code>, <code>cbf</code>, <code>fdia</code>, <code>sidechannel</code>, <code>pqc</code>, and <code>fuzzer</code>). </p>
-<p>While these existing modules test the mathematical core (e.g., RK4 ODE stability, Control Barrier Functions $h(x) \ge 0$, and packet smuggling), testing <strong>all 570 physical, silicon, optical, and chemical sensors</strong> across your 80 domains requires mapping each sensor category to an exact validation action.</p>
+<p>While these existing modules test the mathematical core (e.g., RK4 ODE stability, Control Barrier Functions <span class="arithmatex">\(h(x) \ge 0\)</span>, and packet smuggling), testing <strong>all 570 physical, silicon, optical, and chemical sensors</strong> across your 80 domains requires mapping each sensor category to an exact validation action.</p>
 <p>To systematically test the 570 sensors in <code>sentinel-matrix</code> digital twins without adding 570 separate CLI commands, we structure the verification into:
 1. <strong>How Existing <code>aryo lab</code> Commands Map to Specific Sensor Subsets.</strong>
 2. <strong>The 10 Targeted New Research Commands to Add to <code>sentinel-lab</code>.</strong>
-3. <strong>The Master Cross-Mapping Table (Command $\to$ Sensor Range $\to$ Validation Physics).</strong></p>
+3. <strong>The Master Cross-Mapping Table (Command <span class="arithmatex">\(\to\)</span> Sensor Range <span class="arithmatex">\(\to\)</span> Validation Physics).</strong></p>
 <hr />
 <h3 id="1-how-existing-aryo-lab-commands-map-to-the-570-sensors">1. How Existing <code>aryo lab</code> Commands Map to the 570 Sensors</h3>
 <p>Several existing commands can already validate specific sensor categories if supplied with the proper configuration:</p>
@@ -43220,10 +43220,10 @@
 <li><strong>Test Function:</strong> Simulates continuous physics ODEs and checks if sensor readings correctly track system state under dynamic load changes.</li>
 <li><strong><code>aryo lab cbf</code> (Control Barrier Function Verifier):</strong></li>
 <li><strong>Sensors Covered:</strong> <strong>#046–#051</strong> (Robotic F/T &amp; Kinematics), <strong>#058–#070</strong> (Chemical Dosing &amp; Water Treatment), <strong>#116–#120</strong> (Lyophilizer &amp; Subsea), <strong>#349–#355</strong> (Autonomous Excavators), <strong>#406–#412</strong> (LNG Sloshing).</li>
-<li><strong>Test Function:</strong> Verifies that physical safety invariants $h(x) \ge 0$ clamp actuator write commands before physical limits are breached.</li>
+<li><strong>Test Function:</strong> Verifies that physical safety invariants <span class="arithmatex">\(h(x) \ge 0\)</span> clamp actuator write commands before physical limits are breached.</li>
 <li><strong><code>aryo lab fdia</code> (Cross-Modal False Data Injection Orchestrator):</strong></li>
 <li><strong>Sensors Covered:</strong> <strong>#018–#022</strong> (Modbus/S7/IEC-104 Network Dissectors) paired against <strong>#052, #073, #092, #149, #499</strong> (Physical Flow, Pressure, Airspeed, Steer-by-Wire, GNSS-RTK).</li>
-<li><strong>Test Function:</strong> Spoofs network status while keeping physical sensors fixed to verify that the <code>ThreatCorrelator</code> detects the causal divergence and enforces in-kernel drops ($&lt; 0.84\,\mu\text{s}$).</li>
+<li><strong>Test Function:</strong> Spoofs network status while keeping physical sensors fixed to verify that the <code>ThreatCorrelator</code> detects the causal divergence and enforces in-kernel drops (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
 <li><strong><code>aryo lab sidechannel</code> (Hardware Power/EM Side-Channel Analyzer):</strong></li>
 <li><strong>Sensors Covered:</strong> <strong>#001–#007</strong> (Microarchitectural PMU), <strong>#027</strong> (Near-Field Magnetic H-Probe), <strong>#039</strong> (Heat-Sink Thermal Leakage), <strong>#118</strong> (Keystroke Acoustic Vibration).</li>
 <li><strong>Test Function:</strong> Injects high-frequency CPU workloads and tests if covert electromagnetic, thermal, or acoustic data leaks can be measured.</li>
@@ -43250,7 +43250,7 @@
 ========================================================================================================================
 </code></pre></div>
 <hr />
-<h3 id="3-master-cross-mapping-table-commands-to-sensors-1-to-570">3. Master Cross-Mapping Table: Commands $\to$ Sensors (1 to 570)</h3>
+<h3 id="3-master-cross-mapping-table-commands-to-sensors-1-to-570">3. Master Cross-Mapping Table: Commands <span class="arithmatex">\(\to\)</span> Sensors (1 to 570)</h3>
 <p>The table below details every command, the exact sensor IDs it tests, the physical domain, and the mathematical test executed:</p>
 <table>
 <thead>
@@ -43266,25 +43266,25 @@
 <td style="text-align: left;"><strong><code>aryo lab sensor-audit</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#001 – #014</strong><br><strong>#046</strong></td>
 <td style="text-align: left;">Domain 01 (PMU/Silicon)<br>Domain 02 (PCB/Power)<br>Domain 11 (Rowhammer)</td>
-<td style="text-align: left;">• ZenHammer / Rowhammer DRAM bit-flip injection<br>• VCC power rail brownout glitch transients ($\Delta V &gt; 10\%$ in $&lt;50\,\text{ns}$)<br>• Spectre/Meltdown LLC cache-miss rate thresholding ($&lt; 3.5\%$)</td>
+<td style="text-align: left;">• ZenHammer / Rowhammer DRAM bit-flip injection<br>• VCC power rail brownout glitch transients (<span class="arithmatex">\(\Delta V &gt; 10\%\)</span> in <span class="arithmatex">\(&lt;50\,\text{ns}\)</span>)<br>• Spectre/Meltdown LLC cache-miss rate thresholding (<span class="arithmatex">\(&lt; 3.5\%\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab rf-sdr</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#023 – #028</strong><br><strong>#128 – #134</strong><br><strong>#456 – #462</strong></td>
 <td style="text-align: left;">Domain 04 (RF/GNSS)<br>Domain 19 (High-Energy Laser)<br>Domain 65 (HPEM/HPM)</td>
-<td style="text-align: left;">• GPS/Galileo meaconing &amp; 1PPS phase discontinuity ($&gt; 100\,\text{ns}$)<br>• Wideband jamming RSSI elevation ($&gt; 20\,\text{dB}$)<br>• High-Power Microwave (HPM) fast $dE/dt$ diode limiter trips ($&lt; 1.0\,\text{ns}$)</td>
+<td style="text-align: left;">• GPS/Galileo meaconing &amp; 1PPS phase discontinuity (<span class="arithmatex">\(&gt; 100\,\text{ns}\)</span>)<br>• Wideband jamming RSSI elevation (<span class="arithmatex">\(&gt; 20\,\text{dB}\)</span>)<br>• High-Power Microwave (HPM) fast <span class="arithmatex">\(dE/dt\)</span> diode limiter trips (<span class="arithmatex">\(&lt; 1.0\,\text{ns}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab acoustic-tdoa</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#029 – #034</strong><br><strong>#135 – #141</strong><br><strong>#521 – #527</strong></td>
 <td style="text-align: left;">Domain 05 (Acoustics)<br>Domain 20 (Combustion)<br>Domain 74 (Submarine ASW)</td>
-<td style="text-align: left;">• Ultrasonic covert air-gap data exfiltration ($20\text{--}100\,\text{kHz}$ FSK/OOK)<br>• Hyperbolic TDOA ballistic shockwave shooter localization ($&lt; 15\,\text{ms}$)<br>• Gas turbine thermoacoustic flame rumble ($p' &gt; 0.5\,\text{bar}$)</td>
+<td style="text-align: left;">• Ultrasonic covert air-gap data exfiltration (<span class="arithmatex">\(20\text{--}100\,\text{kHz}\)</span> FSK/OOK)<br>• Hyperbolic TDOA ballistic shockwave shooter localization (<span class="arithmatex">\(&lt; 15\,\text{ms}\)</span>)<br>• Gas turbine thermoacoustic flame rumble (<span class="arithmatex">\(p' &gt; 0.5\,\text{bar}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab fluid-shock</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#052 – #057</strong><br><strong>#185 – #191</strong><br><strong>#256 – #262</strong></td>
 <td style="text-align: left;">Domain 09 (Fluid/Pressure)<br>Domain 27 (Nuclear Voiding)<br>Domain 37 (Subsea Chokes)</td>
-<td style="text-align: left;">• Joukowsky water-hammer valve pressure spike ($\Delta P = \rho c \Delta v$)<br>• Two-phase coolant boiling voiding ($\alpha \le 0.35$ in nuclear core)<br>• Subsea production choke acoustic sand erosion ($N_{\text{sand}} \propto V^{1.5}$)</td>
+<td style="text-align: left;">• Joukowsky water-hammer valve pressure spike (<span class="arithmatex">\(\Delta P = \rho c \Delta v\)</span>)<br>• Two-phase coolant boiling voiding (<span class="arithmatex">\(\alpha \le 0.35\)</span> in nuclear core)<br>• Subsea production choke acoustic sand erosion (<span class="arithmatex">\(N_{\text{sand}} \propto V^{1.5}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab space-avionics</code></strong> <em>(New)</em></td>
@@ -43296,49 +43296,49 @@
 <td style="text-align: left;"><strong><code>aryo lab quantum-metrology</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#121 – #127</strong><br><strong>#321 – #327</strong><br><strong>#421 – #427</strong><br><strong>#060</strong></td>
 <td style="text-align: left;">Domain 18 (Qubits/Metrology)<br>Domain 46 (Quantum Gravimetry)<br>Domain 60 (Fusion Plasma)<br>Domain 13 (NV Diamond)</td>
-<td style="text-align: left;">• SQUID Josephson voltage standard microwave phase-slip detection<br>• BEC atom interferometer gravity gradient tensor verification ($\text{Tr}(\mathbf{T}) == 0$)<br>• Tokamak Mirnov coil MHD tearing mode growth rate ($\gamma &gt; 0$ disruption alarm)</td>
+<td style="text-align: left;">• SQUID Josephson voltage standard microwave phase-slip detection<br>• BEC atom interferometer gravity gradient tensor verification (<span class="arithmatex">\(\text{Tr}(\mathbf{T}) == 0\)</span>)<br>• Tokamak Mirnov coil MHD tearing mode growth rate (<span class="arithmatex">\(\gamma &gt; 0\)</span> disruption alarm)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab power-grid</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#078 – #084</strong><br><strong>#206 – #212</strong><br><strong>#292 – #298</strong><br><strong>#542 – #548</strong><br><strong>#563 – #570</strong></td>
 <td style="text-align: left;">Domain 12 (High-Voltage)<br>Domain 30 (Power Quality)<br>Domain 42 (Transmission DLR)<br>Domain 77 (HVDC Cables)<br>Domain 80 (Maglev Levitation)</td>
-<td style="text-align: left;">• 50th-order harmonic distortion injection ($\text{THD}<em>V \le 5.0\%$ IEEE 519)<br>• Transmission line dynamic sag catenary tension ($T = \frac{wL^2}{8S}$)<br>• Maglev eddy-current levitation gap decay rate ($\delta</em>{\text{gap}} = 10 \pm 2\,\text{mm}$)</td>
+<td style="text-align: left;">• 50th-order harmonic distortion injection (<span class="arithmatex">\(\text{THD}_V \le 5.0\%\)</span> IEEE 519)<br>• Transmission line dynamic sag catenary tension (<span class="arithmatex">\(T = \frac{wL^2}{8S}\)</span>)<br>• Maglev eddy-current levitation gap decay rate (<span class="arithmatex">\(\delta_{\text{gap}} = 10 \pm 2\,\text{mm}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab chemical-gas</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#058 – #070</strong><br><strong>#156 – #162</strong><br><strong>#228 – #234</strong><br><strong>#556 – #562</strong></td>
 <td style="text-align: left;">Domain 10 (Gas/Water)<br>Domain 23 (CBRN Biosecurity)<br>Domain 33 (Petrochem FCC)<br>Domain 79 (Electrolyzers)</td>
-<td style="text-align: left;">• Water treatment pH &amp; chlorine overdosing invariant ($6.5 \le \text{pH} \le 8.5$)<br>• Bio-aerosol laser-induced fluorescence (LIF) anthrax/ricin cloud detection<br>• Electrolyzer hydrogen-in-oxygen crossover explosion limit ($[H_2] \le 1.5\%$)</td>
+<td style="text-align: left;">• Water treatment pH &amp; chlorine overdosing invariant (<span class="arithmatex">\(6.5 \le \text{pH} \le 8.5\)</span>)<br>• Bio-aerosol laser-induced fluorescence (LIF) anthrax/ricin cloud detection<br>• Electrolyzer hydrogen-in-oxygen crossover explosion limit (<span class="arithmatex">\([H_2] \le 1.5\%\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab fab-extreme</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#106 – #112</strong><br><strong>#163 – #170</strong><br><strong>#213 – #220</strong><br><strong>#371 – #377</strong><br><strong>#442 – #448</strong></td>
 <td style="text-align: left;">Domain 16 (Semiconductor Fab)<br>Domain 24 (Metallurgy)<br>Domain 31 (Metal 3D Print)<br>Domain 53 (EUV Lithography)<br>Domain 63 (Tandem Solar)</td>
-<td style="text-align: left;">• RGA quadrupole vacuum chamber leak rate ($&lt; 10^{-11}\,\text{mbar}\cdot\text{L/s}$)<br>• EUV molten tin droplet laser intercept precision ($\le 1.5\,\mu\text{m}$ at $50\text{ kHz}$)<br>• Metal 3D printing melt-pool pyrometry temperature ($1650^\circ\text{C} \text{--} 2200^\circ\text{C}$)</td>
+<td style="text-align: left;">• RGA quadrupole vacuum chamber leak rate (<span class="arithmatex">\(&lt; 10^{-11}\,\text{mbar}\cdot\text{L/s}\)</span>)<br>• EUV molten tin droplet laser intercept precision (<span class="arithmatex">\(\le 1.5\,\mu\text{m}\)</span> at <span class="arithmatex">\(50\text{ kHz}\)</span>)<br>• Metal 3D printing melt-pool pyrometry temperature (<span class="arithmatex">\(1650^\circ\text{C} \text{--} 2200^\circ\text{C}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab marine-subsea</code></strong> <em>(New)</em></td>
 <td style="text-align: left;"><strong>#099 – #105</strong><br><strong>#263 – #270</strong><br><strong>#363 – #370</strong><br><strong>#485 – #491</strong></td>
 <td style="text-align: left;">Domain 15 (Oceanography)<br>Domain 38 (Autonomous Marine)<br>Domain 52 (Submarine Stealth)<br>Domain 69 (Deep-Sea Mining)</td>
-<td style="text-align: left;">• CTD speed-of-sound acoustic refraction duct calculation<br>• Anechoic rubber tile hydrodynamic shear strain ($\gamma \le \gamma_{\text{debond}}$)<br>• Seafloor mining crawler abyssal pelagic clay sinkage ($z_{\text{sink}} \le 150\,\text{mm}$)</td>
+<td style="text-align: left;">• CTD speed-of-sound acoustic refraction duct calculation<br>• Anechoic rubber tile hydrodynamic shear strain (<span class="arithmatex">\(\gamma \le \gamma_{\text{debond}}\)</span>)<br>• Seafloor mining crawler abyssal pelagic clay sinkage (<span class="arithmatex">\(z_{\text{sink}} \le 150\,\text{mm}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab hil</code></strong> <em>(Existing)</em></td>
 <td style="text-align: left;"><strong>#035 – #040</strong><br><strong>#071 – #077</strong><br><strong>#435 – #441</strong><br><strong>#528 – #534</strong></td>
 <td style="text-align: left;">Domain 06 (Thermal/Cryo)<br>Domain 11 (MHD/Magnetic)<br>Domain 62 (Geological DGR)<br>Domain 75 (SMR Passive)</td>
-<td style="text-align: left;">• Arrhenius thermal runaway differential equations on battery packs<br>• Triaxial fluxgate magnetic dipole moment tracking ($\mathbf{B}(\mathbf{r}) \approx 0$)<br>• SMR thermosiphon natural circulation flow velocity ($v \propto \sqrt[3]{\dot{Q}\Delta z}$)</td>
+<td style="text-align: left;">• Arrhenius thermal runaway differential equations on battery packs<br>• Triaxial fluxgate magnetic dipole moment tracking (<span class="arithmatex">\(\mathbf{B}(\mathbf{r}) \approx 0\)</span>)<br>• SMR thermosiphon natural circulation flow velocity (<span class="arithmatex">\(v \propto \sqrt[3]{\dot{Q}\Delta z}\)</span>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab cbf</code></strong> <em>(Existing)</em></td>
 <td style="text-align: left;"><strong>#046 – #051</strong><br><strong>#116 – #120</strong><br><strong>#349 – #355</strong><br><strong>#406 – #412</strong></td>
 <td style="text-align: left;">Domain 08 (Kinematics/Robots)<br>Domain 17 (Chemical/Bio)<br>Domain 50 (Heavy Machinery)<br>Domain 58 (LNG Sloshing)</td>
-<td style="text-align: left;">• Cobot human contact force clamp ($\le 150\,\text{N}$ ISO/TS 15066 limit)<br>• Hydraulic excavator boom kinematic boundary ($h(\mathbf{x}) \ge 0$ avoidance)<br>• LNG tank cryogenic sloshing impact pressure boundary enforcement</td>
+<td style="text-align: left;">• Cobot human contact force clamp (<span class="arithmatex">\(\le 150\,\text{N}\)</span> ISO/TS 15066 limit)<br>• Hydraulic excavator boom kinematic boundary (<span class="arithmatex">\(h(\mathbf{x}) \ge 0\)</span> avoidance)<br>• LNG tank cryogenic sloshing impact pressure boundary enforcement</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab fdia</code></strong> <em>(Existing)</em></td>
 <td style="text-align: left;"><strong>#018 – #022</strong> paired with <strong>#052, #073, #092, #149, #499</strong></td>
 <td style="text-align: left;">Domain 03 (Network) vs Domain 09, 11, 14, 22, 71</td>
-<td style="text-align: left;">• Causal cross-modal deception: Network claims valve open, but pressure drops<br>• In-kernel eBPF drop executed in $&lt; 0.84\,\mu\text{s}$ upon divergence detection</td>
+<td style="text-align: left;">• Causal cross-modal deception: Network claims valve open, but pressure drops<br>• In-kernel eBPF drop executed in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> upon divergence detection</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>aryo lab sidechannel</code></strong> <em>(Existing)</em></td>
@@ -43432,6 +43432,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

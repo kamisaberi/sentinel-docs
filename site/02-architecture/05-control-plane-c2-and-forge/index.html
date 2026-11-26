@@ -43170,7 +43170,7 @@
 <ol>
 <li><strong>Self-Supervised Pretraining:</strong> Trains a Tabular Masked Autoencoder (MAE) with InfoNCE contrastive loss over nominal traffic baselines without requiring manual labeling.</li>
 <li><strong>Safety Regression Gate:</strong> Validates newly trained candidate models against a historical corpus of "golden attacks" (<code>golden_attacks.yaml</code>). If the new model fails to detect any known exploit, it is automatically purged.</li>
-<li><strong>Zero-Downtime Rollout:</strong> Approved models are exported to INT8 ONNX, staged into SSFS <code>models/calibrated/</code>, and rolled out to edge nodes via Canary stages (<code>Shadow Mode</code> $\to$ <code>Canary 5%</code> $\to$ <code>Fleet-Wide</code>).</li>
+<li><strong>Zero-Downtime Rollout:</strong> Approved models are exported to INT8 ONNX, staged into SSFS <code>models/calibrated/</code>, and rolled out to edge nodes via Canary stages (<code>Shadow Mode</code> <span class="arithmatex">\(\to\)</span> <code>Canary 5%</code> <span class="arithmatex">\(\to\)</span> <code>Fleet-Wide</code>).</li>
 </ol>
 <hr />
 <h2 id="3-scientific-verification-testbed-sentinel-lab">3. Scientific Verification Testbed (<code>sentinel-lab</code>)</h2>
@@ -43243,6 +43243,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

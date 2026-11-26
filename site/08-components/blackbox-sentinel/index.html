@@ -43142,7 +43142,7 @@
 <hr />
 <h2 id="executive-architectural-overview">Executive Architectural Overview</h2>
 <p><code>blackbox-sentinel</code> is a sovereign, commercial-grade cyber-physical security appliance built in ISO C++20. Operating entirely on-premises with <strong>$0.00 cloud data egress</strong>, it integrates <strong>26 native detection, prevention, and deception subsystems</strong> with <strong>30 industrial protocol dissectors</strong>.</p>
-<p>Powered under the hood by <strong><code>libblackbox.so</code></strong> (Tier 2 in-kernel eBPF/XDP packet mitigation) and <strong><code>libxinfer.so</code></strong> (Tier 1 heterogeneous AI inference runtime), <code>blackbox-sentinel</code> eliminates cloud alerting latency ($15\text{s} - 60\text{s}$) in favor of <strong>sub-microsecond ($&lt; 0.84\,\mu\text{s}$) in-kernel edge drops</strong>.</p>
+<p>Powered under the hood by <strong><code>libblackbox.so</code></strong> (Tier 2 in-kernel eBPF/XDP packet mitigation) and <strong><code>libxinfer.so</code></strong> (Tier 1 heterogeneous AI inference runtime), <code>blackbox-sentinel</code> eliminates cloud alerting latency (<span class="arithmatex">\(15\text{s} - 60\text{s}\)</span>) in favor of <strong>sub-microsecond (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) in-kernel edge drops</strong>.</p>
 <div class="highlight"><pre><span></span><code>====================================================================================================
                        BLACKBOX-SENTINEL APPLIANCE ARCHITECTURE
 ====================================================================================================
@@ -43184,8 +43184,8 @@
 <h2 id="core-invariants">Core Invariants</h2>
 <ol>
 <li><strong>Autonomous Operation:</strong> Functions indefinitely when fully air-gapped without external DNS or cloud connectivity.</li>
-<li><strong>Sub-Microsecond Mitigation SLA:</strong> Drops cyber-physical threats directly inside the NIC driver ring in <strong>$&lt; 0.84\,\mu\text{s}$</strong>, before socket buffer allocation.</li>
-<li><strong>Collective Defense Grid:</strong> Synchronizes zero-day Indicators of Compromise (IoCs) with <code>sentinel-nexus</code> in <strong>$&lt; 50\,\text{ms}$</strong> ("Attacked Once, Immune Everywhere").</li>
+<li><strong>Sub-Microsecond Mitigation SLA:</strong> Drops cyber-physical threats directly inside the NIC driver ring in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong>, before socket buffer allocation.</li>
+<li><strong>Collective Defense Grid:</strong> Synchronizes zero-day Indicators of Compromise (IoCs) with <code>sentinel-nexus</code> in <strong><span class="arithmatex">\(&lt; 50\,\text{ms}\)</span></strong> ("Attacked Once, Immune Everywhere").</li>
 <li><strong>Air-Gapped Web Command Center:</strong> Serves an embedded administrative management interface on <strong>port 8443</strong> with a <strong>zero-CDN guarantee</strong> (all JavaScript, CSS, and SVG assets are compiled directly into the binary).</li>
 <li><strong>Non-Spoofable Hardware Root:</strong> Enforces node identity via physical TPM 2.0 PCR quotes, preventing virtual appliance duplication or unauthorized imaging.</li>
 </ol>
@@ -43257,6 +43257,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

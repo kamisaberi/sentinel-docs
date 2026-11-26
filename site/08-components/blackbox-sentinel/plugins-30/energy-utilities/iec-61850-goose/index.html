@@ -43144,7 +43144,7 @@
 <p>The IEC 61850 GOOSE (Generic Object Oriented Substation Events) dissector analyzes high-speed Layer 2 protection relay multicasts operating over <strong>EtherType <code>0x88B8</code></strong>. It inspects State Numbers (<code>stNum</code>), Sequence Numbers (<code>sqNum</code>), and Dataset contents to prevent unauthorized protective relay tripping and replay-induced regional blackouts.</p>
 <hr />
 <h2 id="1-goose-layer-2-frame-architecture">1. GOOSE Layer 2 Frame Architecture</h2>
-<p>GOOSE runs directly over Ethernet multicast without IP or TCP/UDP headers to achieve trip propagation latencies of under $4\,\text{milliseconds}$:</p>
+<p>GOOSE runs directly over Ethernet multicast without IP or TCP/UDP headers to achieve trip propagation latencies of under <span class="arithmatex">\(4\,\text{milliseconds}\)</span>:</p>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ Ethernet Header: [ Multicast Dest: 01:0C:CD:01:00:xx ]      │
  │                  [ EtherType: 0x88B8 ]                      │
@@ -43246,6 +43246,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

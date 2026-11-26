@@ -43144,8 +43144,8 @@
 <hr />
 <h2 id="1-statistical-surge-detection-formula">1. Statistical Surge Detection Formula</h2>
 <p><code>sentinel-nexus</code> maintains an Exponentially Weighted Moving Average (EWMA) of drop rates across the fleet:</p>
-<p>$$\mu_{\text{baseline}}(t) = \alpha \cdot \text{Drops}<em>{\text{current}} + (1 - \alpha) \cdot \mu</em>{\text{baseline}}(t - 1), \quad \alpha = 0.05$$</p>
-<p>$$\text{Surge Ratio} = \frac{\text{Drops}<em>{\text{Canary Cohort}}}{\mu</em>{\text{baseline}}}$$</p>
+<div class="arithmatex">\[\mu_{\text{baseline}}(t) = \alpha \cdot \text{Drops}_{\text{current}} + (1 - \alpha) \cdot \mu_{\text{baseline}}(t - 1), \quad \alpha = 0.05\]</div>
+<div class="arithmatex">\[\text{Surge Ratio} = \frac{\text{Drops}_{\text{Canary Cohort}}}{\mu_{\text{baseline}}}\]</div>
 <div class="highlight"><pre><span></span><code> Drop Rate (Drops/Sec)
   1000 ──┐                                                     ┌── FALSE POSITIVE SURGE!
          │                                                     │   Surge Ratio &gt; 5.0x
@@ -43156,9 +43156,9 @@
 </code></pre></div>
 <hr />
 <h2 id="2-automated-circuit-interruption">2. Automated Circuit Interruption</h2>
-<p>If the active drop rate on Canary appliances spikes by more than <strong>$5\times$ ($500\%$)</strong> relative to the moving baseline:
+<p>If the active drop rate on Canary appliances spikes by more than <strong><span class="arithmatex">\(5\times\)</span> (<span class="arithmatex">\(500\%\)</span>)</strong> relative to the moving baseline:
 1. <code>sentinel-nexus</code> aborts the Canary rollout immediately.
-2. An automated instruction reverts Canary nodes to the previous baseline model within $50\,\text{ms}$.
+2. An automated instruction reverts Canary nodes to the previous baseline model within <span class="arithmatex">\(50\,\text{ms}\)</span>.
 3. The offending candidate weights are quarantined for active learning investigation.</p>
 
 
@@ -43228,6 +43228,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

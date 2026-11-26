@@ -43236,9 +43236,9 @@
 <p><strong><code>sentinel-lab</code> (<code>sentinel_lab</code>)</strong> is a peer-reviewed academic experimentation platform engineered for computer science researchers, PhD candidates, and systems architects. Combining a self-describing, zero-copy binary wire protocol (<strong>SLAB</strong>), an automated evaluation pipeline for the <strong>CIC-IDS-2017 PortScan dataset</strong>, and dual-silicon comparative drivers (<strong>Intel OpenVINO</strong> and <strong>NVIDIA TensorRT</strong>), Sentinel-Lab establishes an empirical baseline for sub-microsecond threat mitigation in hardware.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ Download Preprint (PDF) ]</code> $\rightarrow$ <code>https://doi.org/10.5281/zenodo.XXXXXXX</code></li>
-<li><code>[ Clone on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/sentinel-lab</code></li>
-<li><code>[ Explore 10-Minute Benchmark ]</code> $\rightarrow$ <code>#evaluation-harness</code></li>
+<li><code>[ Download Preprint (PDF) ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://doi.org/10.5281/zenodo.XXXXXXX</code></li>
+<li><code>[ Clone on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/sentinel-lab</code></li>
+<li><code>[ Explore 10-Minute Benchmark ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#evaluation-harness</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43269,7 +43269,7 @@
   │ • [ 100% REPRODUCIBLE • ZERO PAYWALLS • ACADEMIC PREPRINT WITH ACTIVE DOI ]     │
   └──────────────────────────────────────────────────────────────────────────────────┘
 </code></pre></div>
-<p>The majority of contemporary machine learning research for network intrusion detection is disconnected from operating system realities. Papers frequently report state-of-the-art accuracy on static CSV extracts, ignoring the fact that extracting features and running inference in Python introduces <strong>$15\,\text{ms}$ to $60\,\text{ms}$ of latency</strong>—rendering the models useless against real-time physical sabotage.</p>
+<p>The majority of contemporary machine learning research for network intrusion detection is disconnected from operating system realities. Papers frequently report state-of-the-art accuracy on static CSV extracts, ignoring the fact that extracting features and running inference in Python introduces <strong><span class="arithmatex">\(15\,\text{ms}\)</span> to <span class="arithmatex">\(60\,\text{ms}\)</span> of latency</strong>—rendering the models useless against real-time physical sabotage.</p>
 <p><code>sentinel-lab</code> bridges the gap between machine learning theory and systems engineering. It provides the global research community with an <strong>open, bare-metal testbed</strong> that evaluates algorithmic precision, recall, and F1-score alongside <strong>real-world kernel mitigation latency, memory bus bandwidth, and CPU cycle consumption</strong>.</p>
 <hr />
 <h2 id="3-the-slab-universal-binary-wire-protocol-specification">3. The SLAB Universal Binary Wire Protocol Specification</h2>
@@ -43350,10 +43350,10 @@
 </code></pre></div>
 <h3 id="key-theoretical-contributions-in-the-paper">Key Theoretical Contributions in the Paper:</h3>
 <ol>
-<li><strong>Mathematical Formalization of Mitigation Latency:</strong> Proving that the total defensive decision boundary ($t_{\text{extract}} + t_{\text{infer}} + t_{\text{enforce}}$) must be strictly bounded below $\tau_{\text{SLA}} &lt; 1.0\,\text{ms}$ to prevent physical actuator damage in SCADA environments.</li>
-<li><strong>Information-Theoretic Active Learning:</strong> Formulating the Shannon entropy uncertainty boundary ($0.40 \le p \le 0.60$) combined with autoencoder reconstruction residuals ($\mathcal{L}_{\text{recon}}(x) = |x - \hat{x}|_2^2$) for unsupervised edge adaptation.</li>
+<li><strong>Mathematical Formalization of Mitigation Latency:</strong> Proving that the total defensive decision boundary (<span class="arithmatex">\(t_{\text{extract}} + t_{\text{infer}} + t_{\text{enforce}}\)</span>) must be strictly bounded below <span class="arithmatex">\(\tau_{\text{SLA}} &lt; 1.0\,\text{ms}\)</span> to prevent physical actuator damage in SCADA environments.</li>
+<li><strong>Information-Theoretic Active Learning:</strong> Formulating the Shannon entropy uncertainty boundary (<span class="arithmatex">\(0.40 \le p \le 0.60\)</span>) combined with autoencoder reconstruction residuals (<span class="arithmatex">\(\mathcal{L}_{\text{recon}}(x) = \|x - \hat{x}\|_2^2\)</span>) for unsupervised edge adaptation.</li>
 <li><strong>The Golden Attack Invariant:</strong> Mathematical formalization of the zero-tolerance regression safety gate:
-   $$\mathcal{S}(\theta^<em>) = \prod_{k=1}^K \mathbb{I}\Big(\arg\max \mathcal{M}_{\theta^</em>}(x_k^<em>) = y_k^</em>\Big) = 1.000$$</li>
+   $<span class="arithmatex">\(\mathcal{S}(\theta^*) = \prod_{k=1}^K \mathbb{I}\Big(\arg\max \mathcal{M}_{\theta^*}(x_k^*) = y_k^*\Big) = 1.000\)</span>$</li>
 </ol>
 <hr />
 <h2 id="6-the-10-minute-autonomous-evaluation-pipeline">6. The 10-Minute Autonomous Evaluation Pipeline</h2>
@@ -43481,7 +43481,7 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
 <span class="p">}</span>
 </code></pre></div></p>
 <h4 id="q-can-i-run-sentinel-lab-inside-a-virtual-machine-without-physical-10gbe-hardware">Q: Can I run Sentinel-Lab inside a virtual machine without physical 10GbE hardware?</h4>
-<p><strong>A:</strong> Yes. <code>sentinel-lab</code> automatically engages Generic SKB mode (<code>XDP_FLAGS_SKB_MODE</code>) when running inside VMware Workstation, ESXi, or KVM. While physical 10GbE adapters achieve $0.84\,\mu\text{s}$, virtual environments execute in $&lt; 2.5\,\mu\text{s}$—still thousands of times faster than traditional userspace NIDS.</p>
+<p><strong>A:</strong> Yes. <code>sentinel-lab</code> automatically engages Generic SKB mode (<code>XDP_FLAGS_SKB_MODE</code>) when running inside VMware Workstation, ESXi, or KVM. While physical 10GbE adapters achieve <span class="arithmatex">\(0.84\,\mu\text{s}\)</span>, virtual environments execute in <span class="arithmatex">\(&lt; 2.5\,\mu\text{s}\)</span>—still thousands of times faster than traditional userspace NIDS.</p>
 <h4 id="q-what-license-governs-the-sentinel-lab-repository">Q: What license governs the Sentinel-Lab repository?</h4>
 <p><strong>A:</strong> <code>sentinel-lab</code> is released under the <strong>MIT License</strong>. Researchers, students, and institutions are free to inspect, modify, fork, and publish derivative research without commercial restrictions.</p>
 <h4 id="q-can-i-evaluate-custom-datasets-other-than-cic-ids-2017">Q: Can I evaluate custom datasets other than CIC-IDS-2017?</h4>
@@ -43566,6 +43566,10 @@ make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</s
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

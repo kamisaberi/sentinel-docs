@@ -43207,7 +43207,7 @@
 <p>As a systems architecture and product strategy review, here is my honest observation on this 50-product portfolio—what already aligns with your stack, where the hidden architectural gaps are, and how to turn 50 ideas into a scalable business instead of 50 separate maintenance burdens.</p>
 <hr />
 <h3 id="1-the-good-news-your-core-moat-is-real-and-rare">1. The Good News: Your Core Moat Is Real and Rare</h3>
-<p>Very few teams combine <strong>sub-microsecond C++20/eBPF wire inspection</strong> + <strong>formal Nagumo Control Barrier Functions ($h(x) \ge 0$)</strong> + <strong>air-gapped local NPU inference (<code>$0.00</code> cloud egress)</strong> in one ecosystem.</p>
+<p>Very few teams combine <strong>sub-microsecond C++20/eBPF wire inspection</strong> + <strong>formal Nagumo Control Barrier Functions (<span class="arithmatex">\(h(x) \ge 0\)</span>)</strong> + <strong>air-gapped local NPU inference (<code>$0.00</code> cloud egress)</strong> in one ecosystem.</p>
 <p>Several Horizon 1 &amp; 2 items already map <strong>directly</strong> onto the exact <code>ccsds-guard</code> / <code>ics-guard</code> plugin pattern you just built:
 * <strong>Already Demonstrated:</strong> <code>#13</code> (CCSDS 133), <code>#22</code> (STANAG 4586) via <strong><code>ccsds-guard</code></strong>; <code>#02</code> (IEEE C37.118.2), <code>#09</code> (Modbus BESS/Thermal), <code>#28</code> / <code>#40</code> (Modbus + RK4 Nagumo CBF) via <strong><code>ics-guard</code></strong>.
 * <strong>Same Pattern, Minimal New Code:</strong> <code>#01</code> (IEC 61850 GOOSE/SV), <code>#03</code> (GTP-U/PFCP 5G), <code>#04</code> (O-RAN E2/SCTP + Wasm3), <code>#10</code> (CWPP tracepoints + TPM 2.0), <code>#31</code> / <code>#32</code> (ITCH/MDP 3.0), <code>#34</code> (NMEA 2000), <code>#44</code> (BACnet ODE), <code>#50</code> (PQC TLS offload—already partially prototyped in <code>sentinel-lab/src/pqc_profiler.cpp</code>).</p>
@@ -43274,7 +43274,7 @@
 <li><strong>Long-Horizon OEM Bets (3–7 years certification before revenue):</strong></li>
 <li><strong><code>#18</code> (Surgical Robotics — FDA Class III)</strong>, <strong><code>#28</code> (Nuclear — NRC/IAEA)</strong>, <strong><code>#29</code> (Automotive — ISO 26262 ASIL)</strong>, <strong><code>#35</code> (Space — Rad-Hard)</strong>. Treat these as Phase-3 strategic partnerships funded by Horizon-1 cash flow, not Year-1 targets.</li>
 </ul>
-<p><em>(Minor typo spotted in row <code>#05</code>: <code>"defense defense procurement"</code> $\rightarrow$ <code>"defense procurement"</code>.)</em></p>
+<p><em>(Minor typo spotted in row <code>#05</code>: <code>"defense defense procurement"</code> <span class="arithmatex">\(\rightarrow\)</span> <code>"defense procurement"</code>.)</em></p>
 <h3 id="bottom-line">Bottom Line</h3>
 <p>With <strong><code>ccsds-guard</code></strong> and <strong><code>ics-guard</code></strong> already built and decoupled from <code>sentinel-matrix</code>, you have <strong>already proven Archetypes #1 and #2</strong>. The smartest next technical milestone toward the wider 50-product vision would be <strong>Archetype #3 (<code>5G/FinTech</code> pure <code>AF_XDP</code> + <code>blackbox-sentinel</code> live NIC pipeline)</strong> or adding a <strong>SocketCAN / V4L2-DMA-BUF ingestion plugin</strong> to <code>blackbox-sentinel</code> so non-Ethernet sensors feed the exact same engine.</p>
 
@@ -43345,6 +43345,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

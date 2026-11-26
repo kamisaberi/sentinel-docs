@@ -43400,7 +43400,7 @@
 <li><strong>128-Bit Cache-Line Aligned Anti-Replay (<code>&lt; 25 ns</code>)</strong>: Branchless circular bitmask (<code>alignas(64)</code>) enforcing strict sequence monotonicity while tolerating out-of-order radio link jitter within a 128-frame sliding window.</li>
 <li><strong>NATO STANAG 4586 DLI &amp; IEEE-754 3D Waypoint Unpacking</strong>: Bit-level validation of Vehicle ID, Message Type, Sequence Counter, 64-bit Microsecond Epoch Timestamp, and 12-byte IEEE-754 big-endian 3D coordinates <code>(X, Y, Z)</code> via C++20 <code>std::bit_cast&lt;float&gt;</code>.</li>
 <li><strong>CCSDS 132.0-B-2 &amp; 133.0-B-2 Space Data Link Security</strong>: Validates Spacecraft ID (SCID), Virtual Channel ID (VCID), Security Parameter Index (SPI), Anti-Replay IV Counter, and CRC-16-CCITT frame integrity.</li>
-<li><strong>Dead-Reckoning Kinematic Envelope &amp; Control Barrier Function ($h(x) \ge 0$)</strong>: Evaluates 3D Euclidean trajectory deltas ($\Delta P / \Delta T$) against airframe physical velocity ($\le 80.0\text{ m/s}$) and structural acceleration ($\le 30.0\text{ m/s}^2$) boundaries.</li>
+<li><strong>Dead-Reckoning Kinematic Envelope &amp; Control Barrier Function (<span class="arithmatex">\(h(x) \ge 0\)</span>)</strong>: Evaluates 3D Euclidean trajectory deltas (<span class="arithmatex">\(\Delta P / \Delta T\)</span>) against airframe physical velocity (<span class="arithmatex">\(\le 80.0\text{ m/s}\)</span>) and structural acceleration (<span class="arithmatex">\(\le 30.0\text{ m/s}^2\)</span>) boundaries.</li>
 <li><strong>Sub-15 ns Hardware Actuator Air-Gap Latch</strong>: Immediately isolates downstream PWM/CAN/MAVLink servo lines upon replay, desynchronization, or GPS spoofing detection, placing the airframe into fail-safe aerodynamic glide.</li>
 </ul>
 <hr />
@@ -43610,12 +43610,12 @@ P99.9 Latency:    24.7867 ns
 </tr>
 <tr>
 <td style="text-align: left;"><code>aryo lab uav-gps-spoof</code></td>
-<td style="text-align: left;">Kinematic Boundary Breach &amp; Control Barrier Function ($h(x) = v_{\max} - |\dot{p}| \ge 0$)</td>
-<td style="text-align: left;">Euclidean Velocity, CBF Safety Margin $h(x)$, Air-Gap Trip Status</td>
+<td style="text-align: left;">Kinematic Boundary Breach &amp; Control Barrier Function (<span class="arithmatex">\(h(x) = v_{\max} - \|\dot{p}\| \ge 0\)</span>)</td>
+<td style="text-align: left;">Euclidean Velocity, CBF Safety Margin <span class="arithmatex">\(h(x)\)</span>, Air-Gap Trip Status</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>aryo lab uav-desync-audit</code></td>
-<td style="text-align: left;">IEEE 1588 PTP &amp; STANAG 4586 Microsecond Clock Jitter Audit ($\pm 500\text{ ms}$)</td>
+<td style="text-align: left;">IEEE 1588 PTP &amp; STANAG 4586 Microsecond Clock Jitter Audit (<span class="arithmatex">\(\pm 500\text{ ms}\)</span>)</td>
 <td style="text-align: left;">Clock Skew Offset (ms), Phase Synchronization Verdict</td>
 </tr>
 <tr>
@@ -43798,6 +43798,10 @@ aryo<span class="w"> </span>lab<span class="w"> </span>uav-airgap-tripwire
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

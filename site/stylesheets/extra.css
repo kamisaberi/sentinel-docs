@@ -1,5 +1,5 @@
 /* ==============================================================================
-   ARYORITHM MASTER DOCUMENTATION — STANDARDIZED WEB TYPOGRAPHY & DEEP-TECH UI
+   ARYORITHM MASTER DOCUMENTATION — CLEAN STANDARD WEB TYPOGRAPHY & DEEP-TECH UI
    ============================================================================== */
 
 /* 1. Global Canvas & Color Tokens (Dark Slate Mode) */
@@ -29,19 +29,12 @@
   box-shadow: none !important;
 }
 
-.md-header__title {
-  font-weight: 600 !important;
-  letter-spacing: -0.015em !important;
-  font-size: 0.95rem !important;
-}
-
-/* 4. Primary Navigation Rail: Normalized Dashboard Sidebar */
+/* 4. Primary Navigation Rail */
 .md-sidebar--primary {
   width: 18.5rem !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif !important;
 }
 
-[data-md-color-scheme="slate"] .md-sidebar--primary .md-sidebar__scrollwrap {
+.md-sidebar--primary .md-sidebar__scrollwrap {
   background-color: #080c16;
   border-right: 1px solid rgba(148, 163, 184, 0.1);
   padding: 0.5rem 0.35rem !important;
@@ -50,60 +43,28 @@
 [data-md-color-scheme="default"] .md-sidebar--primary .md-sidebar__scrollwrap {
   background-color: #0f172a;
   border-right: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0.5rem 0.35rem !important;
-}
-
-/* Sidebar Navigation Typography (Standard Accessible Scale: 13px) */
-.md-nav {
-  font-size: 0.8125rem !important;
-  line-height: 1.45 !important;
-}
-
-.md-nav__list .md-nav__list {
-  padding-left: 0.65rem !important;
 }
 
 /* Category & Section Headers */
 .md-nav__item--nested > .md-nav__link,
 .md-nav__item--nested > label.md-nav__link {
-  font-size: 0.75rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
   color: #94a3b8 !important;
-  margin-top: 0.45rem !important;
-  padding: 0.3rem 0.55rem !important;
 }
 
-/* Navigation Links: Ergonomic Pill Geometry */
-.md-nav__link {
-  border-radius: 6px !important;
-  padding: 0.32rem 0.6rem !important;
-  margin: 0.05rem 0.15rem !important;
-  font-size: 0.8125rem !important;
-  color: #cbd5e1 !important;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.md-nav__link:hover {
-  background-color: rgba(34, 211, 238, 0.08) !important;
-  color: #22d3ee !important;
-}
-
+/* Active Navigation Item */
 .md-nav__item--active > .md-nav__link {
   background-color: rgba(34, 211, 238, 0.12) !important;
   color: #22d3ee !important;
   font-weight: 600 !important;
   border-left: 3px solid #22d3ee !important;
-  padding-left: 0.52rem !important;
 }
 
 /* Sleek Custom Scrollbars */
 .md-sidebar__scrollwrap::-webkit-scrollbar {
   width: 4px;
-}
-.md-sidebar__scrollwrap::-webkit-scrollbar-track {
-  background: transparent;
 }
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
   background: rgba(100, 116, 139, 0.35);
@@ -113,83 +74,51 @@
   background: rgba(34, 211, 238, 0.55);
 }
 
-/* 5. Main Content Canvas & Body Typography (Standard Web Scale: 15.2px) */
+/* 5. Main Content Canvas & Heading Code Integration */
 .md-content {
-  padding-left: 2.25rem !important;
-  padding-right: 2.25rem !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
-.md-typeset {
-  font-size: 0.95rem !important;
-  line-height: 1.70 !important;
-  color: #e2e8f0 !important;
-}
-
-/* Heading Hierarchy */
+/* Headings: Clean Gradient on H1, standard font scaling */
 [data-md-color-scheme="slate"] .md-typeset h1 {
-  font-weight: 700 !important;
-  letter-spacing: -0.025em !important;
-  font-size: 2.25rem !important;
-  line-height: 1.25 !important;
   background: linear-gradient(90deg, #f8fafc 0%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.4rem !important;
+  font-weight: 700;
 }
 
-[data-md-color-scheme="slate"] .md-typeset h2 {
-  font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
-  font-size: 1.50rem !important;
-  line-height: 1.35 !important;
-  color: #f1f5f9 !important;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16) !important;
-  padding-bottom: 0.45rem !important;
-  margin-top: 2.2rem !important;
-  margin-bottom: 0.8rem !important;
+/* Integrate code tags seamlessly inside headings (prevents misaligned badge boxes) */
+.md-typeset h1 code,
+.md-typeset h2 code,
+.md-typeset h3 code {
+  font-size: inherit !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-weight: inherit !important;
 }
 
-[data-md-color-scheme="slate"] .md-typeset h3 {
-  font-weight: 600 !important;
-  letter-spacing: -0.015em !important;
-  font-size: 1.25rem !important;
-  line-height: 1.4 !important;
-  color: #cbd5e1 !important;
-  margin-top: 1.6rem !important;
-}
-
-/* 6. Standardized Code Blocks & Monospace Font (14.0px) */
+/* 6. Code Blocks & Inline Code (Natural scaling, dark styling) */
 [data-md-color-scheme="slate"] .md-typeset pre > code {
   background-color: #0b101b !important;
   border: 1px solid rgba(148, 163, 184, 0.16) !important;
   border-radius: 8px !important;
-  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace !important;
-  font-size: 0.875rem !important;
-  line-height: 1.55 !important;
-  padding: 1.0rem 1.25rem !important;
-  color: #e2e8f0 !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset code {
-  background-color: rgba(30, 41, 59, 0.70) !important;
-  border: 1px solid rgba(148, 163, 184, 0.14) !important;
-  border-radius: 4px !important;
-  padding: 0.12em 0.4em !important;
-  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace !important;
-  font-size: 0.85em !important;
-  color: #67e8f9 !important;
+  background-color: rgba(30, 41, 59, 0.70);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 4px;
+  color: #67e8f9;
 }
 
-/* 7. Data Tables (Standard 14.0px Sizing with Comfortable Padding) */
+/* 7. Data Tables */
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) {
   background-color: #0b101b !important;
   border: 1px solid rgba(148, 163, 184, 0.16) !important;
-  border-radius: 10px !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.32) !important;
-  font-size: 0.875rem !important;
-  margin: 1.5rem 0 !important;
+  border-radius: 8px !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
@@ -197,36 +126,14 @@
   color: #22d3ee !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.05em !important;
   border-bottom: 1px solid rgba(148, 163, 184, 0.20) !important;
-  padding: 0.75rem 1.0rem !important;
 }
 
-[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
-  border-top: 1px solid rgba(148, 163, 184, 0.08) !important;
-  padding: 0.65rem 1.0rem !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
-  background-color: rgba(34, 211, 238, 0.04) !important;
-}
-
-/* 8. Framed Mermaid Containers & Callouts */
+/* 8. Framed Mermaid Containers */
 [data-md-color-scheme="slate"] .md-typeset pre.mermaid {
   background-color: #0b101b !important;
   border: 1px solid rgba(34, 211, 238, 0.20) !important;
   border-radius: 10px !important;
   padding: 1.5rem !important;
   text-align: center !important;
-  margin: 1.5rem 0 !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition {
-  background-color: #0b101b !important;
-  border-radius: 8px !important;
-  border-left-width: 3.5px !important;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28) !important;
-  font-size: 0.90rem !important;
-  margin: 1.5rem 0 !important;
 }

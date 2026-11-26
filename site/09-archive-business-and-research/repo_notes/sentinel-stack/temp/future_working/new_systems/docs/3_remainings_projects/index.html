@@ -43179,12 +43179,12 @@
 </li>
 <li><strong>Bus Added:</strong> <code>SocketCanDriver</code> (<code>vcan</code> / <code>AF_UNIX</code> CAN-FD bus) + <code>ipc: shareable</code> <code>/dev/shm</code> ring + <code>RawL2</code> EtherCAT (<code>0x88A4</code>).</li>
 <li>
-<p><strong>Why Second:</strong> Reuses the exact <strong>Nagumo CBF ($h(x) \ge 0$) + RK4 ODE</strong> math you already verified in <code>ics-guard</code> and <code>ccsds-guard</code>, now applied to joint torque, braking, and vehicle actuation buses.</p>
+<p><strong>Why Second:</strong> Reuses the exact <strong>Nagumo CBF (<span class="arithmatex">\(h(x) \ge 0\)</span>) + RK4 ODE</strong> math you already verified in <code>ics-guard</code> and <code>ccsds-guard</code>, now applied to joint torque, braking, and vehicle actuation buses.</p>
 </li>
 <li>
 <p><strong>Third → Cartridge #5: <code>vision-guard</code> (Air-Gapped RTSP/V4L2/DMA-BUF Edge Vision)</strong></p>
 </li>
-<li><strong>Bus Added:</strong> Zero-copy <code>ShmVideoDriver</code> (<code>/dev/shm</code> frame ring in Docker Compose $\leftrightarrow$ <code>V4L2</code> / <code>DMA-BUF</code> on real Jetson/RK3588/Intel NPU hardware) feeding directly into <code>xinfer::Engine</code>.</li>
+<li><strong>Bus Added:</strong> Zero-copy <code>ShmVideoDriver</code> (<code>/dev/shm</code> frame ring in Docker Compose <span class="arithmatex">\(\leftrightarrow\)</span> <code>V4L2</code> / <code>DMA-BUF</code> on real Jetson/RK3588/Intel NPU hardware) feeding directly into <code>xinfer::Engine</code>.</li>
 <li><strong>Why Third:</strong> Builds directly on the <code>/dev/shm</code> ring infrastructure validated in Step 2, turning it into a zero-copy video tensor pipeline (<code>#07, #08, #12, #20, #26, #45</code>).</li>
 </ol>
 <hr />
@@ -43263,6 +43263,10 @@
       
       
         <script src="../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

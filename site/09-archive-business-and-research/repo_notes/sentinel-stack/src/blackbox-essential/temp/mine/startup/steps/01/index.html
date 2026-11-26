@@ -43225,7 +43225,7 @@
 <p>To build a successful deep-tech startup, <strong>do not start by building the Web UI, database encryption, or complex user authentication.</strong></p>
 <p>You should start with the <strong>"Magic Feature"</strong>—the single core pipeline that proves your value proposition:</p>
 <blockquote>
-<p><strong>"Ingest a network stream $\rightarrow$ Run AI inference on <code>libxinfer.so</code> $\rightarrow$ Drop the malicious IP in nanoseconds via eBPF on <code>libblackbox.so</code>."</strong></p>
+<p><strong>"Ingest a network stream <span class="arithmatex">\(\rightarrow\)</span> Run AI inference on <code>libxinfer.so</code> <span class="arithmatex">\(\rightarrow\)</span> Drop the malicious IP in nanoseconds via eBPF on <code>libblackbox.so</code>."</strong></p>
 </blockquote>
 <p>If you can build and demonstrate this 1-second live demo, <strong>you have a working, fundable MVP (Minimum Viable Product)</strong> that will impress investors and early pilot customers.</p>
 <hr />
@@ -43251,7 +43251,7 @@ Solidify libxinfer.so  ---&gt;  Connect libblackbox.so to eBPF  ---&gt;  Build t
 <li>Create the <code>blackbox</code> directory on your Ubuntu VM.</li>
 <li>Compile <code>libblackbox.so</code> linking against <code>/usr/local/lib/libxinfer.so</code>.</li>
 <li>Implement <code>network_ingest.cpp</code> (reading raw packets) and <code>ebpf_blocker.cpp</code> (executing kernel IP drops).</li>
-<li>Run an end-to-end test: Pass a packet vector to <code>libblackbox.so</code> $\rightarrow$ <code>libxinfer.so</code> scores it as <code>0.92</code> (Anomaly) $\rightarrow$ <code>ebpf_blocker</code> executes <code>iptables</code>/eBPF drop.</li>
+<li>Run an end-to-end test: Pass a packet vector to <code>libblackbox.so</code> <span class="arithmatex">\(\rightarrow\)</span> <code>libxinfer.so</code> scores it as <code>0.92</code> (Anomaly) <span class="arithmatex">\(\rightarrow\)</span> <code>ebpf_blocker</code> executes <code>iptables</code>/eBPF drop.</li>
 <li><strong>Deliverable:</strong> A C++ daemon (<code>blackbox_daemon</code>) that blocks a simulated attack in real-time.</li>
 </ol>
 <hr />
@@ -43342,6 +43342,10 @@ Solidify libxinfer.so  ---&gt;  Connect libblackbox.so to eBPF  ---&gt;  Build t
       
       
         <script src="../../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

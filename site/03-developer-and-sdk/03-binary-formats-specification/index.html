@@ -43196,7 +43196,7 @@
 </tbody>
 </table>
 <p>The 64-byte Ed25519 signature is computed over a <strong>4-way Merkle tree</strong>:</p>
-<p>$$\text{MerkleRoot} = \text{SHA256}(\text{SHA256}(\text{manifest}) \parallel \text{SHA256}(\text{payload}) \parallel \text{SHA256}(\text{source}) \parallel \text{SHA256}(\text{test_vector}))$$</p>
+<div class="arithmatex">\[\text{MerkleRoot} = \text{SHA256}(\text{SHA256}(\text{manifest}) \parallel \text{SHA256}(\text{payload}) \parallel \text{SHA256}(\text{source}) \parallel \text{SHA256}(\text{test\_vector}))\]</div>
 <hr />
 <h2 id="2-sentinel-lab-research-dataset-slab">2. Sentinel Lab Research Dataset (<code>.slab</code>)</h2>
 <p>The <code>.slab</code> format is a zero-copy, binary streaming protocol designed for high-throughput packet replay and telemetry storage (<code>&gt; 40M EPS</code>):</p>
@@ -43304,6 +43304,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

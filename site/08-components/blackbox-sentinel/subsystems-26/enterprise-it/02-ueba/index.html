@@ -43183,10 +43183,10 @@
 <hr />
 <h2 id="2-statistical-baseline-markov-transition-model">2. Statistical Baseline &amp; Markov Transition Model</h2>
 <p>The subsystem calculates anomaly probabilities using a combined metric score:</p>
-<p>$$\text{Risk}(E) = w_1 \cdot \frac{|X_{\text{observed}} - \mu_{\text{baseline}}|}{\sigma_{\text{baseline}}} + w_2 \cdot \left(1.0 - P_{\text{Markov}}(S_t \mid S_{t-1})\right)$$</p>
+<div class="arithmatex">\[\text{Risk}(E) = w_1 \cdot \frac{|X_{\text{observed}} - \mu_{\text{baseline}}|}{\sigma_{\text{baseline}}} + w_2 \cdot \left(1.0 - P_{\text{Markov}}(S_t \mid S_{t-1})\right)\]</div>
 <p>Where:
-* $\frac{|X - \mu|}{\sigma}$ represents the Z-score deviation of connection frequencies or byte volumes.
-* $P_{\text{Markov}}(S_t \mid S_{t-1})$ measures the probability of moving from protocol state $S_{t-1}$ (e.g., SMB Read) to state $S_t$ (e.g., Active Directory DCSync) based on historical entity habits.</p>
+* <span class="arithmatex">\(\frac{|X - \mu|}{\sigma}\)</span> represents the Z-score deviation of connection frequencies or byte volumes.
+* <span class="arithmatex">\(P_{\text{Markov}}(S_t \mid S_{t-1})\)</span> measures the probability of moving from protocol state <span class="arithmatex">\(S_{t-1}\)</span> (e.g., SMB Read) to state <span class="arithmatex">\(S_t\)</span> (e.g., Active Directory DCSync) based on historical entity habits.</p>
 <hr />
 <h2 id="3-configuration-parameters-sentinelyaml">3. Configuration Parameters (<code>sentinel.yaml</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="nt">subsystems</span><span class="p">:</span>
@@ -43265,6 +43265,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

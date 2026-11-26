@@ -43139,7 +43139,7 @@
 
 
 <h1 id="rollbackguard-automated-sla-latency-watchdog"><code>RollbackGuard</code>: Automated SLA Latency Watchdog</h1>
-<p>Edge cyber-physical security requires deterministic execution. If an updated candidate model introduces complex operator paths that push inference latency beyond <strong>$1{,}000\,\mu\text{s}$ ($1.0\,\text{ms}$)</strong>, it breaches line-rate mitigation SLAs.</p>
+<p>Edge cyber-physical security requires deterministic execution. If an updated candidate model introduces complex operator paths that push inference latency beyond <strong><span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> (<span class="arithmatex">\(1.0\,\text{ms}\)</span>)</strong>, it breaches line-rate mitigation SLAs.</p>
 <p><code>RollbackGuard</code> (<code>src/nexus/RollbackGuard.cpp</code>) continuously monitors heartbeat telemetry from Canary appliances, triggering an <strong>instant, automated rollback</strong> upon SLA violations.</p>
 <hr />
 <h2 id="1-watchdog-enforcement-loop">1. Watchdog Enforcement Loop</h2>
@@ -43264,6 +43264,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

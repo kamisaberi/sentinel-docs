@@ -43311,15 +43311,15 @@
 <hr />
 <h4 id="1-idea-1-in-kernel-tsn-ieee-1588-ptp-time-synchronization-firewall">1. Idea 1: In-Kernel TSN &amp; IEEE 1588 PTP Time-Synchronization Firewall</h4>
 <ul>
-<li><strong>The Problem:</strong> Modern industrial robotics, electrical substations (IEC 61850 SV), and aerospace platforms rely on <strong>IEEE 802.1Qbv Time-Sensitive Networking (TSN)</strong> and <strong>IEEE 1588 Precision Time Protocol (PTPv2)</strong> to coordinate actions down to sub-microsecond schedules. Adversaries execute <strong>Time-Delay Attacks (TDA)</strong> and rogue PTP Master clock spoofing. Introducing just a $15\,\mu\text{s}$ time offset desynchronizes power grid circuit breakers or causes high-speed industrial cobots to collide with workcell fixtures.</li>
-<li><strong>The Mechanism:</strong> An in-kernel eBPF PTP parser attached directly to Ethernet frames (EtherType <code>0x88F7</code> / UDP port 319/320). It verifies cryptographic PTP timestamps, computes running Allan deviation ($\sigma_y(\tau)$) of local vs master clock in kernel registers, and drops rogue grandmaster clock announcements and asymmetric delay injections before they reach the hardware NIC clock servo.</li>
+<li><strong>The Problem:</strong> Modern industrial robotics, electrical substations (IEC 61850 SV), and aerospace platforms rely on <strong>IEEE 802.1Qbv Time-Sensitive Networking (TSN)</strong> and <strong>IEEE 1588 Precision Time Protocol (PTPv2)</strong> to coordinate actions down to sub-microsecond schedules. Adversaries execute <strong>Time-Delay Attacks (TDA)</strong> and rogue PTP Master clock spoofing. Introducing just a <span class="arithmatex">\(15\,\mu\text{s}\)</span> time offset desynchronizes power grid circuit breakers or causes high-speed industrial cobots to collide with workcell fixtures.</li>
+<li><strong>The Mechanism:</strong> An in-kernel eBPF PTP parser attached directly to Ethernet frames (EtherType <code>0x88F7</code> / UDP port 319/320). It verifies cryptographic PTP timestamps, computes running Allan deviation (<span class="arithmatex">\(\sigma_y(\tau)\)</span>) of local vs master clock in kernel registers, and drops rogue grandmaster clock announcements and asymmetric delay injections before they reach the hardware NIC clock servo.</li>
 <li><strong>CLI Command:</strong> <code>aryo tsn status</code> / <code>aryo tsn guard-ptp --max-jitter-ns 500</code>.</li>
 </ul>
 <hr />
 <h4 id="2-idea-2-acoustic-physical-side-channel-covert-air-gap-leak-guard">2. Idea 2: Acoustic &amp; Physical Side-Channel Covert Air-Gap Leak Guard</h4>
 <ul>
 <li><strong>The Problem:</strong> In completely air-gapped nuclear plants, defense skiffs, and uranium centrifuges, malware (like Stuxnet, Fansmitter, or PowerHammer) cannot use the network to exfiltrate data. Instead, attackers use <strong>covert physical side-channels</strong>: modulating CPU core frequencies to produce ultrasonic acoustic whine through motherboard coils, or oscillating fan RPMs to transmit stolen PLC ladder logic to a nearby smartphone microphone or optical sensor.</li>
-<li><strong>The Mechanism:</strong> Integrates with Linux <code>perf_event_open</code> hardware performance counters (PMU) and thermal/fan PWM subsystems via eBPF. It runs a spectral frequency transform on CPU instruction pipelines and fan speed telemetry to detect periodic FSK/OOK (Frequency/On-Off Keying) modulation patterns, automatically injecting noise or throttling the offending process in $&lt; 1\text{ ms}$ to neutralize covert exfiltration.</li>
+<li><strong>The Mechanism:</strong> Integrates with Linux <code>perf_event_open</code> hardware performance counters (PMU) and thermal/fan PWM subsystems via eBPF. It runs a spectral frequency transform on CPU instruction pipelines and fan speed telemetry to detect periodic FSK/OOK (Frequency/On-Off Keying) modulation patterns, automatically injecting noise or throttling the offending process in <span class="arithmatex">\(&lt; 1\text{ ms}\)</span> to neutralize covert exfiltration.</li>
 <li><strong>CLI Command:</strong> <code>aryo airgap monitor</code> / <code>aryo airgap test-covert</code>.</li>
 </ul>
 <hr />
@@ -43333,14 +43333,14 @@
 <h4 id="4-idea-4-autonomous-ai-agentic-red-teamer-exploit-mutation-engine">4. Idea 4: Autonomous AI Agentic Red-Teamer &amp; Exploit Mutation Engine</h4>
 <ul>
 <li><strong>The Problem:</strong> Defense teams currently write static signatures or wait for known CVEs. Sophisticated threat actors use LLMs and reinforcement learning to synthesize novel zero-day exploit variants, bypassing existing dissectors and rules.</li>
-<li><strong>The Mechanism:</strong> Deploys a local, air-gapped reinforcement learning and LLM agent inside <code>sentinel-matrix</code>. The agent interacts with the running digital twin (<code>mock_plc</code> running the RK4 ODE physics solver), automatically discovering subtle multi-step protocol smuggling techniques (e.g. S7 COTP fragmentation tricks, Modbus function code chaining) designed to cause physical ODE divergence ($h(x) &lt; 0$). Once the AI red-teamer finds a zero-day exploit that bypasses defenses, it automatically invokes <code>sentinel-artifact</code> to generate the matching vaccine <code>.spkg</code> before real-world adversaries discover the loophole.</li>
+<li><strong>The Mechanism:</strong> Deploys a local, air-gapped reinforcement learning and LLM agent inside <code>sentinel-matrix</code>. The agent interacts with the running digital twin (<code>mock_plc</code> running the RK4 ODE physics solver), automatically discovering subtle multi-step protocol smuggling techniques (e.g. S7 COTP fragmentation tricks, Modbus function code chaining) designed to cause physical ODE divergence (<span class="arithmatex">\(h(x) &lt; 0\)</span>). Once the AI red-teamer finds a zero-day exploit that bypasses defenses, it automatically invokes <code>sentinel-artifact</code> to generate the matching vaccine <code>.spkg</code> before real-world adversaries discover the loophole.</li>
 <li><strong>CLI Command:</strong> <code>aryo matrix redteam-autobreak</code> / <code>aryo matrix self-harden</code>.</li>
 </ul>
 <hr />
 <h4 id="5-idea-5-automotive-heavy-mobility-can-fd-flexray-in-vehicle-bus-sentry">5. Idea 5: Automotive &amp; Heavy Mobility CAN-FD / FlexRay In-Vehicle Bus Sentry</h4>
 <ul>
 <li><strong>The Problem:</strong> Connected vehicles, autonomous mining trucks, and defense combat vehicles run internal vehicle networks using <strong>CAN-FD (Controller Area Network Flexible Data-Rate)</strong> and <strong>FlexRay</strong>. Modern vehicles have telematics units and infotainment systems directly accessible via cellular/Bluetooth. Attackers who compromise the infotainment unit inject rogue CAN arbitration IDs, commanding unwanted steering wheel torque, cutting engine brakes, or disabling airbag systems at highway speeds.</li>
-<li><strong>The Mechanism:</strong> Extends <code>blackbox-essential</code> with an in-kernel Linux <strong>SocketCAN eBPF filter</strong> (<code>bpf_attach_socket</code> / <code>BPF_PROG_TYPE_CGROUP_SOCK_ADDR</code>). It inspects 64-byte CAN-FD frames directly at the Linux kernel <code>vcan</code> / <code>can0</code> network driver, verifies cyclic message timing jitter ($&lt; 500\,\mu\text{s}$ tolerance), blocks bus-off denial of service attacks, and drops unauthorized drive-by-wire acceleration/braking frame injections in $&lt; 5\,\mu\text{s}$.</li>
+<li><strong>The Mechanism:</strong> Extends <code>blackbox-essential</code> with an in-kernel Linux <strong>SocketCAN eBPF filter</strong> (<code>bpf_attach_socket</code> / <code>BPF_PROG_TYPE_CGROUP_SOCK_ADDR</code>). It inspects 64-byte CAN-FD frames directly at the Linux kernel <code>vcan</code> / <code>can0</code> network driver, verifies cyclic message timing jitter (<span class="arithmatex">\(&lt; 500\,\mu\text{s}\)</span> tolerance), blocks bus-off denial of service attacks, and drops unauthorized drive-by-wire acceleration/braking frame injections in <span class="arithmatex">\(&lt; 5\,\mu\text{s}\)</span>.</li>
 <li><strong>CLI Command:</strong> <code>aryo can status</code> / <code>aryo can guard --interface can0</code>.</li>
 </ul>
 <hr />
@@ -43421,6 +43421,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

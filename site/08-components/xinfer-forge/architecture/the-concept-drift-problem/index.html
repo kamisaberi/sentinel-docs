@@ -43142,9 +43142,9 @@
 <p>A primary reason static intrusion detection systems fail in real-world industrial environments is <strong>concept drift</strong>. Normal operational traffic does not remain static over time; baseline distributions drift naturally due to software updates, operational reconfigurations, and physical process shifts.</p>
 <hr />
 <h2 id="1-mathematical-formulation-of-drift">1. Mathematical Formulation of Drift</h2>
-<p>Let $X \in \mathbb{R}^{32}$ denote the continuous feature vector representing an individual network flow, and let $Y \in {0, 1}$ represent the ground truth label ($0 = \text{Benign}, 1 = \text{Malicious}$).</p>
-<p>In real-world networks, the joint probability distribution $P_t(X, Y)$ changes over time $t$:</p>
-<p>$$P_t(X, Y) \ne P_{t + \Delta t}(X, Y)$$</p>
+<p>Let <span class="arithmatex">\(X \in \mathbb{R}^{32}\)</span> denote the continuous feature vector representing an individual network flow, and let <span class="arithmatex">\(Y \in \{0, 1\}\)</span> represent the ground truth label (<span class="arithmatex">\(0 = \text{Benign}, 1 = \text{Malicious}\)</span>).</p>
+<p>In real-world networks, the joint probability distribution <span class="arithmatex">\(P_t(X, Y)\)</span> changes over time <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[P_t(X, Y) \ne P_{t + \Delta t}(X, Y)\]</div>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ Covariate Shift: P_t(X) ≠ P_{t+Δt}(X), while P(Y|X) is Fixed│
  │  - Cause: A new PLC engineering tool increases packet rate.│
@@ -43172,7 +43172,7 @@ Accuracy (%)
         │                                │                                        (Complete Model Decay)
    0% ──┴──────────┴─────────────────────┴──────────────────────┴──────────────────────┴────► Time
 </code></pre></div>
-<p>By continually ingesting ambient flow batches, <code>xinfer-forge</code> updates the internal representation manifold to maintain sustained detection accuracy ($&gt; 98.0\%$).</p>
+<p>By continually ingesting ambient flow batches, <code>xinfer-forge</code> updates the internal representation manifold to maintain sustained detection accuracy (<span class="arithmatex">\(&gt; 98.0\%\)</span>).</p>
 
 
 
@@ -43241,6 +43241,10 @@ Accuracy (%)
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

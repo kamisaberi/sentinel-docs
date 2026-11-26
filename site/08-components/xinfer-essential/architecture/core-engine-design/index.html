@@ -43311,7 +43311,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-fast-path-forward-execution-sequence">3. Fast-Path Forward Execution Sequence</h2>
-<p>During steady-state operation (<code>READY</code> $\to$ <code>EXECUTING</code> $\to$ <code>READY</code>), dynamic memory allocations are strictly prohibited. The forward execution follows a fixed microsecond call path:</p>
+<p>During steady-state operation (<code>READY</code> <span class="arithmatex">\(\to\)</span> <code>EXECUTING</code> <span class="arithmatex">\(\to\)</span> <code>READY</code>), dynamic memory allocations are strictly prohibited. The forward execution follows a fixed microsecond call path:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">InferenceEngine::forward</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 1. Enforce atomic state transition</span>
 <span class="w">    </span><span class="n">State</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">State</span><span class="o">::</span><span class="n">READY</span><span class="p">;</span>
@@ -43415,6 +43415,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43742,8 +43742,8 @@
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a direct DMA-BUF bridge streaming multi-camera USB/MIPI-CSI2 video feeds into edge NPU tensor registers without CPU format transformation or memory copies.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filters strictly isolate the local payment terminal (EMV credit card reader) from the public kiosk network, dropping unauthenticated network probes at line rate.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) fuses physical shelf weight-sensor triggers (ADC scale readings) with visual object hand-tracking within the <strong>$&lt; 88\text{ ns}$</strong> SLA.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 100-class packaged item recognition networks into INT8 QDQ ONNX models running in <strong>$&lt; 12\,\mu\text{s}$</strong> on low-power edge silicon.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) fuses physical shelf weight-sensor triggers (ADC scale readings) with visual object hand-tracking within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 100-class packaged item recognition networks into INT8 QDQ ONNX models running in <strong><span class="arithmatex">\(&lt; 12\,\mu\text{s}\)</span></strong> on low-power edge silicon.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler) to mathematically verify zero memory fragmentation or bus lock contention across 24/7 continuous store operations.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator manages dynamic pricing, stock inventory, and expiration date tables across 500+ distributed kiosk nodes over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin door kinematics and spring-loaded solenoid latch ODE simulations (<code>plant_ode.c</code>).</li>
@@ -43761,27 +43761,27 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>V4L2 Video Streams</strong>, <strong>MDB (Multi-Drop Bus)</strong> internal vending protocol, <strong>EMV ISO/IEC 7816 &amp; ISO 8583</strong> payment frames.</li>
 <li><strong>Mathematical Invariant (Multi-Modal Inventory State Vector Invariant):</strong>
-  $$\Delta \mathbf{S}<em>{inventory} = \sum</em>{k=1}^{M} \text{argmax}<em>{item}(P(\mathbf{x}<em>k)) \cdot \mathbb{I}(\text{DoorClosed} \land \Delta W</em>{shelf} \approx W</em>{item})$$
+  $<span class="arithmatex">\(\Delta \mathbf{S}_{inventory} = \sum_{k=1}^{M} \text{argmax}_{item}(P(\mathbf{x}_k)) \cdot \mathbb{I}(\text{DoorClosed} \land \Delta W_{shelf} \approx W_{item})\)</span>$
   The checkout transaction triggers only when the optical item classification cross-correlates with the physical load-cell weight delta:
-  $$\left| \Delta W_{measured} - \sum W_{detected} \right| \le \epsilon_{tolerance}$$
-  This prevents phantom billing, detects product swapping, and completes local payment settlement in <strong>$&lt; 1.5\text{ seconds}$</strong> without uploading video to the cloud.</li>
+  $<span class="arithmatex">\(\left| \Delta W_{measured} - \sum W_{detected} \right| \le \epsilon_{tolerance}\)</span>$
+  This prevents phantom billing, detects product swapping, and completes local payment settlement in <strong><span class="arithmatex">\(&lt; 1.5\text{ seconds}\)</span></strong> without uploading video to the cloud.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Rockchip RK3568 or RK3588 single-board computer ($60 - $150 total hardware cost) drawing $&lt; 8\text{W}$.</li>
+<li><strong>Target Hardware:</strong> Rockchip RK3568 or RK3588 single-board computer ($60 - $150 total hardware cost) drawing <span class="arithmatex">\(&lt; 8\text{W}\)</span>.</li>
 <li><strong>Commercial Advantage:</strong> Slashes autonomous retail kiosk manufacturing costs by <strong>over 75%</strong> by replacing expensive $3,000 desktop GPU PCs with a low-power ARM board that operates 100% offline.</li>
 </ul>
 <hr />
 <h2 id="project-27-satellite-edge-ai-image-compressor-cloud-filter-aerospace">Project 27: Satellite Edge AI Image Compressor &amp; Cloud Filter (Aerospace)</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Commercial Earth observation satellites (optical and hyperspectral SmallSats/CubeSats operated by Planet, Maxar, Satellogic) capture terabytes of raw high-resolution imagery per day. However, transmitting data back to Earth is severely bottlenecked by <strong>downlink RF bandwidth limits</strong> (X-band and Ka-band downlinks achieve only $100\text{ to }500\text{ Mbps}$, and ground station contact passes last only <strong>$6\text{ to }10\text{ minutes}$</strong> per orbit). </p>
-<p>Meteorological data proves that <strong>over $65\% - 70\%$ of the Earth's surface is obscured by cloud cover</strong> at any given moment. Current satellites naively compress and downlink all captured data, wasting millions of dollars in satellite pass fees and ground-station rental costs downlinking useless, cloudy, or pitch-black ocean images.</p>
+<p>Commercial Earth observation satellites (optical and hyperspectral SmallSats/CubeSats operated by Planet, Maxar, Satellogic) capture terabytes of raw high-resolution imagery per day. However, transmitting data back to Earth is severely bottlenecked by <strong>downlink RF bandwidth limits</strong> (X-band and Ka-band downlinks achieve only <span class="arithmatex">\(100\text{ to }500\text{ Mbps}\)</span>, and ground station contact passes last only <strong><span class="arithmatex">\(6\text{ to }10\text{ minutes}\)</span></strong> per orbit). </p>
+<p>Meteorological data proves that <strong>over <span class="arithmatex">\(65\% - 70\%\)</span> of the Earth's surface is obscured by cloud cover</strong> at any given moment. Current satellites naively compress and downlink all captured data, wasting millions of dollars in satellite pass fees and ground-station rental costs downlinking useless, cloudy, or pitch-black ocean images.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory abstraction passing high-speed Camera Link and LVDS sensor lines directly into accelerator tensor memory without CPU memory copies.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Packages verified downlinks directly into <strong>CCSDS 133.0-B-2 Space Packet Protocol</strong> frames using in-kernel zero-copy drivers.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates the native C++20 space dissector (<code>ccsds_guard.cpp</code>) validating on-orbit frame encapsulation.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-spectral cloud segmentation and target-of-interest (ports, airfields, wildfires) neural graphs into INT8 QDQ ONNX models executing in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-spectral cloud segmentation and target-of-interest (ports, airfields, wildfires) neural graphs into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 15 (Orbital Evaluator), simulating space radiation Single Event Upsets (SEU) and bit-flips on neural weights.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates global ground station pass schedules and dynamic priority downlink tasking via sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Houses the orbital digital twin solving Keplerian two-body satellite orbit differential equations (<code>plant_ode.c</code>).</li>
@@ -43799,13 +43799,13 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>CCSDS 122.0-B-2 (Image Data Compression)</strong>, <strong>SpaceWire (ECSS-E-ST-50-52C)</strong>, <strong>CCSDS 133.0-B-2 (Space Packet Protocol)</strong>.</li>
 <li><strong>Mathematical Invariant (On-Orbit Cloud Cover Integral Ratio):</strong>
-  $$\mathcal{R}<em>{cloud} = \frac{\iint</em>{\Omega_{image}} \mathbb{I}\left( \text{NDSI}(x,y) &gt; \tau_{cloud} \land I_{visible}(x,y) &gt; \tau_{whiteness} \right) dx dy}{\text{Area}(\Omega_{image})}$$
-  Where $\text{NDSI} = \frac{\text{Green} - \text{SWIR}}{\text{Green} + \text{SWIR}}$ is the Normalized Difference Snow/Cloud Index. If the cloud cover ratio $\mathcal{R}_{cloud} &gt; 0.35$ and no high-priority emergency target coordinates are present, the raw image buffer is <strong>pruned from the solid-state recorder (SSR) in orbit</strong>, reserving downlink bandwidth strictly for high-value intelligence.</li>
+  $<span class="arithmatex">\(\mathcal{R}_{cloud} = \frac{\iint_{\Omega_{image}} \mathbb{I}\left( \text{NDSI}(x,y) &gt; \tau_{cloud} \land I_{visible}(x,y) &gt; \tau_{whiteness} \right) dx dy}{\text{Area}(\Omega_{image})}\)</span>$
+  Where <span class="arithmatex">\(\text{NDSI} = \frac{\text{Green} - \text{SWIR}}{\text{Green} + \text{SWIR}}\)</span> is the Normalized Difference Snow/Cloud Index. If the cloud cover ratio <span class="arithmatex">\(\mathcal{R}_{cloud} &gt; 0.35\)</span> and no high-priority emergency target coordinates are present, the raw image buffer is <strong>pruned from the solid-state recorder (SSR) in orbit</strong>, reserving downlink bandwidth strictly for high-value intelligence.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ MPSoC or Space-Grade NVIDIA Jetson Orin drawing $&lt; 15\text{W}$.</li>
-<li><strong>Commercial Advantage:</strong> Increases effective satellite downlink data yield by <strong>over $300\%$</strong> without launching additional satellites, saving commercial constellation operators millions of dollars in ground station pass costs.</li>
+<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ MPSoC or Space-Grade NVIDIA Jetson Orin drawing <span class="arithmatex">\(&lt; 15\text{W}\)</span>.</li>
+<li><strong>Commercial Advantage:</strong> Increases effective satellite downlink data yield by <strong>over <span class="arithmatex">\(300\%\)</span></strong> without launching additional satellites, saving commercial constellation operators millions of dollars in ground station pass costs.</li>
 </ul>
 <hr />
 <h2 id="project-28-livestock-health-biosecurity-monitor-agtech-animal-welfare">Project 28: Livestock Health &amp; Biosecurity Monitor (AgTech / Animal Welfare)</h2>
@@ -43817,7 +43817,7 @@
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Ingests dual-stream radiometric Long-Wave Infrared (LWIR) and visible RGB camera feeds directly into edge NPU memory pointers.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filters capture raw RTSP video streams and LoRaWAN IoT telemetry frames from barn environmental monitors.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates cross-modal physical invariants: correlating ocular canthus thermal temperature spikes with kinematic gait asymmetry.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Fine-tunes 17-point quadruped pose estimation models on localized cattle herds using base-weight regularization ($\lambda_{reg}$).</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Fine-tunes 17-point quadruped pose estimation models on localized cattle herds using base-weight regularization (<span class="arithmatex">\(\lambda_{reg}\)</span>).</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 06 (Continual Learning Drift Profiler), tracking natural seasonal livestock winter/summer coat thickness drift without catastrophic forgetting.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator links automated physical sorting gates across pastures via sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous quadruped skeletal gait ODE dynamics (<code>plant_ode.c</code>).</li>
@@ -43835,25 +43835,25 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>RTSP / ONVIF</strong>, <strong>Radiometric Thermal Stream</strong>, <strong>LoRaWAN (EU868 / US915)</strong>, <strong>Modbus TCP</strong> (Port 502).</li>
 <li><strong>Mathematical Invariant (Ocular Canthus Core Temperature &amp; Gait Asymmetry Invariant):</strong>
-  $$\Delta T_{core} = \max_{(x,y) \in \Omega_{eye}} T_{thermal}(x,y) - T_{ambient} &gt; \tau_{fever}$$
-  $$\mathcal{A}<em>{gait} = \frac{|t</em>{stride, left} - t_{stride, right}|}{t_{stride, left} + t_{stride, right}} &gt; \tau_{lameness}$$
-  If fever and gait asymmetry invariants are simultaneously violated ($\Delta T_{core} &gt; 39.5^\circ\text{C} \land \mathcal{A}_{gait} &gt; 0.20$), the system actuates a physical pneumatic gate over Modbus, <strong>automatically routing the infected animal into an isolation pen 48 hours before outward clinical symptoms appear</strong>.</li>
+  $<span class="arithmatex">\(\Delta T_{core} = \max_{(x,y) \in \Omega_{eye}} T_{thermal}(x,y) - T_{ambient} &gt; \tau_{fever}\)</span>$
+  $<span class="arithmatex">\(\mathcal{A}_{gait} = \frac{|t_{stride, left} - t_{stride, right}|}{t_{stride, left} + t_{stride, right}} &gt; \tau_{lameness}\)</span>$
+  If fever and gait asymmetry invariants are simultaneously violated (<span class="arithmatex">\(\Delta T_{core} &gt; 39.5^\circ\text{C} \land \mathcal{A}_{gait} &gt; 0.20\)</span>), the system actuates a physical pneumatic gate over Modbus, <strong>automatically routing the infected animal into an isolation pen 48 hours before outward clinical symptoms appear</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Rockchip RK3588 inside an IP67 sealed, solar-powered barn-mounted enclosure drawing $&lt; 10\text{W}$.</li>
-<li><strong>Commercial Advantage:</strong> Reduces antibiotic usage by up to <strong>$40\%$</strong> and prevents herd-wide culling events, saving commercial farms hundreds of thousands of dollars per facility.</li>
+<li><strong>Target Hardware:</strong> Rockchip RK3588 inside an IP67 sealed, solar-powered barn-mounted enclosure drawing <span class="arithmatex">\(&lt; 10\text{W}\)</span>.</li>
+<li><strong>Commercial Advantage:</strong> Reduces antibiotic usage by up to <strong><span class="arithmatex">\(40\%\)</span></strong> and prevents herd-wide culling events, saving commercial farms hundreds of thousands of dollars per facility.</li>
 </ul>
 <hr />
 <h2 id="project-29-nuclear-control-rod-hydraulic-safety-verifier-nuclear-power-plants">Project 29: Nuclear Control Rod Hydraulic Safety Verifier (Nuclear Power Plants)</h2>
 <h3 id="1-operational-challenge-failure-mode_3">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Pressurized Water Reactors (PWR) and Boiling Water Reactors (BWR) modulate nuclear core reactivity using neutron-absorbing control rods (boron-carbide, silver-indium-cadmium). During an emergency reactor trip (<strong>SCRAM</strong>), gravitational and hydraulic drive mechanisms must insert all control rods completely into the reactor fuel assembly in <strong>$&lt; 1.8\text{ seconds}$</strong> to halt fission. </p>
+<p>Pressurized Water Reactors (PWR) and Boiling Water Reactors (BWR) modulate nuclear core reactivity using neutron-absorbing control rods (boron-carbide, silver-indium-cadmium). During an emergency reactor trip (<strong>SCRAM</strong>), gravitational and hydraulic drive mechanisms must insert all control rods completely into the reactor fuel assembly in <strong><span class="arithmatex">\(&lt; 1.8\text{ seconds}\)</span></strong> to halt fission. </p>
 <p>Mechanical deformation of fuel guides, thermal bowing of the core, or hydraulic solenoid valve binding can cause control rods to seize mid-travel. If a control rod hangs up, localized neutron flux spikes cause instantaneous fuel rod cladding perforation and core meltdown (the primary physical trigger of the Chernobyl disaster). Traditional analog instrumentation cannot calculate dynamic hydrodynamic friction in real time.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory arrays ingesting high-frequency Linear Variable Differential Transformer (LVDT) rod position sensor data.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filters capture raw 4-20mA digital converter and Modbus Plus frames from redundant Reactor Protection System (RPS) instrumentation cabinets.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 physical invariant evaluator operating within the <strong>$&lt; 88\text{ ns}$</strong> SLA, verifying control rod kinetic insertion acceleration curves.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 physical invariant evaluator operating within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, verifying control rod kinetic insertion acceleration curves.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator mathematically enforces <strong>100% recall retention</strong> against historical nuclear control rod drop anomalies.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving point reactor neutron kinetics and hydraulic drag differential equations.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates multi-channel 2-out-of-4 voting logic across redundant safety trains over sub-50ms gRPC streams.</li>
@@ -43872,10 +43872,10 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>Hardwired 4-20mA Digitized Streams</strong>, <strong>Modbus Plus</strong>, <strong>IEEE 603-2018 Nuclear Safety Criteria Standard</strong>.</li>
 <li><strong>Mathematical Invariant (Control Rod Hydrodynamic Kinematics &amp; Point Kinetics ODE):</strong>
-  $$m_{rod} \frac{d^2 z}{dt^2} = m_{rod} g - F_{drag}\left(\frac{dz}{dt}, \mu_{coolant}\right) - F_{buoyancy} - \Delta P \cdot A_{piston}$$
-  $$\frac{dn}{dt} = \frac{\rho(z(t)) - \beta}{\Lambda} n(t) + \sum_{i=1}^{6} \lambda_i C_i$$
-  The system computes the <strong>Control Barrier Function (CBF)</strong> $h(z, t) = z_{bottom} - z(t) \ge 0$. If rod insertion velocity $\frac{dz}{dt}$ drops below the safety boundary curve:
-  $$\dot{h}(z) + \alpha h(z) &lt; 0 \implies \text{Rod Jam Detected at } t &lt; 400\text{ ms}$$
+  $<span class="arithmatex">\(m_{rod} \frac{d^2 z}{dt^2} = m_{rod} g - F_{drag}\left(\frac{dz}{dt}, \mu_{coolant}\right) - F_{buoyancy} - \Delta P \cdot A_{piston}\)</span>$
+  $<span class="arithmatex">\(\frac{dn}{dt} = \frac{\rho(z(t)) - \beta}{\Lambda} n(t) + \sum_{i=1}^{6} \lambda_i C_i\)</span>$
+  The system computes the <strong>Control Barrier Function (CBF)</strong> <span class="arithmatex">\(h(z, t) = z_{bottom} - z(t) \ge 0\)</span>. If rod insertion velocity <span class="arithmatex">\(\frac{dz}{dt}\)</span> drops below the safety boundary curve:
+  $<span class="arithmatex">\(\dot{h}(z) + \alpha h(z) &lt; 0 \implies \text{Rod Jam Detected at } t &lt; 400\text{ ms}\)</span>$
   the system bypasses the primary mechanical drive and fires the explosive pyrotechnic Standby Liquid Control (SLC) soluble boron backup injection <strong>before fuel cladding failure temperatures are reached</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
@@ -43886,15 +43886,15 @@
 <hr />
 <h2 id="project-30-civil-infrastructure-bridge-micro-vibration-box-structural-health">Project 30: Civil Infrastructure Bridge Micro-Vibration Box (Structural Health)</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Civil infrastructure (suspension bridges, railway viaducts, highway overpasses, and hydroelectric dams) endures continuous fatigue loading from heavy freight, thermal expansion, and seismic micro-tremors. Structural degradation begins with microscopic cable strand fractures or internal concrete micro-cracking that shifts natural structural modal resonant frequencies by fractions of a percent (<strong>$&lt; 0.05\text{ Hz}$</strong>). </p>
+<p>Civil infrastructure (suspension bridges, railway viaducts, highway overpasses, and hydroelectric dams) endures continuous fatigue loading from heavy freight, thermal expansion, and seismic micro-tremors. Structural degradation begins with microscopic cable strand fractures or internal concrete micro-cracking that shifts natural structural modal resonant frequencies by fractions of a percent (<strong><span class="arithmatex">\(&lt; 0.05\text{ Hz}\)</span></strong>). </p>
 <p>Traditional structural health monitoring (SHM) systems perform sparse manual inspections every few years. By the time visual cracks appear on the exterior concrete, catastrophic collapse is already imminent (e.g. the 2018 Genoa Morandi Bridge collapse in Italy, which killed 43 people). Continuously streaming raw high-rate accelerometer data to the cloud drains solar batteries and incurs prohibitive cellular data costs.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
-<li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a high-speed memory bridge passing multi-axis piezoelectric accelerometer arrays ($10\text{ kHz}$ sampling) directly into edge DSP/NPU registers.</li>
+<li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a high-speed memory bridge passing multi-axis piezoelectric accelerometer arrays (<span class="arithmatex">\(10\text{ kHz}\)</span> sampling) directly into edge DSP/NPU registers.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw SPI/I2S digital vibration packets over real-time AF_XDP queues at line rate.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates multi-sensor physical invariants, cross-referencing bridge ambient thermal expansion against structural vibration modes.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Continuously adapts unsupervised autoencoders on seasonal baseline vibration datasets via <code>forge-cli finetune</code>, tracking thermal shifts without catastrophic forgetting.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 06 (Continual Learning Drift Profiler), calculating Backward Transfer ($BWT$) and Forward Transfer ($FWT$) to verify the model does not forget winter baseline dynamics when summer arrives.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 06 (Continual Learning Drift Profiler), calculating Backward Transfer (<span class="arithmatex">\(BWT\)</span>) and Forward Transfer (<span class="arithmatex">\(FWT\)</span>) to verify the model does not forget winter baseline dynamics when summer arrives.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Aggregates bridge structural health scorecards across regional highway networks over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Houses the multi-degree-of-freedom damped oscillator ODE model (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo civil bridge-shm --axes 6 --freq-window 10000</code>.</li>
@@ -43911,16 +43911,16 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>High-Speed SPI / I2S ADC Protocol</strong>, <strong>MQTT Sparkplug B</strong>, <strong>Modbus TCP</strong>.</li>
 <li><strong>Mathematical Invariant (Stochastic Subspace Identification &amp; Modal Frequency Invariant):</strong>
-  $$\mathbf{M} \ddot{\mathbf{x}}(t) + \mathbf{C} \dot{\mathbf{x}}(t) + \mathbf{K} \mathbf{x}(t) = \mathbf{F}(t)$$
-  The system computes the state-space system matrix $\mathbf{A}$ using Stochastic Subspace Identification (SSI) and extracts natural frequencies $\omega_n = |\lambda_n(\mathbf{A})|$. After correcting for ambient temperature expansion via:
-  $$\omega_{corrected} = \omega_n - \gamma_{temp} \cdot (T_{bridge} - T_{ref})$$
+  $<span class="arithmatex">\(\mathbf{M} \ddot{\mathbf{x}}(t) + \mathbf{C} \dot{\mathbf{x}}(t) + \mathbf{K} \mathbf{x}(t) = \mathbf{F}(t)\)</span>$
+  The system computes the state-space system matrix <span class="arithmatex">\(\mathbf{A}\)</span> using Stochastic Subspace Identification (SSI) and extracts natural frequencies <span class="arithmatex">\(\omega_n = |\lambda_n(\mathbf{A})|\)</span>. After correcting for ambient temperature expansion via:
+  $<span class="arithmatex">\(\omega_{corrected} = \omega_n - \gamma_{temp} \cdot (T_{bridge} - T_{ref})\)</span>$
   the system enforces the <strong>Structural Invariant</strong>:
-  $$\left| \omega_{corrected}(t) - \omega_{baseline} \right| \le 3 \cdot \sigma_{ambient}$$
-  If a permanent modal frequency downward shift $\Delta \omega &gt; 3\sigma$ persists for more than 48 hours, the system generates an immediate structural fatigue alert, identifying internal tendon fractures <strong>months before visible exterior cracks appear</strong>.</li>
+  $<span class="arithmatex">\(\left| \omega_{corrected}(t) - \omega_{baseline} \right| \le 3 \cdot \sigma_{ambient}\)</span>$
+  If a permanent modal frequency downward shift <span class="arithmatex">\(\Delta \omega &gt; 3\sigma\)</span> persists for more than 48 hours, the system generates an immediate structural fatigue alert, identifying internal tendon fractures <strong>months before visible exterior cracks appear</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Ultra-low-power ARM Cortex-M7 / Cortex-A55 SoC with integrated micro-NPU ($&lt; 1.5\text{W}$ operational power), powered by an integrated solar panel and supercapacitor buffer.</li>
+<li><strong>Target Hardware:</strong> Ultra-low-power ARM Cortex-M7 / Cortex-A55 SoC with integrated micro-NPU (<span class="arithmatex">\(&lt; 1.5\text{W}\)</span> operational power), powered by an integrated solar panel and supercapacitor buffer.</li>
 <li><strong>Commercial Advantage:</strong> Lasts <strong>over 10 years maintenance-free</strong> mounted on bridge piers, delivering continuous sub-hertz structural health analytics while eliminating expensive cloud streaming subscriptions.</li>
 </ul>
 <hr />
@@ -43995,6 +43995,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

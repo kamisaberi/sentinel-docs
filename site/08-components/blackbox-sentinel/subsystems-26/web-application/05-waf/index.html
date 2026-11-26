@@ -43161,7 +43161,7 @@
 <hr />
 <h2 id="2-broken-object-level-authorization-bolaidor-engine">2. Broken Object Level Authorization (BOLA/IDOR) Engine</h2>
 <p><code>05_waf</code> tracks authorization contexts across API invocations:
-* If User Token $A$ accesses <code>/api/v1/tenant/101/status</code> and subsequently requests <code>/api/v1/tenant/102/status</code> without a credential switch, an IDOR violation is flagged and the session is terminated.</p>
+* If User Token <span class="arithmatex">\(A\)</span> accesses <code>/api/v1/tenant/101/status</code> and subsequently requests <code>/api/v1/tenant/102/status</code> without a credential switch, an IDOR violation is flagged and the session is terminated.</p>
 
 
 
@@ -43230,6 +43230,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

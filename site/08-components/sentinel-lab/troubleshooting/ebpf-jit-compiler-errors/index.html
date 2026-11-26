@@ -43347,7 +43347,7 @@ fatal error: 'bpf/bpf_helpers.h' file not found
 <hr />
 <h2 id="2-ebpf-jit-compiler-disabled">2. eBPF JIT Compiler Disabled</h2>
 <h3 id="symptom_1">Symptom</h3>
-<p>Testbed packet drops exhibit high latency variance ($&gt; 12.0\,\mu\text{s}$ instead of $&lt; 0.84\,\mu\text{s}$) because the kernel is interpreting bytecode rather than executing native machine code.</p>
+<p>Testbed packet drops exhibit high latency variance (<span class="arithmatex">\(&gt; 12.0\,\mu\text{s}\)</span> instead of <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) because the kernel is interpreting bytecode rather than executing native machine code.</p>
 <h3 id="remediation_1">Remediation</h3>
 <p>Enable JIT compilation permanently:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"net.core.bpf_jit_enable = 1"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.d/99-bpf.conf
@@ -43431,6 +43431,10 @@ Error: failed to load BPF object file: -2
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

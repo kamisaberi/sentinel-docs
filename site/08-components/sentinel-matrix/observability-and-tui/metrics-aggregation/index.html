@@ -43139,7 +43139,7 @@
 
 
 <h1 id="live-microsecond-latency-aggregation-percentiles">Live Microsecond Latency Aggregation &amp; Percentiles</h1>
-<p><code>sentinel-monitor</code> aggregates latency reports from all edge nodes into rolling 60-second sliding windows, calculating live microsecond latency percentiles ($p50$, $p90$, $p95$, $p99$).</p>
+<p><code>sentinel-monitor</code> aggregates latency reports from all edge nodes into rolling 60-second sliding windows, calculating live microsecond latency percentiles (<span class="arithmatex">\(p50\)</span>, <span class="arithmatex">\(p90\)</span>, <span class="arithmatex">\(p95\)</span>, <span class="arithmatex">\(p99\)</span>).</p>
 <hr />
 <h2 id="1-sliding-window-percentile-calculation">1. Sliding Window Percentile Calculation</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -43174,7 +43174,7 @@
 </code></pre></div>
 <hr />
 <h2 id="2-sla-breach-detection">2. SLA Breach Detection</h2>
-<p>If the calculated 99th percentile ($p99$) exceeds <strong>$1.0\,\mu\text{s}$</strong>, the TUI changes the SLA metric label from cyan to bold red (<code>SLA BREACH: 1.42 µs</code>), indicating that edge nodes are experiencing CPU starvation or scheduling delays.</p>
+<p>If the calculated 99th percentile (<span class="arithmatex">\(p99\)</span>) exceeds <strong><span class="arithmatex">\(1.0\,\mu\text{s}\)</span></strong>, the TUI changes the SLA metric label from cyan to bold red (<code>SLA BREACH: 1.42 µs</code>), indicating that edge nodes are experiencing CPU starvation or scheduling delays.</p>
 
 
 
@@ -43243,6 +43243,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43187,9 +43187,9 @@
 <p><code>xinfer-essential</code> measures execution efficiency using <strong>Joules per Inference</strong> and <strong>Inferences per Watt-Second</strong>.</p>
 <hr />
 <h2 id="1-energy-calculation-methodology">1. Energy Calculation Methodology</h2>
-<p>Energy consumption per inference ($E_{\text{inf}}$) is computed by measuring the instantaneous active power draw ($P(t)$ in Watts) during sustained maximum-load execution:</p>
-<p>$$E_{\text{inf}} = \frac{\int_{0}^{T} P(t)\, dt}{N_{\text{total}}}$$</p>
-<p>$$\text{Efficiency} = \frac{\text{Inferences}}{1.0\,\text{Joule}} = \frac{1}{E_{\text{inf}}}$$</p>
+<p>Energy consumption per inference (<span class="arithmatex">\(E_{\text{inf}}\)</span>) is computed by measuring the instantaneous active power draw (<span class="arithmatex">\(P(t)\)</span> in Watts) during sustained maximum-load execution:</p>
+<div class="arithmatex">\[E_{\text{inf}} = \frac{\int_{0}^{T} P(t)\, dt}{N_{\text{total}}}\]</div>
+<div class="arithmatex">\[\text{Efficiency} = \frac{\text{Inferences}}{1.0\,\text{Joule}} = \frac{1}{E_{\text{inf}}}\]</div>
 <hr />
 <h2 id="2-hardware-power-instrumentation">2. Hardware Power Instrumentation</h2>
 <ul>
@@ -43199,7 +43199,7 @@
 </ul>
 <hr />
 <h2 id="3-power-efficiency-benchmark-results">3. Power Efficiency Benchmark Results</h2>
-<p>Workload: <strong>32-dimensional Tabular Threat Autoencoder</strong> ($N=1$, Sustained Saturation).</p>
+<p>Workload: <strong>32-dimensional Tabular Threat Autoencoder</strong> (<span class="arithmatex">\(N=1\)</span>, Sustained Saturation).</p>
 <table>
 <thead>
 <tr>
@@ -43214,50 +43214,50 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Raspberry Pi 5 + Hailo-8 M.2</strong></td>
-<td style="text-align: left;"><strong>$3.1\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$7.5\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(3.1\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(7.5\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">133,000 EPS</td>
-<td style="text-align: left;"><strong>$0.000023\,\text{J}$ ($23\,\mu\text{J}$)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.000023\,\text{J}\)</span> (<span class="arithmatex">\(23\,\mu\text{J}\)</span>)</strong></td>
 <td style="text-align: left;"><strong>42,900</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Rockchip RK3588 (NPU 1 Core)</strong></td>
-<td style="text-align: left;"><strong>$2.4\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$8.9\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(2.4\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.9\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">112,000 EPS</td>
-<td style="text-align: left;"><strong>$0.000021\,\text{J}$ ($21\,\mu\text{J}$)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.000021\,\text{J}\)</span> (<span class="arithmatex">\(21\,\mu\text{J}\)</span>)</strong></td>
 <td style="text-align: left;"><strong>46,600</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>NVIDIA Jetson Orin Nano (8GB)</strong></td>
-<td style="text-align: left;"><strong>$7.5\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$5.1\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(7.5\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(5.1\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">196,000 EPS</td>
-<td style="text-align: left;"><strong>$0.000038\,\text{J}$ ($38\,\mu\text{J}$)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.000038\,\text{J}\)</span> (<span class="arithmatex">\(38\,\mu\text{J}\)</span>)</strong></td>
 <td style="text-align: left;"><strong>26,100</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel Core Ultra 7 (NPU)</strong></td>
-<td style="text-align: left;"><strong>$6.2\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$8.4\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.2\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.4\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">119,000 EPS</td>
-<td style="text-align: left;"><strong>$0.000052\,\text{J}$ ($52\,\mu\text{J}$)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.000052\,\text{J}\)</span> (<span class="arithmatex">\(52\,\mu\text{J}\)</span>)</strong></td>
 <td style="text-align: left;"><strong>19,200</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Microchip PolarFire SoC</strong></td>
-<td style="text-align: left;"><strong>$1.8\,\text{W}$</strong></td>
-<td style="text-align: left;"><strong>$34.0\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(1.8\,\text{W}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(34.0\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">29,400 EPS</td>
-<td style="text-align: left;"><strong>$0.000061\,\text{J}$ ($61\,\mu\text{J}$)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.000061\,\text{J}\)</span> (<span class="arithmatex">\(61\,\mu\text{J}\)</span>)</strong></td>
 <td style="text-align: left;"><strong>16,300</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Intel Xeon Platinum 8480+</strong></td>
-<td style="text-align: left;">$285.0\,\text{W}$</td>
-<td style="text-align: left;"><strong>$0.92\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(285.0\,\text{W}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.92\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">1,086,000 EPS</td>
-<td style="text-align: left;">$0.000262\,\text{J}$ ($262\,\mu\text{J}$)</td>
+<td style="text-align: left;"><span class="arithmatex">\(0.000262\,\text{J}\)</span> (<span class="arithmatex">\(262\,\mu\text{J}\)</span>)</td>
 <td style="text-align: left;">3,810</td>
 </tr>
 </tbody>
@@ -43265,8 +43265,8 @@
 <hr />
 <h2 id="4-key-takeaways">4. Key Takeaways</h2>
 <ol>
-<li><strong>Edge NPUs Dominate Energy Efficiency:</strong> Dedicated NPU architectures (Rockchip RKNPU and Hailo-8) deliver up to <strong>$46{,}600\text{ inferences per Joule}$</strong>, consuming less than $1/10\text{th}$ the energy of server CPUs for tabular edge scoring.</li>
-<li><strong>Thermal Stability on Fanless Nodes:</strong> Operating under $25\,\mu\text{J}$ per inference allows appliances to run at peak throughput without thermal throttling in sealed, fanless enclosures.</li>
+<li><strong>Edge NPUs Dominate Energy Efficiency:</strong> Dedicated NPU architectures (Rockchip RKNPU and Hailo-8) deliver up to <strong><span class="arithmatex">\(46{,}600\text{ inferences per Joule}\)</span></strong>, consuming less than <span class="arithmatex">\(1/10\text{th}\)</span> the energy of server CPUs for tabular edge scoring.</li>
+<li><strong>Thermal Stability on Fanless Nodes:</strong> Operating under <span class="arithmatex">\(25\,\mu\text{J}\)</span> per inference allows appliances to run at peak throughput without thermal throttling in sealed, fanless enclosures.</li>
 </ol>
 
 
@@ -43336,6 +43336,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

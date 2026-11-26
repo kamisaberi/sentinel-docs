@@ -3976,7 +3976,7 @@
   <a href="#q1-how-does-blackbox-essential-achieve-084mutexts-drops-while-iptables-takes-milliseconds" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q1: How does <code>blackbox-essential</code> achieve $&lt; 0.84\,\mu\text{s}$ drops while <code>iptables</code> takes milliseconds?
+        Q1: How does <code>blackbox-essential</code> achieve <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops while <code>iptables</code> takes milliseconds?
       </span>
     </span>
   </a>
@@ -43136,7 +43136,7 @@
   <a href="#q1-how-does-blackbox-essential-achieve-084mutexts-drops-while-iptables-takes-milliseconds" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Q1: How does <code>blackbox-essential</code> achieve $&lt; 0.84\,\mu\text{s}$ drops while <code>iptables</code> takes milliseconds?
+        Q1: How does <code>blackbox-essential</code> achieve <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops while <code>iptables</code> takes milliseconds?
       </span>
     </span>
   </a>
@@ -43206,8 +43206,8 @@
 
 <h1 id="technical-frequently-asked-questions-faq">Technical Frequently Asked Questions (FAQ)</h1>
 <hr />
-<h3 id="q1-how-does-blackbox-essential-achieve-084mutexts-drops-while-iptables-takes-milliseconds">Q1: How does <code>blackbox-essential</code> achieve $&lt; 0.84\,\mu\text{s}$ drops while <code>iptables</code> takes milliseconds?</h3>
-<p>Linux <code>iptables</code> and <code>nftables</code> process packets in the network layer after the kernel allocates a 240-byte <code>struct sk_buff</code>, initializes protocol structures, and navigates kernel softirq routines. <code>blackbox-essential</code> runs an eBPF program directly inside the physical NIC driver's receive ring (XDP). Malicious packets are identified and discarded in hardware descriptor memory before any socket buffer memory is allocated, dropping packets within $\sim 118\text{ CPU cycles}$.</p>
+<h3 id="q1-how-does-blackbox-essential-achieve-084mutexts-drops-while-iptables-takes-milliseconds">Q1: How does <code>blackbox-essential</code> achieve <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> drops while <code>iptables</code> takes milliseconds?</h3>
+<p>Linux <code>iptables</code> and <code>nftables</code> process packets in the network layer after the kernel allocates a 240-byte <code>struct sk_buff</code>, initializes protocol structures, and navigates kernel softirq routines. <code>blackbox-essential</code> runs an eBPF program directly inside the physical NIC driver's receive ring (XDP). Malicious packets are identified and discarded in hardware descriptor memory before any socket buffer memory is allocated, dropping packets within <span class="arithmatex">\(\sim 118\text{ CPU cycles}\)</span>.</p>
 <hr />
 <h3 id="q2-does-blackbox-essential-interfere-with-existing-firewalls-ufw-firewalld">Q2: Does <code>blackbox-essential</code> interfere with existing firewalls (<code>ufw</code>, <code>firewalld</code>)?</h3>
 <p><strong>No.</strong> <code>blackbox-essential</code> functions as an upstream, in-kernel drop gate. Any packet that matches an active block rule in <code>blocked_ip_map</code> is dropped immediately (<code>XDP_DROP</code>). Packets deemed clean return <code>XDP_PASS</code> and proceed to standard host firewall rules (<code>ufw</code>, <code>nftables</code>, <code>iptables</code>) without modification.</p>
@@ -43219,9 +43219,9 @@
 * The central fleet command (<code>sentinel-nexus</code>) alerts operators to schedule hardware replacement while maintaining edge packet protection.</p>
 <hr />
 <h3 id="q4-can-blocked_ip_map-store-millions-of-ip-addresses-simultaneously">Q4: Can <code>blocked_ip_map</code> store millions of IP addresses simultaneously?</h3>
-<p>By default, <code>blocked_ip_map</code> is pre-allocated with $65{,}536\text{ entries}$ ($\sim 2.1\text{ MB}$ of pinned kernel RAM) to guarantee sub-microsecond hash lookup performance. You can expand <code>max_blocked_ips</code> in <code>XdpConfig</code> up to several million entries, provided the host has sufficient pinned physical memory available:
-$$\text{Memory Required} \approx \text{max_entries} \times 32\,\text{bytes}$$
-For $1{,}000{,}000\text{ IPs}$, the kernel map consumes $\approx 32\,\text{MB}$ of physical RAM.</p>
+<p>By default, <code>blocked_ip_map</code> is pre-allocated with <span class="arithmatex">\(65{,}536\text{ entries}\)</span> (<span class="arithmatex">\(\sim 2.1\text{ MB}\)</span> of pinned kernel RAM) to guarantee sub-microsecond hash lookup performance. You can expand <code>max_blocked_ips</code> in <code>XdpConfig</code> up to several million entries, provided the host has sufficient pinned physical memory available:
+$<span class="arithmatex">\(\text{Memory Required} \approx \text{max\_entries} \times 32\,\text{bytes}\)</span>$
+For <span class="arithmatex">\(1{,}000{,}000\text{ IPs}\)</span>, the kernel map consumes <span class="arithmatex">\(\approx 32\,\text{MB}\)</span> of physical RAM.</p>
 <hr />
 <h3 id="q5-does-blackbox-essential-run-inside-rootless-docker-containers">Q5: Does <code>blackbox-essential</code> run inside rootless Docker containers?</h3>
 <p><strong>No.</strong> Attaching eBPF programs to physical network drivers and locking physical memory pages require Linux kernel administrative privileges:
@@ -43296,6 +43296,10 @@ For $1{,}000{,}000\text{ IPs}$, the kernel map consumes $\approx 32\,\text{MB}$ 
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

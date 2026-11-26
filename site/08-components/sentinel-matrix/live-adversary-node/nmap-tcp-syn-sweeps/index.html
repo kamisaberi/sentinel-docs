@@ -43173,7 +43173,7 @@
 <li>During the first two probed ports (e.g., 80 and 102), <code>sentinel-node-01</code> observes an anomalous flow rate burst with high <code>TCP_SYN</code> flag density.</li>
 <li>Subsystem <code>04_ids_ips</code> and <code>TabularMAE</code> flag the reconnaissance signature.</li>
 <li>Tier 2 <code>libblackbox</code> writes <code>10.240.0.99</code> into the in-kernel <code>blocked_ip_map</code> with a 60-second TTL.</li>
-<li>Subsequent SYN packets for ports 502, 8443, and 20000 are dropped in driver memory ($&lt; 0.84\,\mu\text{s}$).</li>
+<li>Subsequent SYN packets for ports 502, 8443, and 20000 are dropped in driver memory (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
 </ol>
 <hr />
 <h2 id="3-terminal-output-observed-by-the-attacker">3. Terminal Output Observed by the Attacker</h2>
@@ -43259,6 +43259,10 @@ Nmap done: 1 IP address (1 host up) scanned in 2.12 seconds
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

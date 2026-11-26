@@ -43216,17 +43216,17 @@
 <tr>
 <td style="text-align: left;"><strong>Article 15(2)</strong></td>
 <td style="text-align: left;"><strong>Resilience Against Errors &amp; Anomalies:</strong> Systems must be resilient to operational feedback loops and unexpected inputs.</td>
-<td style="text-align: left;">The 8-dimensional latent bottleneck ($z \in \mathbb{R}^8$) rejects anomalous noise while preserving core physical invariants.</td>
+<td style="text-align: left;">The 8-dimensional latent bottleneck (<span class="arithmatex">\(z \in \mathbb{R}^8\)</span>) rejects anomalous noise while preserving core physical invariants.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Article 15(3)</strong></td>
 <td style="text-align: left;"><strong>Feedback Loop Control:</strong> Systems that continue learning after deployment must prevent biased outputs from reinforcing errors.</td>
-<td style="text-align: left;">Uncertainty-based curation ($0.40 \le f(x) \le 0.60$) prevents redundant or biased telemetry from destabilizing weights.</td>
+<td style="text-align: left;">Uncertainty-based curation (<span class="arithmatex">\(0.40 \le f(x) \le 0.60\)</span>) prevents redundant or biased telemetry from destabilizing weights.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Article 15(4)</strong></td>
 <td style="text-align: left;"><strong>Anti-Poisoning &amp; Adversarial Defense:</strong> Systems must be resilient to data poisoning and adversarial manipulation.</td>
-<td style="text-align: left;">Enforces the immutable <strong>Golden Attacks Safety Gate</strong> ($S(\theta^*) = 1.000$); purges candidate weights on any regression.</td>
+<td style="text-align: left;">Enforces the immutable <strong>Golden Attacks Safety Gate</strong> (<span class="arithmatex">\(S(\theta^*) = 1.000\)</span>); purges candidate weights on any regression.</td>
 </tr>
 </tbody>
 </table>
@@ -43234,7 +43234,7 @@
 <h2 id="2-article-154-anti-poisoning-conformance-proof">2. Article 15(4) Anti-Poisoning Conformance Proof</h2>
 <p>Article 15(4) specifically targets vulnerabilities where adversaries manipulate training inputs to bypass detection. </p>
 <p><code>xinfer-forge</code> satisfies this requirement through its logical conjunction proof:
-* Every candidate model $\theta^*$ must successfully flag $100\%$ of historical exploit vectors in <code>configs/safety/golden_attacks.yaml</code>.
+* Every candidate model <span class="arithmatex">\(\theta^*\)</span> must successfully flag <span class="arithmatex">\(100\%\)</span> of historical exploit vectors in <code>configs/safety/golden_attacks.yaml</code>.
 * If a model update fails to detect even one attack vector, the update is rejected and deleted automatically, preventing adversarial data poisoning from entering production.</p>
 <hr />
 <h2 id="3-compliance-documentation-export">3. Compliance Documentation Export</h2>
@@ -43321,6 +43321,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

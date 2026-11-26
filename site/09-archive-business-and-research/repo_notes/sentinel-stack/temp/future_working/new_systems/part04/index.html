@@ -43736,16 +43736,16 @@
 <hr />
 <h2 id="project-16-cobot-iso-13849-pl-e-safety-governor-robotics-safety">Project 16: Cobot ISO 13849 PL-e Safety Governor (Robotics Safety)</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Collaborative robots (Cobots: Universal Robots, FANUC CRX, KUKA LBR iiwa) share un-caged physical workspaces with human factory operators. The international machinery safety standard <strong>ISO 13849-1 Performance Level e (PL-e) / Category 4</strong> requires that any safety-critical intervention execute within a deterministic, guaranteed time boundary (<strong>$&lt; 10\text{ ms}$</strong>). </p>
-<p>Traditional cobots rely on dedicated, expensive hardware safety PLCs that enforce simplistic static "safety zones" (stopping the robot entirely whenever a human steps near, crushing manufacturing throughput). Conversely, modern AI perception models running on standard industrial PCs experience non-deterministic OS scheduling jitter ($5\text{ ms} - 30\text{ ms}$). If a human worker unexpectedly extends their arm into a fast-moving robotic welding path and the controller lags by even $15\text{ ms}$, the mechanical impact causes severe blunt-force trauma or bone fractures.</p>
+<p>Collaborative robots (Cobots: Universal Robots, FANUC CRX, KUKA LBR iiwa) share un-caged physical workspaces with human factory operators. The international machinery safety standard <strong>ISO 13849-1 Performance Level e (PL-e) / Category 4</strong> requires that any safety-critical intervention execute within a deterministic, guaranteed time boundary (<strong><span class="arithmatex">\(&lt; 10\text{ ms}\)</span></strong>). </p>
+<p>Traditional cobots rely on dedicated, expensive hardware safety PLCs that enforce simplistic static "safety zones" (stopping the robot entirely whenever a human steps near, crushing manufacturing throughput). Conversely, modern AI perception models running on standard industrial PCs experience non-deterministic OS scheduling jitter (<span class="arithmatex">\(5\text{ ms} - 30\text{ ms}\)</span>). If a human worker unexpectedly extends their arm into a fast-moving robotic welding path and the controller lags by even <span class="arithmatex">\(15\text{ ms}\)</span>, the mechanical impact causes severe blunt-force trauma or bone fractures.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy memory abstraction passing 3D optical/depth human skeleton joint vectors directly to kinematics evaluators without CPU serialization.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Intercepts raw <strong>EtherCAT / TSN (IEEE 802.1Qbv)</strong> servo-drive communication frames in-kernel via multi-queue AF_XDP at sub-microsecond line rate ($&lt; 0.84\,\mu\text{s}$).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Control Barrier Function (CBF) engine executing within the <strong>$&lt; 88\text{ ns}$</strong> SLA, evaluating the dynamic distance between the robot's end-effector and human body keypoints.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-person 3D pose estimation models into INT8 QDQ ONNX running in <strong>$&lt; 18\,\mu\text{s}$</strong> on edge NPUs.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 10 (Formal Control Barrier Function Verifier) and Module 07 (EVT WCET Engine), mathematically certifying that the safety clamping calculation <strong>will never exceed $250\,\mu\text{s}$</strong> under $100\%$ CPU saturation.</li>
-<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator synchronizes factory-wide safety audits and emergency e-stop states across robotic workcells in $&lt; 50\text{ ms}$.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Intercepts raw <strong>EtherCAT / TSN (IEEE 802.1Qbv)</strong> servo-drive communication frames in-kernel via multi-queue AF_XDP at sub-microsecond line rate (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Control Barrier Function (CBF) engine executing within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, evaluating the dynamic distance between the robot's end-effector and human body keypoints.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-person 3D pose estimation models into INT8 QDQ ONNX running in <strong><span class="arithmatex">\(&lt; 18\,\mu\text{s}\)</span></strong> on edge NPUs.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 10 (Formal Control Barrier Function Verifier) and Module 07 (EVT WCET Engine), mathematically certifying that the safety clamping calculation <strong>will never exceed <span class="arithmatex">\(250\,\mu\text{s}\)</span></strong> under <span class="arithmatex">\(100\%\)</span> CPU saturation.</li>
+<li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator synchronizes factory-wide safety audits and emergency e-stop states across robotic workcells in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span>.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous 6-DOF robotic manipulator Lagrangian dynamics ODEs (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo robot monitor --joint-envelope configs/safety_boundary.yaml</code>.</li>
 </ul>
@@ -43761,28 +43761,28 @@
 <ul>
 <li><strong>Ingress/Egress Protocols:</strong> <strong>EtherCAT CoE (CANopen over EtherCAT / IEC 61158)</strong>, <strong>TSN (Time-Sensitive Networking, IEEE 802.1Qbv)</strong>, <strong>Safety-over-EtherCAT (FSoE)</strong>.</li>
 <li><strong>Mathematical Invariant (Ames-Nagumo Control Barrier Function for Joint Safety):</strong>
-  $$h(\mathbf{x}, t) = |\mathbf{p}<em>{robot}(\mathbf{q}) - \mathbf{p}</em>{human}|<em>2^2 - d</em>{safe}^2 \ge 0$$
-  The system computes the Lie derivative along the manipulator dynamics $\dot{h}(\mathbf{x}) = \nabla h(\mathbf{x}) \cdot \mathbf{f}(\mathbf{x}, \mathbf{u})$ and enforces the forward-invariance inequality:
-  $$\dot{h}(\mathbf{x}) + \alpha(h(\mathbf{x})) \ge 0$$
-  If human velocity vector dictates a pending collision, the in-kernel eBPF driver modifies the EtherCAT target velocity register in <strong>$&lt; 5\,\mu\text{s}$</strong>, smoothly braking or deflecting the arm without triggering a harsh mechanical emergency stop.</li>
+  $<span class="arithmatex">\(h(\mathbf{x}, t) = \|\mathbf{p}_{robot}(\mathbf{q}) - \mathbf{p}_{human}\|_2^2 - d_{safe}^2 \ge 0\)</span>$
+  The system computes the Lie derivative along the manipulator dynamics <span class="arithmatex">\(\dot{h}(\mathbf{x}) = \nabla h(\mathbf{x}) \cdot \mathbf{f}(\mathbf{x}, \mathbf{u})\)</span> and enforces the forward-invariance inequality:
+  $<span class="arithmatex">\(\dot{h}(\mathbf{x}) + \alpha(h(\mathbf{x})) \ge 0\)</span>$
+  If human velocity vector dictates a pending collision, the in-kernel eBPF driver modifies the EtherCAT target velocity register in <strong><span class="arithmatex">\(&lt; 5\,\mu\text{s}\)</span></strong>, smoothly braking or deflecting the arm without triggering a harsh mechanical emergency stop.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
 <li><strong>Target Hardware:</strong> Intel Core Ultra NPU / Advantech Real-Time Industrial PC with integrated Intel I226 real-time TSN Ethernet.</li>
-<li><strong>Commercial Advantage:</strong> Delivers certified ISO 13849 PL-e dynamic safety on standard industrial PCs, enabling robots to dynamically slow down or path-divert around humans rather than halting production, increasing factory output by <strong>$20\% - 35\%$</strong>.</li>
+<li><strong>Commercial Advantage:</strong> Delivers certified ISO 13849 PL-e dynamic safety on standard industrial PCs, enabling robots to dynamically slow down or path-divert around humans rather than halting production, increasing factory output by <strong><span class="arithmatex">\(20\% - 35\%\)</span></strong>.</li>
 </ul>
 <hr />
 <h2 id="project-17-warehouse-amr-3d-pallet-obstacle-engine-warehouse-logistics">Project 17: Warehouse AMR 3D Pallet &amp; Obstacle Engine (Warehouse Logistics)</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Autonomous Mobile Robots (AMRs: automated forklifts, pallet tuggers) operate in fast-paced fulfillment warehouses (Amazon, DHL, KION) at speeds up to <strong>$3\text{ to }4\text{ m/s}$</strong>. AMRs navigate narrow aisles cluttered with walking personnel, stray pallets, and hanging overhead obstacles. </p>
-<p>3D LiDAR sensors stream between <strong>1,000,000 to 2,500,000 points per second</strong> over Ethernet. Standard mobile robotics stacks (ROS / ROS2 Navigation Stack) running on desktop GPUs consume between <strong>$150\text{W} - 300\text{W}$</strong>, draining AMR batteries in a few hours. Furthermore, point cloud serialization overhead causes occasional <strong>$50\text{ ms} - 150\text{ ms}$</strong> processing latency spikes. When an AMR traveling at $3\text{ m/s}$ misses an obstacle deadline by $100\text{ ms}$, it travels 30 centimeters blind, resulting in high-speed collisions with pedestrians or racking.</p>
+<p>Autonomous Mobile Robots (AMRs: automated forklifts, pallet tuggers) operate in fast-paced fulfillment warehouses (Amazon, DHL, KION) at speeds up to <strong><span class="arithmatex">\(3\text{ to }4\text{ m/s}\)</span></strong>. AMRs navigate narrow aisles cluttered with walking personnel, stray pallets, and hanging overhead obstacles. </p>
+<p>3D LiDAR sensors stream between <strong>1,000,000 to 2,500,000 points per second</strong> over Ethernet. Standard mobile robotics stacks (ROS / ROS2 Navigation Stack) running on desktop GPUs consume between <strong><span class="arithmatex">\(150\text{W} - 300\text{W}\)</span></strong>, draining AMR batteries in a few hours. Furthermore, point cloud serialization overhead causes occasional <strong><span class="arithmatex">\(50\text{ ms} - 150\text{ ms}\)</span></strong> processing latency spikes. When an AMR traveling at <span class="arithmatex">\(3\text{ m/s}\)</span> misses an obstacle deadline by <span class="arithmatex">\(100\text{ ms}\)</span>, it travels 30 centimeters blind, resulting in high-speed collisions with pedestrians or racking.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy host-pinned UMEM interface: raw 3D LiDAR point clouds are passed directly from the Ethernet card to NPU tensor registers without CPU memory copying.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Multi-queue RSS AF_XDP sockets ingest raw UDP LiDAR packets (Velodyne/Ouster/Hesai) at wire speed, preventing dropped packets during high-speed rotational sweeps.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) feeds voxelized 3D space directly into PointNet / VoxelNet INT8 neural models, outputting obstacle bounding boxes in <strong>$&lt; 1.5\,\text{ms}$</strong>.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Compresses 3D LiDAR object detection models to INT8 QDQ ONNX, shrinking memory footprint to <strong>$&lt; 25\text{ MB}$</strong> to run inside low-power edge accelerators.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), calculating statistical $p99.999\%$ execution bounds to certify the obstacle pipeline never exceeds a <strong>$2.0\text{ ms}$</strong> deadline.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) feeds voxelized 3D space directly into PointNet / VoxelNet INT8 neural models, outputting obstacle bounding boxes in <strong><span class="arithmatex">\(&lt; 1.5\,\text{ms}\)</span></strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Compresses 3D LiDAR object detection models to INT8 QDQ ONNX, shrinking memory footprint to <strong><span class="arithmatex">\(&lt; 25\text{ MB}\)</span></strong> to run inside low-power edge accelerators.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), calculating statistical <span class="arithmatex">\(p99.999\%\)</span> execution bounds to certify the obstacle pipeline never exceeds a <strong><span class="arithmatex">\(2.0\text{ ms}\)</span></strong> deadline.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet C2 tracks AMR position maps and coordinates warehouse traffic intersections via sub-50ms gRPC broadcasts.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Simulates AMR kinematic bicycle and differential drive dynamics via an RK4 ODE model.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo amr obstacle --lidar-port 2368 --speed-max 3.5</code>.</li>
@@ -43799,25 +43799,25 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>Raw 3D LiDAR UDP Streams</strong> (Ouster OS1 / Velodyne VLP-16, port <code>2368</code>), <strong>ROS2 DDS (CycloneDDS / FastDDS)</strong>.</li>
 <li><strong>Mathematical Invariant (Dynamic Breaking Distance &amp; Minimum Clearance Barrier):</strong>
-  $$v_{safe}(t) \le \sqrt{2 \cdot a_{max} \cdot \left( d_{obstacle}(\mathbf{p}<em>{AMR}) - d</em>{margin} \right)}$$
-  Where $a_{max}$ is maximum comfortable deceleration and $d_{margin} = 0.5\text{ m}$. If the distance to any point cloud cluster breaches $d_{obstacle} &lt; d_{stop}(v(t))$, the in-kernel controller overrides ROS2 velocity commands and issues an immediate hard-stop frame over CANopen/EtherCAT.</li>
+  $<span class="arithmatex">\(v_{safe}(t) \le \sqrt{2 \cdot a_{max} \cdot \left( d_{obstacle}(\mathbf{p}_{AMR}) - d_{margin} \right)}\)</span>$
+  Where <span class="arithmatex">\(a_{max}\)</span> is maximum comfortable deceleration and <span class="arithmatex">\(d_{margin} = 0.5\text{ m}\)</span>. If the distance to any point cloud cluster breaches <span class="arithmatex">\(d_{obstacle} &lt; d_{stop}(v(t))\)</span>, the in-kernel controller overrides ROS2 velocity commands and issues an immediate hard-stop frame over CANopen/EtherCAT.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> NVIDIA Jetson Orin NX (20W) or Rockchip RK3588 (6 TOPS NPU, $&lt; 15\text{W}$).</li>
+<li><strong>Target Hardware:</strong> NVIDIA Jetson Orin NX (20W) or Rockchip RK3588 (6 TOPS NPU, <span class="arithmatex">\(&lt; 15\text{W}\)</span>).</li>
 <li><strong>Commercial Advantage:</strong> Extends AMR battery runtime from 6 hours to <strong>over 14 hours per charge</strong> by replacing heavy 250W desktop GPUs with an ultra-efficient 15W edge system, while guaranteeing sub-2ms collision prevention.</li>
 </ul>
 <hr />
 <h2 id="project-18-surgical-boundary-motion-clamp-surgical-robotics-medtech">Project 18: Surgical Boundary Motion Clamp (Surgical Robotics / MedTech)</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>In robotic-assisted minimally invasive surgery (e.g. da Vinci Surgical System, CMR Versius, Stryker Mako orthopedic surgery), the surgeon manipulates robotic master consoles while slave manipulator arms articulate surgical instruments inside the patient's body cavity. When dissecting tissue adjacent to critical, delicate anatomical structures (the internal carotid artery, the spinal cord, or the optic nerve bundle), a surgeon hand tremor, inadvertent console nudge, or software latency hiccup can lead to an accidental arterial transection, causing lethal hemorrhaging in <strong>$&lt; 15\text{ seconds}$</strong>.</p>
-<p>Software safety layers running on standard medical workstation operating systems (Windows/Linux) can experience scheduling preemption and graphic card rendering latency ($15\text{ ms} - 50\text{ ms}$). This delay is intolerable: an active surgical scalpel or electrocautery tip moving at $50\text{ mm/s}$ travels <strong>$1.5\text{ mm}$ during a 30ms latency spike</strong>, which is more than enough to pierce an arterial wall.</p>
+<p>In robotic-assisted minimally invasive surgery (e.g. da Vinci Surgical System, CMR Versius, Stryker Mako orthopedic surgery), the surgeon manipulates robotic master consoles while slave manipulator arms articulate surgical instruments inside the patient's body cavity. When dissecting tissue adjacent to critical, delicate anatomical structures (the internal carotid artery, the spinal cord, or the optic nerve bundle), a surgeon hand tremor, inadvertent console nudge, or software latency hiccup can lead to an accidental arterial transection, causing lethal hemorrhaging in <strong><span class="arithmatex">\(&lt; 15\text{ seconds}\)</span></strong>.</p>
+<p>Software safety layers running on standard medical workstation operating systems (Windows/Linux) can experience scheduling preemption and graphic card rendering latency (<span class="arithmatex">\(15\text{ ms} - 50\text{ ms}\)</span>). This delay is intolerable: an active surgical scalpel or electrocautery tip moving at <span class="arithmatex">\(50\text{ mm/s}\)</span> travels <strong><span class="arithmatex">\(1.5\text{ mm}\)</span> during a 30ms latency spike</strong>, which is more than enough to pierce an arterial wall.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF bridge streaming high-resolution 3D stereoscopic endoscopic video frames directly into real-time anatomical segmentation models.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Intercepts motion command packets between the master surgeon console and the slave manipulator arms in-kernel using AF_XDP at sub-microsecond line rate ($&lt; 0.84\,\mu\text{s}$).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 geometric barrier evaluator operating within the <strong>$&lt; 88\text{ ns}$</strong> budget, cross-referencing scalpel tip coordinates against pre-operative CT/MRI 3D volumetric boundaries.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 3D anatomical organ segmentation models into INT8 QDQ ONNX, ensuring <strong>$&lt; 15\,\mu\text{s}$</strong> boundary inference on edge silicon.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Intercepts motion command packets between the master surgeon console and the slave manipulator arms in-kernel using AF_XDP at sub-microsecond line rate (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 geometric barrier evaluator operating within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> budget, cross-referencing scalpel tip coordinates against pre-operative CT/MRI 3D volumetric boundaries.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 3D anatomical organ segmentation models into INT8 QDQ ONNX, ensuring <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong> boundary inference on edge silicon.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 10 (Formal Control Barrier Function Verifier) to mathematically guarantee that tool motion vectors pointing into the forbidden anatomical zone will be clamped to zero velocity.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Maintains cryptographic, immutable audit logs of surgical tool trajectory vectors, anchored to physical TPM 2.0 silicon for medico-legal compliance.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin non-linear tool-tissue interaction ODEs (<code>plant_ode.c</code>).</li>
@@ -43835,11 +43835,11 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>EtherCAT CoE</strong>, <strong>Custom High-Speed PCIe/Ethernet Bus</strong>, <strong>Stereoscopic Endoscopic Video (SDI/USB3)</strong>, <strong>DICOM 3.0 / NIfTI 3D Meshes</strong>.</li>
 <li><strong>Mathematical Invariant (Signed Distance Field Virtual Fixture Invariant):</strong>
-  $$h(\mathbf{p}<em>{tool}(t)) = \phi(\mathbf{p}</em>{tool}(t)) - \delta_{safety} \ge 0$$
-  Where $\phi(\mathbf{x})$ is the Signed Distance Field (SDF) of the critical anatomical structure $\mathcal{O}<em>{forbidden}$:
-  $$\phi(\mathbf{x}) = \begin{cases} +\min</em>{\mathbf{y} \in \partial \mathcal{O}} |\mathbf{x} - \mathbf{y}| &amp; \mathbf{x} \notin \mathcal{O} \ -\min_{\mathbf{y} \in \partial \mathcal{O}} |\mathbf{x} - \mathbf{y}| &amp; \mathbf{x} \in \mathcal{O} \end{cases}$$
-  If the commanded velocity vector $\mathbf{v}<em>{command}$ violates $\nabla \phi(\mathbf{p}) \cdot \mathbf{v}</em>{command} &lt; -\alpha h(\mathbf{p})$, the system projects the velocity onto the tangent space of the boundary:
-  $$\mathbf{v}<em>{enforced} = \mathbf{v}</em>{command} - (\mathbf{v}_{command} \cdot \mathbf{n})\mathbf{n}$$
+  $<span class="arithmatex">\(h(\mathbf{p}_{tool}(t)) = \phi(\mathbf{p}_{tool}(t)) - \delta_{safety} \ge 0\)</span>$
+  Where <span class="arithmatex">\(\phi(\mathbf{x})\)</span> is the Signed Distance Field (SDF) of the critical anatomical structure <span class="arithmatex">\(\mathcal{O}_{forbidden}\)</span>:
+  $<span class="arithmatex">\(\phi(\mathbf{x}) = \begin{cases} +\min_{\mathbf{y} \in \partial \mathcal{O}} \|\mathbf{x} - \mathbf{y}\| &amp; \mathbf{x} \notin \mathcal{O} \\ -\min_{\mathbf{y} \in \partial \mathcal{O}} \|\mathbf{x} - \mathbf{y}\| &amp; \mathbf{x} \in \mathcal{O} \end{cases}\)</span>$
+  If the commanded velocity vector <span class="arithmatex">\(\mathbf{v}_{command}\)</span> violates <span class="arithmatex">\(\nabla \phi(\mathbf{p}) \cdot \mathbf{v}_{command} &lt; -\alpha h(\mathbf{p})\)</span>, the system projects the velocity onto the tangent space of the boundary:
+  $<span class="arithmatex">\(\mathbf{v}_{enforced} = \mathbf{v}_{command} - (\mathbf{v}_{command} \cdot \mathbf{n})\mathbf{n}\)</span>$
   The scalpel slides safely along the boundary surface of the artery, making accidental puncture <strong>mathematically impossible</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
@@ -43856,9 +43856,9 @@
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides unified zero-copy memory pointers passing raw acoustic B-mode beamformed frames directly into edge NPU tensor registers without CPU format conversion.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw USB3 / Wi-Fi Direct probe packets in-kernel, preventing lost frame lines during rapid cardiac scans.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) dynamically switches neural models based on probe orientation and anatomical presets (Cardiac Echo $\to$ Lung Ultrasound $\to$ Abdominal FAST exam).</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically converts FP32 ultrasound segmentation models into INT8 QDQ ONNX engines running in <strong>$&lt; 15\,\mu\text{s}$</strong>, shrinking model memory footprints from $350\text{ MB} \to &lt; 45\text{ MB}$.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler), proving the total computational power envelope remains <strong>under $3.5\text{W}$</strong>, preventing probe overheating.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 16 (<code>ModelRouter</code>) dynamically switches neural models based on probe orientation and anatomical presets (Cardiac Echo <span class="arithmatex">\(\to\)</span> Lung Ultrasound <span class="arithmatex">\(\to\)</span> Abdominal FAST exam).</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically converts FP32 ultrasound segmentation models into INT8 QDQ ONNX engines running in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>, shrinking model memory footprints from <span class="arithmatex">\(350\text{ MB} \to &lt; 45\text{ MB}\)</span>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler), proving the total computational power envelope remains <strong>under <span class="arithmatex">\(3.5\text{W}\)</span></strong>, preventing probe overheating.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator synchronizes anonymized model performance updates across rural clinic nodes when Wi-Fi docks are reconnected.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous blood flow and acoustic Doppler frequency shifts via RK4 numerical integration.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo medical ultrasound --device /dev/video_us0 --preset cardiac</code>.</li>
@@ -43875,26 +43875,26 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>DICOM Part 10</strong>, <strong>USB Video Class (UVC)</strong>, <strong>Raw RF Acoustic I/Q Data</strong>, <strong>Wi-Fi Direct (P2P)</strong>.</li>
 <li><strong>Mathematical Invariant (Biplane Simpson’s Ejection Fraction Integration):</strong>
-  $$\text{LVEF} = \frac{\text{EDV} - \text{ESV}}{\text{EDV}} \times 100\%, \quad \text{Volume} = \frac{\pi}{4} \sum_{i=1}^{20} a_i \cdot b_i \cdot \frac{L}{20}$$
-  Where $\text{EDV}$ is End-Diastolic Volume, $\text{ESV}$ is End-Systolic Volume, and $a_i, b_i$ are segmented orthogonal diameters across 20 horizontal slices of the left ventricle. The system outputs real-time stroke volume and ejection fraction on-device at <strong>60 FPS without dropping frames or transmitting a single byte to the cloud</strong>.</li>
+  $<span class="arithmatex">\(\text{LVEF} = \frac{\text{EDV} - \text{ESV}}{\text{EDV}} \times 100\%, \quad \text{Volume} = \frac{\pi}{4} \sum_{i=1}^{20} a_i \cdot b_i \cdot \frac{L}{20}\)</span>$
+  Where <span class="arithmatex">\(\text{EDV}\)</span> is End-Diastolic Volume, <span class="arithmatex">\(\text{ESV}\)</span> is End-Systolic Volume, and <span class="arithmatex">\(a_i, b_i\)</span> are segmented orthogonal diameters across 20 horizontal slices of the left ventricle. The system outputs real-time stroke volume and ejection fraction on-device at <strong>60 FPS without dropping frames or transmitting a single byte to the cloud</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Rockchip RK3588 (6 TOPS NPU) or Intel Core Ultra NPU embedded directly into the probe handle or a companion belt-clip box drawing $&lt; 4\text{W}$.</li>
+<li><strong>Target Hardware:</strong> Rockchip RK3588 (6 TOPS NPU) or Intel Core Ultra NPU embedded directly into the probe handle or a companion belt-clip box drawing <span class="arithmatex">\(&lt; 4\text{W}\)</span>.</li>
 <li><strong>Commercial Advantage:</strong> Enables medical device OEMs to deliver hospital-grade automated ultrasound analysis on a $150 hardware chip, extending battery life to <strong>over 4 hours of continuous scanning</strong> while guaranteeing 100% offline HIPAA privacy.</li>
 </ul>
 <hr />
 <h2 id="project-20-hipaa-compliant-patient-fall-egress-monitor-hospital-care">Project 20: HIPAA-Compliant Patient Fall &amp; Egress Monitor (Hospital Care)</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Patient falls in hospital rooms, intensive care units (ICUs), and elderly care homes represent a massive global healthcare crisis, resulting in severe bone fractures, intracranial hemorrhages, and billions of euros in hospital liability claims. Bed-bound post-operative patients frequently attempt unassisted bed egress during the night while disoriented from medication. </p>
-<p>Traditional pressure sensor pads on beds suffer from <strong>$40\% - 60\%$ false alarm rates</strong> (triggering whenever a patient merely shifts position, causing alarm fatigue among nursing staff). Conversely, installing standard optical surveillance cameras in patient hospital rooms and private bathrooms represents a severe violation of patient dignity and privacy laws (<strong>HIPAA, GDPR, EU AI Act</strong>). Furthermore, transmitting video streams across hospital Wi-Fi networks risks massive regulatory fines in the event of an IT breach.</p>
+<p>Traditional pressure sensor pads on beds suffer from <strong><span class="arithmatex">\(40\% - 60\%\)</span> false alarm rates</strong> (triggering whenever a patient merely shifts position, causing alarm fatigue among nursing staff). Conversely, installing standard optical surveillance cameras in patient hospital rooms and private bathrooms represents a severe violation of patient dignity and privacy laws (<strong>HIPAA, GDPR, EU AI Act</strong>). Furthermore, transmitting video streams across hospital Wi-Fi networks risks massive regulatory fines in the event of an IT breach.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Ingests raw frames from 3D Time-of-Flight (ToF) depth sensors and low-resolution thermal arrays directly into NPU tensor memory.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filters strictly isolate the sensor unit from the general hospital network, dropping all unauthorized incoming probe connections.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a specialized <strong>In-RAM Frame Purge Engine</strong>: the moment 3D skeletal keypoints are extracted, the raw optical/depth pixel buffer is overwritten with zeroes in memory. No image or video file is ever written to disk or transmitted over the wire.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 3D human pose and biomechanical center-of-mass estimation models into INT8 QDQ ONNX running in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically guaranteeing that bed-exit prediction will trigger nursing alarms within <strong>$&lt; 45\text{ ms}$</strong> of initial leg swing over the bed rail.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Automatically quantizes 3D human pose and biomechanical center-of-mass estimation models into INT8 QDQ ONNX running in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically guaranteeing that bed-exit prediction will trigger nursing alarms within <strong><span class="arithmatex">\(&lt; 45\text{ ms}\)</span></strong> of initial leg swing over the bed rail.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Dispatches sub-50ms gRPC event notifications directly to nurse-station consoles and mobile pagers, accompanied only by abstract wireframe skeletal stick-figures.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Simulates human center-of-mass biomechanical inverted pendulum falling dynamics using continuous RK4 ODE integration.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo medical fall-guard --tof-dev /dev/tof0 --bed-boundary /etc/sentinel/bed_coords.json</code>.</li>
@@ -43916,14 +43916,14 @@
 <li><strong>Ingress Protocols:</strong> <strong>3D Time-of-Flight (ToF)</strong> over USB3/MIPI, <strong>Low-Resolution Far-Infrared (FIR) Thermopile Array (32x24)</strong>.</li>
 <li><strong>Egress Notification Protocols:</strong> <strong>HL7 FHIR (Fast Healthcare Interoperability Resources)</strong> JSON over TLS, <strong>gRPC</strong> (Port 50051).</li>
 <li><strong>Mathematical Invariant (Zero-Memory Privacy &amp; Biomechanical Fall Invariant):</strong>
-  $$\text{Memset}(\text{PixelBuffer}, 0, \text{Size}) \quad \forall \text{ Frames after } t_{\text{inference}}$$
-  $$\text{FallImpending} \iff \frac{dz_{CoM}}{dt} &lt; -2.2\text{ m/s} \land \angle(\mathbf{v}<em>{torso}, \mathbf{n}</em>{floor}) &lt; 30^\circ \land \mathbf{p}<em>{CoM} \notin \mathcal{V}</em>{bed}$$
-  Where $z_{CoM}$ is vertical center-of-mass coordinate and $\mathcal{V}_{bed}$ is the calibrated 3D volumetric bed envelope. The system alerts nurses <strong>before the patient's body impacts the floor</strong>, while mathematically proving that patient visual privacy remains $100\%$ uncompromised.</li>
+  $<span class="arithmatex">\(\text{Memset}(\text{PixelBuffer}, 0, \text{Size}) \quad \forall \text{ Frames after } t_{\text{inference}}\)</span>$
+  $<span class="arithmatex">\(\text{FallImpending} \iff \frac{dz_{CoM}}{dt} &lt; -2.2\text{ m/s} \land \angle(\mathbf{v}_{torso}, \mathbf{n}_{floor}) &lt; 30^\circ \land \mathbf{p}_{CoM} \notin \mathcal{V}_{bed}\)</span>$
+  Where <span class="arithmatex">\(z_{CoM}\)</span> is vertical center-of-mass coordinate and <span class="arithmatex">\(\mathcal{V}_{bed}\)</span> is the calibrated 3D volumetric bed envelope. The system alerts nurses <strong>before the patient's body impacts the floor</strong>, while mathematically proving that patient visual privacy remains <span class="arithmatex">\(100\%\)</span> uncompromised.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
 <li><strong>Target Hardware:</strong> Ultra-compact, low-cost Rockchip RK3568 or RK3588 board ($150 - $250 total unit bill-of-materials) mounted flush on hospital room ceilings.</li>
-<li><strong>Commercial Advantage:</strong> Delivers hospital networks an un-hackable, privacy-certified fall prevention system that eliminates false alarm fatigue, protects patient dignity, and reduces patient fall injuries by <strong>over $70\%$</strong>.</li>
+<li><strong>Commercial Advantage:</strong> Delivers hospital networks an un-hackable, privacy-certified fall prevention system that eliminates false alarm fatigue, protects patient dignity, and reduces patient fall injuries by <strong>over <span class="arithmatex">\(70\%\)</span></strong>.</li>
 </ul>
 <hr />
 <h3 id="confirmation-to-proceed">Confirmation to Proceed</h3>
@@ -43997,6 +43997,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

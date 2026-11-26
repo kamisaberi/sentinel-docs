@@ -43195,12 +43195,12 @@
 
 
 <h1 id="netflow-anomaly-scoring-in-under-12-microseconds">NetFlow Anomaly Scoring in Under 12 Microseconds</h1>
-<p>This tutorial demonstrates how to load a 32-dimensional tabular threat autoencoder (<code>network_threat_v2.onnx</code>), bind a host-pinned zero-copy input buffer, execute forward inference in under $12\,\mu\text{s}$, and calculate Mean Squared Error (MSE) reconstruction loss to detect network anomalies.</p>
+<p>This tutorial demonstrates how to load a 32-dimensional tabular threat autoencoder (<code>network_threat_v2.onnx</code>), bind a host-pinned zero-copy input buffer, execute forward inference in under <span class="arithmatex">\(12\,\mu\text{s}\)</span>, and calculate Mean Squared Error (MSE) reconstruction loss to detect network anomalies.</p>
 <hr />
 <h2 id="1-problem-formulation">1. Problem Formulation</h2>
 <p>An autoencoder trained exclusively on benign network traffic learns an identity mapping for normal operational behavior. When presented with anomalous traffic (e.g., zero-day exploits, port scans, or command-and-control exfiltration), the network fails to reconstruct the feature vector accurately:</p>
-<p>$$\mathcal{L}<em>{\text{MSE}}(x, \hat{x}) = \frac{1}{D} \sum</em>{i=1}^{D} (x_i - \hat{x}_i)^2$$</p>
-<p>If $\mathcal{L}<em>{\text{MSE}} &gt; \tau</em>{\text{threshold}}$, an anomaly alert is raised.</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{MSE}}(x, \hat{x}) = \frac{1}{D} \sum_{i=1}^{D} (x_i - \hat{x}_i)^2\]</div>
+<p>If <span class="arithmatex">\(\mathcal{L}_{\text{MSE}} &gt; \tau_{\text{threshold}}\)</span>, an anomaly alert is raised.</p>
 <hr />
 <h2 id="2-complete-c20-implementation-netflow_evalcpp">2. Complete C++20 Implementation (<code>netflow_eval.cpp</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xinfer/xinfer.hpp&gt;</span>
@@ -43367,6 +43367,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43233,12 +43233,12 @@
 <h3 id="headline">Headline</h3>
 <h1 id="autonomous-cyber-physical-active-defense-26-decoupled-subsystems-zero-cloud-dependencies">Autonomous Cyber-Physical Active Defense. 26 Decoupled Subsystems. Zero Cloud Dependencies.</h1>
 <h3 id="subheadline">Subheadline</h3>
-<p><strong>Blackbox Sentinel</strong> is a turnkey cyber-physical active defense appliance engineered for high-assurance critical infrastructure, electrical substations, healthcare diagnostic networks, and naval defense vessels. Combining <strong>26 native C++20 security subsystems</strong> and <strong>30 industrial protocol dissectors</strong> with driver-level <strong>eBPF/XDP kernel drops ($0.84\,\mu\text{s}$)</strong> and <strong>heterogeneous AI inference (<code>libxinfer</code>)</strong>, Sentinel stops physical sabotage inline while preserving $0 cloud data egress.</p>
+<p><strong>Blackbox Sentinel</strong> is a turnkey cyber-physical active defense appliance engineered for high-assurance critical infrastructure, electrical substations, healthcare diagnostic networks, and naval defense vessels. Combining <strong>26 native C++20 security subsystems</strong> and <strong>30 industrial protocol dissectors</strong> with driver-level <strong>eBPF/XDP kernel drops (<span class="arithmatex">\(0.84\,\mu\text{s}\)</span>)</strong> and <strong>heterogeneous AI inference (<code>libxinfer</code>)</strong>, Sentinel stops physical sabotage inline while preserving $0 cloud data egress.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ Request 14-Day Shadow Mode Evaluation ]</code> $\rightarrow$ <code>https://aryorithm.com/contact</code></li>
-<li><code>[ View 26 Subsystem Architecture ]</code> $\rightarrow$ <code>#subsystem-deep-dive</code></li>
-<li><code>[ Explore Industrial Protocol Plugins ]</code> $\rightarrow$ <code>#protocol-plugins</code></li>
+<li><code>[ Request 14-Day Shadow Mode Evaluation ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://aryorithm.com/contact</code></li>
+<li><code>[ View 26 Subsystem Architecture ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#subsystem-deep-dive</code></li>
+<li><code>[ Explore Industrial Protocol Plugins ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#protocol-plugins</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43334,8 +43334,8 @@
 <h4 id="module-18-18_cps_sec-cyber-physical-scada-constraint-validator">Module 18: <code>18_cps_sec</code> (Cyber-Physical SCADA Constraint Validator)</h4>
 <p>Unlike traditional firewalls that only check if port <code>502</code> is open, <code>18_cps_sec</code> executes stateful semantic dissection on Modbus TCP and DNP3 industrial streams:
 * Validates Function Codes against a physical security matrix (e.g., blocking <code>FC05 Force Single Coil</code> or <code>FC15 Write Multiple Coils</code> during active generation cycles).
-* Validates Register Addresses against physical boundaries (e.g., disallowing writes to memory offsets $&gt; 100$ mapped to critical valve actuators).
-* Enforces <strong>Command Velocity Limits</strong>: Flags command frequencies exceeding $50\,\text{Hz}$ that attempt to induce physical vibration or mechanical wear on turbines.</p>
+* Validates Register Addresses against physical boundaries (e.g., disallowing writes to memory offsets <span class="arithmatex">\(&gt; 100\)</span> mapped to critical valve actuators).
+* Enforces <strong>Command Velocity Limits</strong>: Flags command frequencies exceeding <span class="arithmatex">\(50\,\text{Hz}\)</span> that attempt to induce physical vibration or mechanical wear on turbines.</p>
 <h4 id="module-09-09_cwpp-container-ebpf-syscall-guard">Module 09: <code>09_cwpp</code> (Container eBPF Syscall Guard)</h4>
 <p>Operating inside the Linux kernel at the <code>sys_enter</code> tracepoint:
 * Intercepts container breakouts attempting to execute <code>ptrace</code>, mount sensitive <code>/proc</code> filesystems, or modify host namespaces.
@@ -43343,7 +43343,7 @@
 <h4 id="module-10-10_bad-kinematic-bot-automated-abuse-defense">Module 10: <code>10_bad</code> (Kinematic Bot &amp; Automated Abuse Defense)</h4>
 <p>Analyzes user interaction telemetry to distinguish human operators from automated attack scripts:
 * Evaluates mouse trajectory acceleration vectors, touch contact surfaces, and keystroke inter-arrival jitter.
-* Humans produce non-linear acceleration curves with variable micro-hesitations. Automated scripts exhibit linear velocity vectors ($\text{Jitter} &lt; 0.1\,\text{ms}$), allowing Sentinel to drop automated credential stuffing without annoying CAPTCHAs.</p>
+* Humans produce non-linear acceleration curves with variable micro-hesitations. Automated scripts exhibit linear velocity vectors (<span class="arithmatex">\(\text{Jitter} &lt; 0.1\,\text{ms}\)</span>), allowing Sentinel to drop automated credential stuffing without annoying CAPTCHAs.</p>
 <h4 id="module-26-26_ddp-distributed-deception-platform">Module 26: <code>26_ddp</code> (Distributed Deception Platform)</h4>
 <p>Deploys synthetic industrial honeypots directly on edge networks:
 * Binds virtual decoy PLCs (emulating Siemens S7-300 or Schneider Modbus controllers) strictly to secondary Virtual IPs (VIPs).
@@ -43628,6 +43628,10 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

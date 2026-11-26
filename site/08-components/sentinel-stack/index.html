@@ -43191,9 +43191,9 @@
 <h2 id="core-invariants">Core Invariants</h2>
 <ol>
 <li><strong>Zero-Prompt Automation:</strong> Executes end-to-end non-interactively without pausing for APT debconf prompts, git credential queries, or manual intervention.</li>
-<li><strong>Strict Topological Invariance:</strong> Tiers compile strictly in acyclic dependency order ($T_1 \to T_2 \to T_3 \to T_4 \to T_5 \to T_6$); the dynamic linker cache (<code>ldconfig</code>) is updated after each tier build to satisfy subsequent link dependencies.</li>
+<li><strong>Strict Topological Invariance:</strong> Tiers compile strictly in acyclic dependency order (<span class="arithmatex">\(T_1 \to T_2 \to T_3 \to T_4 \to T_5 \to T_6\)</span>); the dynamic linker cache (<code>ldconfig</code>) is updated after each tier build to satisfy subsequent link dependencies.</li>
 <li><strong>PEP 668 &amp; <code>t64</code> Compliance:</strong> Bypasses Ubuntu 24.04/26.04 <code>externally-managed-environment</code> restrictions using an isolated virtual environment at <code>/opt/sentinel-stack/venv</code>, resolving all 64-bit time <code>t64</code> package names.</li>
-<li><strong>Dynamic RAM Throttling:</strong> Calculates host memory per CPU core, dynamically throttling compiler parallelism (e.g., <code>make -j2</code> under $&lt; 8\text{ GB}$ RAM) to prevent internal compiler Out-of-Memory (OOM) fatal crashes.</li>
+<li><strong>Dynamic RAM Throttling:</strong> Calculates host memory per CPU core, dynamically throttling compiler parallelism (e.g., <code>make -j2</code> under <span class="arithmatex">\(&lt; 8\text{ GB}\)</span> RAM) to prevent internal compiler Out-of-Memory (OOM) fatal crashes.</li>
 <li><strong>Turn-Key Cyber-Range Bridge:</strong> Harvests host-compiled binaries and dynamic libraries (<code>libabsl</code>, <code>libre2</code>, <code>libgrpc++</code>) directly into <code>sentinel-matrix/shared/lib/</code> for zero-friction digital twin execution.</li>
 </ol>
 
@@ -43264,6 +43264,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

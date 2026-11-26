@@ -26679,7 +26679,7 @@
   <a href="#1-latent-bottleneck-dimensionality-32-to-8" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Latent Bottleneck Dimensionality ($32 \to 8$)
+        1. Latent Bottleneck Dimensionality (<span class="arithmatex">\(32 \to 8\)</span>)
       </span>
     </span>
   </a>
@@ -43103,7 +43103,7 @@
   <a href="#1-latent-bottleneck-dimensionality-32-to-8" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1. Latent Bottleneck Dimensionality ($32 \to 8$)
+        1. Latent Bottleneck Dimensionality (<span class="arithmatex">\(32 \to 8\)</span>)
       </span>
     </span>
   </a>
@@ -43138,15 +43138,15 @@
                   
 
 
-<h1 id="latent-bottleneck-geometry-z-in-mathbbr8-anomaly-separation">Latent Bottleneck Geometry ($z \in \mathbb{R}^8$) &amp; Anomaly Separation</h1>
-<p>The core bottleneck of <code>TabularMAE</code> compresses the 32-dimensional input vector down to an <strong>8-dimensional latent space</strong> ($z \in \mathbb{R}^8$). This bottleneck forces the network to retain only the essential physical and protocol invariants of normal operations.</p>
+<h1 id="latent-bottleneck-geometry-z-in-mathbbr8-anomaly-separation">Latent Bottleneck Geometry (<span class="arithmatex">\(z \in \mathbb{R}^8\)</span>) &amp; Anomaly Separation</h1>
+<p>The core bottleneck of <code>TabularMAE</code> compresses the 32-dimensional input vector down to an <strong>8-dimensional latent space</strong> (<span class="arithmatex">\(z \in \mathbb{R}^8\)</span>). This bottleneck forces the network to retain only the essential physical and protocol invariants of normal operations.</p>
 <hr />
-<h2 id="1-latent-bottleneck-dimensionality-32-to-8">1. Latent Bottleneck Dimensionality ($32 \to 8$)</h2>
+<h2 id="1-latent-bottleneck-dimensionality-32-to-8">1. Latent Bottleneck Dimensionality (<span class="arithmatex">\(32 \to 8\)</span>)</h2>
 <div class="highlight"><pre><span></span><code> Ingress Features (ℝ³²) ──► [ Encoder ] ──► Bottleneck Space (ℝ⁸) ──► [ Decoder ] ──► Reconstruction (ℝ³²)
 </code></pre></div>
 <ul>
-<li><strong>High-Dimensional Redundancy ($D=32$):</strong> Raw flows contain collinear protocol artifacts (e.g., byte count correlated with packet count; header size correlated with protocol).</li>
-<li><strong>Manifold Regularization ($d=8$):</strong> An 8-dimensional space provides sufficient capacity to encode operational states (e.g., normal industrial cycles, idle states, scheduled polling) while preventing the network from memorizing anomalous noise.</li>
+<li><strong>High-Dimensional Redundancy (<span class="arithmatex">\(D=32\)</span>):</strong> Raw flows contain collinear protocol artifacts (e.g., byte count correlated with packet count; header size correlated with protocol).</li>
+<li><strong>Manifold Regularization (<span class="arithmatex">\(d=8\)</span>):</strong> An 8-dimensional space provides sufficient capacity to encode operational states (e.g., normal industrial cycles, idle states, scheduled polling) while preventing the network from memorizing anomalous noise.</li>
 </ul>
 <hr />
 <h2 id="2-outlier-separation-mechanics">2. Outlier Separation Mechanics</h2>
@@ -43166,7 +43166,7 @@
  │                                          the dense manifold)│
  └─────────────────────────────────────────────────────────────┘
 </code></pre></div>
-<p>Because the decoder was trained exclusively to reconstruct vectors lying on the dense baseline manifold, passing an outlier $z_{\text{anomaly}}$ results in severe reconstruction error across physical dimensions, triggering an in-kernel drop ($&lt; 0.84\,\mu\text{s}$) on the edge appliance.</p>
+<p>Because the decoder was trained exclusively to reconstruct vectors lying on the dense baseline manifold, passing an outlier <span class="arithmatex">\(z_{\text{anomaly}}\)</span> results in severe reconstruction error across physical dimensions, triggering an in-kernel drop (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) on the edge appliance.</p>
 
 
 
@@ -43235,6 +43235,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

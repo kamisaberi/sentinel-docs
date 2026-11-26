@@ -43411,7 +43411,7 @@
 <li><strong>The Solution (Hard-Negative Mining &amp; Embedding Transport):</strong></li>
 <li><strong>Edge Filtering:</strong> The local <code>xinfer</code> engine does inference and produces a latent representation (embedding) and an uncertainty score.</li>
 <li><strong>Selective Egress:</strong> Appliances do <em>not</em> send standard traffic. They only transmit:<ol>
-<li><strong>High-Uncertainty Events:</strong> Traffic where the model output probability is between $0.40$ and $0.60$ (the model is unsure).</li>
+<li><strong>High-Uncertainty Events:</strong> Traffic where the model output probability is between <span class="arithmatex">\(0.40\)</span> and <span class="arithmatex">\(0.60\)</span> (the model is unsure).</li>
 <li><strong>Novelty Outliers:</strong> Vectors that trigger high reconstruction loss in the local autoencoder.</li>
 <li><strong>True Positives with Kernel Drops:</strong> The exact feature snapshot that triggered an eBPF drop.</li>
 </ol>
@@ -43422,14 +43422,14 @@
 <ul>
 <li><strong>Aggregated MITRE ATT&amp;CK Matrix:</strong> Color-coded heatmaps showing which tactics (e.g., T1046 Network Service Scanning, T1071 Application Layer Protocol) are hitting which physical sites or hardware tiers.</li>
 <li><strong>Automated Compliance Auditing:</strong> Periodic PDF/JSON generation for compliance frameworks:</li>
-<li><strong>CMMC Level 2 &amp; NIST SP 800-171:</strong> Continuous monitoring, incident response latency verification ($&lt;1$ ms kernel drop proof).</li>
+<li><strong>CMMC Level 2 &amp; NIST SP 800-171:</strong> Continuous monitoring, incident response latency verification (<span class="arithmatex">\(&lt;1\)</span> ms kernel drop proof).</li>
 <li><strong>IEC 62443 / NERC CIP:</strong> Industrial network security reports specifically monitoring SCADA/ICS plugins (Modbus, DNP3 violations from modules <code>18_cps_sec</code>).</li>
 <li><strong>Microsecond Latency SLA Audits:</strong> Aggregated charts proving to C-level executives that the defensive layer introduced zero network degradation.</li>
 </ul>
 <h4 id="point-3-fleet-observability-zero-trust-hardware-health">Point 3: Fleet Observability &amp; Zero-Trust Hardware Health</h4>
 <ul>
 <li><strong>Hardware &amp; Runtime Metrics:</strong></li>
-<li>Real-time tracking of: CPU, RAM, NPU/GPU thermal status, eBPF drop counts, packet ring buffer saturation, and inference latency percentiles ($p50, p95, p99$).</li>
+<li>Real-time tracking of: CPU, RAM, NPU/GPU thermal status, eBPF drop counts, packet ring buffer saturation, and inference latency percentiles (<span class="arithmatex">\(p50, p95, p99\)</span>).</li>
 <li><strong>Cryptographic Remote Attestation (Leveraging Tier 2 TPM 2.0):</strong></li>
 <li>The Command Center does not just check "is the node pingable?"</li>
 <li>It verifies the <strong>hardware fingerprint</strong> established in <code>blackbox-essential</code> (<code>/dev/tpmrm0</code> Quote or DMI UUID). If an appliance is physically stolen, cloned into an unapproved VM, or its binary memory is tampered with, Commander revokes its mTLS certificate and severs it from the grid.</li>
@@ -43440,7 +43440,7 @@
 <ul>
 <li><strong>The Scenario:</strong> Appliance #12 (a sub-station node) detects a targeted zero-day brute-force or exploitation attempt and executes an eBPF/XDP drop.</li>
 <li><strong>The Global Action:</strong> Appliance #12 broadcasts the attacker's fingerprint (IP, subnet, TLS JA3/JA4 hash, behavioral signature) to Commander.</li>
-<li><strong>Fleet Propagation:</strong> Commander fans out this IoC via a low-latency pub/sub channel (e.g., gRPC / NATS). Within <strong>$50$ milliseconds</strong>, all 1,000 edge appliances inject that IP into their local <code>blocked_ip_map</code> kernel hash tables. The adversary is blocked enterprise-wide before their scan even reaches the other 999 sites.</li>
+<li><strong>Fleet Propagation:</strong> Commander fans out this IoC via a low-latency pub/sub channel (e.g., gRPC / NATS). Within <strong><span class="arithmatex">\(50\)</span> milliseconds</strong>, all 1,000 edge appliances inject that IP into their local <code>blocked_ip_map</code> kernel hash tables. The adversary is blocked enterprise-wide before their scan even reaches the other 999 sites.</li>
 </ul>
 <h4 id="b-over-the-air-ota-model-canary-deployments">B. Over-The-Air (OTA) Model Canary Deployments</h4>
 <ul>
@@ -43541,6 +43541,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

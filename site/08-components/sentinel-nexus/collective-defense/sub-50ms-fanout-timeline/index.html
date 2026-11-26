@@ -43156,69 +43156,69 @@
 <tr>
 <td style="text-align: left;"><strong>1</strong></td>
 <td style="text-align: left;">Attacking packet arrives at NIC MAC/PHY layer</td>
-<td style="text-align: left;">$0.00\,\mu\text{s}$</td>
-<td style="text-align: left;">$0.00\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(0.00\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.00\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">Substation A</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>2</strong></td>
 <td style="text-align: left;">eBPF driver hook parses packet and scores anomaly</td>
-<td style="text-align: left;">$0.72\,\mu\text{s}$</td>
-<td style="text-align: left;">$0.72\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(0.72\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.72\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">Substation A</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>3</strong></td>
 <td style="text-align: left;">eBPF executes <code>XDP_DROP</code> in driver space</td>
-<td style="text-align: left;">$0.12\,\mu\text{s}$</td>
-<td style="text-align: left;"><strong>$0.84\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.12\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;">Substation A</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>4</strong></td>
 <td style="text-align: left;">Substation A <code>NexusUplink</code> serializes <code>ThreatIoC</code></td>
-<td style="text-align: left;">$42.0\,\mu\text{s}$</td>
-<td style="text-align: left;">$42.8\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(42.0\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(42.8\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">Substation A</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>5</strong></td>
 <td style="text-align: left;">Network transit from Substation A to Nexus Hub</td>
-<td style="text-align: left;">$14.2\,\text{ms}$</td>
-<td style="text-align: left;">$14.24\,\text{ms}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(14.2\,\text{ms}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(14.24\,\text{ms}\)</span></td>
 <td style="text-align: left;">WAN Fiber</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>6</strong></td>
 <td style="text-align: left;">Nexus Hub parses gRPC, deduplicates in memory</td>
-<td style="text-align: left;">$1.8\,\text{ms}$</td>
-<td style="text-align: left;">$16.04\,\text{ms}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1.8\,\text{ms}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(16.04\,\text{ms}\)</span></td>
 <td style="text-align: left;">Nexus Server</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>7</strong></td>
 <td style="text-align: left;"><code>IocBroadcaster</code> fans out rule over 4,999 gRPC streams</td>
-<td style="text-align: left;">$2.1\,\text{ms}$</td>
-<td style="text-align: left;">$18.14\,\text{ms}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(2.1\,\text{ms}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(18.14\,\text{ms}\)</span></td>
 <td style="text-align: left;">Nexus Server</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>8</strong></td>
 <td style="text-align: left;">Network transit from Nexus Hub to Substation B</td>
-<td style="text-align: left;">$15.4\,\text{ms}$</td>
-<td style="text-align: left;">$33.54\,\text{ms}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(15.4\,\text{ms}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(33.54\,\text{ms}\)</span></td>
 <td style="text-align: left;">WAN Fiber</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>9</strong></td>
 <td style="text-align: left;">Substation B <code>KernelDropInjector</code> executes BPF syscall</td>
-<td style="text-align: left;">$0.18\,\mu\text{s}$</td>
-<td style="text-align: left;"><strong>$33.54\,\text{ms}$</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.18\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(33.54\,\text{ms}\)</span></strong></td>
 <td style="text-align: left;">Substation B</td>
 </tr>
 </tbody>
 </table>
-<p>$$\text{Total Fleet Synchronization Time} = 33.54\,\text{milliseconds} \quad (\ll 50\,\text{ms SLA Bound})$$</p>
+<div class="arithmatex">\[\text{Total Fleet Synchronization Time} = 33.54\,\text{milliseconds} \quad (\ll 50\,\text{ms SLA Bound})\]</div>
 <hr />
 <h2 id="2-visualization-of-the-fanout-budget">2. Visualization of the Fanout Budget</h2>
 <div class="highlight"><pre><span></span><code> 0 ms      10 ms     20 ms     30 ms     40 ms     50 ms
@@ -43299,6 +43299,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

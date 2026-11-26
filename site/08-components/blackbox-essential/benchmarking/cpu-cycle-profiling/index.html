@@ -43212,8 +43212,8 @@
  └──────────────────────────────────────────────────────────────┴──────────────┘
   TOTAL INSTRUCTION BUDGET PER DROP:                             118 CPU Cycles
 </code></pre></div>
-<p>On an Intel Xeon processor running at $2.0\,\text{GHz}$, $118\text{ cycles}$ translates to:</p>
-<p>$$\text{Execution Time} = \frac{118\,\text{cycles}}{2.0 \times 10^9\,\text{cycles/sec}} = 59\,\text{nanoseconds}$$</p>
+<p>On an Intel Xeon processor running at <span class="arithmatex">\(2.0\,\text{GHz}\)</span>, <span class="arithmatex">\(118\text{ cycles}\)</span> translates to:</p>
+<div class="arithmatex">\[\text{Execution Time} = \frac{118\,\text{cycles}}{2.0 \times 10^9\,\text{cycles/sec}} = 59\,\text{nanoseconds}\]</div>
 <hr />
 <h2 id="2-profiling-via-perf-stat">2. Profiling via <code>perf stat</code></h2>
 <p>Execute hardware PMU profiling on the active network interface core:</p>
@@ -43232,8 +43232,8 @@ sudo<span class="w"> </span>perf<span class="w"> </span>stat<span class="w"> </s
 </code></pre></div>
 <h3 id="analysis">Analysis</h3>
 <ul>
-<li><strong>Instructions per Cycle (IPC):</strong> $1.24$ (Reflects clean pipeline execution without memory stalls).</li>
-<li><strong>Cache Miss Ratio:</strong> $0.01\%$ (The pre-allocated BPF hash map remains resident in the processor's Level 2 and Level 3 caches during active mitigation).</li>
+<li><strong>Instructions per Cycle (IPC):</strong> <span class="arithmatex">\(1.24\)</span> (Reflects clean pipeline execution without memory stalls).</li>
+<li><strong>Cache Miss Ratio:</strong> <span class="arithmatex">\(0.01\%\)</span> (The pre-allocated BPF hash map remains resident in the processor's Level 2 and Level 3 caches during active mitigation).</li>
 </ul>
 
 
@@ -43303,6 +43303,10 @@ sudo<span class="w"> </span>perf<span class="w"> </span>stat<span class="w"> </s
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

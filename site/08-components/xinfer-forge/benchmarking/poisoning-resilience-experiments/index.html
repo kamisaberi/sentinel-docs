@@ -43239,29 +43239,29 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Cycle 1</strong></td>
-<td style="text-align: left;">$1\%$</td>
-<td style="text-align: left;">Loss: $0.320 &gt; \tau$ (PASS)</td>
-<td style="text-align: left;">Safety Gate: $52/52$ Detected</td>
+<td style="text-align: left;"><span class="arithmatex">\(1\%\)</span></td>
+<td style="text-align: left;">Loss: <span class="arithmatex">\(0.320 &gt; \tau\)</span> (PASS)</td>
+<td style="text-align: left;">Safety Gate: <span class="arithmatex">\(52/52\)</span> Detected</td>
 <td style="text-align: left;"><strong>Approved</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Cycle 4</strong></td>
-<td style="text-align: left;">$5\%$</td>
-<td style="text-align: left;">Loss: $0.185 &gt; \tau$ (PASS)</td>
-<td style="text-align: left;">Safety Gate: $52/52$ Detected</td>
+<td style="text-align: left;"><span class="arithmatex">\(5\%\)</span></td>
+<td style="text-align: left;">Loss: <span class="arithmatex">\(0.185 &gt; \tau\)</span> (PASS)</td>
+<td style="text-align: left;">Safety Gate: <span class="arithmatex">\(52/52\)</span> Detected</td>
 <td style="text-align: left;"><strong>Approved</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Cycle 6</strong></td>
-<td style="text-align: left;">$10\%$</td>
-<td style="text-align: left;">Loss: $0.102 &gt; \tau$ (PASS)</td>
-<td style="text-align: left;">Safety Gate: $52/52$ Detected</td>
+<td style="text-align: left;"><span class="arithmatex">\(10\%\)</span></td>
+<td style="text-align: left;">Loss: <span class="arithmatex">\(0.102 &gt; \tau\)</span> (PASS)</td>
+<td style="text-align: left;">Safety Gate: <span class="arithmatex">\(52/52\)</span> Detected</td>
 <td style="text-align: left;"><strong>Approved</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Cycle 8</strong></td>
-<td style="text-align: left;">$10\%$</td>
-<td style="text-align: left;">Loss: $0.041 \le \tau$ (<strong>FAIL</strong>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(10\%\)</span></td>
+<td style="text-align: left;">Loss: <span class="arithmatex">\(0.041 \le \tau\)</span> (<strong>FAIL</strong>)</td>
 <td style="text-align: left;"><strong>Safety Gate: 51/52 Detected (REJECTED)</strong></td>
 <td style="text-align: left;"><strong>PURGED IMMEDIATELY</strong></td>
 </tr>
@@ -43276,7 +43276,7 @@
 </table>
 <hr />
 <h2 id="3-conclusion">3. Conclusion</h2>
-<p>At Cycle 8, when the unprotected model's residual error on Industroyer2 dipped below $\tau = 0.082$, <code>xinfer-forge</code>'s automated purge circuit triggered, immediately deleting the compromised checkpoint, alerting the SOC, and keeping the unpoisoned baseline active.</p>
+<p>At Cycle 8, when the unprotected model's residual error on Industroyer2 dipped below <span class="arithmatex">\(\tau = 0.082\)</span>, <code>xinfer-forge</code>'s automated purge circuit triggered, immediately deleting the compromised checkpoint, alerting the SOC, and keeping the unpoisoned baseline active.</p>
 
 
 
@@ -43345,6 +43345,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43143,7 +43143,7 @@
 <p><code>sentinel-nexus</code> derives <strong>Deterministic Sensor Identifiers</strong> using physical network coordinates and protocol attributes.</p>
 <hr />
 <h2 id="1-deterministic-identifier-derivation-formula">1. Deterministic Identifier Derivation Formula</h2>
-<p>$$\text{SensorID} = \text{Protocol} \parallel \text{"-"} \parallel \text{IPv4} \parallel \text{"-"} \parallel \text{Port} \parallel \text{"-"} \parallel \text{UnitAddress}$$</p>
+<div class="arithmatex">\[\text{SensorID} = \text{Protocol} \parallel \text{&quot;-&quot;} \parallel \text{IPv4} \parallel \text{&quot;-&quot;} \parallel \text{Port} \parallel \text{&quot;-&quot;} \parallel \text{UnitAddress}\]</div>
 <div class="highlight"><pre><span></span><code> Modbus TCP Example:
   • Protocol: "modbus"
   • Ingress IP: "10.240.0.101"
@@ -43259,6 +43259,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

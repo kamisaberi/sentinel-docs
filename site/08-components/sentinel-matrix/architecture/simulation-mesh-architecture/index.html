@@ -43186,7 +43186,7 @@
 <p>Unlike traditional network simulators (e.g., Mininet or NS-3) that mock networking behavior in user space:
 * Each <code>sentinel-node-XX</code> container runs a native C++ <strong><code>sentinel</code></strong> daemon.
 * The containers are granted Linux capabilities (<code>CAP_NET_ADMIN</code>, <code>CAP_NET_RAW</code>, <code>CAP_BPF</code>, <code>CAP_SYS_RESOURCE</code>).
-* Packet mitigation occurs inside the host Linux kernel via real <strong>eBPF/XDP driver hooks</strong> (<code>xdp_filter.o</code>), executing live drops on container <code>veth</code> interfaces in $&lt; 0.84\,\mu\text{s}$.</p>
+* Packet mitigation occurs inside the host Linux kernel via real <strong>eBPF/XDP driver hooks</strong> (<code>xdp_filter.o</code>), executing live drops on container <code>veth</code> interfaces in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>.</p>
 <hr />
 <h2 id="3-container-lifecycle-state-machine">3. Container Lifecycle State Machine</h2>
 <div class="highlight"><pre><span></span><code> ┌─────────────────┐
@@ -43282,6 +43282,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

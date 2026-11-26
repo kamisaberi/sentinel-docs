@@ -43158,11 +43158,11 @@
 <hr />
 <h2 id="2-failover-protocol-sequence">2. Failover Protocol Sequence</h2>
 <ol>
-<li><strong>Health Monitoring:</strong> The secondary Nexus instance polls the primary instance over a dedicated heartbeat link every $500\,\text{ms}$.</li>
-<li><strong>Failure Detection:</strong> If the primary instance fails to respond for $1{,}500\,\text{ms}$ (3 missed heartbeats):</li>
+<li><strong>Health Monitoring:</strong> The secondary Nexus instance polls the primary instance over a dedicated heartbeat link every <span class="arithmatex">\(500\,\text{ms}\)</span>.</li>
+<li><strong>Failure Detection:</strong> If the primary instance fails to respond for <span class="arithmatex">\(1{,}500\,\text{ms}\)</span> (3 missed heartbeats):</li>
 <li>The secondary instance promotes itself to <strong><code>LEADER</code></strong>.</li>
 <li>The secondary instance issues an <strong>Arp Gratuitous</strong> broadcast claiming the Virtual IP (<code>10.240.0.10</code>).</li>
-<li><strong>Seamless Appliance Reconnection:</strong> All 5,000 edge appliances (<code>blackbox-sentinel</code>) reconnect to the VIP within $2.0\text{ seconds}$ without configuration changes.</li>
+<li><strong>Seamless Appliance Reconnection:</strong> All 5,000 edge appliances (<code>blackbox-sentinel</code>) reconnect to the VIP within <span class="arithmatex">\(2.0\text{ seconds}\)</span> without configuration changes.</li>
 </ol>
 
 
@@ -43232,6 +43232,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

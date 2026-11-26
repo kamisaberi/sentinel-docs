@@ -43186,10 +43186,10 @@
 <hr />
 <h2 id="2-dynamic-retry-exponential-backoff-policy">2. Dynamic Retry &amp; Exponential Backoff Policy</h2>
 <p>Network transitions in industrial and vehicle environments can cause dropped connections. <code>ModelHub</code> integrates deterministic backoff with jitter to prevent server connection storms:</p>
-<p>$$T_{\text{wait}} = \min\left(T_{\text{max}},\, T_{\text{base}} \times 2^{\text{attempt}}\right) \pm \text{jitter}$$</p>
+<div class="arithmatex">\[T_{\text{wait}} = \min\left(T_{\text{max}},\, T_{\text{base}} \times 2^{\text{attempt}}\right) \pm \text{jitter}\]</div>
 <ul>
-<li><strong>Initial Retry Delay ($T_{\text{base}}$):</strong> $500\,\text{ms}$</li>
-<li><strong>Maximum Retry Ceiling ($T_{\text{max}}$):</strong> $30.0\,\text{seconds}$</li>
+<li><strong>Initial Retry Delay (<span class="arithmatex">\(T_{\text{base}}\)</span>):</strong> <span class="arithmatex">\(500\,\text{ms}\)</span></li>
+<li><strong>Maximum Retry Ceiling (<span class="arithmatex">\(T_{\text{max}}\)</span>):</strong> <span class="arithmatex">\(30.0\,\text{seconds}\)</span></li>
 <li><strong>Max Consecutive Failures:</strong> 5 attempts before raising <code>ERR_REMOTE_SYNC_FAILED</code>.</li>
 </ul>
 <hr />
@@ -43310,6 +43310,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

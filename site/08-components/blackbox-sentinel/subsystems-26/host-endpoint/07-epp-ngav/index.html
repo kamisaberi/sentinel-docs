@@ -43166,8 +43166,8 @@
 <p><code>07_epp_ngav</code> defends edge storage from ransomware and wiper attacks. It hooks filesystem writes using the Linux <strong><code>fanotify</code></strong> API, calculating byte-level <strong>Shannon Entropy</strong> in real time via SIMD instructions. Rapid increases in entropy paired with high IOPS trigger immediate process termination and filesystem write suspension.</p>
 <hr />
 <h2 id="1-shannon-entropy-formula-simd-acceleration">1. Shannon Entropy Formula &amp; SIMD Acceleration</h2>
-<p>Encrypted files (ransomware ciphertext) and packed binaries display near-uniform byte frequency distributions, pushing entropy toward $8.0$:</p>
-<p>$$H(X) = -\sum_{i=0}^{255} P(x_i) \log_2 P(x_i)$$</p>
+<p>Encrypted files (ransomware ciphertext) and packed binaries display near-uniform byte frequency distributions, pushing entropy toward <span class="arithmatex">\(8.0\)</span>:</p>
+<div class="arithmatex">\[H(X) = -\sum_{i=0}^{255} P(x_i) \log_2 P(x_i)\]</div>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
  │ Byte Frequency Histogram (256-Element Integer Array)        │
  └──────────────────────────────┬──────────────────────────────┘
@@ -43217,7 +43217,7 @@
 <hr />
 <h2 id="3-operational-guarantees">3. Operational Guarantees</h2>
 <ul>
-<li><strong>Scanning Overhead:</strong> Evaluates a $1\text{ MB}$ block in $&lt; 120\,\mu\text{s}$ using AVX2 SIMD acceleration.</li>
+<li><strong>Scanning Overhead:</strong> Evaluates a <span class="arithmatex">\(1\text{ MB}\)</span> block in <span class="arithmatex">\(&lt; 120\,\mu\text{s}\)</span> using AVX2 SIMD acceleration.</li>
 <li><strong>False Positive Prevention:</strong> Preserves an allowlist of legitimate compressed formats (<code>.tar.gz</code>, <code>.zip</code>, <code>.zst</code>) verified against magic byte headers.</li>
 </ul>
 
@@ -43288,6 +43288,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

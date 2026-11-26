@@ -43165,7 +43165,7 @@
 <hr />
 <h2 id="1-wait-free-producer-invariants">1. Wait-Free Producer Invariants</h2>
 <ul>
-<li><strong>$O(1)$ Execution Bound:</strong> The <code>try_enqueue()</code> method executes in a fixed number of CPU instructions without branch loops or retry iterations.</li>
+<li><strong><span class="arithmatex">\(O(1)\)</span> Execution Bound:</strong> The <code>try_enqueue()</code> method executes in a fixed number of CPU instructions without branch loops or retry iterations.</li>
 <li><strong>Zero System Calls:</strong> Does not invoke <code>futex()</code>, <code>pthread_mutex_lock()</code>, or kernel rescheduling primitives.</li>
 <li><strong>Cached Head Optimization:</strong> Avoids reading the shared atomic <code>read_index_</code> across the CPU cache bus on every packet by maintaining a thread-local snapshot (<code>cached_read_index_</code>).</li>
 </ul>
@@ -43197,7 +43197,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-cpu-cycle-budget-on-the-producer-path">3. CPU Cycle Budget on the Producer Path</h2>
-<p>On an Intel Xeon Gold running at $3.0\,\text{GHz}$, the fast path executes in <strong>under $32\text{ CPU cycles}$</strong> ($\approx 10.6\,\text{ns}$), ensuring the network driver thread can process line-rate traffic bursts without CPU bottlenecks.</p>
+<p>On an Intel Xeon Gold running at <span class="arithmatex">\(3.0\,\text{GHz}\)</span>, the fast path executes in <strong>under <span class="arithmatex">\(32\text{ CPU cycles}\)</span></strong> (<span class="arithmatex">\(\approx 10.6\,\text{ns}\)</span>), ensuring the network driver thread can process line-rate traffic bursts without CPU bottlenecks.</p>
 
 
 
@@ -43266,6 +43266,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

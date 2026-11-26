@@ -43224,8 +43224,8 @@ sudo<span class="w"> </span>python3<span class="w"> </span>harness/socket_inject
 </code></pre></div>
 <hr />
 <h2 id="3-calculating-per-packet-instruction-cost">3. Calculating Per-Packet Instruction Cost</h2>
-<p>$$\text{Cycles per Drop} = \frac{\Delta \text{Cycles}}{\Delta \text{Packets Dropped}} = \frac{7{,}080{,}000\,\text{cycles}}{60{,}000\,\text{packets}} = 118.0\,\text{Cycles/Packet}$$</p>
-<p>This calculation proves that the drop executes within <strong>$118\text{ CPU cycles}$</strong> ($\approx 59\,\text{ns}$ at $2.0\,\text{GHz}$), leaving the remaining $781\,\text{ns}$ of the $0.84\,\mu\text{s}$ budget for physical PCIe DMA bus transfers.</p>
+<div class="arithmatex">\[\text{Cycles per Drop} = \frac{\Delta \text{Cycles}}{\Delta \text{Packets Dropped}} = \frac{7{,}080{,}000\,\text{cycles}}{60{,}000\,\text{packets}} = 118.0\,\text{Cycles/Packet}\]</div>
+<p>This calculation proves that the drop executes within <strong><span class="arithmatex">\(118\text{ CPU cycles}\)</span></strong> (<span class="arithmatex">\(\approx 59\,\text{ns}\)</span> at <span class="arithmatex">\(2.0\,\text{GHz}\)</span>), leaving the remaining <span class="arithmatex">\(781\,\text{ns}\)</span> of the <span class="arithmatex">\(0.84\,\mu\text{s}\)</span> budget for physical PCIe DMA bus transfers.</p>
 
 
 
@@ -43294,6 +43294,10 @@ sudo<span class="w"> </span>python3<span class="w"> </span>harness/socket_inject
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

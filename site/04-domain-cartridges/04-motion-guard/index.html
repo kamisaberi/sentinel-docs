@@ -43151,7 +43151,7 @@
 <li><strong>TSN 802.1Qbv Jitter Enforcement:</strong> Validates cycle arrival times using hardware PTP timestamps (<code>SO_TIMESTAMPING</code>), rejecting command packets with cycle jitter exceeding <strong>500 microseconds</strong>.</li>
 <li><strong>3D Anatomical Keep-Out Zone CBF:</strong> Evaluates end-effector coordinates against patient anatomical scan keep-out zones (arteries, critical nerves):</li>
 </ul>
-<p>$$h_{\text{koz}}(x) = |p_{\text{tip}} - p_{\text{artery}}| - r_{\text{safety}} \ge 0$$</p>
+<div class="arithmatex">\[h_{\text{koz}}(x) = \|p_{\text{tip}} - p_{\text{artery}}\| - r_{\text{safety}} \ge 0\]</div>
 <p>Commands commanding tool trajectories that breach the safety margin are clamped in under 15 nanoseconds.</p>
 
 
@@ -43221,6 +43221,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

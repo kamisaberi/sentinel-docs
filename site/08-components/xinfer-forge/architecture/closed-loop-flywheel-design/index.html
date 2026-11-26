@@ -43184,8 +43184,8 @@
 <hr />
 <h2 id="2-active-learning-uncertainty-boundary">2. Active Learning Uncertainty Boundary</h2>
 <p>Instead of retraining on millions of redundant, obvious flows, the flywheel isolates ambiguous traffic:</p>
-<p>$$\text{Uncertainty Filter}(x) = { x \mid 0.40 \le f(x; \theta) \le 0.60 }$$</p>
-<p>This focuses training computations on edge cases and emerging environmental variations, reducing compute requirements by up to <strong>$94\%$</strong>.</p>
+<div class="arithmatex">\[\text{Uncertainty Filter}(x) = \{ x \mid 0.40 \le f(x; \theta) \le 0.60 \}\]</div>
+<p>This focuses training computations on edge cases and emerging environmental variations, reducing compute requirements by up to <strong><span class="arithmatex">\(94\%\)</span></strong>.</p>
 
 
 
@@ -43254,6 +43254,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

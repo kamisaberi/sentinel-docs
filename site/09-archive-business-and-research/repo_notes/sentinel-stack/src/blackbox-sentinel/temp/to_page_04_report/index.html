@@ -43237,7 +43237,7 @@
 <li><strong>eBPF CO-RE (<code>vmlinux.h</code> &amp; BPF Type Format - BTF):</strong></li>
 <li>Decouple <code>blackbox-essential/bpf/xdp_filter.c</code> from target machine kernel header trees (<code>linux-headers-$(uname -r)</code>).</li>
 <li>Generate architecture-specific <code>vmlinux.h</code> via <code>bpftool btf dump file /sys/kernel/btf/vmlinux format c</code>.</li>
-<li>Refactor kernel map accessors (<code>bpf_core_read()</code>) and relocatable field offsets to ensure single-binary kernel portability across Linux 5.15 LTS $\rightarrow$ 6.12+ kernels.</li>
+<li>Refactor kernel map accessors (<code>bpf_core_read()</code>) and relocatable field offsets to ensure single-binary kernel portability across Linux 5.15 LTS <span class="arithmatex">\(\rightarrow\)</span> 6.12+ kernels.</li>
 <li><strong>True AF_XDP Zero-Copy UMEM Engine:</strong></li>
 <li>Upgrade userspace polling rings from socket copies to direct NIC RX ring descriptor transfers via <code>XSK_RING_PROD__DEFAULT_NUM_DESCS</code> and UMEM frame pools, targeting 10M+ EPS on dual-port 25G/100G interfaces.</li>
 </ol>
@@ -43331,6 +43331,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

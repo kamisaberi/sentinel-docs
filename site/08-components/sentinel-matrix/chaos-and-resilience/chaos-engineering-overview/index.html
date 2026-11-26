@@ -43159,7 +43159,7 @@
 <hr />
 <h2 id="2-invariants-under-chaos">2. Invariants Under Chaos</h2>
 <ol>
-<li><strong>Deterministic Safety Tripping:</strong> An operational latency breach ($&gt; 1{,}000\,\mu\text{s}$) or drop surge must trigger an automated rollback without operator intervention.</li>
+<li><strong>Deterministic Safety Tripping:</strong> An operational latency breach (<span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span>) or drop surge must trigger an automated rollback without operator intervention.</li>
 <li><strong>Zero In-Kernel Leaks:</strong> Terminating a user-space container must unhook eBPF filters from the host kernel (<code>xdp off</code>), preventing orphaned packet drops.</li>
 <li><strong>Cascading State Accuracy:</strong> Killing a parent node must immediately transition all connected subordinate sensors to <code>INHERITED_OFFLINE</code> without phantom polling storms.</li>
 </ol>
@@ -43231,6 +43231,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

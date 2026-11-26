@@ -43177,7 +43177,7 @@
 <p><code>xinfer-essential</code> adheres to strict hardware profiling methodologies to ensure deterministic reproducibility.</p>
 <hr />
 <h2 id="1-hardware-timer-principles-invariant-tsc-vs-clock_monotonic_raw">1. Hardware Timer Principles: Invariant TSC vs. <code>CLOCK_MONOTONIC_RAW</code></h2>
-<p>Standard <code>std::chrono::high_resolution_clock</code> implementations often invoke the <code>clock_gettime(CLOCK_REALTIME)</code> system call, which is subject to NTP clock adjustments and user-to-kernel context shifts ($\sim 15 - 30\,\text{ns}$ overhead).</p>
+<p>Standard <code>std::chrono::high_resolution_clock</code> implementations often invoke the <code>clock_gettime(CLOCK_REALTIME)</code> system call, which is subject to NTP clock adjustments and user-to-kernel context shifts (<span class="arithmatex">\(\sim 15 - 30\,\text{ns}\)</span> overhead).</p>
 <p>For microsecond profiling, <code>xinfer-essential</code> utilizes:
 * <strong>x86_64:</strong> Invariant Time-Stamp Counter (TSC) with serializing instruction fencing (<code>__rdtscp</code> or <code>mfence</code> + <code>__rdtsc</code>).
 * <strong>AArch64 (ARM64):</strong> The direct physical cycle counter register (<code>CNTVCT_EL0</code>).
@@ -43232,8 +43232,8 @@
 <ol>
 <li><strong>CPU Frequency Pinning:</strong> Dynamic scaling governors (e.g., <code>powersave</code> or <code>ondemand</code>) are disabled. CPU frequency is locked to maximum base clocks using the <code>performance</code> governor.</li>
 <li><strong>CPU Core Shielding (<code>isolcpus</code>):</strong> Inference benchmarks are assigned dedicated isolated cores excluded from the general Linux CFS (Completely Fair Scheduler) task pool.</li>
-<li><strong>Hardware Warmup Iterations:</strong> Models run a minimum of $10{,}000$ discard passes to stabilize CPU/NPU caches, pre-heat Level 2/3 branch predictors, and warm device context queues.</li>
-<li><strong>Statistical Sample Size:</strong> Latency metrics are recorded across $N = 1{,}000{,}000$ consecutive inferences to evaluate high-percentile tail distributions ($p50$, $p90$, $p99$, $p99.9$, and maximum outlier jitter).</li>
+<li><strong>Hardware Warmup Iterations:</strong> Models run a minimum of <span class="arithmatex">\(10{,}000\)</span> discard passes to stabilize CPU/NPU caches, pre-heat Level 2/3 branch predictors, and warm device context queues.</li>
+<li><strong>Statistical Sample Size:</strong> Latency metrics are recorded across <span class="arithmatex">\(N = 1{,}000{,}000\)</span> consecutive inferences to evaluate high-percentile tail distributions (<span class="arithmatex">\(p50\)</span>, <span class="arithmatex">\(p90\)</span>, <span class="arithmatex">\(p99\)</span>, <span class="arithmatex">\(p99.9\)</span>, and maximum outlier jitter).</li>
 </ol>
 <h3 id="operating-system-isolation-command-checklist">Operating System Isolation Command Checklist</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># 1. Set performance governor across all cores</span>
@@ -43314,6 +43314,10 @@ sudo<span class="w"> </span>taskset<span class="w"> </span>-c<span class="w"> </
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

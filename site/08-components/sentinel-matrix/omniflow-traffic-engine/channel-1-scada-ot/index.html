@@ -43145,11 +43145,11 @@
 <ul>
 <li><strong>Target Ports:</strong> TCP 502 (Modbus TCP) and TCP/UDP 20000 (DNP3).</li>
 <li><strong>Baseline Normal:</strong> Continuous cyclic polling:</li>
-<li>Modbus Function Code <code>03</code> (Read Holding Registers) every $100\,\text{ms}$.</li>
-<li>DNP3 Class 0/1/2/3 data polls every $1{,}000\,\text{ms}$.</li>
+<li>Modbus Function Code <code>03</code> (Read Holding Registers) every <span class="arithmatex">\(100\,\text{ms}\)</span>.</li>
+<li>DNP3 Class 0/1/2/3 data polls every <span class="arithmatex">\(1{,}000\,\text{ms}\)</span>.</li>
 <li><strong>Injected Anomalies:</strong></li>
 <li><strong>Coil Overrides:</strong> Function Code <code>05</code> write commands attempting to trip physical safety interlocks.</li>
-<li><strong>Thermodynamic Invariant Violations:</strong> Writing values exceeding physical safety limits (e.g., setpoints $&gt; 4{,}500\,\text{PSI}$ on register <code>40001</code>).</li>
+<li><strong>Thermodynamic Invariant Violations:</strong> Writing values exceeding physical safety limits (e.g., setpoints <span class="arithmatex">\(&gt; 4{,}500\,\text{PSI}\)</span> on register <code>40001</code>).</li>
 </ul>
 <hr />
 <h2 id="2-ingestion-implementation-scada_channelpy">2. Ingestion Implementation (<code>scada_channel.py</code>)</h2>
@@ -43249,6 +43249,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

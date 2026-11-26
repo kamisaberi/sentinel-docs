@@ -34641,7 +34641,7 @@
   <a href="#model-1-distributed-c-sensor-agents-remote-servers-rightarrow-sentinel" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Model 1: Distributed C++ Sensor Agents (Remote Servers $\rightarrow$ Sentinel)
+        Model 1: Distributed C++ Sensor Agents (Remote Servers <span class="arithmatex">\(\rightarrow\)</span> Sentinel)
       </span>
     </span>
   </a>
@@ -43334,7 +43334,7 @@
   <a href="#model-1-distributed-c-sensor-agents-remote-servers-rightarrow-sentinel" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Model 1: Distributed C++ Sensor Agents (Remote Servers $\rightarrow$ Sentinel)
+        Model 1: Distributed C++ Sensor Agents (Remote Servers <span class="arithmatex">\(\rightarrow\)</span> Sentinel)
       </span>
     </span>
   </a>
@@ -43442,7 +43442,7 @@
 
 <p>Here is the enhanced, expanded master catalog of future applications that can be built on top of <strong><code>blackbox-essential</code> (<code>libblackbox.so</code>)</strong> and <strong><code>xinfer-essential</code> (<code>libxinfer.so</code>)</strong>.</p>
 <p>This table integrates your low-level endpoint/network ideas with our cyber-physical, tactical defense, and industrial SCADA engines. Every application is ranked using a multidimensional technical score:</p>
-<p>$$\text{Priority Score} = f(\text{C++ Zero-Copy Necessity}, \; \text{Blackbox Engine Synergy}, \; \text{Commercial Contract Value})$$</p>
+<div class="arithmatex">\[\text{Priority Score} = f(\text{C++ Zero-Copy Necessity}, \; \text{Blackbox Engine Synergy}, \; \text{Commercial Contract Value})\]</div>
 <hr />
 <h3 id="master-future-applications-matrix-built-on-blackbox-essential">Master Future Applications Matrix Built on <code>blackbox-essential</code></h3>
 <table>
@@ -43472,18 +43472,18 @@
 <td style="text-align: left;"><strong>Ransomware IOPS Entropy Interceptor</strong></td>
 <td style="text-align: left;">Host Storage / File-System</td>
 <td style="text-align: left;">Intercepts disk I/O requests at the block layer; calculates Shannon entropy of written buffers to kill encryption threads.</td>
-<td style="text-align: left;">If AI decision takes $&gt;1\,\text{ms}$, hundreds of files are permanently encrypted. Requires direct block pointer math without memory copies.</td>
+<td style="text-align: left;">If AI decision takes <span class="arithmatex">\(&gt;1\,\text{ms}\)</span>, hundreds of files are permanently encrypted. Requires direct block pointer math without memory copies.</td>
 <td style="text-align: left;">Linux <code>io_uring</code> feed into <code>libblackbox.so</code>; <code>libxinfer.so</code> runs entropy evaluation kernel.</td>
-<td style="text-align: left;">High-Security Endpoints ($15–$30/endpoint/yr)</td>
+<td style="text-align: left;">High-Security Endpoints (<span class="arithmatex">\(15–\)</span>30/endpoint/yr)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>10 / 10</strong></td>
 <td style="text-align: left;"><strong>Line-Rate Encrypted Traffic Fingerprinter (ETA)</strong></td>
 <td style="text-align: left;">Network Core / NDR</td>
 <td style="text-align: left;">Analyzes packet lengths, TCP window scaling, and inter-arrival jitter on 10Gbps–40Gbps links to detect malware without SSL decryption.</td>
-<td style="text-align: left;">Python drops $&gt;80\%$ of packets at 10Gbps line rate. C++20 zero-copy DMA memory buffers process millions of packets without cache thrashing.</td>
+<td style="text-align: left;">Python drops <span class="arithmatex">\(&gt;80\%\)</span> of packets at 10Gbps line rate. C++20 zero-copy DMA memory buffers process millions of packets without cache thrashing.</td>
 <td style="text-align: left;">Uses <code>AF_XDP</code> driver in <code>network_ingest.cpp</code>; <code>libxinfer.so</code> runs temporal flow transformer.</td>
-<td style="text-align: left;">Tier-1 Telecom &amp; Enterprise Core ($50k–$150k/node)</td>
+<td style="text-align: left;">Tier-1 Telecom &amp; Enterprise Core (<span class="arithmatex">\(50k–\)</span>150k/node)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>9.8 / 10</strong></td>
@@ -43499,9 +43499,9 @@
 <td style="text-align: left;"><strong>Inline AI Proxy &amp; Zero-Latency WAF</strong></td>
 <td style="text-align: left;">Web Proxy (Envoy/NGINX)</td>
 <td style="text-align: left;">Sits directly in C++ reverse proxies to evaluate raw HTTP/gRPC request tensors for zero-day API exploits before reaching origin servers.</td>
-<td style="text-align: left;">Web proxies cannot tolerate $&gt;1\,\text{ms}$ overhead on HTTP transactions. Python cannot be embedded inside Envoy/NGINX workers cleanly.</td>
+<td style="text-align: left;">Web proxies cannot tolerate <span class="arithmatex">\(&gt;1\,\text{ms}\)</span> overhead on HTTP transactions. Python cannot be embedded inside Envoy/NGINX workers cleanly.</td>
 <td style="text-align: left;">Compiles as an Envoy C++ filter linked to <code>libxinfer.so</code> for sub-millisecond payload scoring.</td>
-<td style="text-align: left;">SaaS &amp; FinTech Edge Security ($10k–$40k/yr)</td>
+<td style="text-align: left;">SaaS &amp; FinTech Edge Security (<span class="arithmatex">\(10k–\)</span>40k/yr)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>9.2 / 10</strong></td>
@@ -43517,8 +43517,8 @@
 <td style="text-align: left;"><strong>Service Mesh AI Sidecar</strong></td>
 <td style="text-align: left;">Kubernetes Infrastructure</td>
 <td style="text-align: left;">Deployed as a lightweight sidecar container next to microservices to detect lateral movement, credential theft, and API abuse.</td>
-<td style="text-align: left;">Memory footprint must stay $&lt;50\,\text{MB}$ per pod. Python pods require $&gt;500\,\text{MB}$, ballooning enterprise cloud compute bills by 10x.</td>
-<td style="text-align: left;">Statically links <code>libblackbox.so</code> into a microscopic C++ container consuming $&lt;15\,\text{MB}$ RAM.</td>
+<td style="text-align: left;">Memory footprint must stay <span class="arithmatex">\(&lt;50\,\text{MB}\)</span> per pod. Python pods require <span class="arithmatex">\(&gt;500\,\text{MB}\)</span>, ballooning enterprise cloud compute bills by 10x.</td>
+<td style="text-align: left;">Statically links <code>libblackbox.so</code> into a microscopic C++ container consuming <span class="arithmatex">\(&lt;15\,\text{MB}\)</span> RAM.</td>
 <td style="text-align: left;">Cloud-Native Enterprises ($2k/node/yr)</td>
 </tr>
 <tr>
@@ -43526,27 +43526,27 @@
 <td style="text-align: left;"><strong>Autonomous Drone C2 Anti-Hijack Guard</strong></td>
 <td style="text-align: left;">Tactical Defense / UAV</td>
 <td style="text-align: left;">Embedded on drone flight computers (Jetson/RK3588); monitors MAVLink telemetry for GPS spoofing and control hijacking while running YOLO vision.</td>
-<td style="text-align: left;">Drones operate on battery power with strict real-time deadlines ($&lt;2\,\text{ms}$) for flight stability. Python is too heavy and slow.</td>
+<td style="text-align: left;">Drones operate on battery power with strict real-time deadlines (<span class="arithmatex">\(&lt;2\,\text{ms}\)</span>) for flight stability. Python is too heavy and slow.</td>
 <td style="text-align: left;"><code>xinfer</code> targets Jetson/RK3588 via TensorRT/RKNN; <code>blackbox</code> correlates MAVLink telemetry with vision.</td>
-<td style="text-align: left;">Defense UAV Primes ($25k–$100k/drone OEM)</td>
+<td style="text-align: left;">Defense UAV Primes (<span class="arithmatex">\(25k–\)</span>100k/drone OEM)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>8.5 / 10</strong></td>
 <td style="text-align: left;"><strong>High-Throughput DGA &amp; DNS Tunneling Filter</strong></td>
 <td style="text-align: left;">DNS Gateway / Resolver</td>
 <td style="text-align: left;">Evaluates millions of DNS queries per second using character entropy and N-gram models to block command-and-control (C2) domains.</td>
-<td style="text-align: left;">Large enterprise networks process $&gt;1\,\text{M}$ DNS queries/sec. Python string parsing collapses; C++ tensor operations score strings in nanoseconds.</td>
+<td style="text-align: left;">Large enterprise networks process <span class="arithmatex">\(&gt;1\,\text{M}\)</span> DNS queries/sec. Python string parsing collapses; C++ tensor operations score strings in nanoseconds.</td>
 <td style="text-align: left;">Integrated into <code>blackbox_sentinel</code> port 53 listener; <code>libxinfer.so</code> evaluates domain tensors.</td>
-<td style="text-align: left;">Telecoms &amp; Large ISPs ($25k–$60k/node)</td>
+<td style="text-align: left;">Telecoms &amp; Large ISPs (<span class="arithmatex">\(25k–\)</span>60k/node)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>8.5 / 10</strong></td>
 <td style="text-align: left;"><strong>SCADA / PLC Edge Physics Validator</strong></td>
 <td style="text-align: left;">Industrial OT / SCADA</td>
 <td style="text-align: left;">Embedded on DIN-rail nodes inside power/water plants; validates incoming Modbus/DNP3 commands against physical process constraints.</td>
-<td style="text-align: left;">Embedded PLCs often have $&lt;256\,\text{MB}$ RAM and fanless low-power CPUs where Python cannot execute.</td>
+<td style="text-align: left;">Embedded PLCs often have <span class="arithmatex">\(&lt;256\,\text{MB}\)</span> RAM and fanless low-power CPUs where Python cannot execute.</td>
 <td style="text-align: left;">Uses <code>sentinel_plugin_scada_modbus.so</code> linked to <code>libblackbox.so</code> with zero runtime dependencies.</td>
-<td style="text-align: left;">Power Grids, Water &amp; Nuclear ($15k–$40k/node)</td>
+<td style="text-align: left;">Power Grids, Water &amp; Nuclear (<span class="arithmatex">\(15k–\)</span>40k/node)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>8.2 / 10</strong></td>
@@ -43555,7 +43555,7 @@
 <td style="text-align: left;">Sits on vehicle Electronic Control Units (ECUs); inspects CAN-bus frame timing to prevent unauthorized braking, steering, or acceleration commands.</td>
 <td style="text-align: left;">Automotive ECUs are hard real-time systems (AUTOSAR compliance). Python cannot run; requires pure C++20 deterministic execution.</td>
 <td style="text-align: left;"><code>libblackbox.so</code> handles CAN-bus frame structs; <code>libxinfer.so</code> runs quantized INT8 micro-models.</td>
-<td style="text-align: left;">Automotive Tier-1 OEMs ($5–$20/vehicle royalty)</td>
+<td style="text-align: left;">Automotive Tier-1 OEMs (<span class="arithmatex">\(5–\)</span>20/vehicle royalty)</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>8.0 / 10</strong></td>
@@ -43589,7 +43589,7 @@
 <td style="text-align: left;"><strong>Continuous Biometric Keystroke &amp; Mouse Sentinel</strong></td>
 <td style="text-align: left;">Host Endpoint / Identity</td>
 <td style="text-align: left;">Runs as an invisible background service analyzing typing cadence, inter-key timing, and mouse trajectories to verify authorized physical operators.</td>
-<td style="text-align: left;">Must consume $&lt;1\%$ CPU so the operator never experiences UI lag. Managed languages cause periodic input micro-stutters.</td>
+<td style="text-align: left;">Must consume <span class="arithmatex">\(&lt;1\%\)</span> CPU so the operator never experiences UI lag. Managed languages cause periodic input micro-stutters.</td>
 <td style="text-align: left;">Lightweight C++ hook capturing X11/Wayland input events; passes timing arrays to <code>libxinfer.so</code>.</td>
 <td style="text-align: left;">High-Security Government Terminals ($10/seat/yr)</td>
 </tr>
@@ -43661,7 +43661,7 @@
 <h3 id="the-4-connection-models-how-it-works-in-code">The 4 Connection Models (How It Works in Code)</h3>
 <p>Depending on where the other application lives, Sentinel connects in one of four distinct ways:</p>
 <hr />
-<h4 id="model-1-distributed-c-sensor-agents-remote-servers-rightarrow-sentinel">Model 1: Distributed C++ Sensor Agents (Remote Servers $\rightarrow$ Sentinel)</h4>
+<h4 id="model-1-distributed-c-sensor-agents-remote-servers-rightarrow-sentinel">Model 1: Distributed C++ Sensor Agents (Remote Servers <span class="arithmatex">\(\rightarrow\)</span> Sentinel)</h4>
 <ul>
 <li><strong>Where it runs:</strong> You deploy a tiny, 5MB C++ sensor binary (<code>sentinel-agent</code>) on remote client servers, Docker containers, or Kubernetes pods.</li>
 <li><strong>The Wire Protocol:</strong> High-speed binary over TCP (using Protocol Buffers or mTLS).</li>
@@ -43866,6 +43866,10 @@
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

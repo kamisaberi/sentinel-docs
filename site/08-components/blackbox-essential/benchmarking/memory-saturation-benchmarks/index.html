@@ -43176,7 +43176,7 @@
 <p>This document evaluates the multi-threaded throughput and memory stability of <code>blackbox::EventRingBuffer</code> under saturation workloads.</p>
 <hr />
 <h2 id="1-multi-consumer-scaling-benchmarks">1. Multi-Consumer Scaling Benchmarks</h2>
-<p>Throughput was evaluated by pushing $10{,}000{,}000$ events from a single producer thread into the ring buffer, with varying numbers of concurrent consumer threads:</p>
+<p>Throughput was evaluated by pushing <span class="arithmatex">\(10{,}000{,}000\)</span> events from a single producer thread into the ring buffer, with varying numbers of concurrent consumer threads:</p>
 <div class="highlight"><pre><span></span><code>RING BUFFER CONSUMER SCALING (Throughput vs. Worker Threads):
 
 Throughput (Events/Sec)
@@ -43204,41 +43204,41 @@ Throughput (Events/Sec)
 <tr>
 <td style="text-align: left;"><strong>1 Consumer</strong></td>
 <td style="text-align: left;">Core 1</td>
-<td style="text-align: left;">$1{,}120{,}000\text{ EPS}$</td>
-<td style="text-align: left;">$892\,\text{ns}$</td>
-<td style="text-align: left;">$&lt; 0.1\%$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1{,}120{,}000\text{ EPS}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(892\,\text{ns}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(&lt; 0.1\%\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>2 Consumers</strong></td>
 <td style="text-align: left;">Cores 1, 2</td>
-<td style="text-align: left;"><strong>$1{,}460{,}000\text{ EPS}$</strong></td>
-<td style="text-align: left;"><strong>$684\,\text{ns}$</strong></td>
-<td style="text-align: left;"><strong>$&lt; 0.2\%$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(1{,}460{,}000\text{ EPS}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(684\,\text{ns}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 0.2\%\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>4 Consumers</strong></td>
 <td style="text-align: left;">Cores 1, 2, 3, 4</td>
-<td style="text-align: left;"><strong>$1{,}580{,}000\text{ EPS}$</strong></td>
-<td style="text-align: left;"><strong>$632\,\text{ns}$</strong></td>
-<td style="text-align: left;"><strong>$&lt; 0.3\%$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(1{,}580{,}000\text{ EPS}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(632\,\text{ns}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 0.3\%\)</span></strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>8 Consumers</strong></td>
 <td style="text-align: left;">Cores 1–8 (Cross-NUMA)</td>
-<td style="text-align: left;">$1{,}320{,}000\text{ EPS}$</td>
-<td style="text-align: left;">$758\,\text{ns}$</td>
-<td style="text-align: left;">$1.4\%$ (Interconnect overhead)</td>
+<td style="text-align: left;"><span class="arithmatex">\(1{,}320{,}000\text{ EPS}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(758\,\text{ns}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1.4\%\)</span> (Interconnect overhead)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="2-memory-footprint-stability">2. Memory Footprint Stability</h2>
-<p>Memory utilization was monitored during a continuous 24-hour saturation run ($1.25\text{M EPS}$ sustained):</p>
+<p>Memory utilization was monitored during a continuous 24-hour saturation run (<span class="arithmatex">\(1.25\text{M EPS}\)</span> sustained):</p>
 <ul>
-<li><strong>Total Pre-Allocated Footprint:</strong> $4.19\,\text{MB}$ ($65,536\text{ slots} \times 64\text{ bytes}$).</li>
-<li><strong>Dynamic Allocations during Test:</strong> <strong>$0\text{ bytes}$</strong>.</li>
-<li><strong>Page Faults:</strong> $0$ (All virtual pages are locked into physical memory via <code>mlock()</code>).</li>
-<li><strong>Memory Growth Rate:</strong> $\pm 0.00\,\text{KB/hour}$ (Zero heap fragmentation).</li>
+<li><strong>Total Pre-Allocated Footprint:</strong> <span class="arithmatex">\(4.19\,\text{MB}\)</span> (<span class="arithmatex">\(65,536\text{ slots} \times 64\text{ bytes}\)</span>).</li>
+<li><strong>Dynamic Allocations during Test:</strong> <strong><span class="arithmatex">\(0\text{ bytes}\)</span></strong>.</li>
+<li><strong>Page Faults:</strong> <span class="arithmatex">\(0\)</span> (All virtual pages are locked into physical memory via <code>mlock()</code>).</li>
+<li><strong>Memory Growth Rate:</strong> <span class="arithmatex">\(\pm 0.00\,\text{KB/hour}\)</span> (Zero heap fragmentation).</li>
 </ul>
 
 
@@ -43308,6 +43308,10 @@ Throughput (Events/Sec)
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

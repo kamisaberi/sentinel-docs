@@ -43232,9 +43232,9 @@
 <p><strong><code>xinfer-forge</code> (<code>forge-cli</code>)</strong> is an edge-native continuous active learning daemon designed for air-gapped critical infrastructure and sovereign defense enclaves. Utilizing <strong>Self-Supervised Masked Autoencoders (MAE)</strong> and <strong>InfoNCE contrastive learning</strong>, Forge autonomously fine-tunes threat representations on ambient, unlabeled site NetFlow vectors—immunized against adversarial model poisoning via an <strong>immutable golden attack regression safety gate</strong>.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ View on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/xinfer-forge</code></li>
-<li><code>[ Explore Anti-Poisoning Architecture ]</code> $\rightarrow$ <code>#safety-gate</code></li>
-<li><code>[ Read Continual Learning Benchmarks ]</code> $\rightarrow$ <code>#empirical-benchmarks</code></li>
+<li><code>[ View on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/xinfer-forge</code></li>
+<li><code>[ Explore Anti-Poisoning Architecture ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#safety-gate</code></li>
+<li><code>[ Read Continual Learning Benchmarks ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#empirical-benchmarks</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43305,15 +43305,15 @@
 </code></pre></div>
 <h3 id="1-masked-autoencoding-for-tabular-flow-vectors">1. Masked Autoencoding for Tabular Flow Vectors</h3>
 <p>Unlike traditional autoencoders that simply learn an identity mapping, Forge implements <strong>Masked Autoencoding (MAE)</strong> tailored for continuous 32-dimensional network tensors.</p>
-<p>During each training epoch, Forge randomly masks $30\%$ of the feature dimensions ($m_j = 0$). The neural network is forced to predict the masked physical dimensions based on the unmasked contextual dimensions:
-$$\mathcal{L}<em>{\text{MAE}}(\theta) = \frac{1}{\sum</em>{j=1}^D (1 - m_j)} \sum_{j=1}^D (1 - m_j) \cdot \big(x_j - \hat{x}_j\big)^2$$</p>
+<p>During each training epoch, Forge randomly masks <span class="arithmatex">\(30\%\)</span> of the feature dimensions (<span class="arithmatex">\(m_j = 0\)</span>). The neural network is forced to predict the masked physical dimensions based on the unmasked contextual dimensions:
+$<span class="arithmatex">\(\mathcal{L}_{\text{MAE}}(\theta) = \frac{1}{\sum_{j=1}^D (1 - m_j)} \sum_{j=1}^D (1 - m_j) \cdot \big(x_j - \hat{x}_j\big)^2\)</span>$</p>
 <ul>
 <li><strong>Why this works:</strong> If an industrial plant operates nominally, <code>Forward_Packet_Rate</code> has a deterministic mathematical relationship with <code>Flow_Duration</code> and <code>SCADA_Function_Code</code>. The model learns the underlying physical laws governing the site without human intervention.</li>
 </ul>
 <h3 id="2-infonce-contrastive-regularization">2. InfoNCE Contrastive Regularization</h3>
-<p>To ensure the latent representation $z \in \mathbb{R}^8$ forms a tight, cohesive manifold for nominal site traffic while pushing anomalous outliers into separate hyper-plane regions, Forge applies an <strong>InfoNCE contrastive objective</strong>:
-$$\mathcal{L}<em>{\text{InfoNCE}} = - \log \frac{\exp\big(\text{sim}(z_i, z_i^+) / \tau\big)}{\exp\big(\text{sim}(z_i, z_i^+) / \tau\big) + \sum</em>{k=1}^N \exp\big(\text{sim}(z_i, z_k^-) / \tau\big)}$$
-where $z_i^+$ represents augmented temporal variations of the same flow session, $z_k^-$ represents dissimilar flows, and $\tau = 0.07$ is the temperature hyperparameter.</p>
+<p>To ensure the latent representation <span class="arithmatex">\(z \in \mathbb{R}^8\)</span> forms a tight, cohesive manifold for nominal site traffic while pushing anomalous outliers into separate hyper-plane regions, Forge applies an <strong>InfoNCE contrastive objective</strong>:
+$<span class="arithmatex">\(\mathcal{L}_{\text{InfoNCE}} = - \log \frac{\exp\big(\text{sim}(z_i, z_i^+) / \tau\big)}{\exp\big(\text{sim}(z_i, z_i^+) / \tau\big) + \sum_{k=1}^N \exp\big(\text{sim}(z_i, z_k^-) / \tau\big)}\)</span>$
+where <span class="arithmatex">\(z_i^+\)</span> represents augmented temporal variations of the same flow session, <span class="arithmatex">\(z_k^-\)</span> represents dissimilar flows, and <span class="arithmatex">\(\tau = 0.07\)</span> is the temperature hyperparameter.</p>
 <hr />
 <h2 id="4-the-non-negotiable-golden-attack-regression-gate">4. The Non-Negotiable Golden Attack Regression Gate</h2>
 <p>Before any fine-tuned candidate model is approved for edge compilation, it must pass through the <strong>Safety Regression Gate</strong> (<code>forge/safety/</code>).</p>
@@ -43345,16 +43345,16 @@ where $z_i^+$ represents augmented temporal variations of the same flow session,
 ========================================================================================================
 </code></pre></div>
 <h3 id="mathematical-invariant-formulation">Mathematical Invariant Formulation</h3>
-<p>Let $\mathcal{D}<em>{\text{golden}} = {(x_k^<em>, y_k^</em>)}</em>{k=1}^K$ represent the immutable corpus of known, historic cyber-physical attacks. The candidate model $\mathcal{M}_{\theta^*}$ is evaluated against this set.</p>
+<p>Let <span class="arithmatex">\(\mathcal{D}_{\text{golden}} = \{(x_k^*, y_k^*)\}_{k=1}^K\)</span> represent the immutable corpus of known, historic cyber-physical attacks. The candidate model <span class="arithmatex">\(\mathcal{M}_{\theta^*}\)</span> is evaluated against this set.</p>
 <p>The safety condition is a <strong>strict logical conjunction</strong>:
-$$\mathcal{S}(\theta^<em>) = \prod_{k=1}^K \mathbb{I}\Big(\arg\max \mathcal{M}_{\theta^</em>}(x_k^<em>) = y_k^</em>\Big) = 1.000$$</p>
+$<span class="arithmatex">\(\mathcal{S}(\theta^*) = \prod_{k=1}^K \mathbb{I}\Big(\arg\max \mathcal{M}_{\theta^*}(x_k^*) = y_k^*\Big) = 1.000\)</span>$</p>
 <ul>
-<li>If the fine-tuned model misclassifies <strong>even one single vector</strong> ($k \in {1, \dots, K}$), the safety gate returns $\mathcal{S}(\theta^*) = 0$.</li>
+<li>If the fine-tuned model misclassifies <strong>even one single vector</strong> (<span class="arithmatex">\(k \in \{1, \dots, K\}\)</span>), the safety gate returns <span class="arithmatex">\(\mathcal{S}(\theta^*) = 0\)</span>.</li>
 <li>The candidate weights are <strong>immediately purged from disk</strong>, the adaptation cycle is logged as an adversarial tampering attempt, and the previous stable model remains active.</li>
 </ul>
 <hr />
 <h2 id="5-automated-compilation-nexus-staging-pipeline">5. Automated Compilation &amp; Nexus Staging Pipeline</h2>
-<p>Once a candidate model satisfies $\mathcal{S}(\theta^*) = 1$, <code>xinfer-forge</code> executes an automated deployment sequence:</p>
+<p>Once a candidate model satisfies <span class="arithmatex">\(\mathcal{S}(\theta^*) = 1\)</span>, <code>xinfer-forge</code> executes an automated deployment sequence:</p>
 <div class="highlight"><pre><span></span><code>========================================================================================================
                          CONTINUOUS CLOSED-LOOP DEPLOYMENT FLYWHEEL
 ========================================================================================================
@@ -43489,8 +43489,8 @@ $<span class="w"> </span>forge-cli<span class="w"> </span>export-onnx<span class
 </code></pre></div>
 <h3 id="empirical-findings">Empirical Findings:</h3>
 <ol>
-<li><strong>Elimination of Concept Drift:</strong> Static models degraded to $64.2\%$ accuracy over 6 months as natural network evolution introduced false-positive anomalies. <code>xinfer-forge</code> maintained flat <strong>$98.0\%$ detection accuracy</strong> without manual labeling.</li>
-<li><strong>100% Defense Against Adversarial Poisoning:</strong> During Month 6, an adversarial attack wave injected 5,000 poisoned vectors disguised as ambient telemetry. Naive retraining accepted the poison, dropping detection accuracy to $48.1\%$. <code>xinfer-forge</code>'s safety gate detected regression on <code>golden_attacks.yaml</code>, <strong>purged all candidate models, and prevented any compromised weights from reaching production appliances</strong>.</li>
+<li><strong>Elimination of Concept Drift:</strong> Static models degraded to <span class="arithmatex">\(64.2\%\)</span> accuracy over 6 months as natural network evolution introduced false-positive anomalies. <code>xinfer-forge</code> maintained flat <strong><span class="arithmatex">\(98.0\%\)</span> detection accuracy</strong> without manual labeling.</li>
+<li><strong>100% Defense Against Adversarial Poisoning:</strong> During Month 6, an adversarial attack wave injected 5,000 poisoned vectors disguised as ambient telemetry. Naive retraining accepted the poison, dropping detection accuracy to <span class="arithmatex">\(48.1\%\)</span>. <code>xinfer-forge</code>'s safety gate detected regression on <code>golden_attacks.yaml</code>, <strong>purged all candidate models, and prevented any compromised weights from reaching production appliances</strong>.</li>
 </ol>
 <hr />
 <h2 id="9-sovereign-regulatory-compliance">9. Sovereign Regulatory Compliance</h2>
@@ -43607,6 +43607,10 @@ $<span class="w"> </span>forge-cli<span class="w"> </span>export-onnx<span class
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

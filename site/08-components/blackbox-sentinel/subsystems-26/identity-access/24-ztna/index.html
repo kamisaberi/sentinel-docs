@@ -43141,10 +43141,10 @@
 
 
 <h1 id="subsystem-24-dynamic-zero-trust-session-risk-regressor-24_ztna">Subsystem 24: Dynamic Zero Trust Session Risk Regressor (<code>24_ztna</code>)</h1>
-<p><code>24_ztna</code> replaces static perimeter authentication with continuous, real-time trust evaluation. It calculates a continuous session risk score ($R \in [0.0, 1.0]$) for every active connection, updating dynamically with every network frame.</p>
+<p><code>24_ztna</code> replaces static perimeter authentication with continuous, real-time trust evaluation. It calculates a continuous session risk score (<span class="arithmatex">\(R \in [0.0, 1.0]\)</span>) for every active connection, updating dynamically with every network frame.</p>
 <hr />
 <h2 id="1-dynamic-risk-regression-formula">1. Dynamic Risk Regression Formula</h2>
-<p>$$R(t) = w_{\text{endpoint}} \cdot S_{\text{EDR}} + w_{\text{network}} \cdot S_{\text{NDR}} + w_{\text{identity}} \cdot S_{\text{ITDR}} + w_{\text{anomaly}} \cdot S_{\text{AI}}$$</p>
+<div class="arithmatex">\[R(t) = w_{\text{endpoint}} \cdot S_{\text{EDR}} + w_{\text{network}} \cdot S_{\text{NDR}} + w_{\text{identity}} \cdot S_{\text{ITDR}} + w_{\text{anomaly}} \cdot S_{\text{AI}}\]</div>
 <div class="highlight"><pre><span></span><code> Continuous Frame Ingress
             │
             ▼
@@ -43163,7 +43163,7 @@
 </code></pre></div>
 <hr />
 <h2 id="2-continuous-policy-enforcement">2. Continuous Policy Enforcement</h2>
-<p>If an authenticated engineering workstation begins issuing unexpected Modbus write commands, $S_{\text{anomaly}}$ increases, driving the composite risk score $R(t)$ past $0.70$. <code>24_ztna</code> terminates the session and resets the TCP connection via <code>XDP_TX</code> without waiting for token expiration.</p>
+<p>If an authenticated engineering workstation begins issuing unexpected Modbus write commands, <span class="arithmatex">\(S_{\text{anomaly}}\)</span> increases, driving the composite risk score <span class="arithmatex">\(R(t)\)</span> past <span class="arithmatex">\(0.70\)</span>. <code>24_ztna</code> terminates the session and resets the TCP connection via <code>XDP_TX</code> without waiting for token expiration.</p>
 
 
 
@@ -43232,6 +43232,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

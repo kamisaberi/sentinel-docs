@@ -43177,9 +43177,9 @@
 <hr />
 <h2 id="2-curation-invariants">2. Curation Invariants</h2>
 <ol>
-<li><strong>Information Density Invariant:</strong> Only vectors lying on the model's decision boundary ($0.40 \le f(x) \le 0.60$) are curated. Redundant baseline flows ($f(x) &lt; 0.10$) and clear exploits ($f(x) &gt; 0.85$) are excluded.</li>
+<li><strong>Information Density Invariant:</strong> Only vectors lying on the model's decision boundary (<span class="arithmatex">\(0.40 \le f(x) \le 0.60\)</span>) are curated. Redundant baseline flows (<span class="arithmatex">\(f(x) &lt; 0.10\)</span>) and clear exploits (<span class="arithmatex">\(f(x) &gt; 0.85\)</span>) are excluded.</li>
 <li><strong>Zero-PII Assurance:</strong> Ingested vectors contain only normalized floating-point statistics (durations, packet counts, byte ratios); payload text and credentials are completely excluded.</li>
-<li><strong>Decoupled Processing:</strong> Ingesting vectors into the ring queue consumes $&lt; 25\,\text{ns}$ per vector, ensuring the gRPC communication threads are never stalled by disk I/O.</li>
+<li><strong>Decoupled Processing:</strong> Ingesting vectors into the ring queue consumes <span class="arithmatex">\(&lt; 25\,\text{ns}\)</span> per vector, ensuring the gRPC communication threads are never stalled by disk I/O.</li>
 </ol>
 
 
@@ -43249,6 +43249,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

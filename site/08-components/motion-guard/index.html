@@ -43537,7 +43537,7 @@
 <p>Industrial articulated robots, collaborative workcells (cobots), autonomous mobile robots (AMRs), and heavy mining haul trucks operate within physical spaces shared with human workers and multi-ton payloads. In these systems, standard software firewalls cannot prevent mechanical disasters:</p>
 <ol>
 <li><strong>Non-IP Fieldbus Vulnerability:</strong> Real-time servo controllers and robotic joints communicate over <strong>EtherCAT (<code>0x88A4</code>)</strong> or <strong>CAN-FD</strong>, which do not use IP addresses, TCP, or UDP. Traditional firewalls cannot inspect or filter these packets.</li>
-<li><strong>Kinematic &amp; Control Surges:</strong> An attacker or rogue trajectory planner commanding an acceleration of $48\,\text{m/s}^2$ on a $500\,\text{kg}$ robotic arm will shear gearboxes or breach safety fences before an operator can reach an E-stop button.</li>
+<li><strong>Kinematic &amp; Control Surges:</strong> An attacker or rogue trajectory planner commanding an acceleration of <span class="arithmatex">\(48\,\text{m/s}^2\)</span> on a <span class="arithmatex">\(500\,\text{kg}\)</span> robotic arm will shear gearboxes or breach safety fences before an operator can reach an E-stop button.</li>
 <li><strong>Sensor-Fusion Blindness:</strong> Autonomous mining haul trucks and AGVs can suffer steering hijacking or obstacle-sensor freezing. Without cross-validation between the fieldbus actuation conduit and physical obstacle boundaries, high-speed collisions occur.</li>
 </ol>
 <p><code>motion-guard</code> is the robotics and motion safety vertical for the <strong>Aryorithm Sentinel Ecosystem</strong>. Designed to comply with <strong>ISO 13849-1 Performance Level e (PL-e)</strong> and <strong>ISO/TS 15066</strong>, it combines a <strong>zero-allocation C++20 Tier-1 deterministic protocol dissector</strong> with <strong>formal Nagumo Control Barrier Functions (CBFs)</strong> and <strong>three multi-bus ingress adapters</strong>:</p>
@@ -43574,14 +43574,14 @@
 <hr />
 <h2 id="2-formal-control-theory-nagumo-control-barrier-functions">2. Formal Control Theory: Nagumo Control Barrier Functions</h2>
 <p>Rather than relying purely on static heuristics, <code>motion-guard</code> models physical kinetic boundaries mathematically using <strong>Control Barrier Functions (CBFs)</strong> and guarantees safety forward-invariance under Nagumo's theorem:</p>
-<p>Given a safe operating set $\mathcal{C}$:</p>
-<p>$$\mathcal{C} = \left{ x \in \mathbb{R}^n \;\middle|\; h_v(x) = v_{\max} - |v| \ge 0 \right}$$</p>
-<p>The system is safe for all forward time $t \ge 0$ if and only if the control input satisfies:</p>
-<p>$$\dot{h}_v(x, u) + \alpha \cdot h_v(x) \ge 0$$</p>
+<p>Given a safe operating set <span class="arithmatex">\(\mathcal{C}\)</span>:</p>
+<div class="arithmatex">\[\mathcal{C} = \left\{ x \in \mathbb{R}^n \;\middle|\; h_v(x) = v_{\max} - |v| \ge 0 \right\}\]</div>
+<p>The system is safe for all forward time <span class="arithmatex">\(t \ge 0\)</span> if and only if the control input satisfies:</p>
+<div class="arithmatex">\[\dot{h}_v(x, u) + \alpha \cdot h_v(x) \ge 0\]</div>
 <p>Where:
-* $v$ is the measured joint or vehicle velocity.
-* $\dot{h}_v = -\text{sgn}(v) \cdot a$ (derived from acceleration $a = \dot{v}$).
-* $\alpha &gt; 0$ is the class-$\mathcal{K}$ convergence parameter (default: $\alpha = 4.0$).</p>
+* <span class="arithmatex">\(v\)</span> is the measured joint or vehicle velocity.
+* <span class="arithmatex">\(\dot{h}_v = -\text{sgn}(v) \cdot a\)</span> (derived from acceleration <span class="arithmatex">\(a = \dot{v}\)</span>).
+* <span class="arithmatex">\(\alpha &gt; 0\)</span> is the class-<span class="arithmatex">\(\mathcal{K}\)</span> convergence parameter (default: <span class="arithmatex">\(\alpha = 4.0\)</span>).</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Formal Nagumo Velocity Invariance Verification (motion_cbf_gate.cpp)</span>
 <span class="n">GuardStatus</span><span class="w"> </span><span class="nf">MotionCbfGate::evaluate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MotionState</span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MotionCbfLimits</span><span class="o">&amp;</span><span class="w"> </span><span class="n">limits</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 1. Strict kinematic envelope checks</span>
@@ -43603,7 +43603,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GuardStatus</span><span class="o">::</span><span class="n">PASS</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>If a trajectory command breaches this boundary, <code>motion-guard</code> drops the packet in under <strong>$120\,\text{ns}$</strong>, tripping the hardware safety air-gap latch (<code>MOTION_AIRGAP_TRIPPED</code>) before mechanical damage can occur.</p>
+<p>If a trajectory command breaches this boundary, <code>motion-guard</code> drops the packet in under <strong><span class="arithmatex">\(120\,\text{ns}\)</span></strong>, tripping the hardware safety air-gap latch (<code>MOTION_AIRGAP_TRIPPED</code>) before mechanical damage can occur.</p>
 <hr />
 <h2 id="3-verified-deterministic-latency-benchmarks">3. Verified Deterministic Latency Benchmarks</h2>
 <p><code>motion-guard</code> executes with <strong>zero heap allocations (<code>0 bytes malloc</code>)</strong>, bounded execution paths, and hardware CPU Time-Stamp Counter (TSC) instruction calibration:</p>
@@ -43626,26 +43626,26 @@
 <ul>
 <li><strong>Physical Framing:</strong> Ingests raw Ethernet frames directly via <code>AF_PACKET</code> raw sockets without an IPv4/TCP stack.</li>
 <li><strong>PDU Header Parsing:</strong> Decodes the 2-byte EtherCAT header (Length lower 11 bits, Type upper 4 bits where <code>Type == 1</code>).</li>
-<li><strong>PDO Joint Acceleration Validation:</strong> Extracts 8-byte Process Data Objects (PDO) representing floating-point joint acceleration ($a$) and tool center point (TCP) workspace radius ($R$).</li>
-<li>Enforces maximum allowable collaborative acceleration ($|a| \le 15.0\,\text{m/s}^2$).</li>
-<li>Enforces maximum workspace reach ($R \le 850.0\,\text{mm}$) to prevent fence breaches.</li>
-<li><strong>Working Counter (WKC) Anti-Tamper:</strong> Validates that slave node Working Counters match the expected physical topology count ($\text{WKC} \ge 1$). Drops packets indicating injected or dropped slave frames (<code>REJECT_ETHERCAT_WKC_TAMPER</code>).</li>
+<li><strong>PDO Joint Acceleration Validation:</strong> Extracts 8-byte Process Data Objects (PDO) representing floating-point joint acceleration (<span class="arithmatex">\(a\)</span>) and tool center point (TCP) workspace radius (<span class="arithmatex">\(R\)</span>).</li>
+<li>Enforces maximum allowable collaborative acceleration (<span class="arithmatex">\(|a| \le 15.0\,\text{m/s}^2\)</span>).</li>
+<li>Enforces maximum workspace reach (<span class="arithmatex">\(R \le 850.0\,\text{mm}\)</span>) to prevent fence breaches.</li>
+<li><strong>Working Counter (WKC) Anti-Tamper:</strong> Validates that slave node Working Counters match the expected physical topology count (<span class="arithmatex">\(\text{WKC} \ge 1\)</span>). Drops packets indicating injected or dropped slave frames (<code>REJECT_ETHERCAT_WKC_TAMPER</code>).</li>
 </ul>
 <h3 id="b-bus-b-fieldbus-can-can-fd-socketcan-canbus0">B. Bus B: Fieldbus CAN / CAN-FD (<code>SocketCAN</code> / <code>can://bus0</code>)</h3>
 <ul>
 <li><strong>Framing:</strong> Ingests standard Linux <code>struct can_frame</code> (16 bytes) and <code>struct canfd_frame</code> (up to 64 bytes).</li>
 <li><strong>Arbitration ID Allowlist:</strong> Enforces permitted J1939 / CANopen message IDs (<code>0x100 ≤ ID ≤ 0x5FF</code>). Rejects unauthorized diagnostic or reflashing frames such as <code>0x7DF</code> (<code>REJECT_CAN_UNAUTHORIZED_ID</code>).</li>
 <li><strong>Drive-by-Wire Steering &amp; Torque Boundaries:</strong></li>
-<li>Evaluates 32-bit floating-point steering angles at byte offset 8. Clamps maximum steering authority ($|\theta_{\text{steer}}| \le 35.0^\circ$) to prevent high-speed rollover attacks on mining haul trucks (<code>REJECT_CAN_ACTUATOR_OVERRIDE</code>).</li>
-<li>Clamps drive motor torque commands ($|\tau| \le 250.0\,\text{Nm}$).</li>
+<li>Evaluates 32-bit floating-point steering angles at byte offset 8. Clamps maximum steering authority (<span class="arithmatex">\(|\theta_{\text{steer}}| \le 35.0^\circ\)</span>) to prevent high-speed rollover attacks on mining haul trucks (<code>REJECT_CAN_ACTUATOR_OVERRIDE</code>).</li>
+<li>Clamps drive motor torque commands (<span class="arithmatex">\(|\tau| \le 250.0\,\text{Nm}\)</span>).</li>
 </ul>
 <h3 id="c-bus-c-direct-memory-posix-shared-memory-ring-shmring0">C. Bus C: Direct Memory POSIX Shared Memory Ring (<code>shm://ring0</code>)</h3>
 <ul>
 <li><strong>Memory Architecture:</strong> Uses POSIX <code>shm_open()</code> with 4KB page alignment inside Docker (<code>ipc: shareable</code>) or host memory.</li>
 <li><strong>Header Magic:</strong> Validates 4-byte identifier <code>0x4D4F5431</code> (<code>"MOT1"</code>).</li>
-<li><strong>AMR LiDAR Collision Interlock:</strong> Cross-correlates mobile robot velocity ($v$) with forward minimum obstacle range ($d_{\text{obs}}$).</li>
-<li>Forces an immediate emergency stop if velocity is active ($|v| &gt; 0.2\,\text{m/s}$) and clearance is breached ($d_{\text{obs}} &lt; 0.50\,\text{m}$) (<code>REJECT_SHM_OBSTACLE_COLLISION</code>).</li>
-<li><strong>Thermal Brake Runaway Guard:</strong> Monitors mechanical disc brake temperature $T_{\text{brake}}$. Trips thermal safety thresholds if friction braking exceeds material limits ($T_{\text{brake}} &gt; 320^\circ\text{C}$) (<code>REJECT_SHM_BRAKE_OVERHEAT</code>).</li>
+<li><strong>AMR LiDAR Collision Interlock:</strong> Cross-correlates mobile robot velocity (<span class="arithmatex">\(v\)</span>) with forward minimum obstacle range (<span class="arithmatex">\(d_{\text{obs}}\)</span>).</li>
+<li>Forces an immediate emergency stop if velocity is active (<span class="arithmatex">\(|v| &gt; 0.2\,\text{m/s}\)</span>) and clearance is breached (<span class="arithmatex">\(d_{\text{obs}} &lt; 0.50\,\text{m}\)</span>) (<code>REJECT_SHM_OBSTACLE_COLLISION</code>).</li>
+<li><strong>Thermal Brake Runaway Guard:</strong> Monitors mechanical disc brake temperature <span class="arithmatex">\(T_{\text{brake}}\)</span>. Trips thermal safety thresholds if friction braking exceeds material limits (<span class="arithmatex">\(T_{\text{brake}} &gt; 320^\circ\text{C}\)</span>) (<code>REJECT_SHM_BRAKE_OVERHEAT</code>).</li>
 </ul>
 <hr />
 <h2 id="5-threat-mitigation-matrix-robotics-mobility-defense">5. Threat Mitigation Matrix: Robotics &amp; Mobility Defense</h2>
@@ -43663,14 +43663,14 @@
 <tr>
 <td style="text-align: left;"><strong>Cobot Joint Surge / Crushing</strong></td>
 <td style="text-align: left;">EtherCAT L2 (<code>0x88A4</code>)</td>
-<td style="text-align: left;">Rogue trajectory generator injects $48\,\text{m/s}^2$ joint acceleration toward operator</td>
+<td style="text-align: left;">Rogue trajectory generator injects <span class="arithmatex">\(48\,\text{m/s}^2\)</span> joint acceleration toward operator</td>
 <td style="text-align: left;"><code>EthercatL2Validator</code>: Intercepts PDO payload; validates joint acceleration against ISO 13849 limits</td>
 <td style="text-align: left;"><code>&lt; 14 ns</code> packet drop + locks actuator air-gap</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Drive-by-Wire Steer Hijack</strong></td>
 <td style="text-align: left;">CAN-FD (<code>can://bus0</code>)</td>
-<td style="text-align: left;">Attacker broadcasts spoofed CAN ID <code>0x201</code> with $68^\circ$ steering angle at $80\,\text{km/h}$</td>
+<td style="text-align: left;">Attacker broadcasts spoofed CAN ID <code>0x201</code> with <span class="arithmatex">\(68^\circ\)</span> steering angle at <span class="arithmatex">\(80\,\text{km/h}\)</span></td>
 <td style="text-align: left;"><code>CanFdBusValidator</code>: Enforces velocity-dependent steering angle envelope ($</td>
 <td style="text-align: left;">\theta</td>
 </tr>
@@ -43678,14 +43678,14 @@
 <td style="text-align: left;"><strong>AMR Sensor Blindness / Freeze</strong></td>
 <td style="text-align: left;">ShmRing (<code>shm://ring0</code>)</td>
 <td style="text-align: left;">Frozen LiDAR perception stack fails to update point cloud as AMR approaches pallet rack</td>
-<td style="text-align: left;"><code>ShmMotionValidator</code>: Cross-checks forward velocity against obstacle distance $d_{\text{obs}} &lt; 0.5\,\text{m}$</td>
+<td style="text-align: left;"><code>ShmMotionValidator</code>: Cross-checks forward velocity against obstacle distance <span class="arithmatex">\(d_{\text{obs}} &lt; 0.5\,\text{m}\)</span></td>
 <td style="text-align: left;">Engages emergency dynamic brakes; raises E-stop</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Brake Thermal Fade / Runaway</strong></td>
 <td style="text-align: left;">CAN-FD / ShmRing</td>
-<td style="text-align: left;">Mining truck retarder disabled on $12\%$ mine decline, driving brake discs into thermal failure</td>
-<td style="text-align: left;"><code>ShmMotionValidator</code>: Tracks thermal dynamic boundary ($T \le 320^\circ\text{C}$); forces auxiliary engine retarding</td>
+<td style="text-align: left;">Mining truck retarder disabled on <span class="arithmatex">\(12\%\)</span> mine decline, driving brake discs into thermal failure</td>
+<td style="text-align: left;"><code>ShmMotionValidator</code>: Tracks thermal dynamic boundary (<span class="arithmatex">\(T \le 320^\circ\text{C}\)</span>); forces auxiliary engine retarding</td>
 <td style="text-align: left;">Triggers transmission downshift lock before brake fade</td>
 </tr>
 <tr>
@@ -43980,6 +43980,10 @@ make<span class="w"> </span>cobot-down
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

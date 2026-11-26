@@ -43161,11 +43161,11 @@
 
 
 <h1 id="live-telemetry-ingestion-heartbeat-synchronization">Live Telemetry Ingestion &amp; Heartbeat Synchronization</h1>
-<p><code>NexusUplink</code> transmits structured telemetry records every <strong>$5.0\text{ seconds}$</strong> via the <code>SubmitHeartbeat</code> gRPC endpoint, providing <code>sentinel-nexus</code> with visibility into host resource usage, drop counters, and active protocol sensor states.</p>
+<p><code>NexusUplink</code> transmits structured telemetry records every <strong><span class="arithmatex">\(5.0\text{ seconds}\)</span></strong> via the <code>SubmitHeartbeat</code> gRPC endpoint, providing <code>sentinel-nexus</code> with visibility into host resource usage, drop counters, and active protocol sensor states.</p>
 <hr />
 <h2 id="1-4-tier-asset-hierarchy-alignment">1. 4-Tier Asset Hierarchy Alignment</h2>
 <p>Telemetry reports map directly into the Aryorithm 4-tier asset hierarchy:</p>
-<p>$$\text{Tenant} \longrightarrow \text{Nexus Hub} \longrightarrow \text{Sentinel Appliance} \longrightarrow \text{Connected Sensors / PLCs}$$</p>
+<div class="arithmatex">\[\text{Tenant} \longrightarrow \text{Nexus Hub} \longrightarrow \text{Sentinel Appliance} \longrightarrow \text{Connected Sensors / PLCs}\]</div>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"tenant_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tenant-municipal-water"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"nexus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nexus-central-01"</span><span class="p">,</span>
@@ -43300,6 +43300,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

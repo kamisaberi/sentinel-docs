@@ -43280,41 +43280,41 @@ xInfer-Essential (Zero-Copy): ════ 8.4 µs
 <tr>
 <td style="text-align: left;"><strong>LibTorch C++ (v2.3)</strong></td>
 <td style="text-align: left;">Dynamic <code>at::Tensor</code> copy</td>
-<td style="text-align: left;">$84.5\,\mu\text{s}$</td>
-<td style="text-align: left;">$145.2\,\mu\text{s}$</td>
-<td style="text-align: left;">$312.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(84.5\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(145.2\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(312.0\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">4 allocations</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ONNX Runtime (CPU)</strong></td>
 <td style="text-align: left;"><code>Ort::Value::CreateTensor</code></td>
-<td style="text-align: left;">$42.1\,\mu\text{s}$</td>
-<td style="text-align: left;">$68.4\,\mu\text{s}$</td>
-<td style="text-align: left;">$124.5\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(42.1\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(68.4\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(124.5\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">2 allocations</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ONNX Runtime (OV EP)</strong></td>
 <td style="text-align: left;">User-Allocated Memory</td>
-<td style="text-align: left;">$28.4\,\mu\text{s}$</td>
-<td style="text-align: left;">$45.1\,\mu\text{s}$</td>
-<td style="text-align: left;">$95.2\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(28.4\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(45.1\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(95.2\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">1 allocation</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>OpenVINO Native C++</strong></td>
 <td style="text-align: left;"><code>ov::Tensor</code> pointer wrap</td>
-<td style="text-align: left;">$14.8\,\mu\text{s}$</td>
-<td style="text-align: left;">$19.2\,\mu\text{s}$</td>
-<td style="text-align: left;">$35.0\,\mu\text{s}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(14.8\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(19.2\,\mu\text{s}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(35.0\,\mu\text{s}\)</span></td>
 <td style="text-align: left;">0 allocations</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>xInfer-Essential</strong></td>
 <td style="text-align: left;"><strong>Direct Pinned Zero-Copy</strong></td>
-<td style="text-align: left;"><strong>$8.4\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$11.2\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$14.1\,\mu\text{s}$</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(8.4\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(11.2\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14.1\,\mu\text{s}\)</span></strong></td>
 <td style="text-align: left;"><strong>0 allocations</strong></td>
 </tr>
 </tbody>
@@ -43338,20 +43338,20 @@ xInfer-Essential (Zero-Copy): ════ 8.4 µs
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>LibTorch C++</strong></td>
-<td style="text-align: left;">$\sim 210\,\text{MB}$</td>
-<td style="text-align: left;">$&gt; 120{,}000$</td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 210\,\text{MB}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(&gt; 120{,}000\)</span></td>
 <td style="text-align: left;">Protobuf, BLAS, OpenMP, Python ABI</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>ONNX Runtime</strong></td>
-<td style="text-align: left;">$\sim 38\,\text{MB}$</td>
-<td style="text-align: left;">$&gt; 15{,}000$</td>
+<td style="text-align: left;"><span class="arithmatex">\(\sim 38\,\text{MB}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(&gt; 15{,}000\)</span></td>
 <td style="text-align: left;">Protobuf, Flatbuffers, Re2</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>xInfer-Essential</strong></td>
-<td style="text-align: left;"><strong>$&lt; 4.2\,\text{MB}$</strong></td>
-<td style="text-align: left;"><strong>$&lt; 25$ (<code>XINFER_API</code>)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 4.2\,\text{MB}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(&lt; 25\)</span> (<code>XINFER_API</code>)</strong></td>
 <td style="text-align: left;"><strong>None (Decoupled dynamic plugins)</strong></td>
 </tr>
 </tbody>
@@ -43424,6 +43424,10 @@ xInfer-Essential (Zero-Copy): ════ 8.4 µs
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43773,7 +43773,7 @@
 <li><strong>Collision-Free Subnet (<code>10.240.0.0/24</code>):</strong><br />
    Avoids standard Docker bridge blocks (<code>172.17.0.0/16</code> – <code>172.31.0.0/16</code>) that frequently conflict with VMware virtual network adapters (VMnet1 / VMnet8).</li>
 <li><strong>Generic SKB Mode eBPF (<code>XDP_FLAGS_SKB_MODE</code>):</strong><br />
-   VMware virtual network interfaces (<code>ens33</code>, <code>vmxnet3</code>) and container <code>veth</code> pairs do not support native driver-level XDP. Containers use Generic SKB mode with <code>NET_ADMIN</code> and <code>BPF</code> capabilities, achieving line-rate drops in $&lt; 1\,\mu\text{s}$ without requiring dedicated physical SRIOV hardware.</li>
+   VMware virtual network interfaces (<code>ens33</code>, <code>vmxnet3</code>) and container <code>veth</code> pairs do not support native driver-level XDP. Containers use Generic SKB mode with <code>NET_ADMIN</code> and <code>BPF</code> capabilities, achieving line-rate drops in <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span> without requiring dedicated physical SRIOV hardware.</li>
 <li><strong>vTPM &amp; DMI Hypervisor Identity:</strong><br />
    Emulates physical TPM 2.0 / vTPM hardware attributes (<code>/sys/class/dmi/id/product_uuid</code> with VMware hypervisor signatures), satisfying the hardware attestation engine in <code>blackbox-essential</code>.</li>
 <li><strong>Host Dynamic Library Bundling (<code>shared/lib/</code>):</strong><br />
@@ -43984,7 +43984,7 @@ matrix-edge-refinery-03      Up
 * <strong>Active Node Matrix:</strong> Live telemetry from all edge appliances (CPU, RAM, NPU temp, eBPF drop counters, microsecond mitigation latency).
 * <strong>Radial Topology Canvas:</strong> Dynamic HTML5 Canvas rendering radial link connections between edge nodes and Nexus.
 * <strong>Aggregated MITRE ATT&amp;CK Matrix:</strong> Color-coded heatmap showing active tactic hit counters (<code>T0855</code>, <code>T1071</code>, <code>T1190</code>, <code>T1110</code>).
-* <strong>Canary Staging Pipeline:</strong> 1-Click controls to promote candidate models (<code>Shadow Mode</code> $\rightarrow$ <code>5% Canary</code> $\rightarrow$ <code>Fleet-Wide</code>) or trigger an immediate Emergency Rollback.</p>
+* <strong>Canary Staging Pipeline:</strong> 1-Click controls to promote candidate models (<code>Shadow Mode</code> <span class="arithmatex">\(\rightarrow\)</span> <code>5% Canary</code> <span class="arithmatex">\(\rightarrow\)</span> <code>Fleet-Wide</code>) or trigger an immediate Emergency Rollback.</p>
 <h3 id="b-live-terminal-dashboard-tui">B. Live Terminal Dashboard (TUI)</h3>
 <p>To monitor the simulation in your terminal:
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>tui
@@ -44001,9 +44001,9 @@ Displays a real-time split screen:
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>attack-modbus
 </code></pre></div>
 * <strong>What happens:</strong> 
-  1. Substation Node 01 intercepts the packet, executes an in-kernel eBPF drop in $&lt; 1\,\mu\text{s}$, and emits a <code>ThreatIndicator</code> upstream to Nexus.
+  1. Substation Node 01 intercepts the packet, executes an in-kernel eBPF drop in <span class="arithmatex">\(&lt; 1\,\mu\text{s}\)</span>, and emits a <code>ThreatIndicator</code> upstream to Nexus.
   2. Nexus broadcasts a <code>FleetDefenseRule</code> fleet-wide via bidirectional gRPC.
-  3. Hospital Node 02 and Refinery Node 03 inject the attacker's IP (<code>198.51.100.44</code>) into their local kernel's <code>blocked_ip_map</code> in <strong>$&lt; 50\,\text{ms}$</strong>.
+  3. Hospital Node 02 and Refinery Node 03 inject the attacker's IP (<code>198.51.100.44</code>) into their local kernel's <code>blocked_ip_map</code> in <strong><span class="arithmatex">\(&lt; 50\,\text{ms}\)</span></strong>.
   4. The adversary is blocked grid-wide before ever reaching the other two sites.</p>
 <h3 id="2-c2-egress-beacon-wave-t1071">2. C2 Egress Beacon Wave (T1071)</h3>
 <p>Simulates high-entropy encrypted C2 outbound traffic from <code>Edge-Hospital-PACS-02</code>:
@@ -44011,10 +44011,10 @@ Displays a real-time split screen:
 </code></pre></div>
 * <strong>What happens:</strong> Nexus registers the detection, the MITRE ATT&amp;CK panel in the Web UI and TUI turns red on <code>T1071 (C2 Application Protocol)</code>, and the drop counter increments immediately.</p>
 <h3 id="3-sla-latency-breach-automated-rollback">3. SLA Latency Breach &amp; Automated Rollback</h3>
-<p>Simulates a candidate model causing inference degradation ($&gt; 1{,}000\,\mu\text{s}$):
+<p>Simulates a candidate model causing inference degradation (<span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span>):
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>chaos-latency
 </code></pre></div>
-* <strong>What happens:</strong> Nexus's <code>RollbackGuard</code> detects the SLA latency breach ($1{,}650\,\mu\text{s} &gt; 1{,}000\,\mu\text{s}$ SLA limit), logs an emergency alert, purges the candidate model, and rolls back the fleet to stable weights.</p>
+* <strong>What happens:</strong> Nexus's <code>RollbackGuard</code> detects the SLA latency breach (<span class="arithmatex">\(1{,}650\,\mu\text{s} &gt; 1{,}000\,\mu\text{s}\)</span> SLA limit), logs an emergency alert, purges the candidate model, and rolls back the fleet to stable weights.</p>
 <h3 id="4-instant-0-ms-graceful-disconnect">4. Instant 0 ms Graceful Disconnect</h3>
 <p>Simulates an edge node abruptly shutting down:
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>chaos-sever
@@ -44027,7 +44027,7 @@ Displays a real-time split screen:
 <h2 id="9-continuous-retraining-the-closed-loop-flywheel">9. Continuous Retraining (The Closed-Loop Flywheel)</h2>
 <p>The simulation mesh autonomously adapts to site-specific traffic without internet access:</p>
 <ol>
-<li>As ambient traffic runs, edge nodes identify vectors with prediction uncertainty between $0.40$ and $0.60$ and stream them to Nexus.</li>
+<li>As ambient traffic runs, edge nodes identify vectors with prediction uncertainty between <span class="arithmatex">\(0.40\)</span> and <span class="arithmatex">\(0.60\)</span> and stream them to Nexus.</li>
 <li>Nexus curates these vectors into <code>/shared/datasets/forge_dataset_*.csv</code>.</li>
 <li>To watch <code>xinfer-forge</code> detect the batch, train, and stage the updated model:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>forge
@@ -44189,6 +44189,10 @@ sudo<span class="w"> </span>make<span class="w"> </span>clean
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

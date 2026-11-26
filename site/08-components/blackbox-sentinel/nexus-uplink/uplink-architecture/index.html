@@ -43187,7 +43187,7 @@
 <hr />
 <h2 id="2-invariants-isolation-rules">2. Invariants &amp; Isolation Rules</h2>
 <ol>
-<li><strong>Non-Blocking Fault Isolation:</strong> If the central <code>sentinel-nexus</code> hub becomes unreachable or network routes fail, <code>NexusUplink</code> enters an exponential backoff retry loop. In-kernel packet mitigation ($&lt; 0.84\,\mu\text{s}$) and local SIEM indexing continue uninterrupted.</li>
+<li><strong>Non-Blocking Fault Isolation:</strong> If the central <code>sentinel-nexus</code> hub becomes unreachable or network routes fail, <code>NexusUplink</code> enters an exponential backoff retry loop. In-kernel packet mitigation (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) and local SIEM indexing continue uninterrupted.</li>
 <li><strong>Dedicated Background Thread:</strong> Uplink communication runs on an isolated POSIX thread outside the high-frequency packet ingestion and AI inference pipelines.</li>
 <li><strong>mTLS Cryptographic Enforcement:</strong> Every gRPC channel requires mutual TLS verification using client certificates issued during initial hardware enrollment.</li>
 </ol>
@@ -43305,6 +43305,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

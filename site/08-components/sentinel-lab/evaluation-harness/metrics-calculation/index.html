@@ -43182,10 +43182,10 @@
 </ul>
 <hr />
 <h2 id="2-statistical-metric-formulations">2. Statistical Metric Formulations</h2>
-<p>$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$</p>
-<p>$$\text{Precision} = \frac{TP}{TP + FP}$$</p>
-<p>$$\text{Recall (Sensitivity)} = \frac{TP}{TP + FN}$$</p>
-<p>$$F_1\text{-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}$$</p>
+<div class="arithmatex">\[\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}\]</div>
+<div class="arithmatex">\[\text{Precision} = \frac{TP}{TP + FP}\]</div>
+<div class="arithmatex">\[\text{Recall (Sensitivity)} = \frac{TP}{TP + FN}\]</div>
+<div class="arithmatex">\[F_1\text{-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}\]</div>
 <hr />
 <h2 id="3-c20-evaluation-implementation-srcmetricsevaluatorcpp">3. C++20 Evaluation Implementation (<code>src/metrics/evaluator.cpp</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
@@ -43304,6 +43304,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

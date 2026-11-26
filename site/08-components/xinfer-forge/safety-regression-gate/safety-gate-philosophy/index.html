@@ -43139,7 +43139,7 @@
 
 
 <h1 id="the-safety-gate-philosophy-zero-tolerance-regression-invariant">The Safety Gate Philosophy: Zero-Tolerance Regression Invariant</h1>
-<p>Continual machine learning systems frequently suffer from <strong>catastrophic forgetting</strong> and susceptibility to <strong>adversarial data poisoning</strong>. In cybersecurity, if an adapted model improves its general classification accuracy on ambient traffic from $96\%$ to $99\%$, but loses the ability to detect a single high-consequence exploit (such as Stuxnet or Triton), the adaptation represents a critical vulnerability.</p>
+<p>Continual machine learning systems frequently suffer from <strong>catastrophic forgetting</strong> and susceptibility to <strong>adversarial data poisoning</strong>. In cybersecurity, if an adapted model improves its general classification accuracy on ambient traffic from <span class="arithmatex">\(96\%\)</span> to <span class="arithmatex">\(99\%\)</span>, but loses the ability to detect a single high-consequence exploit (such as Stuxnet or Triton), the adaptation represents a critical vulnerability.</p>
 <p><code>xinfer-forge</code> enforces an immutable <strong>Zero-Tolerance Safety Regression Invariant</strong>.</p>
 <hr />
 <h2 id="1-safety-gate-decision-boundary">1. Safety Gate Decision Boundary</h2>
@@ -43165,7 +43165,7 @@
 <hr />
 <h2 id="2-the-non-negotiable-invariants">2. The Non-Negotiable Invariants</h2>
 <ol>
-<li><strong>No Trade-Offs Permitted:</strong> In standard data science, model updates often accept minor regressions on edge-case metrics if overall loss decreases. In <code>xinfer-forge</code>, <strong>zero regressions are tolerated</strong>. If $51$ out of $52$ golden attacks are detected, the candidate model is rejected.</li>
+<li><strong>No Trade-Offs Permitted:</strong> In standard data science, model updates often accept minor regressions on edge-case metrics if overall loss decreases. In <code>xinfer-forge</code>, <strong>zero regressions are tolerated</strong>. If <span class="arithmatex">\(51\)</span> out of <span class="arithmatex">\(52\)</span> golden attacks are detected, the candidate model is rejected.</li>
 <li><strong>Deterministic Execution:</strong> The evaluation pass runs on fixed, deterministic hardware seeds without dropout, stochastic masking, or randomized augmentations.</li>
 <li><strong>Execution Precedence:</strong> The safety gate cannot be bypassed via command-line flags in production releases.</li>
 </ol>
@@ -43237,6 +43237,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

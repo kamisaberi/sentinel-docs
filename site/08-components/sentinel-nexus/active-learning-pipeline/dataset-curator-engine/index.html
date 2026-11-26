@@ -43189,7 +43189,7 @@
 <hr />
 <h2 id="2-output-batch-constraints">2. Output Batch Constraints</h2>
 <ul>
-<li><strong>Fixed Batch Size:</strong> Standard batches contain exactly $5{,}000$ continuous flow instances.</li>
+<li><strong>Fixed Batch Size:</strong> Standard batches contain exactly <span class="arithmatex">\(5{,}000\)</span> continuous flow instances.</li>
 <li><strong>Atomic Visibility:</strong> The CSV file is written to <code>.tmp</code> storage first and renamed to <code>forge_dataset_&lt;uuid&gt;.csv</code> only after the accompanying <code>.manifest.json</code> is synced to disk, preventing race conditions with inotify watchers.</li>
 </ul>
 
@@ -43260,6 +43260,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

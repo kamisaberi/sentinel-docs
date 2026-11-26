@@ -43165,9 +43165,9 @@
 <p><code>blackbox-sentinel</code> incorporates <strong>Microsecond Residual Decomposition (MRD)</strong>, rendering the <strong>top-3 physical feature deviations</strong> live on the web console within milliseconds of an attack mitigation.</p>
 <hr />
 <h2 id="1-microsecond-residual-decomposition-mrd-architecture">1. Microsecond Residual Decomposition (MRD) Architecture</h2>
-<p>Instead of calculating computationally prohibitive SHAP or LIME values (which take seconds to evaluate), the C++ engine computes element-wise autoencoder residuals in <strong>$&lt; 80\,\text{nanoseconds}$</strong>:</p>
-<p>$$e_j = (x_j - \hat{x}_j)^2$$</p>
-<p>$$\text{Top-3 Attributions} = \operatorname{arg\,max}_{j \in {1 \dots D}} \left(e_j\right)$$</p>
+<p>Instead of calculating computationally prohibitive SHAP or LIME values (which take seconds to evaluate), the C++ engine computes element-wise autoencoder residuals in <strong><span class="arithmatex">\(&lt; 80\,\text{nanoseconds}\)</span></strong>:</p>
+<div class="arithmatex">\[e_j = (x_j - \hat{x}_j)^2\]</div>
+<div class="arithmatex">\[\text{Top-3 Attributions} = \operatorname{arg\,max}_{j \in \{1 \dots D\}} \left(e_j\right)\]</div>
 <div class="highlight"><pre><span></span><code> [ Model Prediction Anomaly Flagged (Reconstruction MSE &gt; 0.082) ]
                                │
                                ▼ Fast Element-wise Residual Compute (&lt; 80 ns)
@@ -43281,6 +43281,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

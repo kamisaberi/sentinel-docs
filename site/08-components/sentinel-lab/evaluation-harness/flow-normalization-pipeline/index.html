@@ -10432,7 +10432,7 @@
   <a href="#2-min-max-mapping-to-10-10" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Min-Max Mapping to $[-1.0, 1.0]$
+        2. Min-Max Mapping to <span class="arithmatex">\([-1.0, 1.0]\)</span>
       </span>
     </span>
   </a>
@@ -43165,7 +43165,7 @@
   <a href="#2-min-max-mapping-to-10-10" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Min-Max Mapping to $[-1.0, 1.0]$
+        2. Min-Max Mapping to <span class="arithmatex">\([-1.0, 1.0]\)</span>
       </span>
     </span>
   </a>
@@ -43217,20 +43217,20 @@
 
 
 <h1 id="flow-normalization-pipeline-continuous-tensor-clamping">Flow Normalization Pipeline &amp; Continuous Tensor Clamping</h1>
-<p>Raw network flows contain wide-ranging numerical scales (e.g., flow durations ranging from $10^{-6}$ to $10^8\,\mu\text{s}$, while TCP flag counts range from $0$ to $1$). Feeding unscaled values into edge AI silicon leads to numerical overflow and gradient instability.</p>
-<p><code>sentinel-lab</code> normalizes features into bounded floating-point tensors spanning <strong>$[-1.0, 1.0]$</strong>.</p>
+<p>Raw network flows contain wide-ranging numerical scales (e.g., flow durations ranging from <span class="arithmatex">\(10^{-6}\)</span> to <span class="arithmatex">\(10^8\,\mu\text{s}\)</span>, while TCP flag counts range from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(1\)</span>). Feeding unscaled values into edge AI silicon leads to numerical overflow and gradient instability.</p>
+<p><code>sentinel-lab</code> normalizes features into bounded floating-point tensors spanning <strong><span class="arithmatex">\([-1.0, 1.0]\)</span></strong>.</p>
 <hr />
 <h2 id="1-feature-transformation-mathematics">1. Feature Transformation Mathematics</h2>
-<p>For each numerical feature dimension $j \in {1 \dots 32}$:</p>
+<p>For each numerical feature dimension <span class="arithmatex">\(j \in \{1 \dots 32\}\)</span>:</p>
 <h3 id="1-robust-range-scaling">1. Robust Range Scaling</h3>
 <p>For unbounded continuous metrics (e.g., <code>Flow Duration</code>, <code>Total Bytes</code>, <code>Flow Packets/s</code>), logarithmic pre-scaling is applied:</p>
-<p>$$x'_j = \ln(1.0 + |x_j|)$$</p>
-<h3 id="2-min-max-mapping-to-10-10">2. Min-Max Mapping to $[-1.0, 1.0]$</h3>
-<p>$$x_{\text{norm}, j} = 2.0 \cdot \left(\frac{x'_j - \min_j}{\max_j - \min_j}\right) - 1.0$$</p>
-<p>Where $\min_j$ and $\max_j$ represent empirical baseline bounds calculated from normal training traffic.</p>
+<div class="arithmatex">\[x'_j = \ln(1.0 + |x_j|)\]</div>
+<h3 id="2-min-max-mapping-to-10-10">2. Min-Max Mapping to <span class="arithmatex">\([-1.0, 1.0]\)</span></h3>
+<div class="arithmatex">\[x_{\text{norm}, j} = 2.0 \cdot \left(\frac{x'_j - \min_j}{\max_j - \min_j}\right) - 1.0\]</div>
+<p>Where <span class="arithmatex">\(\min_j\)</span> and <span class="arithmatex">\(\max_j\)</span> represent empirical baseline bounds calculated from normal training traffic.</p>
 <h3 id="3-numerical-clamping-nan-replacement">3. Numerical Clamping &amp; NaN Replacement</h3>
 <p>To guarantee that edge inferencing never receives invalid floating-point values:</p>
-<p>$$x_{\text{final}, j} = \begin{cases} -1.0, &amp; \text{if } x_{\text{norm}, j} &lt; -1.0 \ 1.0, &amp; \text{if } x_{\text{norm}, j} &gt; 1.0 \ 0.0, &amp; \text{if } x_j \text{ is NaN or } \infty \ x_{\text{norm}, j}, &amp; \text{otherwise} \end{cases}$$</p>
+<div class="arithmatex">\[x_{\text{final}, j} = \begin{cases} -1.0, &amp; \text{if } x_{\text{norm}, j} &lt; -1.0 \\ 1.0, &amp; \text{if } x_{\text{norm}, j} &gt; 1.0 \\ 0.0, &amp; \text{if } x_j \text{ is NaN or } \infty \\ x_{\text{norm}, j}, &amp; \text{otherwise} \end{cases}\]</div>
 <hr />
 <h2 id="2-ingestion-transformation-matrix">2. Ingestion Transformation Matrix</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -43318,6 +43318,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

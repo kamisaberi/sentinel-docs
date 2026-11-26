@@ -43144,9 +43144,9 @@
 <p><code>14_ato</code> detects compromised user credentials by calculating the physical <strong>geo-velocity</strong> between successive logins across distributed industrial and web endpoints.</p>
 <hr />
 <h2 id="1-the-impossible-travel-geo-velocity-equation">1. The Impossible Travel Geo-Velocity Equation</h2>
-<p>When an account authenticates from Location $A$ at time $t_1$, and subsequently from Location $B$ at time $t_2$, <code>14_ato</code> calculates the minimum travel velocity using the Haversine great-circle distance formula:</p>
-<p>$$d = 2R \cdot \arcsin\left(\sqrt{\sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\Delta \lambda}{2}\right)}\right)$$</p>
-<p>$$\text{Velocity} = \frac{d(A, B)}{t_2 - t_1}$$</p>
+<p>When an account authenticates from Location <span class="arithmatex">\(A\)</span> at time <span class="arithmatex">\(t_1\)</span>, and subsequently from Location <span class="arithmatex">\(B\)</span> at time <span class="arithmatex">\(t_2\)</span>, <code>14_ato</code> calculates the minimum travel velocity using the Haversine great-circle distance formula:</p>
+<div class="arithmatex">\[d = 2R \cdot \arcsin\left(\sqrt{\sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\Delta \lambda}{2}\right)}\right)\]</div>
+<div class="arithmatex">\[\text{Velocity} = \frac{d(A, B)}{t_2 - t_1}\]</div>
 <div class="highlight"><pre><span></span><code> 12:00:00 UTC: Login from Berlin, Germany (52.5200° N, 13.4050° E)
  12:15:00 UTC: Login from Tokyo, Japan   (35.6762° N, 139.6503° E)
  Distance    : 8,918 km
@@ -43155,7 +43155,7 @@
 </code></pre></div>
 <hr />
 <h2 id="2-action-trigger">2. Action Trigger</h2>
-<p>If calculated velocity exceeds $900\,\text{km/h}$ (commercial jet speed), <code>14_ato</code>:
+<p>If calculated velocity exceeds <span class="arithmatex">\(900\,\text{km/h}\)</span> (commercial jet speed), <code>14_ato</code>:
 1. Terminates the active session token immediately.
 2. Injects the attacker's source IP into Tier 2 <code>blocked_ip_map</code>.
 3. Issues a high-severity alert to <code>01_siem_core</code>.</p>
@@ -43227,6 +43227,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43566,14 +43566,14 @@
 <ul>
 <li><strong>Current State:</strong> Models run in FP32 or FP16.</li>
 <li><strong>The Upgrade:</strong> Integrate <strong>Intel NNCF (Neural Network Compression Framework)</strong> and <strong>TensorRT INT8 Calibration Caches</strong> into the <code>xinfer-forge</code> compilation pipeline.</li>
-<li><strong>Impact:</strong> Decreases inference latency on Intel Core Ultra NPUs and NVIDIA Jetson from $\sim 11\,\mu\text{s}$ down to <strong>$2.5\,\mu\text{s}$</strong>, while slashing memory footprint by $75\%$.</li>
+<li><strong>Impact:</strong> Decreases inference latency on Intel Core Ultra NPUs and NVIDIA Jetson from <span class="arithmatex">\(\sim 11\,\mu\text{s}\)</span> down to <strong><span class="arithmatex">\(2.5\,\mu\text{s}\)</span></strong>, while slashing memory footprint by <span class="arithmatex">\(75\%\)</span>.</li>
 </ul>
 <hr />
 <h3 id="2-detection-ai-advancements-expanding-intelligence">2. Detection &amp; AI Advancements (Expanding Intelligence)</h3>
 <h4 id="a-edge-explainability-xai-attribution-vectors-for-soc-teams">A. Edge Explainability (XAI Attribution Vectors for SOC Teams)</h4>
 <ul>
 <li><strong>The Problem:</strong> In industrial control systems, a CISO or plant engineer cannot accept a black-box AI model dropping packets without knowing <em>why</em>.</li>
-<li><strong>The Upgrade:</strong> Alongside the binary classification score ($0$ or $1$), have <code>libxinfer</code> output a <strong>Top-3 Feature Attribution Vector</strong> (e.g., <code>["Modbus_Write_Rate &gt; 150Hz", "Payload_Entropy &gt; 7.8", "TCP_Window_Size == 0"]</code>).</li>
+<li><strong>The Upgrade:</strong> Alongside the binary classification score (<span class="arithmatex">\(0\)</span> or <span class="arithmatex">\(1\)</span>), have <code>libxinfer</code> output a <strong>Top-3 Feature Attribution Vector</strong> (e.g., <code>["Modbus_Write_Rate &gt; 150Hz", "Payload_Entropy &gt; 7.8", "TCP_Window_Size == 0"]</code>).</li>
 <li><strong>Impact:</strong> The Web UI and TUI will not just report <code>DROPPED</code>—they will explain the exact engineering rationale, making the appliance audit-ready for non-technical executives.</li>
 </ul>
 <h4 id="b-dynamic-graph-neural-network-gnn-for-cross-host-lateral-movement">B. Dynamic Graph Neural Network (GNN) for Cross-Host Lateral Movement</h4>
@@ -43613,7 +43613,7 @@
 <h4 id="b-automated-cyber-resilience-scoring-chaos-mttr-engine">B. Automated Cyber-Resilience Scoring (Chaos MTTR Engine)</h4>
 <ul>
 <li><strong>The Upgrade:</strong> Have <code>master_controller.py</code> automatically compute a <strong>Resilience Index</strong> during chaos runs:</li>
-<li><em>Mean Time to Fleet Immunity (MTTFI):</em> Measured at $&lt; 50\,\text{ms}$.</li>
+<li><em>Mean Time to Fleet Immunity (MTTFI):</em> Measured at <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>.</li>
 <li><em>Mean Time to Auto-Rollback (MTTR):</em> Measured when SLA is breached.</li>
 <li><strong>Impact:</strong> Generates an automated, downloadable PDF benchmark card proving your resilience metrics.</li>
 </ul>
@@ -43707,6 +43707,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

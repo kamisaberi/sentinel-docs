@@ -43184,7 +43184,7 @@
 <h2 id="core-invariants">Core Invariants</h2>
 <ol>
 <li><strong>Continual Autonomy:</strong> Automatically detects, ingests, and adapts to ambient network drift without requiring manual human labeling or data science oversight.</li>
-<li><strong>Zero-Tolerance Anti-Poisoning Invariant:</strong> Candidate model weights that fail to detect $100.00\%$ of historical exploits in the immutable golden attack corpus are purged automatically ($S(\theta^*) = 1.000$).</li>
+<li><strong>Zero-Tolerance Anti-Poisoning Invariant:</strong> Candidate model weights that fail to detect <span class="arithmatex">\(100.00\%\)</span> of historical exploits in the immutable golden attack corpus are purged automatically (<span class="arithmatex">\(S(\theta^*) = 1.000\)</span>).</li>
 <li><strong>Data Sovereignty ($0.00 Egress):</strong> 100% on-premises edge execution. Raw payload vectors and fine-tuned weights never leave the customer's security boundary.</li>
 <li><strong>Standardized Hardware Portability:</strong> Compiles directly to <strong>ONNX Opset 17</strong> with dynamic batch dimensions (<code>[batch_size, 32]</code>), ready for immediate zero-copy ingestion across all 15 silicon targets in <code>libxinfer.so</code>.</li>
 </ol>
@@ -43256,6 +43256,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

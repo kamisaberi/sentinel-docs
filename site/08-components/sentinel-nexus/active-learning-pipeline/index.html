@@ -43117,12 +43117,12 @@
 
 
 <h1 id="active-learning-pipeline">Active Learning Pipeline</h1>
-<p><code>sentinel-nexus</code> acts as the telemetry curator in the Aryorithm active learning flywheel, collecting ambiguous vectors ($0.40 \le f(x) \le 0.60$) and coordinating continual retraining with <code>xinfer-forge</code>.</p>
+<p><code>sentinel-nexus</code> acts as the telemetry curator in the Aryorithm active learning flywheel, collecting ambiguous vectors (<span class="arithmatex">\(0.40 \le f(x) \le 0.60\)</span>) and coordinating continual retraining with <code>xinfer-forge</code>.</p>
 <h2 id="section-navigation">Section Navigation</h2>
 <ul>
 <li><a href="./active-learning-architecture/">Active Learning Architecture</a>: Edge vector ingestion, dataset curation, and closed-loop retraining flywheel.</li>
 <li><a href="./vector-ingest-queue/">Vector Ingest Queue</a>: Multi-Producer Single-Consumer (MPSC) lock-free ring buffer (200k capacity).</li>
-<li><a href="./uncertainty-sampling-rules/">Uncertainty Sampling Rules</a>: Information entropy gating selecting high-gain boundary vectors ($0.40 - 0.60$).</li>
+<li><a href="./uncertainty-sampling-rules/">Uncertainty Sampling Rules</a>: Information entropy gating selecting high-gain boundary vectors (<span class="arithmatex">\(0.40 - 0.60\)</span>).</li>
 <li><a href="./dataset-curator-engine/">Dataset Curator Engine</a>: Batch packaging engine (<code>DatasetCurator.cpp</code>) emitting CSV batches and SHA-256 manifests.</li>
 <li><a href="./forge-trigger-automation/">Forge Trigger Automation</a>: Linux <code>inotify</code> kernel triggers alerting <code>xinfer-forge</code> to launch adaptation passes.</li>
 <li><a href="./closed-loop-flywheel-testing/">Closed-Loop Flywheel Testing</a>: Automated python integration test verifying the full flywheel cycle.</li>
@@ -43195,6 +43195,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

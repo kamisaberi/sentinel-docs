@@ -26771,7 +26771,7 @@
   <a href="#2-activation-function-selection-leakyrelu-01" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Activation Function Selection: LeakyReLU ($0.1$)
+        2. Activation Function Selection: LeakyReLU (<span class="arithmatex">\(0.1\)</span>)
       </span>
     </span>
   </a>
@@ -43114,7 +43114,7 @@
   <a href="#2-activation-function-selection-leakyrelu-01" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Activation Function Selection: LeakyReLU ($0.1$)
+        2. Activation Function Selection: LeakyReLU (<span class="arithmatex">\(0.1\)</span>)
       </span>
     </span>
   </a>
@@ -43159,7 +43159,7 @@
 <td style="text-align: left;"><code>nn.Linear</code></td>
 <td style="text-align: left;"><code>[B, 32]</code></td>
 <td style="text-align: left;"><code>[B, 16]</code></td>
-<td style="text-align: left;">$32 \times 16 + 16 = 528$</td>
+<td style="text-align: left;"><span class="arithmatex">\(32 \times 16 + 16 = 528\)</span></td>
 <td style="text-align: left;"><code>LayerNorm(16)</code> + <code>LeakyReLU(0.1)</code></td>
 </tr>
 <tr>
@@ -43167,7 +43167,7 @@
 <td style="text-align: left;"><code>nn.Linear</code></td>
 <td style="text-align: left;"><code>[B, 16]</code></td>
 <td style="text-align: left;"><code>[B, 8]</code></td>
-<td style="text-align: left;">$16 \times 8 + 8 = 136$</td>
+<td style="text-align: left;"><span class="arithmatex">\(16 \times 8 + 8 = 136\)</span></td>
 <td style="text-align: left;"><code>LayerNorm(8)</code> (Latent Bottleneck)</td>
 </tr>
 <tr>
@@ -43175,7 +43175,7 @@
 <td style="text-align: left;"><code>nn.Linear</code></td>
 <td style="text-align: left;"><code>[B, 8]</code></td>
 <td style="text-align: left;"><code>[B, 16]</code></td>
-<td style="text-align: left;">$8 \times 16 + 16 = 144$</td>
+<td style="text-align: left;"><span class="arithmatex">\(8 \times 16 + 16 = 144\)</span></td>
 <td style="text-align: left;"><code>LayerNorm(16)</code> + <code>LeakyReLU(0.1)</code></td>
 </tr>
 <tr>
@@ -43183,15 +43183,15 @@
 <td style="text-align: left;"><code>nn.Linear</code></td>
 <td style="text-align: left;"><code>[B, 16]</code></td>
 <td style="text-align: left;"><code>[B, 32]</code></td>
-<td style="text-align: left;">$16 \times 32 + 32 = 544$</td>
+<td style="text-align: left;"><span class="arithmatex">\(16 \times 32 + 32 = 544\)</span></td>
 <td style="text-align: left;">Linear Identity (Output Reconstruction)</td>
 </tr>
 </tbody>
 </table>
-<p>$$\text{Total Trainable Weights} = 528 + 136 + 144 + 544 + \text{Norm Params} = 1{,}632 \text{ Parameters}$$</p>
+<div class="arithmatex">\[\text{Total Trainable Weights} = 528 + 136 + 144 + 544 + \text{Norm Params} = 1{,}632 \text{ Parameters}\]</div>
 <hr />
-<h2 id="2-activation-function-selection-leakyrelu-01">2. Activation Function Selection: LeakyReLU ($0.1$)</h2>
-<p>$$\text{LeakyReLU}(x) = \begin{cases} x, &amp; \text{if } x \ge 0 \ 0.1 \cdot x, &amp; \text{if } x &lt; 0 \end{cases}$$</p>
+<h2 id="2-activation-function-selection-leakyrelu-01">2. Activation Function Selection: LeakyReLU (<span class="arithmatex">\(0.1\)</span>)</h2>
+<div class="arithmatex">\[\text{LeakyReLU}(x) = \begin{cases} x, &amp; \text{if } x \ge 0 \\ 0.1 \cdot x, &amp; \text{if } x &lt; 0 \end{cases}\]</div>
 <p>Standard <code>ReLU</code> causes "dying neuron" syndrome during continual retraining on sparse tabular network data. <code>LeakyReLU(0.1)</code> maintains continuous gradient flow through negative activation values while mapping cleanly to edge integer quantization (INT8) primitives.</p>
 
 
@@ -43261,6 +43261,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

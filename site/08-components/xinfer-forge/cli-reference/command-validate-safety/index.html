@@ -43217,7 +43217,7 @@
 
 
 <h1 id="command-forge-cli-validate-safety">Command: <code>forge-cli validate-safety</code></h1>
-<p>Audits a candidate PyTorch checkpoint against the immutable golden attack corpus (<code>golden_attacks.yaml</code>). Enforces the non-negotiable zero-tolerance regression invariant ($S(\theta^*) = 1.000$).</p>
+<p>Audits a candidate PyTorch checkpoint against the immutable golden attack corpus (<code>golden_attacks.yaml</code>). Enforces the non-negotiable zero-tolerance regression invariant (<span class="arithmatex">\(S(\theta^*) = 1.000\)</span>).</p>
 <hr />
 <h2 id="1-syntax">1. Syntax</h2>
 <div class="highlight"><pre><span></span><code>forge-cli<span class="w"> </span>validate-safety<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
@@ -43250,7 +43250,7 @@
 <td style="text-align: left;"><code>--threshold FLOAT</code></td>
 <td style="text-align: left;">Float</td>
 <td style="text-align: left;"><code>0.082</code></td>
-<td style="text-align: left;">Anomaly reconstruction MSE threshold ($\tau$).</td>
+<td style="text-align: left;">Anomaly reconstruction MSE threshold (<span class="arithmatex">\(\tau\)</span>).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>--purge-on-fail</code></td>
@@ -43372,6 +43372,10 @@ Status: APPROVED FOR PRODUCTION COMPILATION. Exit Code 0.
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

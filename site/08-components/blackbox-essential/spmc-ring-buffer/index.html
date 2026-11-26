@@ -43120,10 +43120,10 @@
 <p>The <code>blackbox::EventRingBuffer</code> transfers flow telemetry from network driver threads to parallel machine learning inference workers without mutex locks.</p>
 <h2 id="section-navigation">Section Navigation</h2>
 <ul>
-<li><a href="./lock-free-architecture/">Lock-Free Architecture</a>: Concurrency model (1 Producer $\to$ N Consumers) and wait-free guarantees.</li>
+<li><a href="./lock-free-architecture/">Lock-Free Architecture</a>: Concurrency model (1 Producer <span class="arithmatex">\(\to\)</span> N Consumers) and wait-free guarantees.</li>
 <li><a href="./atomic-memory-ordering/">Atomic Memory Ordering</a>: Fine-grained Acquire-Release (<code>acquire</code>/<code>release</code>) memory ordering proofs.</li>
 <li><a href="./cache-line-padding/">Cache-Line Padding</a>: Eliminating CPU false sharing using <code>alignas(64)</code> cache line isolation.</li>
-<li><a href="./zero-mutex-producer/">Zero-Mutex Producer</a>: $O(1)$ wait-free enqueue algorithm and thread-local cached head optimization.</li>
+<li><a href="./zero-mutex-producer/">Zero-Mutex Producer</a>: <span class="arithmatex">\(O(1)\)</span> wait-free enqueue algorithm and thread-local cached head optimization.</li>
 <li><a href="./multi-consumer-scaling/">Multi-Consumer Scaling</a>: Atomic CAS arbitration loop and ABA problem resolution.</li>
 <li><a href="./saturation-and-backpressure/">Saturation &amp; Backpressure</a>: Tail-drop mechanics and hardware backpressure signaling to eBPF maps.</li>
 </ul>
@@ -43195,6 +43195,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

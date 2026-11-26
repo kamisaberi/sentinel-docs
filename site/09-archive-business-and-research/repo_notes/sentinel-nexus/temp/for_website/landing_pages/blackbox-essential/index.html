@@ -43229,12 +43229,12 @@
 <h3 id="headline">Headline</h3>
 <h1 id="wire-speed-in-kernel-packet-dropping-sub-microsecond-determinism-cryptographic-silicon-trust">Wire-Speed In-Kernel Packet Dropping. Sub-Microsecond Determinism. Cryptographic Silicon Trust.</h1>
 <h3 id="subheadline">Subheadline</h3>
-<p><strong><code>blackbox-essential</code> (<code>libblackbox.so</code>)</strong> is the low-latency active mitigation engine for the Aryorithm ecosystem. Operating directly within Linux network interface card (NIC) driver rings, it executes wire-speed packet filtering in <strong>$0.84\,\mu\text{s}$ ($&lt; 1.0\,\text{ms}$ SLA)</strong> before socket memory allocation, transfers millions of events across a lock-free SPMC ring buffer, and anchors system integrity to physical TPM 2.0 cryptoprocessors.</p>
+<p><strong><code>blackbox-essential</code> (<code>libblackbox.so</code>)</strong> is the low-latency active mitigation engine for the Aryorithm ecosystem. Operating directly within Linux network interface card (NIC) driver rings, it executes wire-speed packet filtering in <strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span> (<span class="arithmatex">\(&lt; 1.0\,\text{ms}\)</span> SLA)</strong> before socket memory allocation, transfers millions of events across a lock-free SPMC ring buffer, and anchors system integrity to physical TPM 2.0 cryptoprocessors.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ View on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/blackbox</code></li>
-<li><code>[ Explore eBPF Architecture ]</code> $\rightarrow$ <code>#ebpf-subsystem</code></li>
-<li><code>[ Read Benchmark Study ]</code> $\rightarrow$ <code>#empirical-benchmarks</code></li>
+<li><code>[ View on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/blackbox</code></li>
+<li><code>[ Explore eBPF Architecture ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#ebpf-subsystem</code></li>
+<li><code>[ Read Benchmark Study ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#empirical-benchmarks</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43261,9 +43261,9 @@
   └──────────────────────────────────────────────────────────────────────────────────┘
 </code></pre></div>
 <p>In physical industrial environments, threat mitigation is a race against mechanical actuators:
-* An unauthorized Modbus coil command (<code>FC05</code>) or an IEC 60870-5-104 breaker trip command takes <strong>$2.0\,\text{ms}$ to $3.5\,\text{ms}$</strong> to transmit across an industrial Ethernet bus.
-* A mechanical valve actuator or high-voltage circuit breaker physically trips within <strong>$15\,\text{ms}$ to $50\,\text{ms}$</strong>.</p>
-<p>If an intrusion prevention system introduces a $10\,\text{ms}$ delay due to socket allocation and userspace memory copying, the defensive decision arrives <strong>after the physical equipment has already started moving</strong>. </p>
+* An unauthorized Modbus coil command (<code>FC05</code>) or an IEC 60870-5-104 breaker trip command takes <strong><span class="arithmatex">\(2.0\,\text{ms}\)</span> to <span class="arithmatex">\(3.5\,\text{ms}\)</span></strong> to transmit across an industrial Ethernet bus.
+* A mechanical valve actuator or high-voltage circuit breaker physically trips within <strong><span class="arithmatex">\(15\,\text{ms}\)</span> to <span class="arithmatex">\(50\,\text{ms}\)</span></strong>.</p>
+<p>If an intrusion prevention system introduces a <span class="arithmatex">\(10\,\text{ms}\)</span> delay due to socket allocation and userspace memory copying, the defensive decision arrives <strong>after the physical equipment has already started moving</strong>. </p>
 <p><code>libblackbox.so</code> eliminates this window entirely. By intercepting frames at the lowest layer of the operating system—the <strong>eXpress Data Path (XDP)</strong>—malicious traffic is dropped directly inside the network driver's RX ring buffer. The packet is discarded before the Linux kernel allocates a single byte of socket memory (<code>sk_buff</code>), neutralizing physical attacks in <strong>less than 1 microsecond</strong>.</p>
 <hr />
 <h2 id="3-deep-dive-in-kernel-ebpfxdp-subsystem-xdp_filtero">3. Deep Dive: In-Kernel eBPF/XDP Subsystem (<code>xdp_filter.o</code>)</h2>
@@ -43353,11 +43353,11 @@
 </code></pre></div>
 <h3 id="dual-mode-execution-native-driver-vs-generic-skb-fallback">Dual-Mode Execution: Native Driver vs. Generic SKB Fallback</h3>
 <p><code>libblackbox.so</code> includes an adaptive driver attachment engine:
-* <strong>Native Driver Mode (<code>XDP_FLAGS_DRV_MODE</code>):</strong> Attaches directly to driver RX rings on physical 10GbE/25GbE adapters (Intel X520/E810, Mellanox ConnectX). Achieves the verified <strong>$0.84\,\mu\text{s}$ mitigation SLA</strong>.
-* <strong>Generic SKB Mode (<code>XDP_FLAGS_SKB_MODE</code>):</strong> Automatically engages when deployed inside virtual hypervisors (VMware vSphere/ESXi, KVM, Docker virtual veth pairs) where underlying virtual NICs do not expose hardware XDP hooks. Maintains 100% operational functionality with sub-millisecond mitigation ($&lt; 2.5\,\mu\text{s}$).</p>
+* <strong>Native Driver Mode (<code>XDP_FLAGS_DRV_MODE</code>):</strong> Attaches directly to driver RX rings on physical 10GbE/25GbE adapters (Intel X520/E810, Mellanox ConnectX). Achieves the verified <strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span> mitigation SLA</strong>.
+* <strong>Generic SKB Mode (<code>XDP_FLAGS_SKB_MODE</code>):</strong> Automatically engages when deployed inside virtual hypervisors (VMware vSphere/ESXi, KVM, Docker virtual veth pairs) where underlying virtual NICs do not expose hardware XDP hooks. Maintains 100% operational functionality with sub-millisecond mitigation (<span class="arithmatex">\(&lt; 2.5\,\mu\text{s}\)</span>).</p>
 <hr />
 <h2 id="4-lock-free-single-producer-multi-consumer-spmc-ring-buffer">4. Lock-Free Single-Producer Multi-Consumer (SPMC) Ring Buffer</h2>
-<p>Packets that pass initial in-kernel checks must be ingested into userspace for deep neural scoring without stalling the driver thread. Traditional mutex-guarded queues introduce lock contention under high line rates ($&gt; 1{,}000{,}000\,\text{EPS}$), causing packet drops due to buffer starvation.</p>
+<p>Packets that pass initial in-kernel checks must be ingested into userspace for deep neural scoring without stalling the driver thread. Traditional mutex-guarded queues introduce lock contention under high line rates (<span class="arithmatex">\(&gt; 1{,}000{,}000\,\text{EPS}\)</span>), causing packet drops due to buffer starvation.</p>
 <p><code>libblackbox.so</code> implements <strong><code>EventRingBuffer</code></strong>, a zero-mutex SPMC circular memory structure using C++20 atomic memory order semantics:</p>
 <div class="highlight"><pre><span></span><code>========================================================================================================
                           LOCK-FREE SPMC EVENT RING BUFFER ARCHITECTURE
@@ -43388,7 +43388,7 @@
 <span class="w">    </span><span class="n">tail_</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="n">next_tail</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><strong>Performance:</strong> Sustains <strong>1.25 million events per second</strong> between kernel driver threads and parallel neural evaluation threads with an internal transfer latency of <strong>$&lt; 40\,\text{nanoseconds}$</strong>.</li>
+<li><strong>Performance:</strong> Sustains <strong>1.25 million events per second</strong> between kernel driver threads and parallel neural evaluation threads with an internal transfer latency of <strong><span class="arithmatex">\(&lt; 40\,\text{nanoseconds}\)</span></strong>.</li>
 </ul>
 <hr />
 <h2 id="5-adaptive-3-tier-hardware-identity-attestation-engine">5. Adaptive 3-Tier Hardware Identity &amp; Attestation Engine</h2>
@@ -43425,7 +43425,7 @@
 * Generates a non-exportable <strong>Attestation Identity Key (AIK)</strong> sealed within hardware silicon.
 * Computes cryptographic quotes over <strong>PCR 0</strong> (BIOS/UEFI integrity) and <strong>PCR 4</strong> (kernel bootloader measurement).
 * Every enrollment frame transmitted to the command plane includes a cryptographically verifiable TPM 2.0 Quote:
-  $$\sigma_{\text{identity}} = \text{Sign}_{\text{AIK}}\Big(\mathcal{H}\big(\text{PCR}_0 \parallel \text{PCR}<em>4 \parallel \text{UUID}</em>{\text{DMI}}\big)\Big)$$</p>
+  $<span class="arithmatex">\(\sigma_{\text{identity}} = \text{Sign}_{\text{AIK}}\Big(\mathcal{H}\big(\text{PCR}_0 \parallel \text{PCR}_4 \parallel \text{UUID}_{\text{DMI}}\big)\Big)\)</span>$</p>
 <h3 id="tier-2-virtual-tpm-vtpm-hypervisor-mode">Tier 2: Virtual TPM (vTPM / Hypervisor Mode)</h3>
 <p>When deployed inside enterprise virtualization platforms (VMware vSphere/ESXi, KVM with <code>swtpm</code>, or Microsoft Hyper-V), the engine identifies hypervisor device paths and computes attestation certificates against virtualized PCR registers.</p>
 <h3 id="tier-3-zero-tpm-hardware-dmi-fallback">Tier 3: Zero-TPM Hardware DMI Fallback</h3>
@@ -43549,7 +43549,7 @@ This guarantees that if an appliance is cloned into an unauthorized virtual mach
  blackbox-essential (xdp_filter)   eBPF / XDP       0 (Driver Ingress)   0.84 µs (&lt; 0.001 ms)
 ========================================================================================================
 </code></pre></div>
-<h3 id="microsecond-percentile-latency-distribution-p50-to-p999">Microsecond Percentile Latency Distribution ($p50$ to $p99.9$)</h3>
+<h3 id="microsecond-percentile-latency-distribution-p50-to-p999">Microsecond Percentile Latency Distribution (<span class="arithmatex">\(p50\)</span> to <span class="arithmatex">\(p99.9\)</span>)</h3>
 <p>Measurements recorded across 100,000 consecutive hostile bursts under 1.25M EPS line-rate traffic:</p>
 <div class="highlight"><pre><span></span><code>+-----------------------+-----------------------------+-----------------------------+
 | Percentile Metric     | Measured Mitigation Latency | Deterministic Safety Bound  |
@@ -43676,6 +43676,10 @@ This guarantees that if an appliance is cloned into an unauthorized virtual mach
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

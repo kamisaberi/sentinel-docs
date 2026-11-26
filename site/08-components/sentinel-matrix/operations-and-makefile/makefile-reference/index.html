@@ -43275,7 +43275,7 @@
 </ul>
 <h3 id="chaos-engineering-resilience">Chaos Engineering &amp; Resilience</h3>
 <ul>
-<li><strong><code>make chaos-latency</code></strong>: Injects artificial $1{,}420\,\mu\text{s}$ compute delays to test <code>RollbackGuard</code>.</li>
+<li><strong><code>make chaos-latency</code></strong>: Injects artificial <span class="arithmatex">\(1{,}420\,\mu\text{s}\)</span> compute delays to test <code>RollbackGuard</code>.</li>
 <li><strong><code>make chaos-sever</code></strong>: Forcibly terminates <code>sentinel-node-02</code> (<code>SIGKILL</code>) to evaluate 15s liveness timeouts.</li>
 <li><strong><code>make chaos-disconnect</code></strong>: Gracefully terminates <code>sentinel-node-01</code> to verify 0ms instant disconnects.</li>
 <li><strong><code>make recover</code></strong>: Restarts severed edge nodes and verifies automated re-enrollment.</li>
@@ -43348,6 +43348,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

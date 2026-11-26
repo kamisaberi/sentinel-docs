@@ -43193,28 +43193,28 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Mitigation Latency ($p50$)</strong></td>
-<td style="text-align: left;">$8{,}400.0\,\mu\text{s}$ ($8.4\,\text{ms}$)</td>
-<td style="text-align: left;"><strong>$0.72\,\mu\text{s}$ ($720\,\text{ns}$)</strong></td>
-<td style="text-align: left;"><strong>$11{,}666\times$ Faster</strong></td>
+<td style="text-align: left;"><strong>Mitigation Latency (<span class="arithmatex">\(p50\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(8{,}400.0\,\mu\text{s}\)</span> (<span class="arithmatex">\(8.4\,\text{ms}\)</span>)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.72\,\mu\text{s}\)</span> (<span class="arithmatex">\(720\,\text{ns}\)</span>)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(11{,}666\times\)</span> Faster</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Mitigation Latency ($p99$)</strong></td>
-<td style="text-align: left;">$14{,}800.0\,\mu\text{s}$ ($14.8\,\text{ms}$)</td>
-<td style="text-align: left;"><strong>$0.84\,\mu\text{s}$ ($840\,\text{ns}$)</strong></td>
-<td style="text-align: left;"><strong>$17{,}619\times$ Faster</strong></td>
+<td style="text-align: left;"><strong>Mitigation Latency (<span class="arithmatex">\(p99\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(14{,}800.0\,\mu\text{s}\)</span> (<span class="arithmatex">\(14.8\,\text{ms}\)</span>)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span> (<span class="arithmatex">\(840\,\text{ns}\)</span>)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(17{,}619\times\)</span> Faster</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Max Inline Throughput</strong></td>
-<td style="text-align: left;">$420{,}000\text{ pps}$ (Per Core)</td>
-<td style="text-align: left;"><strong>$14{,}880{,}000\text{ pps}$ (Line Rate)</strong></td>
-<td style="text-align: left;"><strong>$35.4\times$ Higher</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(420{,}000\text{ pps}\)</span> (Per Core)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14{,}880{,}000\text{ pps}\)</span> (Line Rate)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(35.4\times\)</span> Higher</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Memory Buffer Footprint</strong></td>
-<td style="text-align: left;">$1{,}850\text{ MB}$ (Rule Trees)</td>
-<td style="text-align: left;"><strong>$32\text{ MB}$ (Pinned BPF Maps)</strong></td>
-<td style="text-align: left;"><strong>$57\times$ Leaner</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1{,}850\text{ MB}\)</span> (Rule Trees)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(32\text{ MB}\)</span> (Pinned BPF Maps)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(57\times\)</span> Leaner</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Socket Buffer Allocation</strong></td>
@@ -43228,7 +43228,7 @@
 <h2 id="2-why-suricata-incurs-millisecond-delays">2. Why Suricata Incurs Millisecond Delays</h2>
 <ol>
 <li><strong>Netlink Serialization Overhead:</strong> Every packet must be copied from the kernel ring through Netlink socket buffers into user space.</li>
-<li><strong>Context-Switch Latency:</strong> Passing execution between kernel interrupt handlers and Suricata’s thread pool incurs heavy scheduling penalties ($1.5 - 4.5\,\mu\text{s}$ per switch).</li>
+<li><strong>Context-Switch Latency:</strong> Passing execution between kernel interrupt handlers and Suricata’s thread pool incurs heavy scheduling penalties (<span class="arithmatex">\(1.5 - 4.5\,\mu\text{s}\)</span> per switch).</li>
 <li><strong>Queue Backup Under Load:</strong> At line rate, user-space queues overflow, inducing multi-millisecond buffer latency before packet inspection begins.</li>
 </ol>
 
@@ -43299,6 +43299,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

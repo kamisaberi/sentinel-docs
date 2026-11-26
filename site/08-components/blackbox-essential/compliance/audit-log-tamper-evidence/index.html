@@ -43200,8 +43200,8 @@
 <hr />
 <h2 id="1-cryptographic-hash-chain-architecture">1. Cryptographic Hash Chain Architecture</h2>
 <p>Mitigation events emitted by the lock-free SPMC ring buffer are sequenced into an unbroken cryptographic hash chain:</p>
-<p>$$H_0 = \text{TPM_BOOT_SEED}$$</p>
-<p>$$H_i = \text{SHA-256}\left(H_{i-1} \parallel \text{Timestamp}_i \parallel \text{SourceIP}_i \parallel \text{Action}_i \parallel \text{DropCount}_i\right)$$</p>
+<div class="arithmatex">\[H_0 = \text{TPM\_BOOT\_SEED}\]</div>
+<div class="arithmatex">\[H_i = \text{SHA-256}\left(H_{i-1} \parallel \text{Timestamp}_i \parallel \text{SourceIP}_i \parallel \text{Action}_i \parallel \text{DropCount}_i\right)\]</div>
 <div class="highlight"><pre><span></span><code> Event 1 (Drop IP A)        Event 2 (Drop IP B)        Event 3 (Drop IP C)
  ┌──────────────────────┐   ┌──────────────────────┐   ┌──────────────────────┐
  │ Hash H_1             │   │ Hash H_2             │   │ Hash H_3             │
@@ -43216,7 +43216,7 @@
                                                        └──────────────────────┘
 </code></pre></div>
 <p>If an adversary with root privileges modifies, deletes, or reorders a historical log entry:
-1. The recalculated hash chain diverges immediately: $H_i' \ne H_i$.
+1. The recalculated hash chain diverges immediately: <span class="arithmatex">\(H_i' \ne H_i\)</span>.
 2. The periodic hardware hash extending into <strong>TPM PCR 12</strong> will not match the calculated root, providing mathematical proof of log tampering to auditors.</p>
 <hr />
 <h2 id="2-c20-hash-chaining-logger-implementation">2. C++20 Hash-Chaining Logger Implementation</h2>
@@ -43341,6 +43341,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

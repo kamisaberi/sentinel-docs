@@ -43212,17 +43212,17 @@
 <h3 id="q2-what-happens-if-an-edge-appliance-loses-connection-to-nexus">Q2: What happens if an edge appliance loses connection to Nexus?</h3>
 <p>The edge appliance (<code>blackbox-sentinel</code>) operates with complete local autonomy:
 * It continues evaluating network flows using its active in-memory model.
-* It drops matching attacks in kernel driver space ($&lt; 0.84\,\mu\text{s}$).
+* It drops matching attacks in kernel driver space (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).
 * Telemetry events are buffered locally in RAM ring buffers until the Nexus connection is re-established.</p>
 <hr />
 <h3 id="q3-does-sentinel-nexus-require-internet-access-to-function">Q3: Does <code>sentinel-nexus</code> require internet access to function?</h3>
 <p><strong>No.</strong> <code>sentinel-nexus</code> is designed for sovereign, air-gapped deployments. In industrial plants and classified networks, it operates without WAN access. The embedded Web Command Center (port 9443) has <strong>zero external CDN dependencies</strong>, and all model retraining cycles (<code>xinfer-forge</code>) execute on-premises.</p>
 <hr />
 <h3 id="q4-how-does-rollbackguard-decide-when-to-abort-a-canary-model">Q4: How does <code>RollbackGuard</code> decide when to abort a Canary model?</h3>
-<p>During the Canary phase (where 5% of the fleet runs the candidate model in active mitigation), <code>RollbackGuard</code> tracks latency metrics reported via heartbeats. If any appliance reports mitigation latency exceeding <strong>$1{,}000\,\mu\text{s}$ ($1.0\,\text{ms}$)</strong> for 3 consecutive intervals, or if the drop rate surges by more than $500\%$ over moving baseline averages, <code>RollbackGuard</code> triggers an immediate rollback to the previous baseline model within $50\,\text{ms}$.</p>
+<p>During the Canary phase (where 5% of the fleet runs the candidate model in active mitigation), <code>RollbackGuard</code> tracks latency metrics reported via heartbeats. If any appliance reports mitigation latency exceeding <strong><span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> (<span class="arithmatex">\(1.0\,\text{ms}\)</span>)</strong> for 3 consecutive intervals, or if the drop rate surges by more than <span class="arithmatex">\(500\%\)</span> over moving baseline averages, <code>RollbackGuard</code> triggers an immediate rollback to the previous baseline model within <span class="arithmatex">\(50\,\text{ms}\)</span>.</p>
 <hr />
 <h3 id="q5-can-i-manage-multiple-distinct-organizations-on-a-single-nexus-instance">Q5: Can I manage multiple distinct organizations on a single Nexus instance?</h3>
-<p><strong>Yes.</strong> <code>sentinel-nexus</code> enforces a multi-tenant hierarchy (<code>Tenant</code> $\to$ <code>Nexus</code> $\to$ <code>Sentinel</code> $\to$ <code>Sensor</code>). All database records, telemetry queues, and API queries are partitioned strictly by <code>tenant_id</code>.</p>
+<p><strong>Yes.</strong> <code>sentinel-nexus</code> enforces a multi-tenant hierarchy (<code>Tenant</code> <span class="arithmatex">\(\to\)</span> <code>Nexus</code> <span class="arithmatex">\(\to\)</span> <code>Sentinel</code> <span class="arithmatex">\(\to\)</span> <code>Sensor</code>). All database records, telemetry queues, and API queries are partitioned strictly by <code>tenant_id</code>.</p>
 
 
 
@@ -43291,6 +43291,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

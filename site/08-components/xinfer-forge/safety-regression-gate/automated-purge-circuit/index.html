@@ -43139,7 +43139,7 @@
 
 
 <h1 id="the-automated-purge-circuit-safety_gatepy">The Automated Purge Circuit (<code>safety_gate.py</code>)</h1>
-<p>If candidate weights fail the safety gate ($S(\theta^*) &lt; 1.000$), <code>xinfer-forge</code> triggers the <strong>Automated Purge Circuit</strong>, physically deleting candidate weights from storage and restoring the previous verified baseline.</p>
+<p>If candidate weights fail the safety gate (<span class="arithmatex">\(S(\theta^*) &lt; 1.000\)</span>), <code>xinfer-forge</code> triggers the <strong>Automated Purge Circuit</strong>, physically deleting candidate weights from storage and restoring the previous verified baseline.</p>
 <hr />
 <h2 id="1-purge-circuit-sequence">1. Purge Circuit Sequence</h2>
 <div class="highlight"><pre><span></span><code> Safety Gate Evaluation: S(θ*) &lt; 1.000 (Regression Detected)
@@ -43278,6 +43278,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

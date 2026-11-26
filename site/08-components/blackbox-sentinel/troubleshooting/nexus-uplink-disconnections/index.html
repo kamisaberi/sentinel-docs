@@ -43274,7 +43274,7 @@
 </code></pre></div>
 <h3 id="causes-fixes">Causes &amp; Fixes</h3>
 <ol>
-<li><strong>Clock Drift:</strong> If the appliance system time deviates by more than $300\text{ seconds}$ from the Nexus hub, certificate validity checks will fail. Synchronize clocks via NTP:
+<li><strong>Clock Drift:</strong> If the appliance system time deviates by more than <span class="arithmatex">\(300\text{ seconds}\)</span> from the Nexus hub, certificate validity checks will fail. Synchronize clocks via NTP:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chronyc<span class="w"> </span>makestep
 </code></pre></div></li>
 <li><strong>Expired Client Certificate:</strong> Check the expiration timestamp of <code>/etc/sentinel/certs/appliance.crt</code>:
@@ -43350,6 +43350,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

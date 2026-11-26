@@ -43843,7 +43843,7 @@ subsea          vibration
 <hr />
 <h3 id="2-water-hammer-joukowsky-hydraulic-shock-injection">2. <code>water-hammer</code> (Joukowsky Hydraulic Shock Injection)</h3>
 <ul>
-<li><strong>Description:</strong> Maliciously snaps shut high-pressure pipeline motor-operated valves or trips pumping stations, generating supersonic pressure shockwaves ($\Delta P = \rho c \Delta v$) that rupture welds and burst pipes.</li>
+<li><strong>Description:</strong> Maliciously snaps shut high-pressure pipeline motor-operated valves or trips pumping stations, generating supersonic pressure shockwaves (<span class="arithmatex">\(\Delta P = \rho c \Delta v\)</span>) that rupture welds and burst pipes.</li>
 <li><strong>Primary Target Categories:</strong> <code>pressure</code>, <code>industrial_cps</code>, <code>subsea</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>vibration</code>, <code>network</code>, <code>chemical</code></li>
 <li><strong>Target Sensors Tripped:</strong> #052 (High-Frequency Piezoresistive Pressure), #034 (Acoustic Cavitation), #028 (Pipeline Cavitation).</li>
@@ -43859,7 +43859,7 @@ subsea          vibration
 <hr />
 <h3 id="4-voltage-glitch-power-rail-brownout-fault-injection">4. <code>voltage-glitch</code> (Power-Rail Brownout Fault Injection)</h3>
 <ul>
-<li><strong>Description:</strong> Shorts the CPU core $V_{CC}$ rail for $&lt; 50\,\text{ns}$ or modulates external ground pins to corrupt instruction register fetches, skipping cryptographic verification or password branches (<code>CMP -&gt; JNE</code>).</li>
+<li><strong>Description:</strong> Shorts the CPU core <span class="arithmatex">\(V_{CC}\)</span> rail for <span class="arithmatex">\(&lt; 50\,\text{ns}\)</span> or modulates external ground pins to corrupt instruction register fetches, skipping cryptographic verification or password branches (<code>CMP -&gt; JNE</code>).</li>
 <li><strong>Primary Target Categories:</strong> <code>pcb_power</code>, <code>microarch</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>semiconductor</code>, <code>electrical</code></li>
 <li><strong>Target Sensors Tripped:</strong> #008 (VCC Brownout Transient ADC), #009 (Oscillator Jitter), #022 (Hardware Brownout Sentry).</li>
@@ -43870,7 +43870,7 @@ subsea          vibration
 <li><strong>Description:</strong> Re-broadcasts delayed or artificially calculated satellite signals to desynchronize electrical grid synchrophasor clocks (1PPS), drift marine navigation, or trick drone geofences.</li>
 <li><strong>Primary Target Categories:</strong> <code>rf_em</code>, <code>electrical</code>, <code>avionics</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>network</code>, <code>subsea</code></li>
-<li><strong>Target Sensors Tripped:</strong> #023 (GNSS $C/N_0$ Flat Variance), #024 (1PPS Phase Error $&gt; 100\,\text{ns}$), #025 (GNSS Sentry).</li>
+<li><strong>Target Sensors Tripped:</strong> #023 (GNSS <span class="arithmatex">\(C/N_0\)</span> Flat Variance), #024 (1PPS Phase Error <span class="arithmatex">\(&gt; 100\,\text{ns}\)</span>), #025 (GNSS Sentry).</li>
 </ul>
 <hr />
 <h3 id="6-hpm-surge-high-power-microwave-directed-energy-burnout">6. <code>hpm-surge</code> (High-Power Microwave Directed-Energy Burnout)</h3>
@@ -43878,12 +43878,12 @@ subsea          vibration
 <li><strong>Description:</strong> Blasts gigawatt pulsed microwave radiation into equipment cabinets, coupling high-voltage transients into circuit traces to destroy front-end RF receiver diodes and semiconductor gates.</li>
 <li><strong>Primary Target Categories:</strong> <code>rf_em</code>, <code>pcb_power</code>, <code>semiconductor</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>electrical</code>, <code>avionics</code></li>
-<li><strong>Target Sensors Tripped:</strong> #456 (Waveguide Fast D-Dot $dE/dt$), #011 (EMP Crowbar Sentry), #026 (Antenna VSWR).</li>
+<li><strong>Target Sensors Tripped:</strong> #456 (Waveguide Fast D-Dot <span class="arithmatex">\(dE/dt\)</span>), #011 (EMP Crowbar Sentry), #026 (Antenna VSWR).</li>
 </ul>
 <hr />
 <h3 id="7-oldsmar-poisoning-stoichiometric-caustic-chemical-overdose">7. <code>oldsmar-poisoning</code> (Stoichiometric Caustic Chemical Overdose)</h3>
 <ul>
-<li><strong>Description:</strong> Overrides chemical dosing pump setpoints on water treatment networks (e.g. sodium hydroxide/caustic soda from $100\,\text{ppm} \to 11{,}100\,\text{ppm}$) to release corrosive, poisonous water into municipal mains.</li>
+<li><strong>Description:</strong> Overrides chemical dosing pump setpoints on water treatment networks (e.g. sodium hydroxide/caustic soda from <span class="arithmatex">\(100\,\text{ppm} \to 11{,}100\,\text{ppm}\)</span>) to release corrosive, poisonous water into municipal mains.</li>
 <li><strong>Primary Target Categories:</strong> <code>chemical</code>, <code>industrial_cps</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>network</code>, <code>pressure</code></li>
 <li><strong>Target Sensors Tripped:</strong> #061 (Inline Water pH), #062 (Free Chlorine Residual), #040 (Chemical Dosing Guard).</li>
@@ -43910,7 +43910,7 @@ subsea          vibration
 <li><strong>Description:</strong> Spoofs or freezes resolving signals on aircraft AoA vanes, simulating an aerodynamic stall and forcing automated flight control systems (like MCAS) into uncommanded nose-down dives.</li>
 <li><strong>Primary Target Categories:</strong> <code>avionics</code>, <code>kinematic</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>pressure</code>, <code>network</code></li>
-<li><strong>Target Sensors Tripped:</strong> #093 (Dual AoA Disparity $&gt; 5.5^\circ$), #092 (Pitot Dynamic Pressure), #021 (Flight Override Sentry).</li>
+<li><strong>Target Sensors Tripped:</strong> #093 (Dual AoA Disparity <span class="arithmatex">\(&gt; 5.5^\circ\)</span>), #092 (Pitot Dynamic Pressure), #021 (Flight Override Sentry).</li>
 </ul>
 <hr />
 <h3 id="11-tvc-gimbal-lock-rocket-thrust-vector-control-hydraulic-jam">11. <code>tvc-gimbal-lock</code> (Rocket Thrust Vector Control Hydraulic Jam)</h3>
@@ -43923,7 +43923,7 @@ subsea          vibration
 <hr />
 <h3 id="12-cobot-crush-iso-13849-safety-zone-override-admittance-surge">12. <code>cobot-crush</code> (ISO 13849 Safety-Zone Override &amp; Admittance Surge)</h3>
 <ul>
-<li><strong>Description:</strong> Overwrites joint torque limits or disables optical safety scanners on collaborative robots, causing high-mass arm payloads to strike human operators with crushing forces exceeding $150\,\text{N}$.</li>
+<li><strong>Description:</strong> Overwrites joint torque limits or disables optical safety scanners on collaborative robots, causing high-mass arm payloads to strike human operators with crushing forces exceeding <span class="arithmatex">\(150\,\text{N}\)</span>.</li>
 <li><strong>Primary Target Categories:</strong> <code>kinematic</code>, <code>industrial_cps</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>network</code>, <code>vibration</code></li>
 <li><strong>Target Sensors Tripped:</strong> #048 (6-Axis F/T Load Cell), #285 (Safety Laser Scanner OSSD), #016 (Cobot PL-e Governor).</li>
@@ -43939,7 +43939,7 @@ subsea          vibration
 <hr />
 <h3 id="14-h2-crossover-electrolyzer-membrane-perforation-explosive-mixing">14. <code>h2-crossover</code> (Electrolyzer Membrane Perforation &amp; Explosive Mixing)</h3>
 <ul>
-<li><strong>Description:</strong> Throttles differential pressure across alkaline or PEM electrolyzer cell stacks, forcing hydrogen gas across the polymer membrane into the oxygen chamber and forming an explosive gas mix ($&gt; 4\%\,H_2$).</li>
+<li><strong>Description:</strong> Throttles differential pressure across alkaline or PEM electrolyzer cell stacks, forcing hydrogen gas across the polymer membrane into the oxygen chamber and forming an explosive gas mix (<span class="arithmatex">\(&gt; 4\%\,H_2\)</span>).</li>
 <li><strong>Primary Target Categories:</strong> <code>chemical</code>, <code>pressure</code>, <code>electrical</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>temperature</code>, <code>industrial_cps</code></li>
 <li><strong>Target Sensors Tripped:</strong> #556 (Hydrogen-in-Oxygen Thermal Conductivity), #558 (Cell Voltage Monitor), #051 (Hydrogen Fueling Guard).</li>
@@ -43963,7 +43963,7 @@ subsea          vibration
 <hr />
 <h3 id="17-euv-laser-miss-molten-tin-droplet-laser-misalignment">17. <code>euv-laser-miss</code> (Molten Tin Droplet Laser Misalignment)</h3>
 <ul>
-<li><strong>Description:</strong> Alters the timing or position of the pre-pulse laser in EUV lithography, causing the main $\text{CO}_2$ laser pulse to miss the molten tin droplet and strike the vacuum chamber wall, vaporizing multi-layer mirrors.</li>
+<li><strong>Description:</strong> Alters the timing or position of the pre-pulse laser in EUV lithography, causing the main <span class="arithmatex">\(\text{CO}_2\)</span> laser pulse to miss the molten tin droplet and strike the vacuum chamber wall, vaporizing multi-layer mirrors.</li>
 <li><strong>Primary Target Categories:</strong> <code>semiconductor</code>, <code>optical</code>, <code>temperature</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>pressure</code>, <code>metallurgy</code></li>
 <li><strong>Target Sensors Tripped:</strong> #371 (Tin Droplet Position Error), #374 (EUV Collector Reflectivity), #095 (EUV Flashing Guard).</li>
@@ -43971,7 +43971,7 @@ subsea          vibration
 <hr />
 <h3 id="18-casting-breakout-continuous-steel-casting-meniscus-collapse">18. <code>casting-breakout</code> (Continuous Steel Casting Meniscus Collapse)</h3>
 <ul>
-<li><strong>Description:</strong> Tampers with stopper-rod hydraulic actuators or mold oscillation frequencies, causing liquid steel meniscus levels to fluctuate wildly until the solidified shell tears, spilling $1{,}500^\circ\text{C}$ liquid steel.</li>
+<li><strong>Description:</strong> Tampers with stopper-rod hydraulic actuators or mold oscillation frequencies, causing liquid steel meniscus levels to fluctuate wildly until the solidified shell tears, spilling <span class="arithmatex">\(1{,}500^\circ\text{C}\)</span> liquid steel.</li>
 <li><strong>Primary Target Categories:</strong> <code>metallurgy</code>, <code>temperature</code>, <code>kinematic</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>pressure</code>, <code>industrial_cps</code></li>
 <li><strong>Target Sensors Tripped:</strong> #168 (Mold Level Radar Velocity), #166 (Liquid Steel Pyrometer), #112 (Casting Invariant).</li>
@@ -43982,15 +43982,15 @@ subsea          vibration
 <li><strong>Description:</strong> Re-programs grid-tied solar/wind inverter switching firmware to inject sub-synchronous or 50th-order harmonic currents, exciting LC resonance in utility capacitor banks until they explode.</li>
 <li><strong>Primary Target Categories:</strong> <code>electrical</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>temperature</code>, <code>network</code></li>
-<li><strong>Target Sensors Tripped:</strong> #206 (Voltage THD 50th-Harmonic), #207 (Flicker $P_{\text{st}}$), #210 (Negative Sequence Unbalance).</li>
+<li><strong>Target Sensors Tripped:</strong> #206 (Voltage THD 50th-Harmonic), #207 (Flicker <span class="arithmatex">\(P_{\text{st}}\)</span>), #210 (Negative Sequence Unbalance).</li>
 </ul>
 <hr />
 <h3 id="20-rocof-blackout-synthetic-inertia-droop-frequency-collapse">20. <code>rocof-blackout</code> (Synthetic Inertia Droop &amp; Frequency Collapse)</h3>
 <ul>
-<li><strong>Description:</strong> Simultaneously steps down active power output on utility-scale battery inverters during peak demand, triggering steep rate-of-change-of-frequency ($|df/dt| &gt; 2\,\text{Hz/s}$) that trips protective relays across the grid.</li>
+<li><strong>Description:</strong> Simultaneously steps down active power output on utility-scale battery inverters during peak demand, triggering steep rate-of-change-of-frequency (<span class="arithmatex">\(|df/dt| &gt; 2\,\text{Hz/s}\)</span>) that trips protective relays across the grid.</li>
 <li><strong>Primary Target Categories:</strong> <code>electrical</code>, <code>industrial_cps</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>network</code>, <code>magnetic</code></li>
-<li><strong>Target Sensors Tripped:</strong> #212 (ROCOF Frequency Derivative), #080 (Surge Arrester $I_{3r}$), #040 (Microgrid VSG Guard).</li>
+<li><strong>Target Sensors Tripped:</strong> #212 (ROCOF Frequency Derivative), #080 (Surge Arrester <span class="arithmatex">\(I_{3r}\)</span>), #040 (Microgrid VSG Guard).</li>
 </ul>
 <hr />
 <h3 id="21-quantum-dephase-microwave-resonant-squid-qubit-perturbation">21. <code>quantum-dephase</code> (Microwave Resonant SQUID &amp; Qubit Perturbation)</h3>
@@ -44003,7 +44003,7 @@ subsea          vibration
 <hr />
 <h3 id="22-gravimeter-spoof-synthetic-gravity-gradient-tensor-inversion">22. <code>gravimeter-spoof</code> (Synthetic Gravity Gradient Tensor Inversion)</h3>
 <ul>
-<li><strong>Description:</strong> Injects phase noise or laser frequency jitter into cold-atom / BEC atom interferometers, generating synthetic gravitational anomalies that break Laplace tensor invariants ($\text{Tr}(\mathbf{T}) \ne 0$) and misdirect autonomous navigation.</li>
+<li><strong>Description:</strong> Injects phase noise or laser frequency jitter into cold-atom / BEC atom interferometers, generating synthetic gravitational anomalies that break Laplace tensor invariants (<span class="arithmatex">\(\text{Tr}(\mathbf{T}) \ne 0\)</span>) and misdirect autonomous navigation.</li>
 <li><strong>Primary Target Categories:</strong> <code>quantum</code>, <code>kinematic</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>optical</code>, <code>avionics</code></li>
 <li><strong>Target Sensors Tripped:</strong> #326 (Gravity Gradient Tensor Trace), #321 (BEC Atom Interferometer Phase), #323 (ODT Power Stability).</li>
@@ -44011,7 +44011,7 @@ subsea          vibration
 <hr />
 <h3 id="23-airgap-acoustic-leak-ultrasonic-motherboard-covert-exfiltration">23. <code>airgap-acoustic-leak</code> (Ultrasonic Motherboard Covert Exfiltration)</h3>
 <ul>
-<li><strong>Description:</strong> Malware modulates CPU core workloads or fans to produce ultrasonic acoustic whine ($20\text{--}100\,\text{kHz}$) through power coils, transmitting stolen data across air-gapped security boundaries to nearby microphones.</li>
+<li><strong>Description:</strong> Malware modulates CPU core workloads or fans to produce ultrasonic acoustic whine (<span class="arithmatex">\(20\text{--}100\,\text{kHz}\)</span>) through power coils, transmitting stolen data across air-gapped security boundaries to nearby microphones.</li>
 <li><strong>Primary Target Categories:</strong> <code>vibration</code>, <code>microarch</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>temperature</code>, <code>pcb_power</code></li>
 <li><strong>Target Sensors Tripped:</strong> #029 (Air-Gap Ultrasonic Microphone), #039 (Heat-Sink Thermal Oscillation), #002 (Acoustic Air-Gap Guard).</li>
@@ -44027,7 +44027,7 @@ subsea          vibration
 <hr />
 <h3 id="25-maglev-gap-collapse-eddy-current-suspension-demagnetization">25. <code>maglev-gap-collapse</code> (Eddy-Current Suspension Demagnetization)</h3>
 <ul>
-<li><strong>Description:</strong> Manipulates electromagnet chopping inverter PWM on high-speed Maglev trains, reducing the levitation air-gap from $10\,\text{mm} \to 0\,\text{mm}$ and causing vehicle skids to crash into guideway rails at $500\,\text{km/h}$.</li>
+<li><strong>Description:</strong> Manipulates electromagnet chopping inverter PWM on high-speed Maglev trains, reducing the levitation air-gap from <span class="arithmatex">\(10\,\text{mm} \to 0\,\text{mm}\)</span> and causing vehicle skids to crash into guideway rails at <span class="arithmatex">\(500\,\text{km/h}\)</span>.</li>
 <li><strong>Primary Target Categories:</strong> <code>magnetic</code>, <code>electrical</code>, <code>kinematic</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>vibration</code>, <code>temperature</code></li>
 <li><strong>Target Sensors Tripped:</strong> #563 (Maglev Eddy-Current Air-Gap), #566 (Landing Skid Thermopile), #568 (Ground-Fault CT).</li>
@@ -44038,12 +44038,12 @@ subsea          vibration
 <li><strong>Description:</strong> Maliciously misconfigures radial spillway gates to throttle aeration vents during flood discharge, dropping water pressure below vapor pressure and producing cavitation shockwaves that gouge through reinforced concrete.</li>
 <li><strong>Primary Target Categories:</strong> <code>pressure</code>, <code>industrial_cps</code>, <code>geological</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>vibration</code>, <code>network</code></li>
-<li><strong>Target Sensors Tripped:</strong> #057 (Dam Spillway Cavitation Index $\sigma$), #034 (Acoustic Cavitation Transducer), #044 (Dam Siphon Sentry).</li>
+<li><strong>Target Sensors Tripped:</strong> #057 (Dam Spillway Cavitation Index <span class="arithmatex">\(\sigma\)</span>), #034 (Acoustic Cavitation Transducer), #044 (Dam Siphon Sentry).</li>
 </ul>
 <hr />
 <h3 id="27-cell-lysis-shear-biopharmaceutical-perfusion-membrane-rupture">27. <code>cell-lysis-shear</code> (Biopharmaceutical Perfusion Membrane Rupture)</h3>
 <ul>
-<li><strong>Description:</strong> Spikes peristaltic pump speeds in continuous perfusion bioreactors, exceeding critical fluid shear stress limits ($\tau_{\text{shear}} &gt; 1.5\,\text{Pa}$) and causing mammalian cell lysis that contaminates entire oncology drug batches.</li>
+<li><strong>Description:</strong> Spikes peristaltic pump speeds in continuous perfusion bioreactors, exceeding critical fluid shear stress limits (<span class="arithmatex">\(\tau_{\text{shear}} &gt; 1.5\,\text{Pa}\)</span>) and causing mammalian cell lysis that contaminates entire oncology drug batches.</li>
 <li><strong>Primary Target Categories:</strong> <code>bioprocess</code>, <code>pressure</code>, <code>chemical</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>temperature</code>, <code>network</code></li>
 <li><strong>Target Sensors Tripped:</strong> #113 (Bio-Impedance Cell Spectroscopy), #079 (Bioreactor Shear Lysis Sentry), #053 (Coriolis Meter).</li>
@@ -44051,7 +44051,7 @@ subsea          vibration
 <hr />
 <h3 id="28-tokamak-disruption-fusion-plasma-mirnov-tearing-mode-growth">28. <code>tokamak-disruption</code> (Fusion Plasma Mirnov Tearing Mode Growth)</h3>
 <ul>
-<li><strong>Description:</strong> Tamers with center-solenoid heating or gas puffing valves in magnetic confinement fusion reactors, triggering resistive tearing modes ($\gamma &gt; 0$) that dump gigajoules of plasma thermal energy onto divertor tiles.</li>
+<li><strong>Description:</strong> Tamers with center-solenoid heating or gas puffing valves in magnetic confinement fusion reactors, triggering resistive tearing modes (<span class="arithmatex">\(\gamma &gt; 0\)</span>) that dump gigajoules of plasma thermal energy onto divertor tiles.</li>
 <li><strong>Primary Target Categories:</strong> <code>nuclear</code>, <code>magnetic</code>, <code>temperature</code></li>
 <li><strong>Collateral Affected Categories:</strong> <code>electrical</code>, <code>pressure</code>, <code>quantum</code></li>
 <li><strong>Target Sensors Tripped:</strong> #421 (Mirnov Poloidal Coil Pick-up), #423 (Divertor Heat Flux Langmuir Probe), #424 (Plasma Current Quench Rate).</li>
@@ -44169,7 +44169,7 @@ subsea          vibration
 1. <strong><code>sentinel-lab</code> Harness:</strong> Injects the synthetic sensor corruption or anomalous telemetry stream across the designated categories.
 2. <strong><code>sentinel-matrix</code> Physics Engine:</strong> Updates the continuous RK4 ODEs (thermodynamic, hydrodynamic, kinematic, or electrical) to model the physical consequences.
 3. <strong><code>blackbox-sentinel</code> (ThreatCorrelator):</strong> Audits the cross-category invariant (e.g. checking if <code>network</code> commands match <code>pressure</code> or <code>temperature</code> physics).
-4. <strong><code>blackbox-essential</code> (eBPF Kernel Ring):</strong> Drops the offending network packets or kills the process in <strong>$&lt; 0.84\,\mu\text{s}$</strong>, certifying full active defense.</p>
+4. <strong><code>blackbox-essential</code> (eBPF Kernel Ring):</strong> Drops the offending network packets or kills the process in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong>, certifying full active defense.</p>
 
 
 
@@ -44238,6 +44238,10 @@ subsea          vibration
       
       
         <script src="../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

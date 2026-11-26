@@ -43143,8 +43143,8 @@
 <hr />
 <h2 id="1-cryptographic-hash-chaining-architecture">1. Cryptographic Hash Chaining Architecture</h2>
 <p>Every state mutation updates a forward-secure cryptographic hash chain:</p>
-<p>$$H_0 = \text{TPM_NEXUS_BOOT_SEED}$$</p>
-<p>$$H_t = \operatorname{SHA-256}\left(H_{t-1} \parallel \text{Timestamp} \parallel \text{Action} \parallel \text{OperatorID} \parallel \text{PayloadHash}\right)$$</p>
+<div class="arithmatex">\[H_0 = \text{TPM\_NEXUS\_BOOT\_SEED}\]</div>
+<div class="arithmatex">\[H_t = \operatorname{SHA-256}\left(H_{t-1} \parallel \text{Timestamp} \parallel \text{Action} \parallel \text{OperatorID} \parallel \text{PayloadHash}\right)\]</div>
 <div class="highlight"><pre><span></span><code> State Mutation 1           State Mutation 2           State Mutation 3
  ┌──────────────────────┐   ┌──────────────────────┐   ┌──────────────────────┐
  │ Hash H_1             │   │ Hash H_2             │   │ Hash H_3             │
@@ -43162,7 +43162,7 @@
 <h2 id="2-invariant-proof-of-non-repudiation">2. Invariant Proof of Non-Repudiation</h2>
 <ul>
 <li>If an attacker gains root access to the Nexus server and edits <code>nexus_state.json</code> to erase an incident or drop record:</li>
-<li>The recalculation of the forward hash chain diverges immediately ($H_t' \ne H_t$).</li>
+<li>The recalculation of the forward hash chain diverges immediately (<span class="arithmatex">\(H_t' \ne H_t\)</span>).</li>
 <li>The hash value stored inside hardware <strong>TPM PCR 12</strong> will not match the recalculated file digest, providing proof of database tampering to forensic investigators.</li>
 </ul>
 
@@ -43233,6 +43233,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

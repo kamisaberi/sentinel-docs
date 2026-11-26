@@ -43161,7 +43161,7 @@
 <h2 id="2-how-xinfer-forge-solves-these-challenges">2. How <code>xinfer-forge</code> Solves These Challenges</h2>
 <ul>
 <li><strong>Self-Supervised Masked Autoencoders (MAE):</strong> Discards the requirement for manual data labeling. The network learns the underlying physical and protocol relationships of normal operations by reconstructing randomly masked feature dimensions.</li>
-<li><strong>InfoNCE Contrastive Regularization:</strong> Enforces temporal stability, clustering related sequential flow records together in a compact 8-dimensional latent space ($z \in \mathbb{R}^8$).</li>
+<li><strong>InfoNCE Contrastive Regularization:</strong> Enforces temporal stability, clustering related sequential flow records together in a compact 8-dimensional latent space (<span class="arithmatex">\(z \in \mathbb{R}^8\)</span>).</li>
 <li><strong>The Golden Attacks Safety Gate:</strong> Protects the model against adversarial poisoning. Before candidate weights can be staged, they are benchmarked against an immutable suite of historical cyber-physical attacks. If detection drops on a single attack, the model is rejected and deleted.</li>
 </ul>
 
@@ -43232,6 +43232,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

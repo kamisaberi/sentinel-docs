@@ -43295,7 +43295,7 @@
 <hr />
 <h2 id="2-advance-rollout-stage-post-apiv1otaadvance">2. Advance Rollout Stage: <code>POST /api/v1/ota/advance</code></h2>
 <p>Promotes the candidate model along the staged rollout progression:<br />
-<code>SHADOW_MODE</code> $\longrightarrow$ <code>CANARY_5_PCT</code> $\longrightarrow$ <code>FLEET_WIDE</code>.</p>
+<code>SHADOW_MODE</code> <span class="arithmatex">\(\longrightarrow\)</span> <code>CANARY_5_PCT</code> <span class="arithmatex">\(\longrightarrow\)</span> <code>FLEET_WIDE</code>.</p>
 <h3 id="request">Request:</h3>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://localhost:9443/api/v1/ota/advance<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
@@ -43304,7 +43304,7 @@
 </code></pre></div>
 <hr />
 <h2 id="3-trigger-emergency-rollback-post-apiv1otarollback">3. Trigger Emergency Rollback: <code>POST /api/v1/ota/rollback</code></h2>
-<p>Forces an immediate abort of active Canary models, reverting all edge appliances to the previous verified baseline in $&lt; 50\,\text{ms}$.</p>
+<p>Forces an immediate abort of active Canary models, reverting all edge appliances to the previous verified baseline in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>.</p>
 <hr />
 <h2 id="4-download-model-binary-get-apiv1modelsfilename">4. Download Model Binary: <code>GET /api/v1/models/{filename}</code></h2>
 <p>Streams the raw binary ONNX model to edge appliances during hot-reloads. Returns <code>Content-Type: application/octet-stream</code> and <code>X-Checksum-SHA256</code>.</p>
@@ -43376,6 +43376,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

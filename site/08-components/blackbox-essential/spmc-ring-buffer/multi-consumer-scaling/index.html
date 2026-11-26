@@ -43209,7 +43209,7 @@
 <p>Traditional lock-free queues that store pointers suffer from the <strong>ABA problem</strong>, where an address is freed, reallocated, and misidentified as unchanged.</p>
 <p><code>blackbox::EventRingBuffer</code> avoids this problem by design:
 * It uses <strong>monotonic 64-bit sequence counters</strong> (<code>uint64_t</code>).
-* At a rate of $10{,}000{,}000\text{ EPS}$, a 64-bit counter will not overflow for over <strong>$58{,}494\text{ years}$</strong>. Sequence counters never repeat within the operating lifetime of the appliance.</p>
+* At a rate of <span class="arithmatex">\(10{,}000{,}000\text{ EPS}\)</span>, a 64-bit counter will not overflow for over <strong><span class="arithmatex">\(58{,}494\text{ years}\)</span></strong>. Sequence counters never repeat within the operating lifetime of the appliance.</p>
 
 
 
@@ -43278,6 +43278,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -43167,7 +43167,7 @@
 <hr />
 <h2 id="1-physical-invariant-enforcement-model">1. Physical Invariant Enforcement Model</h2>
 <p>Attackers (such as the authors of Stuxnet, Industroyer, or Triton) craft syntactically valid protocol frames with values designed to cause physical destruction. <code>18_cps_sec</code> verifies commands against <strong>thermodynamic state equations</strong>:</p>
-<p>$$\Delta V = \frac{V_{\text{target}} - V_{\text{current}}}{t - t_{\text{last}}} \le \text{MaxAllowableRateOfChange}$$</p>
+<div class="arithmatex">\[\Delta V = \frac{V_{\text{target}} - V_{\text{current}}}{t - t_{\text{last}}} \le \text{MaxAllowableRateOfChange}\]</div>
 <div class="highlight"><pre><span></span><code> [ Ingress Modbus TCP Packet: Function Code 16 (Write Registers) ]
                              │
                              ▼
@@ -43300,6 +43300,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

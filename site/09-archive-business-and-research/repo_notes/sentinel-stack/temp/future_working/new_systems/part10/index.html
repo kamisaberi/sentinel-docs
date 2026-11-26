@@ -43769,15 +43769,15 @@
 <hr />
 <h2 id="project-46-airport-runway-foreign-object-debris-fod-detector-aviation-ground-safety">Project 46: Airport Runway Foreign Object Debris (FOD) Detector (Aviation Ground Safety)</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Runway Foreign Object Debris (FOD: dropped titanium bolts, shredded aircraft tire retread, broken luggage hardware, wildlife) represents a lethal hazard to commercial aviation. The fatal <strong>Air France Flight 4590 Concorde disaster</strong> in 2000 was triggered by a single $43\text{ cm}$ titanium wear strip left on the runway, which punctured a tire, ruptured fuel tanks, and killed 113 people. </p>
-<p>At major international hubs (London Heathrow, Atlanta Hartsfield, Frankfurt), aircraft take off and land every <strong>$45\text{ to }60\text{ seconds}$</strong>. Manual vehicle runway sweeps take $30\text{ to }45\text{ minutes}$ and require shutting down the runway, costing airports upwards of <strong>$100{,}000 per hour in delays</strong>. Cloud-based video systems cannot operate through heavy fog, driving rain, or darkness, and introduce multi-second latency that cannot prevent an aircraft already on takeoff roll from striking debris.</p>
+<p>Runway Foreign Object Debris (FOD: dropped titanium bolts, shredded aircraft tire retread, broken luggage hardware, wildlife) represents a lethal hazard to commercial aviation. The fatal <strong>Air France Flight 4590 Concorde disaster</strong> in 2000 was triggered by a single <span class="arithmatex">\(43\text{ cm}\)</span> titanium wear strip left on the runway, which punctured a tire, ruptured fuel tanks, and killed 113 people. </p>
+<p>At major international hubs (London Heathrow, Atlanta Hartsfield, Frankfurt), aircraft take off and land every <strong><span class="arithmatex">\(45\text{ to }60\text{ seconds}\)</span></strong>. Manual vehicle runway sweeps take <span class="arithmatex">\(30\text{ to }45\text{ minutes}\)</span> and require shutting down the runway, costing airports upwards of <strong>$100{,}000 per hour in delays</strong>. Cloud-based video systems cannot operate through heavy fog, driving rain, or darkness, and introduce multi-second latency that cannot prevent an aircraft already on takeoff roll from striking debris.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF memory bridge combining raw 77/94 GHz millimeter-wave (mmWave) radar spatial points with high-zoom optical/thermal PTZ camera feeds into shared tensor memory.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw 10GbE fiber-optic radar echo streams in-kernel via multi-queue AF_XDP at line rate (10.25M+ EPS).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 radar-optical dissector extracting target micro-Doppler centroids and spatial bounding boxes within the <strong>$&lt; 88\text{ ns}$</strong> SLA.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-scale micro-debris detection networks into INT8 QDQ ONNX models executing in <strong>$&lt; 12\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically proving the entire 4 km runway surface scan completes within a guaranteed <strong>$p99.999\%$ deadline of $&lt; 500\text{ ms}$</strong>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 radar-optical dissector extracting target micro-Doppler centroids and spatial bounding boxes within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes multi-scale micro-debris detection networks into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 12\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically proving the entire 4 km runway surface scan completes within a guaranteed <strong><span class="arithmatex">\(p99.999\%\)</span> deadline of <span class="arithmatex">\(&lt; 500\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Signals Air Traffic Control (ATC) tower displays and Automated Surface Detection Equipment (ASDE-X) over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin aircraft takeoff roll and tire impact dynamics equations (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo aviation fod --radar-ip 10.240.0.90 --ptz-cam /dev/video0</code>.</li>
@@ -43794,24 +43794,24 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>EUROCONTROL ASTERIX Category 010 / 048 (Surface Movement Radar)</strong>, <strong>RTSP / ONVIF Profile S/T</strong>, <strong>GigE Vision</strong>.</li>
 <li><strong>Mathematical Invariant (Joint Radar Cross-Section &amp; Optical Surface Integral):</strong>
-  $$\mathcal{P}<em>{\text{FOD}}(\mathbf{x}) = \sigma\left( w_1 \cdot \text{RCS}</em>{\text{radar}}(\mathbf{x}) + w_2 \cdot \text{Confidence}<em>{\text{vision}}(\mathbf{x}) + w_3 \cdot \Delta T</em>{\text{thermal}}(\mathbf{x}) \right) \ge \tau_{\text{debris}}$$
-  Where $\text{RCS}<em>{\text{radar}}$ is radar cross-section reflectivity and $\Delta T</em>{\text{thermal}}$ is thermal contrast against tarmac. If $\mathcal{P}_{\text{FOD}} \ge 0.95$ on active runway centerline coordinates during takeoff clearance, an <strong>ASTERIX Category 010 emergency alert automatically revokes takeoff clearance in $&lt; 50\text{ ms}$</strong>.</li>
+  $<span class="arithmatex">\(\mathcal{P}_{\text{FOD}}(\mathbf{x}) = \sigma\left( w_1 \cdot \text{RCS}_{\text{radar}}(\mathbf{x}) + w_2 \cdot \text{Confidence}_{\text{vision}}(\mathbf{x}) + w_3 \cdot \Delta T_{\text{thermal}}(\mathbf{x}) \right) \ge \tau_{\text{debris}}\)</span>$
+  Where <span class="arithmatex">\(\text{RCS}_{\text{radar}}\)</span> is radar cross-section reflectivity and <span class="arithmatex">\(\Delta T_{\text{thermal}}\)</span> is thermal contrast against tarmac. If <span class="arithmatex">\(\mathcal{P}_{\text{FOD}} \ge 0.95\)</span> on active runway centerline coordinates during takeoff clearance, an <strong>ASTERIX Category 010 emergency alert automatically revokes takeoff clearance in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Ruggedized tower-mounted dual Intel Core Ultra NPU or NVIDIA Jetson AGX Orin Industrial enclosure drawing $&lt; 60\text{W}$.</li>
+<li><strong>Target Hardware:</strong> Ruggedized tower-mounted dual Intel Core Ultra NPU or NVIDIA Jetson AGX Orin Industrial enclosure drawing <span class="arithmatex">\(&lt; 60\text{W}\)</span>.</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified 24/7 all-weather runway debris detection on commodity industrial hardware, eliminating runway closure delays and preventing catastrophic hull-loss disasters.</li>
 </ul>
 <hr />
 <h2 id="project-47-blowout-preventer-bop-hydraulic-sentinel-offshore-oil-gas">Project 47: Blowout Preventer (BOP) Hydraulic Sentinel (Offshore Oil &amp; Gas)</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Deepwater offshore drilling rigs operate in ocean depths exceeding <strong>$2{,}500\text{ meters}$</strong>, tapping high-pressure reservoirs where formation pressures exceed <strong>$15{,}000\text{ psi}$ ($1{,}000\text{ bar}$)</strong>. The Subsea Blowout Preventer (BOP) is a massive 400-ton emergency safety stack anchored to the seafloor, featuring hydraulic blind shear rams designed to cut thick steel drill pipe and seal the wellbore during an uncontrolled kick. This equipment is subject to strict regulatory compliance standards for deepwater operations [47-1, 47-2].</p>
+<p>Deepwater offshore drilling rigs operate in ocean depths exceeding <strong><span class="arithmatex">\(2{,}500\text{ meters}\)</span></strong>, tapping high-pressure reservoirs where formation pressures exceed <strong><span class="arithmatex">\(15{,}000\text{ psi}\)</span> (<span class="arithmatex">\(1{,}000\text{ bar}\)</span>)</strong>. The Subsea Blowout Preventer (BOP) is a massive 400-ton emergency safety stack anchored to the seafloor, featuring hydraulic blind shear rams designed to cut thick steel drill pipe and seal the wellbore during an uncontrolled kick. This equipment is subject to strict regulatory compliance standards for deepwater operations [47-1, 47-2].</p>
 <p>The catastrophic <strong>2010 Deepwater Horizon explosion in the Gulf of Mexico</strong> (which killed 11 workers and spilled 4.9 million barrels of oil) occurred because the subsea shear rams failed to fully close [47-3]: hydraulic accumulator pressure dropped below critical shear limits [47-4], and the drill pipe buckled [47-5]. Acoustic subsea telemetry through miles of seawater takes <strong>minutes</strong> to communicate, and surface SCADA networks disconnect during emergency rig drive-offs in storms [47-6].</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Ingests raw subsea hydraulic accumulator pressures, acoustic flow rates, and linear displacement sensors into unified memory arrays.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver intercepts raw multiplexed (MUX) umbilical control packets at sub-microsecond line rate ($&lt; 0.84\,\mu\text{s}$).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 physical invariant evaluator verifying hydraulic accumulator discharge curves within the <strong>$&lt; 88\text{ ns}$</strong> SLA.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver intercepts raw multiplexed (MUX) umbilical control packets at sub-microsecond line rate (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 physical invariant evaluator verifying hydraulic accumulator discharge curves within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator enforces <strong>100% recall retention</strong> against historical subsea blowout and pressure-drop signatures.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving multi-phase non-linear fluid dynamics and drillpipe shear mechanics equations in real time.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates emergency deadman autoshear sequences between surface rig controllers and seafloor acoustic pods over sub-50ms gRPC streams.</li>
@@ -43830,9 +43830,9 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>Subsea MUX Umbilical Communications Protocol</strong>, <strong>Modbus TCP</strong> (Port 502), <strong>API Standard 53 (Blowout Prevention Equipment Systems for Drilling Operations)</strong> [47-1].</li>
 <li><strong>Mathematical Invariant (Adiabatic Hydraulic Accumulator Expansion &amp; Drillpipe Shear Force Invariant):</strong>
-  $$F_{\text{shear_net}}(t) = P_{\text{accum}}(t) \cdot A_{\text{piston}} - P_{\text{hydrostatic}} \cdot A_{\text{rod}} - F_{\text{pipe_shear_yield}} &gt; 0$$
-  $$P_{\text{accum}}(t) = P_0 \left( \frac{V_0}{V_0 + \Delta V_{\text{consumed}}(t)} \right)^\gamma, \quad \gamma = 1.4 \quad (\text{Adiabatic Expansion})$$
-  The system computes the <strong>Control Barrier Function (CBF)</strong> $h(P) = P_{\text{accum}}(t) - P_{\text{min_shear}} \ge 0$. If subsea hydraulic leakage indicates that primary accumulator pressure will fail to shear the drillpipe, the in-kernel controller <strong>automatically trips the emergency high-pressure subsea nitrogen backup bottle banks in $&lt; 200\text{ ms}$</strong>, shearing the well closed before hydrocarbons blow out.</li>
+  $<span class="arithmatex">\(F_{\text{shear\_net}}(t) = P_{\text{accum}}(t) \cdot A_{\text{piston}} - P_{\text{hydrostatic}} \cdot A_{\text{rod}} - F_{\text{pipe\_shear\_yield}} &gt; 0\)</span>$
+  $<span class="arithmatex">\(P_{\text{accum}}(t) = P_0 \left( \frac{V_0}{V_0 + \Delta V_{\text{consumed}}(t)} \right)^\gamma, \quad \gamma = 1.4 \quad (\text{Adiabatic Expansion})\)</span>$
+  The system computes the <strong>Control Barrier Function (CBF)</strong> <span class="arithmatex">\(h(P) = P_{\text{accum}}(t) - P_{\text{min\_shear}} \ge 0\)</span>. If subsea hydraulic leakage indicates that primary accumulator pressure will fail to shear the drillpipe, the in-kernel controller <strong>automatically trips the emergency high-pressure subsea nitrogen backup bottle banks in <span class="arithmatex">\(&lt; 200\text{ ms}\)</span></strong>, shearing the well closed before hydrocarbons blow out.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43842,14 +43842,14 @@
 <hr />
 <h2 id="project-48-wayside-rail-wheel-flat-axle-hotbox-eye-rail-logistics">Project 48: Wayside Rail Wheel Flat &amp; Axle Hotbox Eye (Rail Logistics)</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Heavy freight trains (100 to 150 railcars, grossing over <strong>$15{,}000\text{ metric tons}$</strong>) travel at speeds of $100\text{ to }120\text{ km/h}$. Roller bearing failure (a "hotbox") and wheel flats (flat spots caused by locked-wheel braking) subject rails and wheelsets to severe repetitive pounding. Shock impacts exceed <strong>$400\text{ kN}$ at 20 strikes per second</strong>. </p>
-<p>Within a few dozen miles, a glowing hotbox bearing seizes entirely, snapping the wheel axle and triggering high-speed derailments and toxic chemical spills (as seen in the <strong>February 2023 East Palestine, Ohio freight train disaster</strong>, which evacuated an entire town). Traditional wayside hotbox detectors (HBD) use analog single-beam infrared spot pyrometers that suffer high false-alarm rates or communicate too late. If an axle failure cannot be verified and signaled within <strong>$&lt; 50\text{ ms}$</strong> of passing the wayside scanner, the train cannot stop before track buckling occurs.</p>
+<p>Heavy freight trains (100 to 150 railcars, grossing over <strong><span class="arithmatex">\(15{,}000\text{ metric tons}\)</span></strong>) travel at speeds of <span class="arithmatex">\(100\text{ to }120\text{ km/h}\)</span>. Roller bearing failure (a "hotbox") and wheel flats (flat spots caused by locked-wheel braking) subject rails and wheelsets to severe repetitive pounding. Shock impacts exceed <strong><span class="arithmatex">\(400\text{ kN}\)</span> at 20 strikes per second</strong>. </p>
+<p>Within a few dozen miles, a glowing hotbox bearing seizes entirely, snapping the wheel axle and triggering high-speed derailments and toxic chemical spills (as seen in the <strong>February 2023 East Palestine, Ohio freight train disaster</strong>, which evacuated an entire town). Traditional wayside hotbox detectors (HBD) use analog single-beam infrared spot pyrometers that suffer high false-alarm rates or communicate too late. If an axle failure cannot be verified and signaled within <strong><span class="arithmatex">\(&lt; 50\text{ ms}\)</span></strong> of passing the wayside scanner, the train cannot stop before track buckling occurs.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF memory bridge ingesting trackside high-speed multi-beam infrared thermal cameras and piezoelectric rail impact strain gauges into unified NPU memory tensors.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Multi-queue RSS AF_XDP engine captures raw wayside fiber-optic sensor streams at line rate (10.25M+ EPS) as trains thunder past at $120\text{ km/h}$.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates multi-sensor physical invariants, cross-referencing wheel bearing thermal delta ($\Delta T$) with acoustic strike waveforms in <strong>$&lt; 88\text{ ns}$</strong>.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes non-linear bearing temperature classification models into INT8 QDQ ONNX models running in <strong>$&lt; 12\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Multi-queue RSS AF_XDP engine captures raw wayside fiber-optic sensor streams at line rate (10.25M+ EPS) as trains thunder past at <span class="arithmatex">\(120\text{ km/h}\)</span>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates multi-sensor physical invariants, cross-referencing wheel bearing thermal delta (<span class="arithmatex">\(\Delta T\)</span>) with acoustic strike waveforms in <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes non-linear bearing temperature classification models into INT8 QDQ ONNX models running in <strong><span class="arithmatex">\(&lt; 12\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving wheel-rail Hertzian contact mechanics and thermal conduction differential equations.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Railway network mesh transmits Positive Train Control (PTC) emergency stop signals directly into the locomotive cab over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous train axle kinematics and rail dynamic deflection ODEs (<code>plant_ode.c</code>).</li>
@@ -43867,27 +43867,27 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>AAR (Association of American Railroads) Standards</strong>, <strong>Positive Train Control (PTC) Protocol</strong>, <strong>Modbus TCP</strong>, <strong>High-Speed SPI / I2S ADC</strong>.</li>
 <li><strong>Mathematical Invariant (Wayside Bearing Thermal Delta &amp; Hertzian Impact Force Invariant):</strong>
-  $$\Delta T_{\text{bearing}} = T_{\text{journal_box}} - T_{\text{ambient}} \ge \tau_{\text{hotbox}}, \quad \tau_{\text{hotbox}} \approx 95^\circ\text{C}$$
-  $$F_{\text{impact}}(t) = k_{\text{Hertz}} \cdot \delta_{\text{flat}}(t)^{3/2} \ge F_{\text{critical}}, \quad F_{\text{critical}} \approx 400\text{ kN}$$
-  If an axle exhibits $\Delta T &gt; 95^\circ\text{C}$ or repetitive impact strikes exceeding $400\text{ kN}$, the system broadcasts an automated <strong>Positive Train Control (PTC) emergency brake command directly to the locomotive in $&lt; 50\text{ ms}$</strong>, enforcing an immediate controlled train stop miles before catastrophic axle severance occurs.</li>
+  $<span class="arithmatex">\(\Delta T_{\text{bearing}} = T_{\text{journal\_box}} - T_{\text{ambient}} \ge \tau_{\text{hotbox}}, \quad \tau_{\text{hotbox}} \approx 95^\circ\text{C}\)</span>$
+  $<span class="arithmatex">\(F_{\text{impact}}(t) = k_{\text{Hertz}} \cdot \delta_{\text{flat}}(t)^{3/2} \ge F_{\text{critical}}, \quad F_{\text{critical}} \approx 400\text{ kN}\)</span>$
+  If an axle exhibits <span class="arithmatex">\(\Delta T &gt; 95^\circ\text{C}\)</span> or repetitive impact strikes exceeding <span class="arithmatex">\(400\text{ kN}\)</span>, the system broadcasts an automated <strong>Positive Train Control (PTC) emergency brake command directly to the locomotive in <span class="arithmatex">\(&lt; 50\text{ ms}\)</span></strong>, enforcing an immediate controlled train stop miles before catastrophic axle severance occurs.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Solar-powered trackside Rockchip RK3588 enclosure ($&lt; 15\text{W}$ operational power) operating in extreme outdoor temperatures ($-40^\circ\text{C} \text{ to } +85^\circ\text{C}$).</li>
+<li><strong>Target Hardware:</strong> Solar-powered trackside Rockchip RK3588 enclosure (<span class="arithmatex">\(&lt; 15\text{W}\)</span> operational power) operating in extreme outdoor temperatures (<span class="arithmatex">\(-40^\circ\text{C} \text{ to } +85^\circ\text{C}\)</span>).</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified wayside hotbox and wheel flat protection on a low-cost $300 edge computer, saving rail operators hundreds of millions of dollars in derailment liabilities.</li>
 </ul>
 <hr />
 <h2 id="project-49-active-protection-system-aps-radar-sentry-defense-armor">Project 49: Active Protection System (APS) Radar Sentry (Defense Armor)</h2>
 <h3 id="1-operational-challenge-failure-mode_3">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Armored combat vehicles and main battle tanks (M1A2 Abrams, Leopard 2, Bradley IFV) face lethal asymmetric threats: rocket-propelled grenades (RPGs), anti-tank guided missiles (ATGMs: Kornet, Javelin), and FPV loitering suicide drones. These munitions travel at velocities between <strong>$250\text{ and }1{,}000\text{ m/s}$</strong>, frequently fired from concealed urban cover at ranges under $150\text{ meters}$. </p>
-<p>Total time-of-flight from launch to vehicle armor penetration is <strong>under $150\text{ to }300\text{ ms}$</strong>. Active Protection Systems (APS: Trophy, Iron Fist) must detect the projectile, classify its ballistic trajectory, point an explosively formed countermeasure launcher, and detonate the incoming warhead within a <strong>$10\text{ to }15\text{ ms}$ physical reaction window</strong>. If tracking computation lags by even <strong>$3\text{ ms}$</strong>, the countermeasure detonates late and the shaped-charge jet pierces the vehicle hull, killing the crew.</p>
+<p>Armored combat vehicles and main battle tanks (M1A2 Abrams, Leopard 2, Bradley IFV) face lethal asymmetric threats: rocket-propelled grenades (RPGs), anti-tank guided missiles (ATGMs: Kornet, Javelin), and FPV loitering suicide drones. These munitions travel at velocities between <strong><span class="arithmatex">\(250\text{ and }1{,}000\text{ m/s}\)</span></strong>, frequently fired from concealed urban cover at ranges under <span class="arithmatex">\(150\text{ meters}\)</span>. </p>
+<p>Total time-of-flight from launch to vehicle armor penetration is <strong>under <span class="arithmatex">\(150\text{ to }300\text{ ms}\)</span></strong>. Active Protection Systems (APS: Trophy, Iron Fist) must detect the projectile, classify its ballistic trajectory, point an explosively formed countermeasure launcher, and detonate the incoming warhead within a <strong><span class="arithmatex">\(10\text{ to }15\text{ ms}\)</span> physical reaction window</strong>. If tracking computation lags by even <strong><span class="arithmatex">\(3\text{ ms}\)</span></strong>, the countermeasure detonates late and the shaped-charge jet pierces the vehicle hull, killing the crew.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides high-bandwidth DMA-BUF zero-copy memory pointers linking 4-panel Active Electronically Scanned Array (AESA) radar transceivers directly into edge NPU registers without CPU memory copying.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver captures raw radar pulse bursts over real-time AF_XDP queues at sub-microsecond line rate ($&lt; 0.84\,\mu\text{s}$).</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 ballistic trajectory dissector calculating kinetic intercept coordinates within the <strong>$&lt; 88\text{ ns}$</strong> SLA.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes projectile classification and trajectory extrapolation neural graphs into INT8 QDQ ONNX models executing in <strong>$&lt; 8\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically certifying that the threat classification and intercept firing solution <strong>will never exceed a $p99.999\%$ latency of $1.15\text{ ms}$</strong>.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF driver captures raw radar pulse bursts over real-time AF_XDP queues at sub-microsecond line rate (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 ballistic trajectory dissector calculating kinetic intercept coordinates within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes projectile classification and trajectory extrapolation neural graphs into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 8\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically certifying that the threat classification and intercept firing solution <strong>will never exceed a <span class="arithmatex">\(p99.999\%\)</span> latency of <span class="arithmatex">\(1.15\text{ ms}\)</span></strong>.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Vehicle tactical mesh broadcasts hostile sniper/missile launch coordinates to all friendly armored units over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous supersonic projectile aerodynamic flight equations (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo defense aps --radar-dev /dev/aesa0 --launcher-bus can0</code>.</li>
@@ -43904,25 +43904,25 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>MIL-STD-1553B</strong>, <strong>High-Speed Automotive CAN-FD</strong>, <strong>Raw AESA mmWave Radar Baseband Streams</strong>.</li>
 <li><strong>Mathematical Invariant (Supersonic Ballistic Intercept Kinematics &amp; Hull Clearance Invariant):</strong>
-  $$\mathbf{r}<em>{\text{threat}}(t) = \mathbf{r}<em>0 + \mathbf{v}<em>0 t + \frac{1}{2} \mathbf{a} t^2, \quad \text{TTC} = \frac{|\mathbf{r}</em>{\text{threat}}(t) - \mathbf{p}</em>{\text{hull}}|<em>2}{|\mathbf{v}</em>{\text{rel}}|<em>2}$$
-  $$h</em>{\text{hull}}(\mathbf{r}) = |\mathbf{r}</em>{\text{threat}}(t) - \mathbf{p}<em>{\text{hull}}|<em>2 - d</em>{\text{standoff_safe}} &gt; 0$$
-  The system computes the exact countermeasure firing angle $\theta</em>{\text{aim}}$ and detonator delay time $t_{\text{burst}}$ such that the defensive countermeasure projectile fragments intercept the threat at a safe standoff distance ($10\text{ to }25\text{ meters}$ from the armor) within <strong>$&lt; 12\text{ ms}$ total system reaction time</strong>.</li>
+  $<span class="arithmatex">\(\mathbf{r}_{\text{threat}}(t) = \mathbf{r}_0 + \mathbf{v}_0 t + \frac{1}{2} \mathbf{a} t^2, \quad \text{TTC} = \frac{\|\mathbf{r}_{\text{threat}}(t) - \mathbf{p}_{\text{hull}}\|_2}{\|\mathbf{v}_{\text{rel}}\|_2}\)</span>$
+  $<span class="arithmatex">\(h_{\text{hull}}(\mathbf{r}) = \|\mathbf{r}_{\text{threat}}(t) - \mathbf{p}_{\text{hull}}\|_2 - d_{\text{standoff\_safe}} &gt; 0\)</span>$
+  The system computes the exact countermeasure firing angle <span class="arithmatex">\(\theta_{\text{aim}}\)</span> and detonator delay time <span class="arithmatex">\(t_{\text{burst}}\)</span> such that the defensive countermeasure projectile fragments intercept the threat at a safe standoff distance (<span class="arithmatex">\(10\text{ to }25\text{ meters}\)</span> from the armor) within <strong><span class="arithmatex">\(&lt; 12\text{ ms}\)</span> total system reaction time</strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Military-spec ruggedized hardware (NVIDIA Jetson AGX Orin Industrial or Xilinx Zynq UltraScale+ FPGA) drawing $&lt; 50\text{W}$ inside an armored chassis.</li>
+<li><strong>Target Hardware:</strong> Military-spec ruggedized hardware (NVIDIA Jetson AGX Orin Industrial or Xilinx Zynq UltraScale+ FPGA) drawing <span class="arithmatex">\(&lt; 50\text{W}\)</span> inside an armored chassis.</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified microsecond active protection against modern loitering munitions and supersonic ATGMs, ensuring crew survivability on the modern asymmetric battlefield.</li>
 </ul>
 <hr />
 <h2 id="project-50-post-quantum-cryptographic-tls-accelerator-hardware-security">Project 50: Post-Quantum Cryptographic TLS Accelerator (Hardware Security)</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
 <p>The advent of cryptanalytically relevant quantum computers (CRQC, "Q-Day") will break all asymmetric public-key cryptography (RSA-2048, ECC, Diffie-Hellman) that secures industrial control systems, defense links, and internet transactions. Adversaries are actively executing <strong>"Harvest Now, Decrypt Later"</strong> operations: intercepting and archiving encrypted energy grid and military communications to decrypt them once quantum hardware matures. </p>
-<p>Transitioning to NIST Post-Quantum Cryptography (PQC) standards (<strong>NIST FIPS 203 ML-KEM / Kyber</strong> and <strong>NIST FIPS 204 ML-DSA / Dilithium</strong>) introduces severe operational penalties: public keys and signatures are <strong>$10\times\text{ to }50\times$ larger</strong> (causing massive IP fragmentation over industrial networks), and complex polynomial lattice arithmetic burns massive CPU cycles. Handshake latencies spike from $1.5\text{ ms} \to \mathbf{25\text{ ms} - 80\text{ ms}}$, breaking real-time SCADA and teleprotection SLAs.</p>
+<p>Transitioning to NIST Post-Quantum Cryptography (PQC) standards (<strong>NIST FIPS 203 ML-KEM / Kyber</strong> and <strong>NIST FIPS 204 ML-DSA / Dilithium</strong>) introduces severe operational penalties: public keys and signatures are <strong><span class="arithmatex">\(10\times\text{ to }50\times\)</span> larger</strong> (causing massive IP fragmentation over industrial networks), and complex polynomial lattice arithmetic burns massive CPU cycles. Handshake latencies spike from <span class="arithmatex">\(1.5\text{ ms} \to \mathbf{25\text{ ms} - 80\text{ ms}}\)</span>, breaking real-time SCADA and teleprotection SLAs.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a high-speed vector math interface, offloading high-degree polynomial lattice matrix multiplications directly to edge NPU and AVX-512 vector units without CPU bottlenecks.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF packet filters (<code>xdp_drop.o</code>) manage zero-copy reassembly of jumbo PQC TLS 1.3 packets, preventing socket buffer fragmentation stalls.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 dissector parsing NIST PQC X.509 certificate chains and ML-DSA signatures within the <strong>$&lt; 88\text{ ns}$</strong> SLA.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 dissector parsing NIST PQC X.509 certificate chains and ML-DSA signatures within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA.</li>
 <li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Golden Gate safety evaluator verifies that quantum-safe keys adhere strictly to verified Merkle mathematical baselines.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 09 (<strong>Post-Quantum Cryptography OT Profiler</strong>), measuring exact MTU IP fragmentation overhead and real-time SLA latency penalties across all 15 silicon backends.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet orchestrator distributes ML-DSA-44 and Ed25519 dual-signed <code>.spkg</code> extension rules across all global nodes over sub-50ms gRPC streams.</li>
@@ -43942,9 +43942,9 @@
 <li><strong>Ingress Protocols:</strong> <strong>NIST FIPS 203 (ML-KEM / Kyber-768)</strong>, <strong>NIST FIPS 204 (ML-DSA / Dilithium-2)</strong>, <strong>TLS 1.3 (RFC 8446)</strong>.</li>
 <li><strong>Hardware Anchor:</strong> <strong>Physical TPM 2.0 Silicon Root</strong> sealing the post-quantum private endorsement key into hardware PCR registers.</li>
 <li><strong>Mathematical Invariant (Module Learning-With-Errors Lattice Polynomial Invariant):</strong>
-  $$\mathbf{A} \cdot \mathbf{s} + \mathbf{e} = \mathbf{b} \pmod q, \quad q = 3329, \quad \mathbf{s}, \mathbf{e} \in R_q^k$$
-  $$\text{HandshakeLatency}(ML\text{-}KEM\text{-}768) \le 1.2\,\text{ms} \quad (\text{Real-Time Industrial Line-Rate Invariant})$$
-  The system computes hardware-accelerated Number Theoretic Transforms (NTT) in edge SIMD/NPU vector registers, reducing post-quantum cryptographic handshake latency from $25\text{ ms} \to \mathbf{&lt; 1.2\text{ ms}}$, enabling legacy low-power industrial RTUs to communicate with quantum immunity without violating real-time SCADA deadlines.</li>
+  $<span class="arithmatex">\(\mathbf{A} \cdot \mathbf{s} + \mathbf{e} = \mathbf{b} \pmod q, \quad q = 3329, \quad \mathbf{s}, \mathbf{e} \in R_q^k\)</span>$
+  $<span class="arithmatex">\(\text{HandshakeLatency}(ML\text{-}KEM\text{-}768) \le 1.2\,\text{ms} \quad (\text{Real-Time Industrial Line-Rate Invariant})\)</span>$
+  The system computes hardware-accelerated Number Theoretic Transforms (NTT) in edge SIMD/NPU vector registers, reducing post-quantum cryptographic handshake latency from <span class="arithmatex">\(25\text{ ms} \to \mathbf{&lt; 1.2\text{ ms}}\)</span>, enabling legacy low-power industrial RTUs to communicate with quantum immunity without violating real-time SCADA deadlines.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -44045,6 +44045,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

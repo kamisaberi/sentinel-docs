@@ -43142,7 +43142,7 @@
 <hr />
 <h2 id="executive-architectural-overview">Executive Architectural Overview</h2>
 <p><code>sentinel-nexus</code> is the high-performance, central fleet command plane and collective defense engine of the Aryorithm ecosystem. Implemented in native ISO C++20, it coordinates and defends up to <strong>5,000 edge appliances (<code>blackbox-sentinel</code>)</strong> across globally distributed or sovereign air-gapped industrial facilities.</p>
-<p>At the core of <code>sentinel-nexus</code> is the <strong>Sub-50ms Collective Defense Bus</strong>: when any edge appliance detects and drops an active zero-day attack, Nexus broadcasts the threat indicator fleet-wide, programming all 5,000 remote Linux kernel eBPF tables in under $50\,\text{milliseconds}$ (<em>"Attacked Once, Immune Everywhere"</em>).</p>
+<p>At the core of <code>sentinel-nexus</code> is the <strong>Sub-50ms Collective Defense Bus</strong>: when any edge appliance detects and drops an active zero-day attack, Nexus broadcasts the threat indicator fleet-wide, programming all 5,000 remote Linux kernel eBPF tables in under <span class="arithmatex">\(50\,\text{milliseconds}\)</span> (<em>"Attacked Once, Immune Everywhere"</em>).</p>
 <div class="highlight"><pre><span></span><code>====================================================================================================
                         SENTINEL-NEXUS FLEET COMMAND PLANE ARCHITECTURE
 ====================================================================================================
@@ -43181,11 +43181,11 @@
 <hr />
 <h2 id="core-invariants">Core Invariants</h2>
 <ol>
-<li><strong>Sub-50ms Collective Defense Bus:</strong> Translates localized edge discoveries into fleet-wide in-kernel immunity in $&lt; 50\,\text{ms}$, preventing lateral propagation across multi-site infrastructure.</li>
-<li><strong>Autonomous Closed-Loop Adaptation:</strong> Pairs with <code>xinfer-forge</code> to curate ambiguous traffic ($0.40 \le f(x) \le 0.60$), retrain models on-premises, and deploy candidate weights without human intervention.</li>
-<li><strong>RollbackGuard SLA Enforcement:</strong> Protects edge nodes during Canary rollouts; an operational latency spike exceeding $1{,}000\,\mu\text{s}$ triggers an automated, immediate rollback.</li>
+<li><strong>Sub-50ms Collective Defense Bus:</strong> Translates localized edge discoveries into fleet-wide in-kernel immunity in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>, preventing lateral propagation across multi-site infrastructure.</li>
+<li><strong>Autonomous Closed-Loop Adaptation:</strong> Pairs with <code>xinfer-forge</code> to curate ambiguous traffic (<span class="arithmatex">\(0.40 \le f(x) \le 0.60\)</span>), retrain models on-premises, and deploy candidate weights without human intervention.</li>
+<li><strong>RollbackGuard SLA Enforcement:</strong> Protects edge nodes during Canary rollouts; an operational latency spike exceeding <span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> triggers an automated, immediate rollback.</li>
 <li><strong>Data Sovereignty ($0.00 Cloud Egress):</strong> Operates on-premises within air-gapped enclaves. The embedded web management console (port 9443) enforces a <strong>Zero-CDN guarantee</strong>.</li>
-<li><strong>Decoupled Outbound SaaS Connector:</strong> Maintains a 4-tier asset tree (<code>Tenant</code> $\to$ <code>Nexus</code> $\to$ <code>Sentinel</code> $\to$ <code>Sensor</code>), transmitting health states to <code>app.aryorithm.com</code> over a decoupled, non-blocking outbound HTTPS client.</li>
+<li><strong>Decoupled Outbound SaaS Connector:</strong> Maintains a 4-tier asset tree (<code>Tenant</code> <span class="arithmatex">\(\to\)</span> <code>Nexus</code> <span class="arithmatex">\(\to\)</span> <code>Sentinel</code> <span class="arithmatex">\(\to\)</span> <code>Sensor</code>), transmitting health states to <code>app.aryorithm.com</code> over a decoupled, non-blocking outbound HTTPS client.</li>
 </ol>
 
 
@@ -43255,6 +43255,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

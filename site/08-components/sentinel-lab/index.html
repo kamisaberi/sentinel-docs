@@ -43142,7 +43142,7 @@
 <hr />
 <h2 id="executive-academic-overview">Executive Academic Overview</h2>
 <p><code>sentinel-lab</code> is an open-source, peer-reviewed scientific evaluation platform and hardware-in-the-loop (HIL) research testbed. It resolves the widespread <strong>reproducibility crisis</strong> in cyber-physical intrusion detection research, where academic papers evaluate machine learning models on static, offline CSV files without testing live packet injection, bus latencies, or kernel drop mechanics.</p>
-<p>Operating over raw Linux network sockets (<code>AF_PACKET</code>), <code>sentinel-lab</code> introduces the <strong>SLAB Universal Binary Wire Protocol</strong>, streams the official Canadian Institute for Cybersecurity <strong>CIC-IDS-2017 PortScan benchmark dataset</strong> at line rate ($&gt; 60{,}000\text{ EPS}$), and benchmarks heterogeneous edge AI inference engines (<strong>Intel OpenVINO NPU vs. NVIDIA TensorRT</strong>) against Linux in-kernel eBPF/XDP drop filters.</p>
+<p>Operating over raw Linux network sockets (<code>AF_PACKET</code>), <code>sentinel-lab</code> introduces the <strong>SLAB Universal Binary Wire Protocol</strong>, streams the official Canadian Institute for Cybersecurity <strong>CIC-IDS-2017 PortScan benchmark dataset</strong> at line rate (<span class="arithmatex">\(&gt; 60{,}000\text{ EPS}\)</span>), and benchmarks heterogeneous edge AI inference engines (<strong>Intel OpenVINO NPU vs. NVIDIA TensorRT</strong>) against Linux in-kernel eBPF/XDP drop filters.</p>
 <div class="highlight"><pre><span></span><code>====================================================================================================
                         SENTINEL-LAB OPEN RESEARCH TESTBED ARCHITECTURE
 ====================================================================================================
@@ -43190,7 +43190,7 @@
 <li><strong>Deterministic Reproducibility:</strong> Every empirical table, confusion matrix, and latency percentile published in the IEEE preprint paper can be regenerated locally using a single command: <code>python3 examples/run_full_evaluation.py</code>.</li>
 <li><strong>Hardware-in-the-Loop Realism:</strong> Moves beyond theoretical Python notebooks; models evaluate live, streaming binary frames passing over real Linux network sockets.</li>
 <li><strong>Open-Access Scientific Attribution:</strong> Released under permissive dual licensing (<strong>MIT License</strong> for code; <strong>Creative Commons CC-BY-4.0</strong> for data, benchmark traces, and LaTeX manuscripts) with a permanent <strong>CERN/Zenodo DOI</strong>.</li>
-<li><strong>Cross-Architecture Equity:</strong> Evaluates Intel, NVIDIA, and ARM silicon targets under identical batch constraints ($N=1$), identical memory isolation, and identical microsecond measurement harnesses.</li>
+<li><strong>Cross-Architecture Equity:</strong> Evaluates Intel, NVIDIA, and ARM silicon targets under identical batch constraints (<span class="arithmatex">\(N=1\)</span>), identical memory isolation, and identical microsecond measurement harnesses.</li>
 </ol>
 
 
@@ -43260,6 +43260,10 @@
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

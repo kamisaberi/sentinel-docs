@@ -43270,13 +43270,13 @@
 <p>To keep model weights stable, feature values are normalized into bounded ranges using three mathematical strategies:</p>
 <h3 id="1-logarithmic-scaling-log1p">1. Logarithmic Scaling (<code>LOG1P</code>)</h3>
 <p>Used for wide-range fields such as flow duration, total byte counts, and packet counts:
-$$f(x) = \ln(1.0 + x)$$</p>
+$<span class="arithmatex">\(f(x) = \ln(1.0 + x)\)</span>$</p>
 <h3 id="2-linear-min-max-scaling-minmax">2. Linear Min-Max Scaling (<code>MINMAX</code>)</h3>
-<p>Used for known protocol bounds (e.g., packet lengths $\in [0, 1500]$, TCP window sizes $\in [0, 65535]$):
-$$f(x) = \text{clip}\left(\frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}},\, 0.0,\, 1.0\right)$$</p>
+<p>Used for known protocol bounds (e.g., packet lengths <span class="arithmatex">\(\in [0, 1500]\)</span>, TCP window sizes <span class="arithmatex">\(\in [0, 65535]\)</span>):
+$<span class="arithmatex">\(f(x) = \text{clip}\left(\frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}},\, 0.0,\, 1.0\right)\)</span>$</p>
 <h3 id="3-standard-score-normalization-zscore">3. Standard Score Normalization (<code>ZSCORE</code>)</h3>
 <p>Used for Gaussian distributed metrics like inter-arrival times:
-$$f(x) = \frac{x - \mu}{\sigma}$$</p>
+$<span class="arithmatex">\(f(x) = \frac{x - \mu}{\sigma}\)</span>$</p>
 <hr />
 <h2 id="3-c-normalization-implementation">3. C++ Normalization Implementation</h2>
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">blackbox</span><span class="w"> </span><span class="p">{</span>
@@ -43382,6 +43382,10 @@ $$f(x) = \frac{x - \mu}{\sigma}$$</p>
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

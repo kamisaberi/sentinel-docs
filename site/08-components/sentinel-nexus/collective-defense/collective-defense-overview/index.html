@@ -43166,9 +43166,9 @@
 <hr />
 <h2 id="2-architectural-invariants">2. Architectural Invariants</h2>
 <ol>
-<li><strong>Deterministic Latency Budget:</strong> From edge detection to fleet-wide in-kernel programming, the complete cycle executes in <strong>under $50\,\text{milliseconds}$</strong>.</li>
+<li><strong>Deterministic Latency Budget:</strong> From edge detection to fleet-wide in-kernel programming, the complete cycle executes in <strong>under <span class="arithmatex">\(50\,\text{milliseconds}\)</span></strong>.</li>
 <li><strong>Asynchronous Parallel Fanout:</strong> Broadcasting to 5,000 nodes uses non-blocking gRPC streaming calls without serial head-of-line blocking.</li>
-<li><strong>Driver-Level Edge Enforcement:</strong> Ingested fleet rules bypass user-space routing queues, writing directly into the Linux kernel <code>blocked_ip_map</code> in under $200\,\text{ns}$ per edge node.</li>
+<li><strong>Driver-Level Edge Enforcement:</strong> Ingested fleet rules bypass user-space routing queues, writing directly into the Linux kernel <code>blocked_ip_map</code> in under <span class="arithmatex">\(200\,\text{ns}\)</span> per edge node.</li>
 </ol>
 
 
@@ -43238,6 +43238,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

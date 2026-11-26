@@ -43117,13 +43117,13 @@
 
 
 <h1 id="canary-ota-model-rollout">Canary OTA Model Rollout</h1>
-<p><code>sentinel-nexus</code> manages neural network model deployments through a three-stage rollout lifecycle (<code>Shadow Mode</code> $\to$ <code>5% Canary</code> $\to$ <code>Fleet-Wide</code>) guarded by automated SLA watchdogs.</p>
+<p><code>sentinel-nexus</code> manages neural network model deployments through a three-stage rollout lifecycle (<code>Shadow Mode</code> <span class="arithmatex">\(\to\)</span> <code>5% Canary</code> <span class="arithmatex">\(\to\)</span> <code>Fleet-Wide</code>) guarded by automated SLA watchdogs.</p>
 <h2 id="section-navigation">Section Navigation</h2>
 <ul>
 <li><a href="./staged-rollout-lifecycle/">Staged Rollout Lifecycle</a>: State transitions, promotion criteria, and risk mitigation invariants.</li>
 <li><a href="./canary-orchestrator-engine/">Canary Orchestrator Engine</a>: Deterministic cohort assignment using SHA-256 consistent hashing over node UUIDs.</li>
-<li><a href="./rollback-guard-sla-watchdog/">RollbackGuard SLA Watchdog</a>: Real-time SLA watchdog enforcing the $1{,}000\,\mu\text{s}$ ($1.0\,\text{ms}$) latency ceiling.</li>
-<li><a href="./false-positive-surge-protection/">False-Positive Surge Protection</a>: EWMA drop rate monitoring triggering automated rollbacks on $&gt; 5\times$ drop spikes.</li>
+<li><a href="./rollback-guard-sla-watchdog/">RollbackGuard SLA Watchdog</a>: Real-time SLA watchdog enforcing the <span class="arithmatex">\(1{,}000\,\mu\text{s}\)</span> (<span class="arithmatex">\(1.0\,\text{ms}\)</span>) latency ceiling.</li>
+<li><a href="./false-positive-surge-protection/">False-Positive Surge Protection</a>: EWMA drop rate monitoring triggering automated rollbacks on <span class="arithmatex">\(&gt; 5\times\)</span> drop spikes.</li>
 <li><a href="./model-repository-and-hashing/">Model Repository &amp; Hashing</a>: Local file layout (<code>/var/lib/sentinel-nexus/models/</code>) and streaming HTTP/2 downloads.</li>
 <li><a href="./zero-downtime-hot-reload-flow/">Zero-Downtime Hot Reload</a>: Atomic memory pointer swaps executing model updates with 0ms downtime.</li>
 </ul>
@@ -43195,6 +43195,10 @@
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

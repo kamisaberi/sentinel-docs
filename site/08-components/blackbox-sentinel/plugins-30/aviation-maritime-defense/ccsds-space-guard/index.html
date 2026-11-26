@@ -43163,7 +43163,7 @@
 
 
 <h1 id="native-c20-ccsds-space-packet-protocol-guard-ccsds-guard">Native C++20 CCSDS Space Packet Protocol Guard (<code>ccsds-guard</code>)</h1>
-<p>The CCSDS Space Packet Guard is a process-native C++20 dissector and standalone CLI tool (<code>ccsds-guard</code>) that parses <strong>CCSDS 133.0-B-2 Space Packet Protocol</strong> frames and <strong>NATO STANAG 4586 DLI</strong> telemetry streams in <strong>$&lt; 120\,\text{nanoseconds}$</strong>. It defends satellite ground stations, Low Earth Orbit (LEO) transceivers, and military UAV datalinks from telemetry replay attacks, APID sequence hijacking, and unauthorized Attitude and Orbit Control System (AOCS) thruster commands.</p>
+<p>The CCSDS Space Packet Guard is a process-native C++20 dissector and standalone CLI tool (<code>ccsds-guard</code>) that parses <strong>CCSDS 133.0-B-2 Space Packet Protocol</strong> frames and <strong>NATO STANAG 4586 DLI</strong> telemetry streams in <strong><span class="arithmatex">\(&lt; 120\,\text{nanoseconds}\)</span></strong>. It defends satellite ground stations, Low Earth Orbit (LEO) transceivers, and military UAV datalinks from telemetry replay attacks, APID sequence hijacking, and unauthorized Attitude and Orbit Control System (AOCS) thruster commands.</p>
 <hr />
 <h2 id="1-ccsds-1330-b-2-primary-header-deconstruction">1. CCSDS 133.0-B-2 Primary Header Deconstruction</h2>
 <div class="highlight"><pre><span></span><code> ┌─────────────────────────────────────────────────────────────┐
@@ -43235,7 +43235,7 @@
 <hr />
 <h2 id="3-performance-sla">3. Performance SLA</h2>
 <ul>
-<li><strong>Dissection SLA:</strong> <strong>$&lt; 120\,\text{ns}$</strong> per space frame.</li>
+<li><strong>Dissection SLA:</strong> <strong><span class="arithmatex">\(&lt; 120\,\text{ns}\)</span></strong> per space frame.</li>
 <li><strong>Threats Mitigated:</strong> Satellite uplink hijacking, AOCS thruster tampering, and ground station telecommand replay attacks.</li>
 </ul>
 
@@ -43306,6 +43306,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

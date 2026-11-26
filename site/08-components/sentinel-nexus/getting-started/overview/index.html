@@ -43167,9 +43167,9 @@
 <hr />
 <h2 id="2-core-pillars-of-sentinel-nexus">2. Core Pillars of <code>sentinel-nexus</code></h2>
 <ul>
-<li><strong>Collective Defense Engine:</strong> Distributes threat signatures across the fleet in $&lt; 50\,\text{ms}$, stopping automated worm propagation and coordinated botnet sweeps.</li>
-<li><strong>Dataset Curator for Active Learning:</strong> Filters ambiguous flow records ($0.40 \le f(x) \le 0.60$) and packages them into training batches for <code>xinfer-forge</code>.</li>
-<li><strong>Canary OTA Staging &amp; RollbackGuard:</strong> Manages staged rollouts (<code>Shadow Mode</code> $\to$ <code>5% Canary</code> $\to$ <code>Fleet-Wide</code>), monitoring edge latency and executing emergency rollbacks if performance degrades.</li>
+<li><strong>Collective Defense Engine:</strong> Distributes threat signatures across the fleet in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>, stopping automated worm propagation and coordinated botnet sweeps.</li>
+<li><strong>Dataset Curator for Active Learning:</strong> Filters ambiguous flow records (<span class="arithmatex">\(0.40 \le f(x) \le 0.60\)</span>) and packages them into training batches for <code>xinfer-forge</code>.</li>
+<li><strong>Canary OTA Staging &amp; RollbackGuard:</strong> Manages staged rollouts (<code>Shadow Mode</code> <span class="arithmatex">\(\to\)</span> <code>5% Canary</code> <span class="arithmatex">\(\to\)</span> <code>Fleet-Wide</code>), monitoring edge latency and executing emergency rollbacks if performance degrades.</li>
 <li><strong>Air-Gapped Web Command Center:</strong> Serves an administrative dashboard on port <strong>9443</strong> (HTML5 Canvas radial topology, MITRE ATT&amp;CK matrix) with a real-time Server-Sent Events (SSE) telemetry stream on port <strong>9444</strong>.</li>
 </ul>
 
@@ -43240,6 +43240,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

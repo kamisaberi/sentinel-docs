@@ -43183,7 +43183,7 @@
 <hr />
 <h2 id="2-invariants">2. Invariants</h2>
 <ul>
-<li><strong>Compression:</strong> Large fleet sync payloads ($&gt; 500\text{ nodes}$) are compressed with <code>gzip</code> on transmission (<code>Content-Encoding: gzip</code>).</li>
+<li><strong>Compression:</strong> Large fleet sync payloads (<span class="arithmatex">\(&gt; 500\text{ nodes}\)</span>) are compressed with <code>gzip</code> on transmission (<code>Content-Encoding: gzip</code>).</li>
 <li><strong>Non-Blocking Egress:</strong> The sync payload is generated from read-only <code>NodeRegistry</code> snapshots, ensuring edge packet drops and local telemetry processing continue uninterrupted.</li>
 </ul>
 
@@ -43254,6 +43254,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

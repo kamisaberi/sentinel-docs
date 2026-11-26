@@ -43200,7 +43200,7 @@ Instructions:
 <hr />
 <h2 id="2-hardware-token-composition">2. Hardware Token Composition</h2>
 <p>The hardware token string encodes four hardware elements:</p>
-<p>$$\text{Token} = \text{TIER} \parallel \text{MFG} \parallel \text{TPM_UUID} \parallel \text{DMI_HASH} \parallel \text{PCR0_DIGEST}$$</p>
+<div class="arithmatex">\[\text{Token} = \text{TIER} \parallel \text{MFG} \parallel \text{TPM\_UUID} \parallel \text{DMI\_HASH} \parallel \text{PCR0\_DIGEST}\]</div>
 <ul>
 <li><strong>Tier Descriptor (<code>TIER 1</code> / <code>TIER 2</code> / <code>TIER 3</code>):</strong> Declares whether the underlying cryptoprocessor is physical silicon, a virtual vTPM, or a DMI fallback.</li>
 <li><strong>Manufacturer ID (<code>IFX</code>, <code>STM</code>, <code>NTC</code>):</strong> Semiconductor manufacturer tag.</li>
@@ -43275,6 +43275,10 @@ Instructions:
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

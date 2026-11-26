@@ -43168,8 +43168,8 @@
 <hr />
 <h2 id="2-in-memory-cosine-similarity-guard">2. In-Memory Cosine Similarity Guard</h2>
 <p><code>23_ai_trism</code> maps incoming text prompts into an 8-dimensional latent vector using Tier 1 <code>libxinfer.so</code> and evaluates cosine similarity against an in-memory database of known adversarial jailbreak embeddings:</p>
-<p>$$\text{Similarity}(A, B) = \frac{A \cdot B}{|A| |B|}$$</p>
-<p>If $\text{Similarity} &gt; 0.88$, the transaction is blocked before reaching the downstream inference worker.</p>
+<div class="arithmatex">\[\text{Similarity}(A, B) = \frac{A \cdot B}{\|A\| \|B\|}\]</div>
+<p>If <span class="arithmatex">\(\text{Similarity} &gt; 0.88\)</span>, the transaction is blocked before reaching the downstream inference worker.</p>
 
 
 
@@ -43238,6 +43238,10 @@
       
       
         <script src="../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

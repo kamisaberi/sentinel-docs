@@ -43737,14 +43737,14 @@
 <h2 id="project-31-nanosecond-pre-trade-risk-firewall-fintech-high-frequency-trading">Project 31: Nanosecond Pre-Trade Risk Firewall (FinTech / High-Frequency Trading)</h2>
 <h3 id="1-operational-challenge-failure-mode">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Proprietary quantitative trading firms (Citadel, Optiver, Jump Trading, Flow Traders) route millions of orders per second to exchanges like NASDAQ, CME, and Euronext. Software algorithmic bugs (such as the 2012 Knight Capital glitch that lost $440M in 45 minutes) can flood exchanges with errant quotes. Regulatory frameworks (<strong>SEC Rule 15c-3-5 / MiFID II RTS 6</strong>) mandate deterministic pre-trade risk checks: price-collar limits, max order value, short-sale checks, and order rate thresholds. </p>
-<p>Standard software risk engines running on conventional Linux network stacks add <strong>$5\text{ to }25\,\mu\text{s}$</strong> of latency, causing trading desks to miss priority execution queues. Conversely, pure FPGA solutions take months of Verilog development and are expensive and inflexible when risk parameters change daily.</p>
+<p>Standard software risk engines running on conventional Linux network stacks add <strong><span class="arithmatex">\(5\text{ to }25\,\mu\text{s}\)</span></strong> of latency, causing trading desks to miss priority execution queues. Conversely, pure FPGA solutions take months of Verilog development and are expensive and inflexible when risk parameters change daily.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides zero-copy host-pinned memory abstractions passing raw <strong>NASDAQ OUCH 5.0 / FIX</strong> binary buffers directly to CPU cache lines without dynamic memory allocation.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF filter (<code>xdp_drop.o</code>) and multi-queue RSS AF_XDP sockets intercept outbound order streams at network ring buffers, enforcing hardware drops in <strong>$&lt; 0.84\,\mu\text{s}$</strong> before packets reach the physical fiber line.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Tier A dissector (<code>ouch_risk_dissector</code>) operating within the <strong>$&lt; 88\text{ ns}$</strong> SLA, validating order tokens, price collars, quantities, and side (Buy/Sell).</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes sequential order-flow anomaly models into INT8 QDQ ONNX engines running in <strong>$&lt; 15\,\mu\text{s}$</strong> to detect runaway loop trading patterns.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically certifying that pre-trade risk inspection will <strong>never exceed a $p99.999\%$ latency bound of $1.15\,\mu\text{s}$</strong> under 10M EPS market volatility spikes.</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> In-kernel eBPF filter (<code>xdp_drop.o</code>) and multi-queue RSS AF_XDP sockets intercept outbound order streams at network ring buffers, enforcing hardware drops in <strong><span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span></strong> before packets reach the physical fiber line.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Tier A dissector (<code>ouch_risk_dissector</code>) operating within the <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, validating order tokens, price collars, quantities, and side (Buy/Sell).</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes sequential order-flow anomaly models into INT8 QDQ ONNX engines running in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong> to detect runaway loop trading patterns.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 07 (EVT WCET Engine), mathematically certifying that pre-trade risk inspection will <strong>never exceed a <span class="arithmatex">\(p99.999\%\)</span> latency bound of <span class="arithmatex">\(1.15\,\mu\text{s}\)</span></strong> under 10M EPS market volatility spikes.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command plane aggregates firm-wide capital and position limits across Chicago (CME), New York (NASDAQ), and London (LSE) over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin simulated exchange matching engines under flash-crash order storms.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo hft risk-firewall --interface ens160 --max-order-val 1000000 --rate-limit 10000</code>.</li>
@@ -43764,10 +43764,10 @@
 <ul>
 <li><strong>Ingress/Egress Protocols:</strong> <strong>NASDAQ OUCH 5.0</strong>, <strong>FIX 4.2 / 4.4 / 5.0 SP2</strong>, <strong>NASDAQ ITCH 5.0</strong>, <strong>CME iLink 3 (SBE)</strong>.</li>
 <li><strong>Mathematical Invariant (Deterministic Pre-Trade Capital &amp; Order Rate Bounds):</strong>
-  $$\text{OrderValue} = P_{\text{order}} \cdot Q_{\text{order}} \le \text{MaxOrderNotional}$$
-  $$\text{NetPosition}(S) + Q_{\text{order}} \le \text{GrossPositionLimit}(S)$$
-  $$\text{OrderRate}(\Delta t = 1.0\text{ ms}) \le \text{MaxMsgRateThreshold}$$
-  If an algorithmic loop attempts an order violating any invariant, the outbound packet is <strong>dropped in the network card ring buffer within $&lt; 840\text{ ns}$</strong>, and an immediate synthetic local cancel/reject frame is returned to the trading engine.</li>
+  $<span class="arithmatex">\(\text{OrderValue} = P_{\text{order}} \cdot Q_{\text{order}} \le \text{MaxOrderNotional}\)</span>$
+  $<span class="arithmatex">\(\text{NetPosition}(S) + Q_{\text{order}} \le \text{GrossPositionLimit}(S)\)</span>$
+  $<span class="arithmatex">\(\text{OrderRate}(\Delta t = 1.0\text{ ms}) \le \text{MaxMsgRateThreshold}\)</span>$
+  If an algorithmic loop attempts an order violating any invariant, the outbound packet is <strong>dropped in the network card ring buffer within <span class="arithmatex">\(&lt; 840\text{ ns}\)</span></strong>, and an immediate synthetic local cancel/reject frame is returned to the trading engine.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
@@ -43778,14 +43778,14 @@
 <h2 id="project-32-wire-speed-order-book-arbitrageur-market-data-guard-exchanges-cme">Project 32: Wire-Speed Order Book Arbitrageur &amp; Market Data Guard (Exchanges / CME)</h2>
 <h3 id="1-operational-challenge-failure-mode_1">1. Operational Challenge &amp; Failure Mode</h3>
 <p>High-frequency market makers and quantitative trading firms calculate real-time cross-venue arbitrage (e.g. trading S&amp;P 500 E-mini futures on CME in Chicago against the SPY ETF on NASDAQ in New York). Market data feeds stream binary UDP multicast packets (<strong>CME MDP 3.0 SBE</strong>, <strong>NASDAQ ITCH 5.0</strong>) at burst rates exceeding <strong>40,000,000 packets per second</strong>. </p>
-<p>Traditional operating system socket stacks experience packet drops, ring buffer overruns, and non-deterministic memory copying delays ($10\text{ to }50\,\mu\text{s}$) during high-volatility events (e.g., Federal Reserve rate decisions). A single dropped market data packet creates an out-of-order sequence gap, corrupting the local Level-3 order book and causing trading algorithms to execute against "phantom liquidity," leading to severe financial loss.</p>
+<p>Traditional operating system socket stacks experience packet drops, ring buffer overruns, and non-deterministic memory copying delays (<span class="arithmatex">\(10\text{ to }50\,\mu\text{s}\)</span>) during high-volatility events (e.g., Federal Reserve rate decisions). A single dropped market data packet creates an out-of-order sequence gap, corrupting the local Level-3 order book and causing trading algorithms to execute against "phantom liquidity," leading to severe financial loss.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_1">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a universal zero-copy UMEM memory layout: UDP multicast packets are mapped directly into L3 order book data structures without memory copies (<code>memcpy</code>).</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Multi-queue RSS AF_XDP engine ingests raw CME MDP 3.0 UDP multicast streams across dedicated CPU cores (<code>queue_ids: [0, 1, 2, 3]</code>), processing <strong>40M+ EPS</strong> with zero dropped packets.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 dissector (<code>sbe_book_dissector</code>) parsing Simple Binary Encoding (SBE) templates within an <strong>$&lt; 88\text{ ns}$</strong> SLA, maintaining continuous bid/ask price ladders.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Volume-Synchronized Probability of Toxicity (VPIN) and order flow imbalance neural graphs into INT8 QDQ ONNX models executing in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
-<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler), reading CPU performance counters to verify Instructions Per Cycle (<strong>2.42 IPC</strong>) and LLC cache miss rates under <strong>$1.24\%$</strong> during market bursts.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates a native C++20 dissector (<code>sbe_book_dissector</code>) parsing Simple Binary Encoding (SBE) templates within an <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong> SLA, maintaining continuous bid/ask price ladders.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Volume-Synchronized Probability of Toxicity (VPIN) and order flow imbalance neural graphs into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
+<li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 03 (Hardware PMU Profiler), reading CPU performance counters to verify Instructions Per Cycle (<strong>2.42 IPC</strong>) and LLC cache miss rates under <strong><span class="arithmatex">\(1.24\%\)</span></strong> during market bursts.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Coordinates cross-datacenter arbitrage spread states across transcontinental microwave links.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin historical CME/NASDAQ binary PCAP capture datasets.</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo hft book-guard --feed cme-mdp30 --mcast-group 239.255.0.1</code>.</li>
@@ -43802,9 +43802,9 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>CME MDP 3.0 (Simple Binary Encoding / SBE)</strong> over UDP Multicast, <strong>NASDAQ ITCH 5.0</strong>, <strong>Euronext Optiq</strong>.</li>
 <li><strong>Mathematical Invariant (Zero-Gap Monotonic Sequence &amp; No-Crossed-Book Invariant):</strong>
-  $$\text{SeqNumber}(P_{k+1}) = \text{SeqNumber}(P_k) + 1 \quad (\text{Strict Monotonic Ingress})$$
-  $$\text{BestBid}<em>{\text{CME}}(t) &lt; \text{BestAsk}</em>{\text{CME}}(t) \quad (\text{No Crossed Book Anomaly})$$
-  $$\text{VPIN} = \frac{\sum_{\tau=1}^{N} |V_\tau^B - V_\tau^S|}{N \cdot V} \le \tau_{\text{toxicity}}$$
+  $<span class="arithmatex">\(\text{SeqNumber}(P_{k+1}) = \text{SeqNumber}(P_k) + 1 \quad (\text{Strict Monotonic Ingress})\)</span>$
+  $<span class="arithmatex">\(\text{BestBid}_{\text{CME}}(t) &lt; \text{BestAsk}_{\text{CME}}(t) \quad (\text{No Crossed Book Anomaly})\)</span>$
+  $<span class="arithmatex">\(\text{VPIN} = \frac{\sum_{\tau=1}^{N} |V_\tau^B - V_\tau^S|}{N \cdot V} \le \tau_{\text{toxicity}}\)</span>$
   If a sequence gap is detected in-kernel, the driver triggers an immediate sub-microsecond TCP historical replay request over the CME recovery channel while freezing downstream trading logic to prevent trades on stale book state.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_1">4. Target Hardware &amp; Commercial Advantage</h3>
@@ -43815,14 +43815,14 @@
 <hr />
 <h2 id="project-33-satellite-onboard-hyperspectral-cloud-pruner-target-filter-aerospace">Project 33: Satellite Onboard Hyperspectral Cloud Pruner &amp; Target Filter (Aerospace)</h2>
 <h3 id="1-operational-challenge-failure-mode_2">1. Operational Challenge &amp; Failure Mode</h3>
-<p>Modern Earth observation satellites (optical, hyperspectral, and Synthetic Aperture Radar / SAR SmallSats) collect hundreds of contiguous spectral bands across the $400\text{ nm} - 2500\text{ nm}$ spectrum. Hyperspectral instruments generate raw data streams exceeding <strong>$50\text{ Gbps}$</strong>. Onboard Solid-State Recorders (SSRs) fill up in a matter of orbits. Meanwhile, satellite downlinks (X-band and Ka-band) are severely bandwidth-limited and can offload data only during short <strong>$8\text{ to }10\text{ minute}$ ground passes</strong>. </p>
-<p>Meteorological data indicates that <strong>over $65\%$ of the Earth's surface is obscured by cloud cover</strong> at any given moment. Downlinking gigabytes of cloudy frames or dark open-ocean data wastes critical spacecraft battery reserves and costs thousands of dollars per minute in commercial ground station receiver fees.</p>
+<p>Modern Earth observation satellites (optical, hyperspectral, and Synthetic Aperture Radar / SAR SmallSats) collect hundreds of contiguous spectral bands across the <span class="arithmatex">\(400\text{ nm} - 2500\text{ nm}\)</span> spectrum. Hyperspectral instruments generate raw data streams exceeding <strong><span class="arithmatex">\(50\text{ Gbps}\)</span></strong>. Onboard Solid-State Recorders (SSRs) fill up in a matter of orbits. Meanwhile, satellite downlinks (X-band and Ka-band) are severely bandwidth-limited and can offload data only during short <strong><span class="arithmatex">\(8\text{ to }10\text{ minute}\)</span> ground passes</strong>. </p>
+<p>Meteorological data indicates that <strong>over <span class="arithmatex">\(65\%\)</span> of the Earth's surface is obscured by cloud cover</strong> at any given moment. Downlinking gigabytes of cloudy frames or dark open-ocean data wastes critical spacecraft battery reserves and costs thousands of dollars per minute in commercial ground station receiver fees.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_2">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy DMA-BUF memory bridge streaming 3D hyperspectral image cubes directly from focal plane digitizers into NPU tensor memory without CPU memory copies.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Uses an in-kernel space packet driver to encapsulate verified image frames into <strong>CCSDS 133.0-B-2 Space Packet Protocol</strong> packets without operating system overhead.</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Operates the native C++20 space dissector (<code>ccsds_guard.cpp</code>) validating on-orbit frame encapsulation.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Spectral-Spatial 3D Convolutional Neural Networks into INT8 QDQ ONNX models executing in <strong>$&lt; 20\,\mu\text{s}$</strong> per spectral profile vector.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes Spectral-Spatial 3D Convolutional Neural Networks into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 20\,\mu\text{s}\)</span></strong> per spectral profile vector.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 15 (Orbital Evaluator), simulating space radiation Single Event Upsets (SEU), bit-flips, and temperature cycling on neural weights.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Manages dynamic ground station tasking schedules and priority downlink scheduling over sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Houses the orbital digital twin solving continuous Keplerian two-body satellite orbit differential equations (<code>plant_ode.c</code>).</li>
@@ -43840,14 +43840,14 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>SpaceWire (ECSS-E-ST-50-52C)</strong>, <strong>SpaceFibre</strong>, <strong>CCSDS 122.0-B-2 (Hyperspectral Image Compression)</strong>.</li>
 <li><strong>Mathematical Invariant (Spectral Angle Mapper &amp; Cloud Cover Pruning Invariant):</strong>
-  $$\theta(\mathbf{r}, \mathbf{t}) = \cos^{-1}\left( \frac{\mathbf{r}^T \mathbf{t}}{|\mathbf{r}|<em>2 |\mathbf{t}|<em>2} \right) \le \alpha</em>{\text{threshold}}$$
-  $$\mathcal{R}</em>{\text{cloud}} = \frac{\iint_{\Omega} \mathbb{I}(\text{NDSI}(x,y) &gt; 0.40) \, dx \, dy}{\text{Area}(\Omega)} \le \tau_{\text{cloud}}$$
-  Where $\mathbf{r}$ is the measured 224-band spectral reflectance vector and $\mathbf{t}$ is the reference target signature. If $\mathcal{R}<em>{\text{cloud}} &gt; 0.30$ and no high-priority target signatures match ($\theta &gt; \alpha</em>{\text{threshold}}$), the raw hyperspectral cube is <strong>pruned from storage in orbit</strong>, slashing downlink bandwidth usage by <strong>$85\%$</strong>.</li>
+  $<span class="arithmatex">\(\theta(\mathbf{r}, \mathbf{t}) = \cos^{-1}\left( \frac{\mathbf{r}^T \mathbf{t}}{\|\mathbf{r}\|_2 \|\mathbf{t}\|_2} \right) \le \alpha_{\text{threshold}}\)</span>$
+  $<span class="arithmatex">\(\mathcal{R}_{\text{cloud}} = \frac{\iint_{\Omega} \mathbb{I}(\text{NDSI}(x,y) &gt; 0.40) \, dx \, dy}{\text{Area}(\Omega)} \le \tau_{\text{cloud}}\)</span>$
+  Where <span class="arithmatex">\(\mathbf{r}\)</span> is the measured 224-band spectral reflectance vector and <span class="arithmatex">\(\mathbf{t}\)</span> is the reference target signature. If <span class="arithmatex">\(\mathcal{R}_{\text{cloud}} &gt; 0.30\)</span> and no high-priority target signatures match (<span class="arithmatex">\(\theta &gt; \alpha_{\text{threshold}}\)</span>), the raw hyperspectral cube is <strong>pruned from storage in orbit</strong>, slashing downlink bandwidth usage by <strong><span class="arithmatex">\(85\%\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_2">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ or Space-Grade Teledyne e2v NPU drawing $&lt; 18\text{W}$.</li>
-<li><strong>Commercial Advantage:</strong> Delivers up to a <strong>$5\times$ increase in actionable satellite intelligence yield</strong>, allowing constellation operators to monetize space data faster while avoiding millions in ground pass costs.</li>
+<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ or Space-Grade Teledyne e2v NPU drawing <span class="arithmatex">\(&lt; 18\text{W}\)</span>.</li>
+<li><strong>Commercial Advantage:</strong> Delivers up to a <strong><span class="arithmatex">\(5\times\)</span> increase in actionable satellite intelligence yield</strong>, allowing constellation operators to monetize space data faster while avoiding millions in ground pass costs.</li>
 </ul>
 <hr />
 <h2 id="project-34-autonomous-usv-navigation-sentry-ais-anti-spoofer-maritime-shipping">Project 34: Autonomous USV Navigation Sentry &amp; AIS Anti-Spoofer (Maritime Shipping)</h2>
@@ -43857,9 +43857,9 @@
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_3">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a multi-modal zero-copy memory bridge passing marine radar returns, 4K optical camera frames, and thermal infrared streams into shared tensor memory.</li>
-<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw NMEA 2000 (CAN-FD) marine bus packets and IEC 62388 radar Ethernet streams in-kernel using real-time AF_XDP queues at sub-microsecond line rate ($&lt; 0.84\,\mu\text{s}$).</li>
+<li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Ingests raw NMEA 2000 (CAN-FD) marine bus packets and IEC 62388 radar Ethernet streams in-kernel using real-time AF_XDP queues at sub-microsecond line rate (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>).</li>
 <li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Subsystem 25 (<code>ThreatCorrelator</code>) evaluates physical spatial invariants: cross-referencing electronic AIS GPS reports against raw radar pulse targets and thermal silhouettes.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes marine vessel classification and obstacle bounding models into INT8 QDQ ONNX running in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes marine vessel classification and obstacle bounding models into INT8 QDQ ONNX running in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving nonlinear ship hydrodynamic maneuvering equations (Norrbin non-linear steering model).</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Fleet command coordinates sea-lane routing and vessel de-confliction across hundreds of autonomous ships via sub-50ms gRPC streams.</li>
 <li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin COLREGs maritime collision scenarios under varied sea-state waves and cross-currents.</li>
@@ -43879,29 +43879,29 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>NMEA 2000 (IEC 61162-3 / CAN-FD)</strong>, <strong>NMEA 0183</strong>, <strong>IEC 62388 Marine Radar Protocol</strong>, <strong>ITU-R M.1371 AIS Protocol</strong>.</li>
 <li><strong>Mathematical Invariant (AIS Anti-Spoofing &amp; COLREGs Minimum Separation Invariant):</strong>
-  $$\text{SpoofDetected} \iff \text{AIS_Active}(\mathbf{p}<em>{target}) \land |\mathbf{p}</em>{target} - \mathbf{p}<em>{radar_echo}|<em>2 &gt; d</em>{\text{tolerance}}$$
-  $$\text{DCPA} = \frac{|\mathbf{r}</em>{rel} \times \mathbf{v}<em>{rel}|}{|\mathbf{v}</em>{rel}|} \ge d_{\text{COLREG_margin}}, \quad \text{TCPA} = -\frac{\mathbf{r}<em>{rel} \cdot \mathbf{v}</em>{rel}}{|\mathbf{v}_{rel}|^2}$$
-  Where $\text{DCPA}$ is Distance to Closest Point of Approach and $\text{TCPA}$ is Time to Closest Point of Approach. If $\text{DCPA} &lt; 1.0\text{ nautical mile}$ and $\text{TCPA} &lt; 15\text{ minutes}$, the system computes a COLREGs-compliant rudder command (Rules 13, 14, or 15) and passes it to the steering servo in <strong>$&lt; 25\text{ ms}$</strong>.</li>
+  $<span class="arithmatex">\(\text{SpoofDetected} \iff \text{AIS\_Active}(\mathbf{p}_{target}) \land \|\mathbf{p}_{target} - \mathbf{p}_{radar\_echo}\|_2 &gt; d_{\text{tolerance}}\)</span>$
+  $<span class="arithmatex">\(\text{DCPA} = \frac{|\mathbf{r}_{rel} \times \mathbf{v}_{rel}|}{\|\mathbf{v}_{rel}\|} \ge d_{\text{COLREG\_margin}}, \quad \text{TCPA} = -\frac{\mathbf{r}_{rel} \cdot \mathbf{v}_{rel}}{\|\mathbf{v}_{rel}\|^2}\)</span>$
+  Where <span class="arithmatex">\(\text{DCPA}\)</span> is Distance to Closest Point of Approach and <span class="arithmatex">\(\text{TCPA}\)</span> is Time to Closest Point of Approach. If <span class="arithmatex">\(\text{DCPA} &lt; 1.0\text{ nautical mile}\)</span> and <span class="arithmatex">\(\text{TCPA} &lt; 15\text{ minutes}\)</span>, the system computes a COLREGs-compliant rudder command (Rules 13, 14, or 15) and passes it to the steering servo in <strong><span class="arithmatex">\(&lt; 25\text{ ms}\)</span></strong>.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_3">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Marine-certified IP67 ruggedized computer (Moxa / Neousys / NVIDIA Jetson AGX Orin Industrial) drawing $&lt; 40\text{W}$.</li>
+<li><strong>Target Hardware:</strong> Marine-certified IP67 ruggedized computer (Moxa / Neousys / NVIDIA Jetson AGX Orin Industrial) drawing <span class="arithmatex">\(&lt; 40\text{W}\)</span>.</li>
 <li><strong>Commercial Advantage:</strong> Delivers certified, un-spoofable autonomous navigation that meets international maritime safety standards, replacing costly $250,000 military systems with a $5,000 edge box.</li>
 </ul>
 <hr />
 <h2 id="project-35-lunar-martian-rover-path-hazard-slump-box-space-exploration">Project 35: Lunar / Martian Rover Path Hazard &amp; Slump Box (Space Exploration)</h2>
 <h3 id="1-operational-challenge-failure-mode_4">1. Operational Challenge &amp; Failure Mode</h3>
 <p>Planetary rovers exploring the Moon or Mars (NASA Mars Perseverance, ESA ExoMars, Artemis lunar rovers) traverse completely unstructured, hazardous extraterrestrial terrain: loose regolith dunes, hidden thermal voids, and steep rocky boulder fields. Communication latency between Earth and Mars is <strong>4 to 24 minutes one-way</strong>, making real-time human teleoperation physically impossible. </p>
-<p>When a rover drives across loose regolith or inclined gravel slopes, wheel slip can quickly exceed <strong>$80\%$</strong>, resulting in wheel burial (which permanently immobilized NASA’s <em>Spirit</em> rover in 2009). Traditional rover software running on radiation-hardened 200 MHz BAE RAD750 CPUs takes <strong>$30\text{ to }60\text{ seconds}$ per meter</strong> to calculate hazards, capping traverse speeds to less than $100\text{ meters per day}$.</p>
+<p>When a rover drives across loose regolith or inclined gravel slopes, wheel slip can quickly exceed <strong><span class="arithmatex">\(80\%\)</span></strong>, resulting in wheel burial (which permanently immobilized NASA’s <em>Spirit</em> rover in 2009). Traditional rover software running on radiation-hardened 200 MHz BAE RAD750 CPUs takes <strong><span class="arithmatex">\(30\text{ to }60\text{ seconds}\)</span> per meter</strong> to calculate hazards, capping traverse speeds to less than <span class="arithmatex">\(100\text{ meters per day}\)</span>.</p>
 <h3 id="2-direct-mapping-to-aryorithms-8-tiers_4">2. Direct Mapping to Aryorithm’s 8 Tiers</h3>
 <ul>
 <li><strong>Tier 1 (<code>xinfer-essential</code>):</strong> Provides a zero-copy memory abstraction passing stereo navigation camera (NavCam) disparity depth maps directly to edge NPU/FPGA tensor registers.</li>
 <li><strong>Tier 2 (<code>blackbox-essential</code>):</strong> Intercepts raw wheel-tachometer, motor current, and IMU telemetry in-kernel across the spaceborne <strong>SpaceWire / MIL-STD-1553B</strong> bus without CPU overhead.</li>
-<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Control Barrier Function (CBF) engine evaluating rover tilt angle, rollover limits, and regolith shear limits in <strong>$&lt; 88\text{ ns}$</strong>.</li>
-<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes regolith slip prediction and terrain traversability neural graphs into INT8 QDQ ONNX models executing in <strong>$&lt; 15\,\mu\text{s}$</strong>.</li>
+<li><strong>Tier 3 (<code>blackbox-sentinel</code>):</strong> Hosts a native C++20 Control Barrier Function (CBF) engine evaluating rover tilt angle, rollover limits, and regolith shear limits in <strong><span class="arithmatex">\(&lt; 88\text{ ns}\)</span></strong>.</li>
+<li><strong>Tier 4 (<code>xinfer-forge</code>):</strong> Quantizes regolith slip prediction and terrain traversability neural graphs into INT8 QDQ ONNX models executing in <strong><span class="arithmatex">\(&lt; 15\,\mu\text{s}\)</span></strong>.</li>
 <li><strong>Tier 5 (<code>sentinel-lab</code>):</strong> Executes Research Module 01 (HIL RK4 ODE Co-Simulator), continuously solving Bekker-Wong terramechanics differential equations.</li>
 <li><strong>Tier 6 (<code>sentinel-nexus</code>):</strong> Manages asynchronous telemetry compression and mission plan updates over high-latency Deep Space Network (DSN) connections.</li>
-<li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous multi-body suspension and planetary gravity ($1/6g$ Moon, $3/8g$ Mars) dynamics (<code>plant_ode.c</code>).</li>
+<li><strong>Tier 7 (<code>sentinel-matrix</code>):</strong> Replays digital twin continuous multi-body suspension and planetary gravity (<span class="arithmatex">\(1/6g\)</span> Moon, <span class="arithmatex">\(3/8g\)</span> Mars) dynamics (<code>plant_ode.c</code>).</li>
 <li><strong>Tier 8 (<code>sentinel-stack</code> / <code>aryo</code>):</strong> Operationalized via <code>aryo space rover-hazard --navcam /dev/stereo0 --slip-limit 0.40</code>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code> [ Stereo NavCam (3D Depth) ] ──(SpaceWire / MIL-STD-1553B)──► [ Tier 1: xinfer Tensor Pointers ]
@@ -43916,15 +43916,15 @@
 <ul>
 <li><strong>Ingress Protocols:</strong> <strong>SpaceWire (ECSS-E-ST-50-52C)</strong>, <strong>MIL-STD-1553B</strong>, <strong>CCSDS 133.0-B-2</strong>.</li>
 <li><strong>Mathematical Invariant (Bekker-Wong Soil Terramechanics &amp; Tipping Barrier):</strong>
-  $$i_{\text{slip}} = \frac{r \omega - v_x}{r \omega} \le i_{\text{critical}}, \quad i_{\text{critical}} \approx 0.40$$
-  $$h_{\text{tip}}(\mathbf{\theta}) = \theta_{\text{rollover_limit}} - |\mathbf{\theta}<em>{\text{pitch/roll}}(t)|<em>2 \ge 0$$
-  $$\tau</em>{\text{shear}} = c + \sigma \tan(\phi)$$
-  Where $i</em>{\text{slip}}$ is longitudinal wheel slip, $r$ is wheel radius, $\omega$ is angular velocity, and $\phi$ is the internal friction angle of regolith. If wheel slip $i_{\text{slip}} &gt; 0.40$ or slope approaches the angle of repose ($\phi \approx 32^\circ$), the in-kernel controller cuts motor drive current in <strong>$&lt; 1.5\text{ ms}$</strong>, reversing wheel rotation to prevent sinkage before the rover gets trapped.</li>
+  $<span class="arithmatex">\(i_{\text{slip}} = \frac{r \omega - v_x}{r \omega} \le i_{\text{critical}}, \quad i_{\text{critical}} \approx 0.40\)</span>$
+  $<span class="arithmatex">\(h_{\text{tip}}(\mathbf{\theta}) = \theta_{\text{rollover\_limit}} - \|\mathbf{\theta}_{\text{pitch/roll}}(t)\|_2 \ge 0\)</span>$
+  $<span class="arithmatex">\(\tau_{\text{shear}} = c + \sigma \tan(\phi)\)</span>$
+  Where <span class="arithmatex">\(i_{\text{slip}}\)</span> is longitudinal wheel slip, <span class="arithmatex">\(r\)</span> is wheel radius, <span class="arithmatex">\(\omega\)</span> is angular velocity, and <span class="arithmatex">\(\phi\)</span> is the internal friction angle of regolith. If wheel slip <span class="arithmatex">\(i_{\text{slip}} &gt; 0.40\)</span> or slope approaches the angle of repose (<span class="arithmatex">\(\phi \approx 32^\circ\)</span>), the in-kernel controller cuts motor drive current in <strong><span class="arithmatex">\(&lt; 1.5\text{ ms}\)</span></strong>, reversing wheel rotation to prevent sinkage before the rover gets trapped.</li>
 </ul>
 <h3 id="4-target-hardware-commercial-advantage_4">4. Target Hardware &amp; Commercial Advantage</h3>
 <ul>
-<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ or BAE RAD5545 multicore processor consuming $&lt; 12\text{W}$.</li>
-<li><strong>Commercial Advantage:</strong> Cuts rover hazard evaluation delays from 30 seconds per meter to <strong>continuous real-time driving at $10\times$ faster speeds</strong>, dramatically expanding scientific data collection on planetary surfaces.</li>
+<li><strong>Target Hardware:</strong> Radiation-tolerant Xilinx Zynq UltraScale+ or BAE RAD5545 multicore processor consuming <span class="arithmatex">\(&lt; 12\text{W}\)</span>.</li>
+<li><strong>Commercial Advantage:</strong> Cuts rover hazard evaluation delays from 30 seconds per meter to <strong>continuous real-time driving at <span class="arithmatex">\(10\times\)</span> faster speeds</strong>, dramatically expanding scientific data collection on planetary surfaces.</li>
 </ul>
 <hr />
 <h3 id="confirmation-to-proceed">Confirmation to Proceed</h3>
@@ -43998,6 +43998,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

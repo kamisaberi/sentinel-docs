@@ -43786,15 +43786,15 @@
 <ul>
 <li><strong>Frame Synchronization:</strong> Validates IEEE Sync bytes (<code>0xAA</code>) and P/M-class data frames.</li>
 <li><strong>Frequency Band Enforcement:</strong> Monitors high-voltage transmission grid frequency with sub-millihertz precision, enforcing tight grid bounds (<code>49.50 Hz ≤ f ≤ 50.50 Hz</code>).</li>
-<li><strong>Rate-of-Change-of-Frequency (ROCOF):</strong> Clamps transient frequency drift rate ($|\text{ROCOF}| \le 1.0\,\text{Hz/s}$) to prevent cascading blackout trips.</li>
-<li><strong>Total Harmonic Distortion (THD):</strong> Inspects 1st, 2nd, 3rd, and 5th harmonic spectral energy, triggering alert thresholds when $\text{THD} &gt; 8.0\%$.</li>
+<li><strong>Rate-of-Change-of-Frequency (ROCOF):</strong> Clamps transient frequency drift rate (<span class="arithmatex">\(|\text{ROCOF}| \le 1.0\,\text{Hz/s}\)</span>) to prevent cascading blackout trips.</li>
+<li><strong>Total Harmonic Distortion (THD):</strong> Inspects 1st, 2nd, 3rd, and 5th harmonic spectral energy, triggering alert thresholds when <span class="arithmatex">\(\text{THD} &gt; 8.0\%\)</span>.</li>
 </ul>
 <hr />
 <h2 id="4-physics-informed-control-theory-nagumo-control-barrier-functions">4. Physics-Informed Control Theory: Nagumo Control Barrier Functions</h2>
 <p>Pure signature and protocol checks cannot identify an attacker who uses authentic, authorized protocol frames to drive a physical process into catastrophic runaway (e.g., slowly increasing chemical reactor pressure or heating an exothermic catalyst).</p>
 <p><code>ics-guard</code> integrates an embedded <strong>Runge-Kutta 4th-Order (RK4)</strong> numerical ODE solver and enforces <strong>Nagumo Forward Invariance via Control Barrier Functions (CBFs)</strong>:</p>
-<p>$$\mathcal{C} = { x \in \mathbb{R}^n \mid h(x) \ge 0 }$$</p>
-<p>$$\dot{h}(x, u) + \alpha(h(x)) \ge 0$$</p>
+<div class="arithmatex">\[\mathcal{C} = \{ x \in \mathbb{R}^n \mid h(x) \ge 0 \}\]</div>
+<div class="arithmatex">\[\dot{h}(x, u) + \alpha(h(x)) \ge 0\]</div>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example: Thermal Runway Invariant Check (plant_ode.c)</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">plant_cbf_evaluate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">plant_state_t</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">max_temp_c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Safe set boundary: h(x) = T_max - T(t) &gt;= 0</span>
@@ -43808,7 +43808,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">h_dot_val</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h_val</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>If an incoming Modbus or S7 command requests a control input $u(t)$ that violates the invariance inequality—meaning the physical plant will breach critical operating boundaries within the critical time horizon $T_\text{crit}$—the command is dropped immediately at the kernel boundary (<code>ACTUATOR_AIRGAP_TRIPPED</code>), independent of what SCADA or HMI dashboards report.</p>
+<p>If an incoming Modbus or S7 command requests a control input <span class="arithmatex">\(u(t)\)</span> that violates the invariance inequality—meaning the physical plant will breach critical operating boundaries within the critical time horizon <span class="arithmatex">\(T_\text{crit}\)</span>—the command is dropped immediately at the kernel boundary (<code>ACTUATOR_AIRGAP_TRIPPED</code>), independent of what SCADA or HMI dashboards report.</p>
 <hr />
 <h2 id="5-threat-mitigation-matrix-real-world-ics-attack-vector-defense">5. Threat Mitigation Matrix: Real-World ICS Attack Vector Defense</h2>
 <table>
@@ -43847,7 +43847,7 @@
 <td style="text-align: left;"><strong>Oldsmar Water Treatment</strong></td>
 <td style="text-align: left;">Modbus TCP</td>
 <td style="text-align: left;">Unauthorized operator setpoint modification increasing NaOH (Lye) dosing rate to lethal levels</td>
-<td style="text-align: left;"><code>CbfSafetyGate</code>: Chemical titration corridor monitoring ($6.5 \le \text{pH} \le 8.5$)</td>
+<td style="text-align: left;"><code>CbfSafetyGate</code>: Chemical titration corridor monitoring (<span class="arithmatex">\(6.5 \le \text{pH} \le 8.5\)</span>)</td>
 <td style="text-align: left;">Drops <code>FC05/06</code> writes breaching chemical boundary</td>
 </tr>
 <tr>
@@ -43894,8 +43894,8 @@ TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
 <h3 id="physical-hardware-specifications-industrial-field-appliance">Physical Hardware Specifications (Industrial Field Appliance)</h3>
 <ul>
 <li><strong>Form Factor:</strong> DIN-Rail or 1U Ruggedized Rackmount (Fanless conduction cooling).</li>
-<li><strong>Power Supply:</strong> Redundant dual $24\,\text{V DC}$ inputs ($9–36\,\text{V DC}$ wide-input tolerance).</li>
-<li><strong>Operating Temperature:</strong> $-40^\circ\text{C}$ to $+75^\circ\text{C}$ (IEC 60068-2 cold/heat compliant).</li>
+<li><strong>Power Supply:</strong> Redundant dual <span class="arithmatex">\(24\,\text{V DC}\)</span> inputs (<span class="arithmatex">\(9–36\,\text{V DC}\)</span> wide-input tolerance).</li>
+<li><strong>Operating Temperature:</strong> <span class="arithmatex">\(-40^\circ\text{C}\)</span> to <span class="arithmatex">\(+75^\circ\text{C}\)</span> (IEC 60068-2 cold/heat compliant).</li>
 <li><strong>Physical Relays:</strong> Dual hardware watchdog fail-open bypass relays (Zero-Packet-Loss power-fail pass-through).</li>
 <li><strong>Root-of-Trust:</strong> Dedicated discrete Infineon OPTIGA™ TPM 2.0 cryptoprocessor.</li>
 </ul>
@@ -44177,7 +44177,7 @@ make<span class="w"> </span>grid-down
 <h3 id="b-eu-nis2-directive-directive-20222555">B. EU NIS2 Directive (Directive 2022/2555)</h3>
 <ul>
 <li><strong>Article 21(2)(a) Risk Analysis &amp; Asset Mapping:</strong> Automated live enumeration of active OT field nodes and protocol routes.</li>
-<li><strong>Article 21(2)(b) Incident Handling &amp; Sub-ms Mitigation:</strong> Cryptographically verified mitigation latency SLAs ($&lt; 0.84\,\mu\text{s}$) with automated in-kernel drop logging.</li>
+<li><strong>Article 21(2)(b) Incident Handling &amp; Sub-ms Mitigation:</strong> Cryptographically verified mitigation latency SLAs (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) with automated in-kernel drop logging.</li>
 <li><strong>Article 21(2)(d) Supply Chain Security:</strong> Mandatory OpenSSL SHA-256 digest validation of all incoming neural model weights and software extension packages.</li>
 <li><strong>Article 21(2)(h) Cryptographic Attestation:</strong> Silicon-anchored hardware root-of-trust authentication for all telemetry and telecommand gateways.</li>
 </ul>
@@ -44257,6 +44257,10 @@ make<span class="w"> </span>grid-down
       
       
         <script src="../../javascripts/accordion.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

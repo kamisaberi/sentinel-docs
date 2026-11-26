@@ -43238,9 +43238,9 @@
 <p><strong>Sentinel Nexus</strong> is the centralized native C++20 command plane and collective defense coordinator for the Blackbox Sentinel ecosystem. Aggregating telemetry from up to <strong>5,000 distributed edge appliances</strong> across electrical substations, healthcare diagnostic networks, manufacturing plants, and naval vessels, Nexus turns isolated edge sensors into an interconnected, sovereign <strong>Collective Defense Grid</strong>—propagating in-kernel eBPF drop rules fleet-wide in under <strong>50 milliseconds</strong>.</p>
 <h3 id="primary-cta-group">Primary CTA Group</h3>
 <ul>
-<li><code>[ View on GitHub ]</code> $\rightarrow$ <code>https://github.com/kamisaberi/sentinel-nexus</code></li>
-<li><code>[ Explore Collective Defense Architecture ]</code> $\rightarrow$ <code>#collective-defense</code></li>
-<li><code>[ Read Technical Runbook ]</code> $\rightarrow$ <code>#operations-cli</code></li>
+<li><code>[ View on GitHub ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>https://github.com/kamisaberi/sentinel-nexus</code></li>
+<li><code>[ Explore Collective Defense Architecture ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#collective-defense</code></li>
+<li><code>[ Read Technical Runbook ]</code> <span class="arithmatex">\(\rightarrow\)</span> <code>#operations-cli</code></li>
 </ul>
 <h3 id="live-kpi-strip-metrics-display-grid">Live KPI Strip (Metrics Display Grid)</h3>
 <div class="highlight"><pre><span></span><code>+---------------------+---------------------+---------------------+---------------------+
@@ -43366,7 +43366,7 @@
 ========================================================================================================
 </code></pre></div>
 <h3 id="preserving-wan-bandwidth">Preserving WAN Bandwidth</h3>
-<p>Rather than forwarding gigabytes of raw, redundant benign traffic across WAN links, edge appliances send <strong>only vectors where the local model is uncertain</strong> ($0.40 \le p \le 0.60$) or where an autoencoder flagged high reconstruction loss. Nexus batches these samples into curated training datasets, maintaining active learning loops with minimal bandwidth overhead.</p>
+<p>Rather than forwarding gigabytes of raw, redundant benign traffic across WAN links, edge appliances send <strong>only vectors where the local model is uncertain</strong> (<span class="arithmatex">\(0.40 \le p \le 0.60\)</span>) or where an autoencoder flagged high reconstruction loss. Nexus batches these samples into curated training datasets, maintaining active learning loops with minimal bandwidth overhead.</p>
 <hr />
 <h2 id="6-staged-canary-ota-rollouts-with-automated-rollbackguard">6. Staged Canary OTA Rollouts with Automated RollbackGuard</h2>
 <p>Model deployment to critical infrastructure cannot tolerate unverified updates. Sentinel Nexus enforces a strict three-stage deployment state machine paired with the <strong><code>RollbackGuard</code> SLA circuit</strong>:</p>
@@ -43406,8 +43406,8 @@
 </code></pre></div>
 <h3 id="the-rollbackguard-safety-circuit">The RollbackGuard Safety Circuit</h3>
 <p><code>RollbackGuard</code> inspects every incoming heartbeat. If an appliance running a candidate model reports:
-1. <strong>Mitigation Latency Breach:</strong> Average latency $&gt; 1{,}000\,\mu\text{s}$ (violating the physical SLA), <strong>OR</strong>
-2. <strong>Anomalous Drop Surge:</strong> Sudden $5\times$ spike in packet drops (indicating a false-positive cascade),</p>
+1. <strong>Mitigation Latency Breach:</strong> Average latency <span class="arithmatex">\(&gt; 1{,}000\,\mu\text{s}\)</span> (violating the physical SLA), <strong>OR</strong>
+2. <strong>Anomalous Drop Surge:</strong> Sudden <span class="arithmatex">\(5\times\)</span> spike in packet drops (indicating a false-positive cascade),</p>
 <p>Nexus triggers an <strong>immediate, automated emergency rollback</strong>. The candidate model is purged, and all nodes revert to the verified stable model within milliseconds.</p>
 <hr />
 <h2 id="7-real-time-explainable-ai-xai-attribution-aggregator">7. Real-Time Explainable AI (XAI) Attribution Aggregator</h2>
@@ -43478,7 +43478,7 @@
 <h3 id="cascading-availability-engine">Cascading Availability Engine</h3>
 <ul>
 <li><strong>Nexus Down:</strong> If Nexus stops reporting for 30s, the cloud marks Nexus <code>OFFLINE</code> and sets its child nodes to <code>UNREACHABLE</code> (preventing false alarms across individual sites during WAN outages).</li>
-<li><strong>Appliance Down:</strong> If a Sentinel node stops heartbeating, it transitions from <code>ONLINE</code> (green) $\rightarrow$ <code>OFFLINE</code> (red), marking its local sensors as <code>SILENT</code>.</li>
+<li><strong>Appliance Down:</strong> If a Sentinel node stops heartbeating, it transitions from <code>ONLINE</code> (green) <span class="arithmatex">\(\rightarrow\)</span> <code>OFFLINE</code> (red), marking its local sensors as <code>SILENT</code>.</li>
 <li><strong>Sensor Down:</strong> If an individual PLC stops communicating, the parent Sentinel remains <code>ONLINE</code>, but the asset is flagged <code>FAULT_NO_DATA</code> (amber).</li>
 </ul>
 <hr />
@@ -43582,7 +43582,7 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>ota<span class="w"> </
 <h4 id="q-can-nexus-run-in-a-secure-cloud-environment-while-appliances-remain-on-premise">Q: Can Nexus run in a secure cloud environment while appliances remain on-premise?</h4>
 <p><strong>A:</strong> Yes. Through the <strong>Decoupled SaaS Connector (<code>src/cloud/SaaSConnector.cpp</code>)</strong>, Nexus can run as a managed cloud service (<code>app.aryorithm.com</code>). Appliances establish outbound, encrypted mTLS sessions to the cloud command plane, streaming only anonymized telemetry while maintaining 100% autonomous local packet dropping.</p>
 <h4 id="q-how-are-false-positives-managed-across-the-collective-defense-grid">Q: How are false positives managed across the collective defense grid?</h4>
-<p><strong>A:</strong> If an operator unblocks an IP on the Web UI or via <code>nexus-ctl</code>, Nexus immediately broadcasts an emergency purge frame (<code>emergency_purge: true</code>). All appliances across the fleet remove the entry from their kernel <code>blocked_ip_map</code> in $&lt; 50\,\text{ms}$.</p>
+<p><strong>A:</strong> If an operator unblocks an IP on the Web UI or via <code>nexus-ctl</code>, Nexus immediately broadcasts an emergency purge frame (<code>emergency_purge: true</code>). All appliances across the fleet remove the entry from their kernel <code>blocked_ip_map</code> in <span class="arithmatex">\(&lt; 50\,\text{ms}\)</span>.</p>
 <hr />
 <h2 id="13-conversion-call-to-action-cta">13. Conversion Call-To-Action (CTA)</h2>
 <div class="highlight"><pre><span></span><code>+------------------------------------------------------------------------------------------------------+
@@ -43663,6 +43663,10 @@ $<span class="w"> </span>nexus-ctl<span class="w"> </span>ota<span class="w"> </
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

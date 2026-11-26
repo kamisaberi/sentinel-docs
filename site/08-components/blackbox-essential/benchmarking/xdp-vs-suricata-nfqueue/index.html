@@ -43174,7 +43174,7 @@ BLACKBOX-ESSENTIAL IN-KERNEL XDP (&lt; 0.84 µs Reaction Time):
 </code></pre></div>
 <hr />
 <h2 id="2-empirical-performance-comparison">2. Empirical Performance Comparison</h2>
-<p>Testing against a continuous $10\text{ Gbps}$ mixed-traffic stream:</p>
+<p>Testing against a continuous <span class="arithmatex">\(10\text{ Gbps}\)</span> mixed-traffic stream:</p>
 <table>
 <thead>
 <tr>
@@ -43187,27 +43187,27 @@ BLACKBOX-ESSENTIAL IN-KERNEL XDP (&lt; 0.84 µs Reaction Time):
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Mitigation Latency</strong></td>
-<td style="text-align: left;">$24{,}500\,\mu\text{s}$ ($24.5\,\text{ms}$)</td>
-<td style="text-align: left;"><strong>$0.84\,\mu\text{s}$</strong></td>
-<td style="text-align: left;"><strong>$29{,}166\times$ Faster</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(24{,}500\,\mu\text{s}\)</span> (<span class="arithmatex">\(24.5\,\text{ms}\)</span>)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(29{,}166\times\)</span> Faster</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Max Inline Throughput</strong></td>
-<td style="text-align: left;">$420{,}000\text{ pps}$ (Per Core)</td>
-<td style="text-align: left;"><strong>$14{,}880{,}000\text{ pps}$</strong></td>
-<td style="text-align: left;"><strong>$35.4\times$ Higher Throughput</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(420{,}000\text{ pps}\)</span> (Per Core)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(14{,}880{,}000\text{ pps}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(35.4\times\)</span> Higher Throughput</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Context Switches / Sec</strong></td>
-<td style="text-align: left;">$&gt; 850{,}000$</td>
+<td style="text-align: left;"><span class="arithmatex">\(&gt; 850{,}000\)</span></td>
 <td style="text-align: left;"><strong>0 (In-Kernel)</strong></td>
 <td style="text-align: left;">Complete Elimination</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Memory Footprint</strong></td>
-<td style="text-align: left;">$1.8\text{ GB}$ (Pattern Tables)</td>
-<td style="text-align: left;"><strong>$32\text{ MB}$ (Pinned BPF Maps)</strong></td>
-<td style="text-align: left;"><strong>$56\times$ Smaller Footprint</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1.8\text{ GB}\)</span> (Pattern Tables)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(32\text{ MB}\)</span> (Pinned BPF Maps)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(56\times\)</span> Smaller Footprint</strong></td>
 </tr>
 </tbody>
 </table>
@@ -43215,7 +43215,7 @@ BLACKBOX-ESSENTIAL IN-KERNEL XDP (&lt; 0.84 µs Reaction Time):
 <h2 id="3-why-nfqueue-introduces-latency">3. Why NFQUEUE Introduces Latency</h2>
 <ul>
 <li><strong>Netlink Copy Overhead:</strong> Every packet crosses the kernel-userspace boundary via a Netlink socket buffer, triggering memory copies and CPU cache invalidations.</li>
-<li><strong>Context Switching:</strong> Passing packets between kernel threads and user-space analysis workers requires kernel context switches ($\sim 1.5 - 4.5\,\mu\text{s}$ per switch).</li>
+<li><strong>Context Switching:</strong> Passing packets between kernel threads and user-space analysis workers requires kernel context switches (<span class="arithmatex">\(\sim 1.5 - 4.5\,\mu\text{s}\)</span> per switch).</li>
 <li><strong>Queuing Delay:</strong> Under line-rate traffic, internal user-space ring queues fill up, adding tens of milliseconds of latency before packets are evaluated.</li>
 </ul>
 <p><code>blackbox-essential</code> avoids these overheads by executing mitigation rules directly within the driver's NAPI poll routine.</p>
@@ -43287,6 +43287,10 @@ BLACKBOX-ESSENTIAL IN-KERNEL XDP (&lt; 0.84 µs Reaction Time):
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

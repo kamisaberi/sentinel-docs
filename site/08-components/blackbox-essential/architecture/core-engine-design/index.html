@@ -43278,7 +43278,7 @@
 <tr>
 <td style="text-align: left;"><code>ACTIVE_DROP</code></td>
 <td style="text-align: left;"><code>ARMED</code>, <code>TERMINATED</code></td>
-<td style="text-align: left;">Packets matching <code>blocked_ip_map</code> drop in $&lt; 0.84\,\mu\text{s}$ at driver hook.</td>
+<td style="text-align: left;">Packets matching <code>blocked_ip_map</code> drop in <span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> at driver hook.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>TERMINATED</code></td>
@@ -43296,7 +43296,7 @@
 <li><strong>Parse Headers:</strong> The eBPF program bounds-checks the frame and extracts protocol headers (IPv4/IPv6, TCP/UDP).</li>
 <li><strong>Hash Table Lookup:</strong> The source IPv4 address is looked up in <code>blocked_ip_map</code>.</li>
 <li><strong>Mitigation Decision:</strong></li>
-<li><strong>Hit:</strong> Returns <code>XDP_DROP</code> immediately ($&lt; 0.84\,\mu\text{s}$). Driver recycles the RX descriptor back to the hardware ring.</li>
+<li><strong>Hit:</strong> Returns <code>XDP_DROP</code> immediately (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>). Driver recycles the RX descriptor back to the hardware ring.</li>
 <li><strong>Miss:</strong> Returns <code>XDP_PASS</code>. Packet proceeds to the Linux kernel TCP/IP networking stack.</li>
 </ol>
 
@@ -43367,6 +43367,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

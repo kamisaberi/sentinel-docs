@@ -43443,7 +43443,7 @@
 <h3 id="3-the-5-architectural-safeguards-against-conflicts">3. The 5 Architectural Safeguards Against Conflicts</h3>
 <p>To maintain high performance and prevent system collisions, the software enforces five structural rules:</p>
 <h4 id="safeguard-1-unidirectional-event-pipeline-no-circular-loops">Safeguard 1: Unidirectional Event Pipeline (No Circular Loops)</h4>
-<p>A common hazard in multi-module architectures is an infinite loop (e.g., Module A publishes an event $\rightarrow$ Module B modifies it and republishes $\rightarrow$ Module A catches it again).</p>
+<p>A common hazard in multi-module architectures is an infinite loop (e.g., Module A publishes an event <span class="arithmatex">\(\rightarrow\)</span> Module B modifies it and republishes <span class="arithmatex">\(\rightarrow\)</span> Module A catches it again).</p>
 <p>Blackbox Sentinel enforces a strict <strong>one-way sequential pipeline</strong>. Events move strictly forward through five phases:</p>
 <p><div class="highlight"><pre><span></span><code>[ PHASE 1: INGESTION &amp; DISSECTION ]
 - Plugins parse incoming raw streams (Modbus, Syslog, RTSP, MAVLink)
@@ -43585,6 +43585,10 @@ No module can overwrite another module's score, eliminating data races.</p>
       
       
         <script src="../../../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

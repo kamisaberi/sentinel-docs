@@ -43162,7 +43162,7 @@
 <hr />
 <h2 id="2-realistic-adversarial-feedback-loop">2. Realistic Adversarial Feedback Loop</h2>
 <p>Because the adversary executes against real network sockets:
-1. <strong>Interactive State:</strong> It initiates real three-way handshakes (<code>SYN</code> $\to$ <code>SYN-ACK</code> $\to$ <code>ACK</code>).
+1. <strong>Interactive State:</strong> It initiates real three-way handshakes (<code>SYN</code> <span class="arithmatex">\(\to\)</span> <code>SYN-ACK</code> <span class="arithmatex">\(\to\)</span> <code>ACK</code>).
 2. <strong>Immediate Feedback:</strong> When <code>sentinel-node-01</code> detects an attack and adds <code>10.240.0.99</code> to <code>blocked_ip_map</code>, subsequent packets from the adversary receive zero response on the wire.
 3. <strong>Observability:</strong> Attack tools report connection timeouts or socket resets (<code>ECONNREFUSED</code> / <code>filtered</code>) in real time.</p>
 
@@ -43233,6 +43233,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

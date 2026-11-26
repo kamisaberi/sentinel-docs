@@ -43142,19 +43142,19 @@
 <p>In <code>xinfer-forge</code>, safety validation is formulated as a <strong>strict logical conjunction</strong>. A candidate model is approved if and only if every golden attack vector produces a reconstruction error exceeding the baseline anomaly threshold.</p>
 <hr />
 <h2 id="1-formal-mathematical-formulation">1. Formal Mathematical Formulation</h2>
-<p>Let $\mathcal{A} = {a_1, a_2, \dots, a_M}$ represent the corpus of $M$ golden attack vectors ($a_i \in \mathbb{R}^{32}$).</p>
-<p>Let $f(a_i; \theta^<em>)$ represent the reconstruction produced by the candidate parameters $\theta^</em>$. The reconstruction error $\mathcal{E}(a_i; \theta^*)$ is defined as the Mean Squared Error:</p>
-<p>$$\mathcal{E}(a_i; \theta^*) = \frac{1}{D} \sum_{j=1}^{D} \left(a_{i, j} - \hat{a}_{i, j}\right)^2$$</p>
-<p>Let $\tau$ denote the non-negotiable anomaly detection threshold ($\tau = 0.082$).</p>
-<p>The Safety Gate verification function $S(\theta^*)$ is defined as:</p>
-<p>$$S(\theta^<em>) = \bigwedge_{i=1}^{M} \mathbb{I}\left(\mathcal{E}(a_i; \theta^</em>) &gt; \tau\right)$$</p>
-<p>Where $\mathbb{I}(\cdot)$ is the indicator function:</p>
-<p>$$\mathbb{I}(\text{condition}) = \begin{cases} 1, &amp; \text{if condition is TRUE} \ 0, &amp; \text{if condition is FALSE} \end{cases}$$</p>
+<p>Let <span class="arithmatex">\(\mathcal{A} = \{a_1, a_2, \dots, a_M\}\)</span> represent the corpus of <span class="arithmatex">\(M\)</span> golden attack vectors (<span class="arithmatex">\(a_i \in \mathbb{R}^{32}\)</span>).</p>
+<p>Let <span class="arithmatex">\(f(a_i; \theta^*)\)</span> represent the reconstruction produced by the candidate parameters <span class="arithmatex">\(\theta^*\)</span>. The reconstruction error <span class="arithmatex">\(\mathcal{E}(a_i; \theta^*)\)</span> is defined as the Mean Squared Error:</p>
+<div class="arithmatex">\[\mathcal{E}(a_i; \theta^*) = \frac{1}{D} \sum_{j=1}^{D} \left(a_{i, j} - \hat{a}_{i, j}\right)^2\]</div>
+<p>Let <span class="arithmatex">\(\tau\)</span> denote the non-negotiable anomaly detection threshold (<span class="arithmatex">\(\tau = 0.082\)</span>).</p>
+<p>The Safety Gate verification function <span class="arithmatex">\(S(\theta^*)\)</span> is defined as:</p>
+<div class="arithmatex">\[S(\theta^*) = \bigwedge_{i=1}^{M} \mathbb{I}\left(\mathcal{E}(a_i; \theta^*) &gt; \tau\right)\]</div>
+<p>Where <span class="arithmatex">\(\mathbb{I}(\cdot)\)</span> is the indicator function:</p>
+<div class="arithmatex">\[\mathbb{I}(\text{condition}) = \begin{cases} 1, &amp; \text{if condition is TRUE} \\ 0, &amp; \text{if condition is FALSE} \end{cases}\]</div>
 <hr />
 <h2 id="2-invariant-proof">2. Invariant Proof</h2>
-<p>$$\text{Candidate Approval} \iff S(\theta^*) = 1.000$$</p>
-<p>If even a single attack $a_k$ yields $\mathcal{E}(a_k; \theta^*) \le \tau$:</p>
-<p>$$S(\theta^*) = 1 \wedge 1 \wedge \dots \wedge 0 \wedge \dots \wedge 1 = 0.000$$</p>
+<div class="arithmatex">\[\text{Candidate Approval} \iff S(\theta^*) = 1.000\]</div>
+<p>If even a single attack <span class="arithmatex">\(a_k\)</span> yields <span class="arithmatex">\(\mathcal{E}(a_k; \theta^*) \le \tau\)</span>:</p>
+<div class="arithmatex">\[S(\theta^*) = 1 \wedge 1 \wedge \dots \wedge 0 \wedge \dots \wedge 1 = 0.000\]</div>
 <p>The logical conjunction fails, aborting compilation and deployment.</p>
 
 
@@ -43224,6 +43224,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

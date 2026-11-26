@@ -43419,7 +43419,7 @@
 <li><strong>Primary URL:</strong> <code>https://aryorithm.com</code></li>
 <li><strong>Stage:</strong> Pre-Seed / Seed (Deep-Tech Cyber-Physical Systems &amp; Edge AI)</li>
 <li><strong>Elevator Pitch (50 words):</strong><br />
-  Aryorithm builds autonomous, deterministic active defense systems for critical infrastructure. Powered by <code>libxinfer.so</code>—a native C++20 zero-copy AI runtime—and driver-level eBPF/XDP kernel filters, our Sentinel appliances enforce sub-microsecond ($0.84\,\mu\text{s}$) threat mitigation directly on Intel Core, Xeon, and Core Ultra NPUs without cloud dependency.</li>
+  Aryorithm builds autonomous, deterministic active defense systems for critical infrastructure. Powered by <code>libxinfer.so</code>—a native C++20 zero-copy AI runtime—and driver-level eBPF/XDP kernel filters, our Sentinel appliances enforce sub-microsecond (<span class="arithmatex">\(0.84\,\mu\text{s}\)</span>) threat mitigation directly on Intel Core, Xeon, and Core Ultra NPUs without cloud dependency.</li>
 </ul>
 <hr />
 <h3 id="2-how-does-your-solution-leverage-intel-technologies">2. How Does Your Solution Leverage Intel Technologies?</h3>
@@ -43437,7 +43437,7 @@
 <li>In Tier 1 (<code>libxinfer.so</code>), Intel OpenVINO is implemented as a core native C++ backend loader (<code>xinfer::BackendType::INTEL_OPENVINO</code>).</li>
 <li>We bypass managed runtimes (zero Python, zero Java). Incoming 32-dimensional NetFlow feature tensors are mapped directly into OpenVINO memory handles via host-pinned zero-copy pointers (<code>ov::Tensor</code>), eliminating dynamic allocation overhead during inference.</li>
 <li>We offload self-supervised anomaly detection models (Masked Autoencoders and InfoNCE encoders) directly to the <strong>Intel NPU</strong>, freeing CPU execution cores for Linux driver-space eBPF packet routing.</li>
-<li>NetFlow and industrial SCADA protocol inspection achieves an inference latency of <strong>$11.8\,\mu\text{s}$ on Intel NPU/CPU</strong>, enabling total end-to-end wire-to-kernel drop mitigation in <strong>$0.84\,\mu\text{s}$</strong> via <code>XDP_DROP</code>.</li>
+<li>NetFlow and industrial SCADA protocol inspection achieves an inference latency of <strong><span class="arithmatex">\(11.8\,\mu\text{s}\)</span> on Intel NPU/CPU</strong>, enabling total end-to-end wire-to-kernel drop mitigation in <strong><span class="arithmatex">\(0.84\,\mu\text{s}\)</span></strong> via <code>XDP_DROP</code>.</li>
 </ul>
 <hr />
 <h3 id="3-validated-performance-benchmarks-on-intel-silicon">3. Validated Performance Benchmarks on Intel Silicon</h3>
@@ -43445,8 +43445,8 @@
 <li><strong>Testbed Environment:</strong> Industrial bare-metal chassis, Intel Core i9-14900K (24 cores / 32 threads, up to 6.0 GHz), 192 GB DDR5 RAM, Intel X520-DA2 10GbE SFP+ adapter.</li>
 <li><strong>Results:</strong></li>
 <li><strong>Sustained Throughput:</strong> 1,250,000 events per second (EPS) per node.</li>
-<li><strong>CPU Utilization at 100,000 EPS:</strong> $8.2\%$ (Compared to $78.1\%$ for Splunk and $62.4\%$ for Elastic JVM).</li>
-<li><strong>Mitigation SLA:</strong> $0.84\,\mu\text{s}$ driver-level drop execution.</li>
+<li><strong>CPU Utilization at 100,000 EPS:</strong> <span class="arithmatex">\(8.2\%\)</span> (Compared to <span class="arithmatex">\(78.1\%\)</span> for Splunk and <span class="arithmatex">\(62.4\%\)</span> for Elastic JVM).</li>
+<li><strong>Mitigation SLA:</strong> <span class="arithmatex">\(0.84\,\mu\text{s}\)</span> driver-level drop execution.</li>
 <li><strong>Memory Footprint:</strong> 180 MB idle / 1.38 GB peak line-rate saturation.</li>
 </ul>
 <hr />
@@ -43496,7 +43496,7 @@
 <hr />
 <h3 id="3-model-architectures-silicon-workloads">3. Model Architectures &amp; Silicon Workloads</h3>
 <ol>
-<li><strong>32-Dimensional NetFlow Masked Autoencoders (MAE):</strong> Quantized FP16/INT8 execution detecting zero-day lateral movement and C2 beacons in $&lt; 8.5\,\mu\text{s}$.</li>
+<li><strong>32-Dimensional NetFlow Masked Autoencoders (MAE):</strong> Quantized FP16/INT8 execution detecting zero-day lateral movement and C2 beacons in <span class="arithmatex">\(&lt; 8.5\,\mu\text{s}\)</span>.</li>
 <li><strong>Kinematic Bot Trajectory Classifiers (Module 10):</strong> 1D convolutional models scoring high-velocity automated abuse.</li>
 <li><strong>Cyber-Physical Vision Plugins (Plugins 01–30):</strong> YOLOv8 and thermal camera inference for physical boundary protection at critical substations.</li>
 </ol>
@@ -43563,7 +43563,7 @@
 2. <strong>Regulatory Compliance Readiness Scorecards:</strong>
    * <strong>IEC 62443-3-3 / 4-2:</strong> Verification of industrial zone boundary segmentation and unauthorized command attempts.
    * <strong>CMMC 2.0 (Level 2) &amp; NIST SP 800-171:</strong> Proof of sub-millisecond incident response readiness.
-3. <strong>SLA Verification Data:</strong> Mathematical proof of edge mitigation performance ($&lt; 0.84\,\mu\text{s}$) evaluated on Customer’s real traffic flows.</p>
+3. <strong>SLA Verification Data:</strong> Mathematical proof of edge mitigation performance (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span>) evaluated on Customer’s real traffic flows.</p>
 <hr />
 <h3 id="5-commercial-commitment-letter-of-intent-loi">5. COMMERCIAL COMMITMENT &amp; LETTER OF INTENT (LOI)</h3>
 <p><em>(Select either Option A or Option B)</em></p>
@@ -43677,6 +43677,10 @@ Date:       ___________________________    Date:       _________________________
       
       
         <script src="../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

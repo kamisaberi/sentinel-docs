@@ -43140,8 +43140,8 @@
 
 <h1 id="dynamic-batch-axes-single-frame-to-saturation-ingestion">Dynamic Batch Axes: Single-Frame to Saturation Ingestion</h1>
 <p>Edge intrusion prevention requires models to handle two distinct operational extremes:
-1. <strong>Single-Packet Fast Path ($N=1$):</strong> Inline packet-by-packet evaluation inside the NIC driver ring ($&lt; 0.84\,\mu\text{s}$ SLA).
-2. <strong>Forensic Batch Evaluation ($N=64, 128, 1024$):</strong> Offline PCAP re-evaluation and historical batch auditing.</p>
+1. <strong>Single-Packet Fast Path (<span class="arithmatex">\(N=1\)</span>):</strong> Inline packet-by-packet evaluation inside the NIC driver ring (<span class="arithmatex">\(&lt; 0.84\,\mu\text{s}\)</span> SLA).
+2. <strong>Forensic Batch Evaluation (<span class="arithmatex">\(N=64, 128, 1024\)</span>):</strong> Offline PCAP re-evaluation and historical batch auditing.</p>
 <p><code>xinfer-forge</code> compiles ONNX models with <strong>Dynamic Batch Axes</strong> to support variable tensor shapes without recompilation.</p>
 <hr />
 <h2 id="1-dynamic-shape-declaration">1. Dynamic Shape Declaration</h2>
@@ -43240,6 +43240,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

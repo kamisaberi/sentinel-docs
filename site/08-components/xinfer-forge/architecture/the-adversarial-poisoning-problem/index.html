@@ -43143,15 +43143,15 @@
 <p>If an attacker slowly introduces malicious behaviors into the network at sub-threshold intensities over several weeks, a naive unsupervised retraining loop will incorporate the exploit into its baseline model, neutralizing the security system.</p>
 <hr />
 <h2 id="1-mathematical-model-of-boiling-the-frog-poisoning">1. Mathematical Model of "Boiling-the-Frog" Poisoning</h2>
-<p>An attacker targets a parameter set $\theta$ seeking to force the model to misclassify an exploit $x_{\text{attack}}$ as benign ($f(x_{\text{attack}}; \theta) \to 0$):</p>
-<p>$$\theta_t = \theta_{t-1} - \eta \nabla_\theta \mathcal{L}\left(\mathcal{D}_{\text{ambient}} \cup {\tilde{x}_t}\right)$$</p>
-<p>Where $\tilde{x}_t$ represents a perturbed vector introduced by the adversary at time step $t$:</p>
-<p>$$\tilde{x}<em>t = x</em>{\text{benign}} + \epsilon_t \cdot (x_{\text{attack}} - x_{\text{benign}}), \quad \epsilon_t \ll 1$$</p>
+<p>An attacker targets a parameter set <span class="arithmatex">\(\theta\)</span> seeking to force the model to misclassify an exploit <span class="arithmatex">\(x_{\text{attack}}\)</span> as benign (<span class="arithmatex">\(f(x_{\text{attack}}; \theta) \to 0\)</span>):</p>
+<div class="arithmatex">\[\theta_t = \theta_{t-1} - \eta \nabla_\theta \mathcal{L}\left(\mathcal{D}_{\text{ambient}} \cup \{\tilde{x}_t\}\right)\]</div>
+<p>Where <span class="arithmatex">\(\tilde{x}_t\)</span> represents a perturbed vector introduced by the adversary at time step <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[\tilde{x}_t = x_{\text{benign}} + \epsilon_t \cdot (x_{\text{attack}} - x_{\text{benign}}), \quad \epsilon_t \ll 1\]</div>
 <div class="highlight"><pre><span></span><code> ADVERSARIAL DRIFT MANIFOLD:
  Baseline Normal (t=0) ──► Perturbation (t=1) ──► Perturbation (t=2) ──► Exploit Accepted (t=N)
         [ 0.10 ]                 [ 0.25 ]               [ 0.50 ]               [ ATTACK NORMALIZED ]
 </code></pre></div>
-<p>Over $N$ retraining cycles, the decision boundary shifts until the full exploit $x_{\text{attack}}$ no longer triggers an anomaly threshold.</p>
+<p>Over <span class="arithmatex">\(N\)</span> retraining cycles, the decision boundary shifts until the full exploit <span class="arithmatex">\(x_{\text{attack}}\)</span> no longer triggers an anomaly threshold.</p>
 <hr />
 <h2 id="2-the-solution-strict-logical-conjunction-gate">2. The Solution: Strict Logical Conjunction Gate</h2>
 <p><code>xinfer-forge</code> prevents data poisoning through its <strong>immutable golden attack safety gate</strong>:</p>
@@ -43241,6 +43241,10 @@
       
       
         <script src="../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

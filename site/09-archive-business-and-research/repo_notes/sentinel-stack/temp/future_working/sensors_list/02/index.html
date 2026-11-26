@@ -43289,49 +43289,49 @@
 <td style="text-align: left;"><strong>Triaxial Fluxgate Magnetometer</strong></td>
 <td style="text-align: left;">Low-Noise Analog ADC / SPI</td>
 <td style="text-align: left;">Naval hull degaussing tampering, magnetic mine activation</td>
-<td style="text-align: left;">Evaluates multipole expansion: $\mathbf{B}(\mathbf{r}) \approx 0$; magnetic anomaly signature must remain below naval mine sensitivity limits.</td>
+<td style="text-align: left;">Evaluates multipole expansion: <span class="arithmatex">\(\mathbf{B}(\mathbf{r}) \approx 0\)</span>; magnetic anomaly signature must remain below naval mine sensitivity limits.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>72</strong></td>
 <td style="text-align: left;"><strong>Magnetostrictive Liquid Level Transmitter</strong></td>
 <td style="text-align: left;">4-20mA HART / Modbus</td>
 <td style="text-align: left;">High-precision chemical tank level spoofing, silent siphon theft</td>
-<td style="text-align: left;">Float position measured via ultrasonic torsional wave pulse timing down a ferromagnetic wire ($\pm 0.5\,\text{mm}$ resolution).</td>
+<td style="text-align: left;">Float position measured via ultrasonic torsional wave pulse timing down a ferromagnetic wire (<span class="arithmatex">\(\pm 0.5\,\text{mm}\)</span> resolution).</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>73</strong></td>
 <td style="text-align: left;"><strong>Electromagnetic Induction Flow Meter (Magmeter)</strong></td>
 <td style="text-align: left;">Pulsed DC Coils / Modbus</td>
 <td style="text-align: left;">Industrial wastewater flow spoofing, chemical dilution attacks</td>
-<td style="text-align: left;">Faraday induction law: $V = B \cdot v \cdot D$; fluid velocity must strictly correlate with downstream pump electrical power draw.</td>
+<td style="text-align: left;">Faraday induction law: <span class="arithmatex">\(V = B \cdot v \cdot D\)</span>; fluid velocity must strictly correlate with downstream pump electrical power draw.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>74</strong></td>
 <td style="text-align: left;"><strong>Hall-Effect High-Current Transducer</strong></td>
-<td style="text-align: left;">Isolated Analog Voltage ($\pm 10\text{V}$)</td>
+<td style="text-align: left;">Isolated Analog Voltage (<span class="arithmatex">\(\pm 10\text{V}\)</span>)</td>
 <td style="text-align: left;">DC electric arc-furnace overcurrent, rail traction motor flashover</td>
-<td style="text-align: left;">Linearity verification across $0\text{ to }50{,}000\,\text{A}$; detects sudden saturation plateaus caused by short-circuit faults.</td>
+<td style="text-align: left;">Linearity verification across <span class="arithmatex">\(0\text{ to }50{,}000\,\text{A}\)</span>; detects sudden saturation plateaus caused by short-circuit faults.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>75</strong></td>
 <td style="text-align: left;"><strong>Search Coil (Induction Magnetometer)</strong></td>
 <td style="text-align: left;">Wideband High-Gain Pre-Amp</td>
 <td style="text-align: left;">Intentional Electromagnetic Interference (IEMI), EMP pulse detection</td>
-<td style="text-align: left;">Detects rapid magnetic field transients $\frac{d\mathbf{B}}{dt} &gt; 10^6\,\text{T/s}$, triggering ultra-fast hardware decoupling crowbars.</td>
+<td style="text-align: left;">Detects rapid magnetic field transients <span class="arithmatex">\(\frac{d\mathbf{B}}{dt} &gt; 10^6\,\text{T/s}\)</span>, triggering ultra-fast hardware decoupling crowbars.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>76</strong></td>
 <td style="text-align: left;"><strong>Atomic Spin-Exchange Relaxation-Free (SERF) Magnetometer</strong></td>
 <td style="text-align: left;">Rubidium Vapor Optical Cell</td>
 <td style="text-align: left;">Quantum-level side-channel snooping, covert magnetic key extraction</td>
-<td style="text-align: left;">Femtotesla sensitivity ($&lt; 1\,\text{fT}/\sqrt{\text{Hz}}$); detects microscopic magnetic fields radiated by CPU cryptographic operations.</td>
+<td style="text-align: left;">Femtotesla sensitivity (<span class="arithmatex">\(&lt; 1\,\text{fT}/\sqrt{\text{Hz}}\)</span>); detects microscopic magnetic fields radiated by CPU cryptographic operations.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>77</strong></td>
 <td style="text-align: left;"><strong>Giant Magnetoresistive (GMR) Angle Sensor</strong></td>
 <td style="text-align: left;">Differential Analog Bridge</td>
 <td style="text-align: left;">Actuator gear tooth slippage, motor back-turn tampering</td>
-<td style="text-align: left;">Mechanical shaft angle $\theta$ cross-checked against optical encoder pulses; mismatch indicates mechanical gear strip or drive slip.</td>
+<td style="text-align: left;">Mechanical shaft angle <span class="arithmatex">\(\theta\)</span> cross-checked against optical encoder pulses; mismatch indicates mechanical gear strip or drive slip.</td>
 </tr>
 </tbody>
 </table>
@@ -43354,49 +43354,49 @@
 <td style="text-align: left;"><strong>Capacitive Voltage Divider (CVD) Transient Sensor</strong></td>
 <td style="text-align: left;">Sub-Nanosecond Coaxial Cable</td>
 <td style="text-align: left;">High-voltage switching surge, lightning strike overvoltage injection</td>
-<td style="text-align: left;">Captures sub-microsecond voltage wavefronts ($dV/dt &gt; 100\,\text{kV}/\mu\text{s}$), verifying lightning arrester conduction before transformer flashover.</td>
+<td style="text-align: left;">Captures sub-microsecond voltage wavefronts (<span class="arithmatex">\(dV/dt &gt; 100\,\text{kV}/\mu\text{s}\)</span>), verifying lightning arrester conduction before transformer flashover.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>79</strong></td>
 <td style="text-align: left;"><strong>Corona Discharge Ultraviolet (UV) Imager</strong></td>
-<td style="text-align: left;">Solar-Blind UV Sensor ($240\text{--}280\text{ nm}$)</td>
+<td style="text-align: left;">Solar-Blind UV Sensor (<span class="arithmatex">\(240\text{--}280\text{ nm}\)</span>)</td>
 <td style="text-align: left;">High-voltage transmission line insulator degradation, nitric acid buildup</td>
-<td style="text-align: left;">Photon counting rate $N_{\text{photons}}/\text{sec} \le \tau_{\text{corona}}$; flags localized electrical air ionization before line flashover occurs.</td>
+<td style="text-align: left;">Photon counting rate <span class="arithmatex">\(N_{\text{photons}}/\text{sec} \le \tau_{\text{corona}}\)</span>; flags localized electrical air ionization before line flashover occurs.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>80</strong></td>
 <td style="text-align: left;"><strong>Surge Arrester Resistive Leakage Current Monitor</strong></td>
 <td style="text-align: left;">High-Accuracy Hall Sensor / Modbus</td>
 <td style="text-align: left;">Metal-Oxide Varistor (MOV) thermal runaway, arrester explosion</td>
-<td style="text-align: left;">Extracts 3rd harmonic resistive leakage current component $I_{3r}$; $I_{3r} &gt; 50\,\mu\text{A}$ indicates moisture ingress or thermal breakdown.</td>
+<td style="text-align: left;">Extracts 3rd harmonic resistive leakage current component <span class="arithmatex">\(I_{3r}\)</span>; <span class="arithmatex">\(I_{3r} &gt; 50\,\mu\text{A}\)</span> indicates moisture ingress or thermal breakdown.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>81</strong></td>
 <td style="text-align: left;"><strong>Neutral Grounding Resistor (NGR) Current Monitor</strong></td>
 <td style="text-align: left;">High-Current CT / Modbus</td>
 <td style="text-align: left;">Single-line-to-ground fault injection, substation phase-ground shorting</td>
-<td style="text-align: left;">Neutral current must remain $I_{\text{neutral}} \approx 0\,\text{A}$; continuous current $&gt; 5\,\text{A}$ trips ground-fault protection in $&lt; 100\,\text{ms}$.</td>
+<td style="text-align: left;">Neutral current must remain <span class="arithmatex">\(I_{\text{neutral}} \approx 0\,\text{A}\)</span>; continuous current <span class="arithmatex">\(&gt; 5\,\text{A}\)</span> trips ground-fault protection in <span class="arithmatex">\(&lt; 100\,\text{ms}\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>82</strong></td>
 <td style="text-align: left;"><strong>Precision Current Shunt Resistor</strong></td>
-<td style="text-align: left;">Isolated Delta-Sigma ADC ($24\text{-bit}$)</td>
+<td style="text-align: left;">Isolated Delta-Sigma ADC (<span class="arithmatex">\(24\text{-bit}\)</span>)</td>
 <td style="text-align: left;">Battery cell balance tampering, BMS current-measurement bypass</td>
-<td style="text-align: left;">Continuous Coulomb counting integration $\int I(t) dt$; verifies battery pack state-of-charge conservation laws.</td>
+<td style="text-align: left;">Continuous Coulomb counting integration <span class="arithmatex">\(\int I(t) dt\)</span>; verifies battery pack state-of-charge conservation laws.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>83</strong></td>
 <td style="text-align: left;"><strong>High-Frequency Rogowski Coil Sensor</strong></td>
 <td style="text-align: left;">Analog Integrator Circuit</td>
 <td style="text-align: left;">Sub-millisecond breaker trip verification, HVDC commutation failure</td>
-<td style="text-align: left;">Bandwidth up to $50\,\text{MHz}$; detects exact instantaneous current zero-crossing point ($I(t) = 0$) for synchronous breaker opening.</td>
+<td style="text-align: left;">Bandwidth up to <span class="arithmatex">\(50\,\text{MHz}\)</span>; detects exact instantaneous current zero-crossing point (<span class="arithmatex">\(I(t) = 0\)</span>) for synchronous breaker opening.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>84</strong></td>
 <td style="text-align: left;"><strong>Ground Potential Rise (GPR) Transducer</strong></td>
 <td style="text-align: left;">Isolated Fiber-Optic Voltage Link</td>
 <td style="text-align: left;">Substation copper grounding grid theft/severance, touch-voltage hazard</td>
-<td style="text-align: left;">Ground grid potential rise $\Delta V_{\text{ground}} \le 430\,\text{V}$ (IEEE 80 limit); severed ground grid flags immediate electrocution hazard.</td>
+<td style="text-align: left;">Ground grid potential rise <span class="arithmatex">\(\Delta V_{\text{ground}} \le 430\,\text{V}\)</span> (IEEE 80 limit); severed ground grid flags immediate electrocution hazard.</td>
 </tr>
 </tbody>
 </table>
@@ -43419,21 +43419,21 @@
 <td style="text-align: left;"><strong>Geiger-Müller (GM) Radiation Counter</strong></td>
 <td style="text-align: left;">High-Voltage Pulse Inverter (GPIO)</td>
 <td style="text-align: left;">Radioactive isotope theft, dirty bomb deployment, cobalt-60 spill</td>
-<td style="text-align: left;">Dose rate $\dot{D} \le \text{Background} + 3\sigma$; sudden count rate spike ($&gt; 100\,\mu\text{Sv/h}$) locks down facility air handlers.</td>
+<td style="text-align: left;">Dose rate <span class="arithmatex">\(\dot{D} \le \text{Background} + 3\sigma\)</span>; sudden count rate spike (<span class="arithmatex">\(&gt; 100\,\mu\text{Sv/h}\)</span>) locks down facility air handlers.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>86</strong></td>
 <td style="text-align: left;"><strong>Thallium-Doped Sodium Iodide (NaI:Tl) Scintillator</strong></td>
 <td style="text-align: left;">Multi-Channel Analyzer (MCA) via USB</td>
-<td style="text-align: left;">Enriched uranium ($^{235}\text{U}$) / plutonium ($^{239}\text{Pu}$) diversion</td>
-<td style="text-align: left;">1024-channel gamma spectroscopy isolates specific isotope energy photopeaks ($185.7\,\text{keV}$ for $^{235}\text{U}$, $662\,\text{keV}$ for $^{137}\text{Cs}$).</td>
+<td style="text-align: left;">Enriched uranium (<span class="arithmatex">\(^{235}\text{U}\)</span>) / plutonium (<span class="arithmatex">\(^{239}\text{Pu}\)</span>) diversion</td>
+<td style="text-align: left;">1024-channel gamma spectroscopy isolates specific isotope energy photopeaks (<span class="arithmatex">\(185.7\,\text{keV}\)</span> for <span class="arithmatex">\(^{235}\text{U}\)</span>, <span class="arithmatex">\(662\,\text{keV}\)</span> for <span class="arithmatex">\(^{137}\text{Cs}\)</span>).</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>87</strong></td>
 <td style="text-align: left;"><strong>Cherenkov Radiation Photomultiplier (PMT)</strong></td>
 <td style="text-align: left;">High-Sensitivity Optical Sensor</td>
 <td style="text-align: left;">Spent fuel pool illicit fuel rod removal, reactor prompt criticality</td>
-<td style="text-align: left;">Blue Cherenkov light intensity ($\lambda \approx 400\text{--}450\,\text{nm}$) must correlate with reactor thermal fission power $P_{\text{thermal}}$.</td>
+<td style="text-align: left;">Blue Cherenkov light intensity (<span class="arithmatex">\(\lambda \approx 400\text{--}450\,\text{nm}\)</span>) must correlate with reactor thermal fission power <span class="arithmatex">\(P_{\text{thermal}}\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>88</strong></td>
@@ -43447,14 +43447,14 @@
 <td style="text-align: left;"><strong>Chemical Vapor Deposition (CVD) Diamond Beam Loss Monitor</strong></td>
 <td style="text-align: left;">Sub-Nanosecond RF Stripline</td>
 <td style="text-align: left;">Particle collider relativistic beam loss, vacuum pipe puncture</td>
-<td style="text-align: left;">Radiation hardness up to $10^{16}\,\text{protons/cm}^2$; detects lost beam particles and triggers beam dump kickers in $&lt; 1.0\,\mu\text{s}$.</td>
+<td style="text-align: left;">Radiation hardness up to <span class="arithmatex">\(10^{16}\,\text{protons/cm}^2\)</span>; detects lost beam particles and triggers beam dump kickers in <span class="arithmatex">\(&lt; 1.0\,\mu\text{s}\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>90</strong></td>
 <td style="text-align: left;"><strong>Continuous Alpha Air Monitor (CAM)</strong></td>
 <td style="text-align: left;">Silicon Surface Barrier Detector</td>
 <td style="text-align: left;">Inhaled transuranic aerosol release, plutonium glovebox breach</td>
-<td style="text-align: left;">Radon background stripping via alpha energy peak fitting ($5.15\,\text{MeV}$ for $^{239}\text{Pu}$ vs $6.0\text{--}8.78\,\text{MeV}$ for radon daughters).</td>
+<td style="text-align: left;">Radon background stripping via alpha energy peak fitting (<span class="arithmatex">\(5.15\,\text{MeV}\)</span> for <span class="arithmatex">\(^{239}\text{Pu}\)</span> vs <span class="arithmatex">\(6.0\text{--}8.78\,\text{MeV}\)</span> for radon daughters).</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>91</strong></td>
@@ -43484,7 +43484,7 @@
 <td style="text-align: left;"><strong>Heated Pitot-Static Pressure Probe</strong></td>
 <td style="text-align: left;">ARINC 429 Air Data Computer</td>
 <td style="text-align: left;">Airspeed falsification, pitot-tube heater sabotage (AF447 disaster)</td>
-<td style="text-align: left;">Dynamic pressure $q = \frac{1}{2}\rho v^2$; airspeed must strictly correlate with GPS groundspeed, wind vectors, and engine thrust settings.</td>
+<td style="text-align: left;">Dynamic pressure <span class="arithmatex">\(q = \frac{1}{2}\rho v^2\)</span>; airspeed must strictly correlate with GPS groundspeed, wind vectors, and engine thrust settings.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>93</strong></td>
@@ -43498,35 +43498,35 @@
 <td style="text-align: left;"><strong>Total Air Temperature (TAT) Rosemount Probe</strong></td>
 <td style="text-align: left;">Platinum RTD (ARINC 429)</td>
 <td style="text-align: left;">Jet engine compressor face icing, false Mach number calculation</td>
-<td style="text-align: left;">Stagnation temperature $T_{\text{total}} = T_{\text{static}}\left(1 + \frac{\gamma - 1}{2} M^2\right)$; mismatch detects heater failure or icing.</td>
+<td style="text-align: left;">Stagnation temperature <span class="arithmatex">\(T_{\text{total}} = T_{\text{static}}\left(1 + \frac{\gamma - 1}{2} M^2\right)\)</span>; mismatch detects heater failure or icing.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>95</strong></td>
 <td style="text-align: left;"><strong>Coarse Sun Sensor (CSS) Photodiode Array</strong></td>
 <td style="text-align: left;">Analog SpaceWire Sensor</td>
 <td style="text-align: left;">Spacecraft tumbling, loss of sun-pointing attitude</td>
-<td style="text-align: left;">Computes solar vector $\mathbf{S}_{\text{body}} = [s_x, s_y, s_z]^T$; triggers emergency thruster despin if solar panels lose illumination.</td>
+<td style="text-align: left;">Computes solar vector <span class="arithmatex">\(\mathbf{S}_{\text{body}} = [s_x, s_y, s_z]^T\)</span>; triggers emergency thruster despin if solar panels lose illumination.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>96</strong></td>
 <td style="text-align: left;"><strong>Earth Horizon Crossing Indicator (Infrared)</strong></td>
 <td style="text-align: left;">Bolometer Scanner (SpaceWire)</td>
 <td style="text-align: left;">Satellite nadir-pointing loss, gyroless attitude deception</td>
-<td style="text-align: left;">Senses the $14\text{--}16\,\mu\text{m}$ atmospheric carbon dioxide layer to lock satellite Z-axis directly to the center of the Earth.</td>
+<td style="text-align: left;">Senses the <span class="arithmatex">\(14\text{--}16\,\mu\text{m}\)</span> atmospheric carbon dioxide layer to lock satellite Z-axis directly to the center of the Earth.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>97</strong></td>
 <td style="text-align: left;"><strong>Solid-State Cosmic Ray Proton Telescope</strong></td>
 <td style="text-align: left;">Silicon Microstrip Array</td>
 <td style="text-align: left;">Solar Particle Event (SPE) radiation storms, single-event latchups</td>
-<td style="text-align: left;">Proton flux $&gt; 100\,\text{pfu}$ at $&gt; 10\,\text{MeV}$ commands satellite payload computers to shut down into hardened safe-mode.</td>
+<td style="text-align: left;">Proton flux <span class="arithmatex">\(&gt; 100\,\text{pfu}\)</span> at <span class="arithmatex">\(&gt; 10\,\text{MeV}\)</span> commands satellite payload computers to shut down into hardened safe-mode.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>98</strong></td>
 <td style="text-align: left;"><strong>Laser Altimeter / Lidar Rangefinder</strong></td>
 <td style="text-align: left;">Spacecraft Time-of-Flight Receiver</td>
 <td style="text-align: left;">Autonomous lunar/planetary landing terrain elevation spoofing</td>
-<td style="text-align: left;">Pulse flight time $\Delta t = \frac{2h}{c}$; altitude must correlate with inertial navigation integration ($h(t) \approx h_0 - \int v_z dt$).</td>
+<td style="text-align: left;">Pulse flight time <span class="arithmatex">\(\Delta t = \frac{2h}{c}\)</span>; altitude must correlate with inertial navigation integration (<span class="arithmatex">\(h(t) \approx h_0 - \int v_z dt\)</span>).</td>
 </tr>
 </tbody>
 </table>
@@ -43549,21 +43549,21 @@
 <td style="text-align: left;"><strong>Acoustic Doppler Current Profiler (ADCP)</strong></td>
 <td style="text-align: left;">4-Beam Janus Acoustic Array</td>
 <td style="text-align: left;">UUV dead-reckoning drift, underwater current spoofing</td>
-<td style="text-align: left;">Doppler frequency shift $f_d = \frac{2 f_0 v \cos\theta}{c}$; calculates 3D water velocity column and bottom-tracking velocity.</td>
+<td style="text-align: left;">Doppler frequency shift <span class="arithmatex">\(f_d = \frac{2 f_0 v \cos\theta}{c}\)</span>; calculates 3D water velocity column and bottom-tracking velocity.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>100</strong></td>
 <td style="text-align: left;"><strong>Conductivity-Temperature-Depth (CTD) Sensor</strong></td>
 <td style="text-align: left;">High-Precision Inductive Cell</td>
 <td style="text-align: left;">Underwater speed-of-sound profile manipulation, sonar spoofing</td>
-<td style="text-align: left;">UNESCO 1983 Equation of State for Seawater; calculates sound velocity $c(S, T, P)$ to detect acoustic shadow-zone evasion.</td>
+<td style="text-align: left;">UNESCO 1983 Equation of State for Seawater; calculates sound velocity <span class="arithmatex">\(c(S, T, P)\)</span> to detect acoustic shadow-zone evasion.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>101</strong></td>
 <td style="text-align: left;"><strong>Subsea Resonant Quartz Depth Transducer</strong></td>
-<td style="text-align: left;">RS-485 / Subsea MUX ($0.01\%\text{ accuracy}$)</td>
+<td style="text-align: left;">RS-485 / Subsea MUX (<span class="arithmatex">\(0.01\%\text{ accuracy}\)</span>)</td>
 <td style="text-align: left;">Submersible crush-depth falsification, seafloor tsunami detection</td>
-<td style="text-align: left;">Resonant frequency shift of quartz crystal beam under hydrostatic pressure; detects pressure anomalies of $&lt; 1\,\text{mm}$ water column.</td>
+<td style="text-align: left;">Resonant frequency shift of quartz crystal beam under hydrostatic pressure; detects pressure anomalies of <span class="arithmatex">\(&lt; 1\,\text{mm}\)</span> water column.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>102</strong></td>
@@ -43575,9 +43575,9 @@
 <tr>
 <td style="text-align: center;"><strong>103</strong></td>
 <td style="text-align: left;"><strong>Turbidity Optical Backscatter Sensor (OBS)</strong></td>
-<td style="text-align: left;">Infrared Scattering Diode ($850\text{ nm}$)</td>
+<td style="text-align: left;">Infrared Scattering Diode (<span class="arithmatex">\(850\text{ nm}\)</span>)</td>
 <td style="text-align: left;">Illegal seabed dredging, covert submarine trenching near cables</td>
-<td style="text-align: left;">Backscatter nephelometric turbidity units ($\text{NTU}$); sudden plume spike flags physical excavation near subsea fiber lines.</td>
+<td style="text-align: left;">Backscatter nephelometric turbidity units (<span class="arithmatex">\(\text{NTU}\)</span>); sudden plume spike flags physical excavation near subsea fiber lines.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>104</strong></td>
@@ -43591,7 +43591,7 @@
 <td style="text-align: left;"><strong>Forward-Looking Obstacle Avoidance Sonar (FLS)</strong></td>
 <td style="text-align: left;">2D Multibeam Acoustic Array</td>
 <td style="text-align: left;">Autonomous UUV collision with unmapped subsea terrain / mines</td>
-<td style="text-align: left;">Generates real-time 3D bathymetric mesh; enforces obstacle clearance barrier ($d_{\text{obstacle}} \ge v_{\text{UUV}} \cdot t_{\text{stop}} + d_{\text{margin}}$).</td>
+<td style="text-align: left;">Generates real-time 3D bathymetric mesh; enforces obstacle clearance barrier (<span class="arithmatex">\(d_{\text{obstacle}} \ge v_{\text{UUV}} \cdot t_{\text{stop}} + d_{\text{margin}}\)</span>).</td>
 </tr>
 </tbody>
 </table>
@@ -43612,51 +43612,51 @@
 <tr>
 <td style="text-align: center;"><strong>106</strong></td>
 <td style="text-align: left;"><strong>Residual Gas Analyzer (RGA) Quadrupole Mass Spectrometer</strong></td>
-<td style="text-align: left;">Ethernet / Modbus TCP ($1\text{--}200\text{ AMU}$)</td>
+<td style="text-align: left;">Ethernet / Modbus TCP (<span class="arithmatex">\(1\text{--}200\text{ AMU}\)</span>)</td>
 <td style="text-align: left;">Cleanroom vacuum chamber micro-leakage, chemical sabotage</td>
-<td style="text-align: left;">Monitors partial pressures of mass-to-charge ratios ($m/z = 18$ for $\text{H}_2\text{O}$, $28$ for $\text{N}_2$, $32$ for $\text{O}_2$); detects atmospheric leaks $&lt; 10^{-11}\,\text{mbar}\cdot\text{L/s}$.</td>
+<td style="text-align: left;">Monitors partial pressures of mass-to-charge ratios (<span class="arithmatex">\(m/z = 18\)</span> for <span class="arithmatex">\(\text{H}_2\text{O}\)</span>, <span class="arithmatex">\(28\)</span> for <span class="arithmatex">\(\text{N}_2\)</span>, <span class="arithmatex">\(32\)</span> for <span class="arithmatex">\(\text{O}_2\)</span>); detects atmospheric leaks <span class="arithmatex">\(&lt; 10^{-11}\,\text{mbar}\cdot\text{L/s}\)</span>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>107</strong></td>
 <td style="text-align: left;"><strong>Capacitance Diaphragm Vacuum Gauge (CDG)</strong></td>
 <td style="text-align: left;">Ultra-Linear Dual-Electrode Sensor</td>
 <td style="text-align: left;">Toxic precursor gas overpressure in atomic layer deposition (ALD)</td>
-<td style="text-align: left;">Ceramic diaphragm deflection independent of gas species; verifies absolute chamber vacuum with $0.05\%$ accuracy.</td>
+<td style="text-align: left;">Ceramic diaphragm deflection independent of gas species; verifies absolute chamber vacuum with <span class="arithmatex">\(0.05\%\)</span> accuracy.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>108</strong></td>
 <td style="text-align: left;"><strong>Optical Emission Spectroscopy (OES) Plasma Sensor</strong></td>
 <td style="text-align: left;">High-Resolution UV-VIS Spectrometer</td>
 <td style="text-align: left;">Semiconductor wafer over-etching, gate dielectric punch-through</td>
-<td style="text-align: left;">Tracks emission lines of active chemical radicals (e.g. fluorine at $703.7\,\text{nm}$); slope change flags exact atomic etch completion.</td>
+<td style="text-align: left;">Tracks emission lines of active chemical radicals (e.g. fluorine at <span class="arithmatex">\(703.7\,\text{nm}\)</span>); slope change flags exact atomic etch completion.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>109</strong></td>
 <td style="text-align: left;"><strong>Langmuir Plasma Electric Probe</strong></td>
 <td style="text-align: left;">High-Speed Voltage Sweep Circuit</td>
 <td style="text-align: left;">Plasma density non-uniformity causing uneven microchip etching</td>
-<td style="text-align: left;">I-V curve analysis extracts electron temperature $T_e$ and plasma density $n_e$; flags RF generator phase imbalances.</td>
+<td style="text-align: left;">I-V curve analysis extracts electron temperature <span class="arithmatex">\(T_e\)</span> and plasma density <span class="arithmatex">\(n_e\)</span>; flags RF generator phase imbalances.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>110</strong></td>
 <td style="text-align: left;"><strong>Quartz Crystal Microbalance (QCM) Deposition Sensor</strong></td>
 <td style="text-align: left;">High-Frequency Oscillator Bridge</td>
 <td style="text-align: left;">Atomic film deposition rate runaway, evaporation crucible depletion</td>
-<td style="text-align: left;">Sauerbrey equation: $\Delta f = -\frac{2 f_0^2}{A \sqrt{\rho_q \mu_q}} \Delta m$; detects sub-nanogram atomic mass accumulation per second.</td>
+<td style="text-align: left;">Sauerbrey equation: <span class="arithmatex">\(\Delta f = -\frac{2 f_0^2}{A \sqrt{\rho_q \mu_q}} \Delta m\)</span>; detects sub-nanogram atomic mass accumulation per second.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>111</strong></td>
 <td style="text-align: left;"><strong>Cleanroom Condensation Particle Counter (CPC)</strong></td>
 <td style="text-align: left;">Alcohol Condensation Laser Scattering</td>
 <td style="text-align: left;">HEPA/ULPA filter failure, saboteur cleanroom seal breach</td>
-<td style="text-align: left;">Detects airborne nanoparticles down to $4\,\text{nm}$; counts must strictly comply with ISO 14644-1 Class 1 cleanroom limits.</td>
+<td style="text-align: left;">Detects airborne nanoparticles down to <span class="arithmatex">\(4\,\text{nm}\)</span>; counts must strictly comply with ISO 14644-1 Class 1 cleanroom limits.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>112</strong></td>
 <td style="text-align: left;"><strong>Laser Ellipsometer Thin-Film Thickness Sensor</strong></td>
 <td style="text-align: left;">Polarized Laser + Rotating Analyzer</td>
 <td style="text-align: left;">Gate oxide dielectric thickness falsification, transistor failure</td>
-<td style="text-align: left;">Measures amplitude ratio $\Psi$ and phase difference $\Delta$ of reflected light, resolving atomic layer thicknesses to within $\pm 0.01\,\text{nm}$.</td>
+<td style="text-align: left;">Measures amplitude ratio <span class="arithmatex">\(\Psi\)</span> and phase difference <span class="arithmatex">\(\Delta\)</span> of reflected light, resolving atomic layer thicknesses to within <span class="arithmatex">\(\pm 0.01\,\text{nm}\)</span>.</td>
 </tr>
 </tbody>
 </table>
@@ -43677,14 +43677,14 @@
 <tr>
 <td style="text-align: center;"><strong>113</strong></td>
 <td style="text-align: left;"><strong>Bio-Impedance Spectroscopy Probe</strong></td>
-<td style="text-align: left;">Multi-Frequency AC Bridge ($100\text{ Hz}\text{--}10\text{ MHz}$)</td>
+<td style="text-align: left;">Multi-Frequency AC Bridge (<span class="arithmatex">\(100\text{ Hz}\text{--}10\text{ MHz}\)</span>)</td>
 <td style="text-align: left;">Bioreactor cell culture collapse, toxic chemical agent injection</td>
-<td style="text-align: left;">Capacitance of mammalian cell membranes ($C_{\text{mem}} \propto \text{Viable Cell Density}$); sudden drop indicates intentional pathogen injection.</td>
+<td style="text-align: left;">Capacitance of mammalian cell membranes (<span class="arithmatex">\(C_{\text{mem}} \propto \text{Viable Cell Density}\)</span>); sudden drop indicates intentional pathogen injection.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>114</strong></td>
 <td style="text-align: left;"><strong>Inline Process Raman Spectroscopy Probe</strong></td>
-<td style="text-align: left;">$785\text{ nm}$ Stabilized Laser Spectrometer</td>
+<td style="text-align: left;"><span class="arithmatex">\(785\text{ nm}\)</span> Stabilized Laser Spectrometer</td>
 <td style="text-align: left;">Pharmaceutical ingredient substitution, batch adulteration</td>
 <td style="text-align: left;">Inelastic molecular vibrational scattering fingerprint verifies chemical functional groups in real time without sampling.</td>
 </tr>
@@ -43693,19 +43693,19 @@
 <td style="text-align: left;"><strong>Total Organic Carbon (TOC) Water Analyzer</strong></td>
 <td style="text-align: left;">UV Persulfate Oxidation / NDIR</td>
 <td style="text-align: left;">Water-for-Injection (WFI) microbial contamination, biofilm breach</td>
-<td style="text-align: left;">Conductometric measurement of oxidized carbon; $\text{TOC} \le 500\,\text{ppb}$ (USP $&lt;643&gt;$ pharmaceutical compliance standard).</td>
+<td style="text-align: left;">Conductometric measurement of oxidized carbon; <span class="arithmatex">\(\text{TOC} \le 500\,\text{ppb}\)</span> (USP <span class="arithmatex">\(&lt;643&gt;\)</span> pharmaceutical compliance standard).</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>116</strong></td>
 <td style="text-align: left;"><strong>Tuning-Fork Industrial Fluid Viscometer</strong></td>
 <td style="text-align: left;">Resonant Piezoelectric Transducer</td>
 <td style="text-align: left;">Lubrication oil thermal degradation, chemical polymerization runaway</td>
-<td style="text-align: left;">Damping of oscillating mechanical tine reveals dynamic viscosity $\mu$; sudden viscosity spike stops mixing to prevent motor burnout.</td>
+<td style="text-align: left;">Damping of oscillating mechanical tine reveals dynamic viscosity <span class="arithmatex">\(\mu\)</span>; sudden viscosity spike stops mixing to prevent motor burnout.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>117</strong></td>
 <td style="text-align: left;"><strong>Piezoelectric Matrix Tactile Floor Mat</strong></td>
-<td style="text-align: left;">High-Density Pressure Grid ($100\text{ Hz}$)</td>
+<td style="text-align: left;">High-Density Pressure Grid (<span class="arithmatex">\(100\text{ Hz}\)</span>)</td>
 <td style="text-align: left;">Tailgating in physical security mantraps, unauthorized access</td>
 <td style="text-align: left;">Weight, stride cadence, and foot pressure distribution must match authorized badge credentials; dual-weight flags tailgaters.</td>
 </tr>
@@ -43721,14 +43721,14 @@
 <td style="text-align: left;"><strong>Process Nuclear Magnetic Resonance (NMR) Analyzer</strong></td>
 <td style="text-align: left;">Low-Field Permanent Magnet System</td>
 <td style="text-align: left;">Petrochemical octane rating spoofing, crude oil pipeline adulteration</td>
-<td style="text-align: left;">Proton ($^1\text{H}$) spin-lattice relaxation time ($T_1, T_2$) maps exact molecular hydrocarbon chain lengths in flowing crude oil.</td>
+<td style="text-align: left;">Proton (<span class="arithmatex">\(^1\text{H}\)</span>) spin-lattice relaxation time (<span class="arithmatex">\(T_1, T_2\)</span>) maps exact molecular hydrocarbon chain lengths in flowing crude oil.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>120</strong></td>
 <td style="text-align: left;"><strong>Fiber-Optic Refractometer (Fresnel Reflection)</strong></td>
 <td style="text-align: left;">Cleaved Optical Fiber Tip + Photodiode</td>
 <td style="text-align: left;">Liquid fuel contamination, chemical solvent dilution fraud</td>
-<td style="text-align: left;">Measures refractive index $n$ via Fresnel reflection intensity ($R = \left</td>
+<td style="text-align: left;">Measures refractive index <span class="arithmatex">\(n\)</span> via Fresnel reflection intensity ($R = \left</td>
 </tr>
 </tbody>
 </table>
@@ -43831,6 +43831,10 @@
       
       
         <script src="../../../../../../../javascripts/accordion.js"></script>
+      
+        <script src="../../../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
