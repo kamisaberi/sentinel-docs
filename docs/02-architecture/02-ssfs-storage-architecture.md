@@ -16,47 +16,19 @@ All binaries (`aryo`, `sentinel`, `sentinel-ctl`, `sentinel-nexus`) and Python t
 
 ---
 
-## 2. The 7 Primary Artifact Classes
+## 2. The 7 Primary Artifact Classes (SSFS Topology)
 
-```text
-${SENTINEL_ROOT}/
-├── spkg/                       <-- Sentinel Distribution Packages (.spkg.zst)
-│   ├── installed/              <-- Active unpacked plugins (/web, /plugins.d)
-│   ├── cache/                  <-- Signed package tarballs
-│   └── staging/                <-- Atomic verification workspace
-│
-├── scenarios/                  <-- Digital Twin Simulation Meshes
-│   ├── catalog/                <-- Declarative scenario definitions (scenario.yaml)
-│   ├── workspaces/             <-- Rendered Docker Compose workspaces (<slug>/)
-│   └── snapshots/              <-- Incident memory & telemetry dumps
-│
-├── blueprints/                 <-- Hardware & Network Topology Blueprints
-│   ├── hardware/               <-- PCIe BDF addresses, AF_XDP NIC bindings
-│   ├── apparatus/              <-- Plant ODE descriptors & 3D keep-out meshes
-│   └── tsn/                    <-- IEEE 802.1Qbv cycle slot schedules
-│
-├── models/                     <-- Machine Learning Model Substrate
-│   ├── registry/<sha256>       <-- Content-Addressable Storage (CAS) of verified base models
-│   ├── calibrated/             <-- Domain-specific autoencoders (water_dosing_ae.onnx, etc.)
-│   └── forge/checkpoints/      <-- xinfer-forge continual learning representations
-│
-├── slab/                       <-- Sentinel Lab Research Testbed
-│   ├── experiments/            <-- 14-D state trajectories & Lyaponuv metrics
-│   ├── benchmarks/             <-- Sub-120 ns hardware cycle histograms
-│   └── trajectories/           <-- Runge-Kutta 4th-Order phase space logs
-│
-├── artifacts/                  <-- Heavy Binary Asset Ingress
-│   ├── pcaps/                  <-- Raw wire captures cataloged by protocol
-│   └── downloads/              <-- Transient HTTPS & Git LFS download buffers
-│
-├── pki/                        <-- Hardware Silicon Identity & mTLS
-│   ├── ca/                     <-- Root & Intermediate authority certs
-│   ├── certs/                  <-- Node cryptographic credentials
-│   └── tpm/                    <-- Physical TPM 2.0 SRK handles & PCR quotes
-│
-└── runtime/                    <-- Volatile IPC descriptor handles
-    ├── sockets/                <-- AF_UNIX domain bridges (can://bus0)
-    └── locks/                  <-- Kernel advisory concurrency locks
+```mermaid
+graph TD
+    ROOT["${SENTINEL_ROOT} (/var/lib/sentinel or ~/.sentinel)"]
+    ROOT --> SPKG["spkg/ (installed, cache, staging)"]
+    ROOT --> SCEN["scenarios/ (catalog, workspaces, snapshots)"]
+    ROOT --> BP["blueprints/ (hardware, apparatus, tsn)"]
+    ROOT --> MOD["models/ (registry/<sha256>, calibrated, forge)"]
+    ROOT --> SLAB["slab/ (experiments, benchmarks, trajectories)"]
+    ROOT --> ART["artifacts/ (pcaps, downloads)"]
+    ROOT --> PKI["pki/ (ca, certs, tpm)"]
+    ROOT --> RUN["runtime/ (sockets, locks)"]
 ```
 
 ---
