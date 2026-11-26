@@ -5,6 +5,7 @@
 ---
 
 ## 1. Specifications & Standards
+
 * **Standards Compliance:** IEC 62443-4-2, IEC 60870-5-104, IEEE C37.118.2 PMU, EU NIS2.
 * **Protocols Parsed:** Modbus TCP (`:502`), Siemens S7Comm (`:102`), IEC 60870-5-104 (`:2404`), IEEE C37.118 Synchrophasor (`:15501`).
 * **Mean Latency:** **11.96 ns** (P99: 12.87 ns) under 100,000-frame hardware cycle benchmarks.
@@ -19,7 +20,9 @@ Beyond protocol syntax validation, `ics-guard` incorporates an embedded Runge-Ku
 $$\dot{T} = \frac{Q_{\text{in}} - U \cdot A \cdot (T - T_{\text{cool}})}{C_{\text{thermal}}}$$
 
 Physical safety invariance is enforced via a Nagumo barrier function:
+
 $$h(T) = T_{\text{critical}} - T \ge 0$$
+
 $$\dot{h}(T) + \gamma \cdot h(T) \ge 0$$
 
 If incoming telemetry indicates that a setpoint change will breach the critical safety envelope within the critical clearing time ($t_{\text{crit}} \le 38.4\text{ ms}$), the command is intercepted and dropped at line rate.
