@@ -871,6 +871,25 @@
       
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #3: net-guard
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="././" class="md-nav__link md-nav__link--active">
         
@@ -887,6 +906,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-post-quantum-cryptography-engine-pqc_kem_enginehpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Post-Quantum Cryptography Engine (<code>pqc_kem_engine.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -43008,6 +43069,13 @@
                     
                     
                     
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -43018,6 +43086,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-post-quantum-cryptography-engine-pqc_kem_enginehpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Post-Quantum Cryptography Engine (<code>pqc_kem_engine.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -43034,19 +43134,23 @@
                   
 
 
-  <h1>Cartridge #3: net-guard</h1>
-
-<p>Cartridge #3: net-guard (5G Telecom &amp; FinTech Infrastructure)
-net-guard provides ultra-low latency filtering for 5G User Plane Functions (UPF), Open-RAN fronthaul/midhaul, non-IP Layer-2 substation buses, and high-frequency trading (HFT) feeds.
-1. Specifications &amp; Standards
-Standards Compliance: 3GPP Release 17 (TS 29.281 GTP-U), IEC 61850-8-1 (GOOSE), IEC 61850-9-2 (Sampled Values), O-RAN E2AP, NASDAQ ITCH 5.0, FIPS 203 (ML-KEM).
-Protocols Parsed: 3GPP GTP-U (:2152), Non-IP L2 GOOSE (0x88B8), Non-IP L2 SV (0x88BA), NASDAQ ITCH 5.0 (:9001), O-RAN E2AP (:36422).
-Mean Latency: 18.42 ns (P99: 24.11 ns) under 100,000-frame hardware cycle benchmarks.
-Digital Twin: scenarios/telco_5g_fintech_grid (11 nodes on 10.240.60.0/24, ports :18096–18098).
-2. Post-Quantum Cryptography Engine (pqc_kem_engine.hpp)
-net-guard incorporates native OpenSSL 3.5.5 FIPS 203 ML-KEM-768 and ML-KEM-1024 post-quantum key encapsulation mechanism (KEM) support:
-Quantum Harvest-Now-Decrypt-Later Defense: Enforces post-quantum cipher suites for control-plane TLS 1.3 handshakes.
-Constant-Time Verification: Rejects tampered ciphertexts with implicit rejection to prevent timing side-channel leakage.</p>
+<h1 id="cartridge-3-net-guard-5g-telecom-fintech-infrastructure">Cartridge #3: <code>net-guard</code> (5G Telecom &amp; FinTech Infrastructure)</h1>
+<p><code>net-guard</code> provides ultra-low latency filtering for 5G User Plane Functions (UPF), Open-RAN fronthaul/midhaul, non-IP Layer-2 substation buses, and high-frequency trading (HFT) feeds.</p>
+<hr />
+<h2 id="1-specifications-standards">1. Specifications &amp; Standards</h2>
+<ul>
+<li><strong>Standards Compliance:</strong> 3GPP Release 17 (TS 29.281 GTP-U), IEC 61850-8-1 (GOOSE), IEC 61850-9-2 (Sampled Values), O-RAN E2AP, NASDAQ ITCH 5.0, FIPS 203 (ML-KEM).</li>
+<li><strong>Protocols Parsed:</strong> 3GPP GTP-U (<code>:2152</code>), Non-IP L2 GOOSE (<code>0x88B8</code>), Non-IP L2 SV (<code>0x88BA</code>), NASDAQ ITCH 5.0 (<code>:9001</code>), O-RAN E2AP (<code>:36422</code>).</li>
+<li><strong>Mean Latency:</strong> <strong>18.42 ns</strong> (P99: 24.11 ns) under 100,000-frame hardware cycle benchmarks.</li>
+<li><strong>Digital Twin:</strong> <code>scenarios/telco_5g_fintech_grid</code> (11 nodes on <code>10.240.60.0/24</code>, ports <code>:18096–18098</code>).</li>
+</ul>
+<hr />
+<h2 id="2-post-quantum-cryptography-engine-pqc_kem_enginehpp">2. Post-Quantum Cryptography Engine (<code>pqc_kem_engine.hpp</code>)</h2>
+<p><code>net-guard</code> incorporates native OpenSSL 3.5.5 FIPS 203 <strong>ML-KEM-768</strong> and <strong>ML-KEM-1024</strong> post-quantum key encapsulation mechanism (KEM) support:</p>
+<ul>
+<li><strong>Quantum Harvest-Now-Decrypt-Later Defense:</strong> Enforces post-quantum cipher suites for control-plane TLS 1.3 handshakes.</li>
+<li><strong>Constant-Time Verification:</strong> Rejects tampered ciphertexts with implicit rejection to prevent timing side-channel leakage.</li>
+</ul>
 
 
 

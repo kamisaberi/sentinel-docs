@@ -790,6 +790,25 @@
       
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview & 50/50 Coverage
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="././" class="md-nav__link md-nav__link--active">
         
@@ -806,6 +825,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-architectural-cartridge-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Architectural Cartridge Contract
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-5-production-cartridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. The 5 Production Cartridges
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -43008,6 +43069,13 @@
                     
                     
                     
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -43018,6 +43086,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-architectural-cartridge-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Architectural Cartridge Contract
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-5-production-cartridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. The 5 Production Cartridges
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -43034,112 +43134,74 @@
                   
 
 
-  <h1>Overview & 50/50 Coverage</h1>
-
-<p>Domain Cartridges Architecture &amp; Portfolio Overview
-Aryorithm decomposes cyber-physical threat mitigation into five self-contained domain cartridges, guaranteeing sub-120 ns verification across 50 industrial, defense, telecom, robotics, and edge vision verticals.
-1. Architectural Cartridge Contract
-Every cartridge complies with a strict structural and operational contract:
-Deterministic Core Library (lib<cartridge>.so): Modern C++20 engine enforcing zero runtime heap allocations during telecontrol evaluation.
-Native Dissector Plugin (<cartridge>_dissector_plugin.so): Ingested via dlopen() by blackbox-sentinel into Tier 1 of ModelRouter.
-Cartridge CLI Tool (aryo-<domain>): Registered under /usr/local/bin/ and dynamically commanded via aryo <domain> ....
-Digital Twin Mesh: Full Compose topology running on an isolated /24 subnet with dedicated apparatus generators and mock field devices.
-Dynamic Web Micro-Frontend: Mounted into sentinel-nexus via pack://<cartridge>/web and discovered through /plugins/manifest.json.
-2. The 5 Production Cartridges
-Cartridge   Domain Scope    Primary Protocols   Physical Busses SLA Benchmark   Twin Subnet
-ics-guard   Industrial SCADA &amp; Grid Modbus TCP, S7Comm, IEC 60870-5-104, IEEE C37.118   Bus A (Ethernet)    11.96 ns (P99: 12.87 ns)    10.240.0.0/24
-ccsds-guard Aerospace &amp; UAV Swarms  NATO STANAG 4586, CCSDS 132/133, Rover Slip CBF Bus A (UDP/IP)  23.77 ns (P99: 26.60 ns)    10.240.52.0/24
-net-guard   5G Telecom &amp; FinTech    3GPP GTP-U, Raw L2 GOOSE/SV, ITCH 5.0, PQC ML-KEM   Bus A (Raw L2/IP)   18.42 ns (P99: 24.11 ns)    10.240.60.0/24
-motion-guard    Robotics &amp; Motion Control   ISO 13849 PL-e, EtherCAT L2, CAN-FD, Surgical TSN   Bus A, B, C 14.10 ns (P99: 18.20 ns)    10.240.70.0/24
-vision-guard    Air-Gapped Edge Vision  4K RTSP, GigE Vision GVCP, HIPAA ShmRing, DMS   Bus A, C, D 16.30 ns (P99: 20.80 ns)    10.240.80.0/24
-EOF               <br />
-6. Write Document 5: 04-domain-cartridges/01-ics-guard.md
-cat &lt;&lt; 'EOF' &gt; docs/04-domain-cartridges/01-ics-guard.md
-Cartridge #1: ics-guard (Industrial SCADA &amp; Energy Grid)
-ics-guard delivers deterministic, sub-microsecond protection for critical industrial plants, electric substations, chemical reactors, and regional pipelines.
-1. Specifications &amp; Standards
-Standards Compliance: IEC 62443-4-2, IEC 60870-5-104, IEEE C37.118.2 PMU, EU NIS2.
-Protocols Parsed: Modbus TCP (:502), Siemens S7Comm (:102), IEC 60870-5-104 (:2404), IEEE C37.118 Synchrophasor (:15501).
-Mean Latency: 11.96 ns (P99: 12.87 ns) under 100,000-frame hardware cycle benchmarks.
-Digital Twin: scenarios/production_master_grid (17 nodes on 10.240.0.0/24, ports :18093–18095).
-2. Mathematical Plant ODE &amp; Control Barrier Function (CBF)
-Beyond protocol syntax validation, ics-guard incorporates an embedded Runge-Kutta 4th-Order (RK4) ODE solver modeling plant thermal and kinetic dynamics:
-T
-˙
-=
-Q
-in
-−
-U
-⋅
-A
-⋅
-(
-T
-−
-T
-cool
-)
-C
-thermal
-T
-˙
- = 
-C 
-thermal
-​</p>
-<p>Q 
-in
-​
- −U⋅A⋅(T−T 
-cool
-​
- )
-​</p>
-<p>Physical safety invariance is enforced via a Nagumo barrier function:
-h
-(
-T
-)
-=
-T
-critical
-−
-T
-≥
-0
-h(T)=T 
-critical
-​
- −T≥0</p>
-<p>h
-˙
-(
-T
-)
-+
-γ
-⋅
-h
-(
-T
-)
-≥
-0
-h
-˙
- (T)+γ⋅h(T)≥0
-If incoming telemetry indicates that a setpoint change will breach the critical safety envelope within the critical clearing time (
-t
-crit
-≤
-38.4
- ms
-t 
-crit
-​
- ≤38.4 ms
-), the command is intercepted and dropped at line rate.</p>
+<h1 id="domain-cartridges-architecture-portfolio-overview">Domain Cartridges Architecture &amp; Portfolio Overview</h1>
+<p>Aryorithm decomposes cyber-physical threat mitigation into <strong>five self-contained domain cartridges</strong>, guaranteeing sub-120 ns verification across 50 industrial, defense, telecom, robotics, and edge vision verticals.</p>
+<hr />
+<h2 id="1-architectural-cartridge-contract">1. Architectural Cartridge Contract</h2>
+<p>Every cartridge complies with a strict structural and operational contract:</p>
+<ol>
+<li><strong>Deterministic Core Library (<code>lib&lt;cartridge&gt;.so</code>):</strong> Modern C++20 engine enforcing zero runtime heap allocations during telecontrol evaluation.</li>
+<li><strong>Native Dissector Plugin (<code>&lt;cartridge&gt;_dissector_plugin.so</code>):</strong> Ingested via <code>dlopen()</code> by <code>blackbox-sentinel</code> into Tier 1 of <code>ModelRouter</code>.</li>
+<li><strong>Cartridge CLI Tool (<code>aryo-&lt;domain&gt;</code>):</strong> Registered under <code>/usr/local/bin/</code> and dynamically commanded via <code>aryo &lt;domain&gt; ...</code>.</li>
+<li><strong>Digital Twin Mesh:</strong> Full Compose topology running on an isolated <code>/24</code> subnet with dedicated apparatus generators and mock field devices.</li>
+<li><strong>Dynamic Web Micro-Frontend:</strong> Mounted into <code>sentinel-nexus</code> via <code>pack://&lt;cartridge&gt;/web</code> and discovered through <code>/plugins/manifest.json</code>.</li>
+</ol>
+<hr />
+<h2 id="2-the-5-production-cartridges">2. The 5 Production Cartridges</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Cartridge</th>
+<th style="text-align: left;">Domain Scope</th>
+<th style="text-align: left;">Primary Protocols</th>
+<th style="text-align: left;">Physical Busses</th>
+<th style="text-align: left;">SLA Benchmark</th>
+<th style="text-align: left;">Twin Subnet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>ics-guard</code></strong></td>
+<td style="text-align: left;">Industrial SCADA &amp; Grid</td>
+<td style="text-align: left;">Modbus TCP, S7Comm, IEC 60870-5-104, IEEE C37.118</td>
+<td style="text-align: left;">Bus A (Ethernet)</td>
+<td style="text-align: left;"><strong>11.96 ns</strong> (P99: 12.87 ns)</td>
+<td style="text-align: left;"><code>10.240.0.0/24</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ccsds-guard</code></strong></td>
+<td style="text-align: left;">Aerospace &amp; UAV Swarms</td>
+<td style="text-align: left;">NATO STANAG 4586, CCSDS 132/133, Rover Slip CBF</td>
+<td style="text-align: left;">Bus A (UDP/IP)</td>
+<td style="text-align: left;"><strong>23.77 ns</strong> (P99: 26.60 ns)</td>
+<td style="text-align: left;"><code>10.240.52.0/24</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>net-guard</code></strong></td>
+<td style="text-align: left;">5G Telecom &amp; FinTech</td>
+<td style="text-align: left;">3GPP GTP-U, Raw L2 GOOSE/SV, ITCH 5.0, PQC ML-KEM</td>
+<td style="text-align: left;">Bus A (Raw L2/IP)</td>
+<td style="text-align: left;"><strong>18.42 ns</strong> (P99: 24.11 ns)</td>
+<td style="text-align: left;"><code>10.240.60.0/24</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>motion-guard</code></strong></td>
+<td style="text-align: left;">Robotics &amp; Motion Control</td>
+<td style="text-align: left;">ISO 13849 PL-e, EtherCAT L2, CAN-FD, Surgical TSN</td>
+<td style="text-align: left;">Bus A, B, C</td>
+<td style="text-align: left;"><strong>14.10 ns</strong> (P99: 18.20 ns)</td>
+<td style="text-align: left;"><code>10.240.70.0/24</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>vision-guard</code></strong></td>
+<td style="text-align: left;">Air-Gapped Edge Vision</td>
+<td style="text-align: left;">4K RTSP, GigE Vision GVCP, HIPAA ShmRing, DMS</td>
+<td style="text-align: left;">Bus A, C, D</td>
+<td style="text-align: left;"><strong>16.30 ns</strong> (P99: 20.80 ns)</td>
+<td style="text-align: left;"><code>10.240.80.0/24</code></td>
+</tr>
+</tbody>
+</table>
 
 
 

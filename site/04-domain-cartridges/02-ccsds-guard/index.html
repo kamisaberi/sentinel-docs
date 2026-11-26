@@ -844,6 +844,25 @@
       
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #2: ccsds-guard
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="././" class="md-nav__link md-nav__link--active">
         
@@ -860,6 +879,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-planetary-rover-regolith-slip-rollover-cbf-rover_slip_cbfhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Planetary Rover Regolith Slip &amp; Rollover CBF (<code>rover_slip_cbf.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -43008,6 +43069,13 @@
                     
                     
                     
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -43018,6 +43086,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-planetary-rover-regolith-slip-rollover-cbf-rover_slip_cbfhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Planetary Rover Regolith Slip &amp; Rollover CBF (<code>rover_slip_cbf.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -43034,79 +43134,23 @@
                   
 
 
-  <h1>Cartridge #2: ccsds-guard</h1>
-
-<p>Cartridge #2: ccsds-guard (Aerospace &amp; Autonomous UAV Swarms)
-ccsds-guard protects autonomous drone swarms, defense datalinks, satellite downlinks, and planetary exploration rovers against telecommand hijacking and spoofing.
-1. Specifications &amp; Standards
-Standards Compliance: NATO STANAG 4586 (DLI), CCSDS 133.0-B-2 (Space Data Link Security), CCSDS 132.0-B-3.
-Protocols Parsed: STANAG 4586 DLI over UDP, CCSDS TC Frame, CCSDS Space Packet Protocol.
-Mean Latency: 23.77 ns (P99: 26.60 ns) under 100,000-frame hardware cycle benchmarks.
-Digital Twin: scenarios/tactical_uav_swarm_combat_grid (6 nodes on 10.240.52.0/24, ports :18091–18092).
-2. Planetary Rover Regolith Slip &amp; Rollover CBF (rover_slip_cbf.hpp)
-ccsds-guard implements the Burckhardt granular regolith friction model 
-μ
-(
-λ
-)
-μ(λ)
-:
-μ
-(
-λ
-)
-=
-c
-1
-⋅
-(
-1
-−
-e
-−
-c
-2
-λ
-)
-−
-c
-3
-λ
-μ(λ)=c 
-1
-​
- ⋅(1−e 
-−c 
-2
-​
- λ
- )−c 
-3
-​
- λ
-It models continuous pitch and roll slope dynamics via Runge-Kutta 4th-order integration and clamps hostile drive telecommands using a Nagumo critical rollover barrier:
-h
-tip
-(
-θ
-)
-=
-θ
-critical
-−
-∥
-θ
-∥
-≥
-0
-h 
-tip
-​
- (θ)=θ 
-critical
-​
- −∥θ∥≥0
-Telecommands that would cause rover wheel spinout on granular regolith or vehicle rollover on steep inclines are rejected in under 25 nanoseconds.</p>
+<h1 id="cartridge-2-ccsds-guard-aerospace-autonomous-uav-swarms">Cartridge #2: <code>ccsds-guard</code> (Aerospace &amp; Autonomous UAV Swarms)</h1>
+<p><code>ccsds-guard</code> protects autonomous drone swarms, defense datalinks, satellite downlinks, and planetary exploration rovers against telecommand hijacking and spoofing.</p>
+<hr />
+<h2 id="1-specifications-standards">1. Specifications &amp; Standards</h2>
+<ul>
+<li><strong>Standards Compliance:</strong> NATO STANAG 4586 (DLI), CCSDS 133.0-B-2 (Space Data Link Security), CCSDS 132.0-B-3.</li>
+<li><strong>Protocols Parsed:</strong> STANAG 4586 DLI over UDP, CCSDS TC Frame, CCSDS Space Packet Protocol.</li>
+<li><strong>Mean Latency:</strong> <strong>23.77 ns</strong> (P99: 26.60 ns) under 100,000-frame hardware cycle benchmarks.</li>
+<li><strong>Digital Twin:</strong> <code>scenarios/tactical_uav_swarm_combat_grid</code> (6 nodes on <code>10.240.52.0/24</code>, ports <code>:18091–18092</code>).</li>
+</ul>
+<hr />
+<h2 id="2-planetary-rover-regolith-slip-rollover-cbf-rover_slip_cbfhpp">2. Planetary Rover Regolith Slip &amp; Rollover CBF (<code>rover_slip_cbf.hpp</code>)</h2>
+<p><code>ccsds-guard</code> implements the Burckhardt granular regolith friction model $\mu(\lambda)$:</p>
+<p>$$\mu(\lambda) = c_1 \cdot (1 - e^{-c_2 \lambda}) - c_3 \lambda$$</p>
+<p>It models continuous pitch and roll slope dynamics via Runge-Kutta 4th-order integration and clamps hostile drive telecommands using a Nagumo critical rollover barrier:</p>
+<p>$$h_{\text{tip}}(\theta) = \theta_{\text{critical}} - |\theta| \ge 0$$</p>
+<p>Telecommands that would cause rover wheel spinout on granular regolith or vehicle rollover on steep inclines are rejected in under 25 nanoseconds.</p>
 
 
 

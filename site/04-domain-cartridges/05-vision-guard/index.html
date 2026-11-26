@@ -925,6 +925,25 @@
       
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #5: vision-guard
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="././" class="md-nav__link md-nav__link--active">
         
@@ -941,6 +960,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-automotive-in-cabin-dms-gaze-drowsiness-validator-dms_gazehpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Automotive In-Cabin DMS Gaze &amp; Drowsiness Validator (<code>dms_gaze.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -43008,6 +43069,13 @@
                     
                     
                     
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -43018,6 +43086,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-automotive-in-cabin-dms-gaze-drowsiness-validator-dms_gazehpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Automotive In-Cabin DMS Gaze &amp; Drowsiness Validator (<code>dms_gaze.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -43034,25 +43134,23 @@
                   
 
 
-  <h1>Cartridge #5: vision-guard</h1>
-
-<p>Cartridge #5: vision-guard (Air-Gapped Optical Ingress &amp; Privacy)
-vision-guard protects air-gapped camera feeds, factory automation vision cameras, automotive driver monitoring sensors, and hospital surgical imaging streams.
-1. Specifications &amp; Standards
-Standards Compliance: HIPAA Security Rule (Zero Cloud Retention), ONVIF Profile S/T, GigE Vision 2.0 (GVCP/GVSP), Euro NCAP DMS 2026.
-Protocols &amp; Busses: 4K RTSP (:8554) on Bus A, GVCP (:3956) on Bus A, HIPAA ShmRing (VIS1) on Bus C, V4L2 / MIPI-CSI2 on Bus D.
-Mean Latency: 16.30 ns (P99: 20.80 ns) under 100,000-frame hardware cycle benchmarks.
-Digital Twin: scenarios/vision_edge_grid (8 nodes on 10.240.80.0/24, ports :18102–18104).
-2. Automotive In-Cabin DMS Gaze &amp; Drowsiness Validator (dms_gaze.hpp)
-vision-guard validates driver state directly from raw V4L2 camera buffers without requiring high-power external neural accelerators (&lt; 5W envelope):
-PERCLOS Metric: Monitors percentage of eyelid closure over time.
-Constant-Time 
-O
-(
-64
-)
-O(64)
- Strided Luma Inspection: Evaluates illumination saturation directly on Bus D memory frames to detect optical blinding lasers or infrared dazzle attacks in real time.</p>
+<h1 id="cartridge-5-vision-guard-air-gapped-optical-ingress-privacy">Cartridge #5: <code>vision-guard</code> (Air-Gapped Optical Ingress &amp; Privacy)</h1>
+<p><code>vision-guard</code> protects air-gapped camera feeds, factory automation vision cameras, automotive driver monitoring sensors, and hospital surgical imaging streams.</p>
+<hr />
+<h2 id="1-specifications-standards">1. Specifications &amp; Standards</h2>
+<ul>
+<li><strong>Standards Compliance:</strong> HIPAA Security Rule (Zero Cloud Retention), ONVIF Profile S/T, GigE Vision 2.0 (GVCP/GVSP), Euro NCAP DMS 2026.</li>
+<li><strong>Protocols &amp; Busses:</strong> 4K RTSP (<code>:8554</code>) on Bus A, GVCP (<code>:3956</code>) on Bus A, HIPAA ShmRing (<code>VIS1</code>) on Bus C, V4L2 / MIPI-CSI2 on Bus D.</li>
+<li><strong>Mean Latency:</strong> <strong>16.30 ns</strong> (P99: 20.80 ns) under 100,000-frame hardware cycle benchmarks.</li>
+<li><strong>Digital Twin:</strong> <code>scenarios/vision_edge_grid</code> (8 nodes on <code>10.240.80.0/24</code>, ports <code>:18102–18104</code>).</li>
+</ul>
+<hr />
+<h2 id="2-automotive-in-cabin-dms-gaze-drowsiness-validator-dms_gazehpp">2. Automotive In-Cabin DMS Gaze &amp; Drowsiness Validator (<code>dms_gaze.hpp</code>)</h2>
+<p><code>vision-guard</code> validates driver state directly from raw V4L2 camera buffers without requiring high-power external neural accelerators (&lt; 5W envelope):</p>
+<ul>
+<li><strong>PERCLOS Metric:</strong> Monitors percentage of eyelid closure over time.</li>
+<li><strong>Constant-Time $O(64)$ Strided Luma Inspection:</strong> Evaluates illumination saturation directly on Bus D memory frames to detect optical blinding lasers or infrared dazzle attacks in real time.</li>
+</ul>
 
 
 

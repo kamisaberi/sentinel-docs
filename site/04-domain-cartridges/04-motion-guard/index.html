@@ -898,6 +898,25 @@
       
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartridge #4: motion-guard
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="././" class="md-nav__link md-nav__link--active">
         
@@ -914,6 +933,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-surgical-robotics-tsn-jitter-clamp-anatomical-keep-out-zone-surgical_tsnhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Surgical Robotics TSN Jitter Clamp &amp; Anatomical Keep-Out Zone (<code>surgical_tsn.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -43008,6 +43069,13 @@
                     
                     
                     
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -43018,6 +43086,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-specifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Specifications &amp; Standards
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-surgical-robotics-tsn-jitter-clamp-anatomical-keep-out-zone-surgical_tsnhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Surgical Robotics TSN Jitter Clamp &amp; Anatomical Keep-Out Zone (<code>surgical_tsn.hpp</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -43034,51 +43134,25 @@
                   
 
 
-  <h1>Cartridge #4: motion-guard</h1>
-
-<p>Cartridge #4: motion-guard (Robotics &amp; Time-Sensitive Networking)
-motion-guard enforces deterministic physical safety invariants across industrial cobots, autonomous mobile robots (AMRs), automotive brake-by-wire buses, and telesurgery TSN networks.
-1. Specifications &amp; Standards
-Standards Compliance: ISO 13849-1 (PL-e Category 4), IEEE 802.1Qbv TSN, CiA 301 / CANopen, EtherCAT Specification.
-Protocols &amp; Busses: Non-IP L2 EtherCAT (0x88A4) on Bus A, SocketCAN CAN-FD on Bus B, AMR ShmRing (MOT1) on Bus C.
-Mean Latency: 14.10 ns (P99: 18.20 ns) under 100,000-frame hardware cycle benchmarks.
-Digital Twin: scenarios/robotics_can_ethercat_grid (8 nodes on 10.240.70.0/24, ports :18099–18101).
-2. Surgical Robotics TSN Jitter Clamp &amp; Anatomical Keep-Out Zone (surgical_tsn.hpp)
-motion-guard integrates a dedicated validator for high-precision robotic surgery:
-TSN 802.1Qbv Jitter Enforcement: Validates cycle arrival times using hardware PTP timestamps (SO_TIMESTAMPING), rejecting command packets with cycle jitter exceeding 500 microseconds.
-3D Anatomical Keep-Out Zone CBF: Evaluates end-effector coordinates against patient anatomical scan keep-out zones (arteries, critical nerves):
-h
-koz
-(
-x
-)
-=
-∥
-p
-tip
-−
-p
-artery
-∥
-−
-r
-safety
-≥
-0
-h 
-koz
-​
- (x)=∥p 
-tip
-​
- −p 
-artery
-​
- ∥−r 
-safety
-​
- ≥0
-Commands commanding tool trajectories that breach the safety margin are clamped in under 15 nanoseconds.</p>
+<h1 id="cartridge-4-motion-guard-robotics-time-sensitive-networking">Cartridge #4: <code>motion-guard</code> (Robotics &amp; Time-Sensitive Networking)</h1>
+<p><code>motion-guard</code> enforces deterministic physical safety invariants across industrial cobots, autonomous mobile robots (AMRs), automotive brake-by-wire buses, and telesurgery TSN networks.</p>
+<hr />
+<h2 id="1-specifications-standards">1. Specifications &amp; Standards</h2>
+<ul>
+<li><strong>Standards Compliance:</strong> ISO 13849-1 (PL-e Category 4), IEEE 802.1Qbv TSN, CiA 301 / CANopen, EtherCAT Specification.</li>
+<li><strong>Protocols &amp; Busses:</strong> Non-IP L2 EtherCAT (<code>0x88A4</code>) on Bus A, SocketCAN CAN-FD on Bus B, AMR ShmRing (<code>MOT1</code>) on Bus C.</li>
+<li><strong>Mean Latency:</strong> <strong>14.10 ns</strong> (P99: 18.20 ns) under 100,000-frame hardware cycle benchmarks.</li>
+<li><strong>Digital Twin:</strong> <code>scenarios/robotics_can_ethercat_grid</code> (8 nodes on <code>10.240.70.0/24</code>, ports <code>:18099–18101</code>).</li>
+</ul>
+<hr />
+<h2 id="2-surgical-robotics-tsn-jitter-clamp-anatomical-keep-out-zone-surgical_tsnhpp">2. Surgical Robotics TSN Jitter Clamp &amp; Anatomical Keep-Out Zone (<code>surgical_tsn.hpp</code>)</h2>
+<p><code>motion-guard</code> integrates a dedicated validator for high-precision robotic surgery:</p>
+<ul>
+<li><strong>TSN 802.1Qbv Jitter Enforcement:</strong> Validates cycle arrival times using hardware PTP timestamps (<code>SO_TIMESTAMPING</code>), rejecting command packets with cycle jitter exceeding <strong>500 microseconds</strong>.</li>
+<li><strong>3D Anatomical Keep-Out Zone CBF:</strong> Evaluates end-effector coordinates against patient anatomical scan keep-out zones (arteries, critical nerves):</li>
+</ul>
+<p>$$h_{\text{koz}}(x) = |p_{\text{tip}} - p_{\text{artery}}| - r_{\text{safety}} \ge 0$$</p>
+<p>Commands commanding tool trajectories that breach the safety margin are clamped in under 15 nanoseconds.</p>
 
 
 
