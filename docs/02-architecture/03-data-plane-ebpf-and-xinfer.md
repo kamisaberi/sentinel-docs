@@ -8,18 +8,13 @@ The Data Plane operates at the physical network and memory boundary, processing 
 
 `blackbox-essential` compiles in-kernel eBPF bytecode using Clang/LLVM CO-RE (Compile Once – Run Everywhere) and attaches to the physical network interface using XDP:
 
-```text
-Incoming Wire Frame ──► NIC RX Queue ──► XDP Driver Hook (< 0.84 µs)
-                                                 │
-                        ┌────────────────────────┴────────────────────────┐
-                        ▼                                                 ▼
-             Hostile (In eBPF Map)                              Nominal / Unknown
-                        │                                                 │
-                        ▼                                                 ▼
-                 XDP_DROP (< 0.84 µs)                           AF_XDP UMEM Zero-Copy
-                (Hardware NIC Drop)                                       │
-                                                                          ▼
-                                                              Userspace IngressManager
+```mermaid
+graph LR
+    WIRE["Incoming Wire Frame"] --> RX["NIC RX Queue"]
+    RX --> XDP{"XDP Driver Hook (< 0.84 µs)"}
+    XDP -->|"Hostile (In eBPF Map)"| DROP["XDP_DROP (< 0.84 µs)"]
+    XDP -->|"Nominal / Unknown"| UMEM["AF_XDP UMEM Zero-Copy"]
+    UMEM --> INGRESS["Userspace IngressManager"]
 ```
 
 * **XDP Driver Hook:** Evaluates the frame at the earliest possible software processing point. If an IP or TEID is registered inside `/sys/fs/bpf/blackbox_blocked_ips`, the driver returns `XDP_DROP` immediately.
