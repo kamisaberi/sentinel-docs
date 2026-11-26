@@ -37,8 +37,12 @@ graph TD
     Step1 --> Step2
     Step2 --> Step3
     Step3 --> Step4
-2. Standard Toolchain Invariants
-C++ Compiler: Modern GCC (>= 13.0) or Clang (>= 16.0) supporting -std=c++20.
-Optimization Flags: -O3 -march=native -Wall -Wextra -pthread -fno-omit-frame-pointer.
-Runtime Pathing (RPATH): All binaries set CMAKE_INSTALL_RPATH "/usr/local/lib" to locate shared ecosystem libraries dynamically without brittle LD_LIBRARY_PATH overrides.
-Kernel Dependencies: libbpf-dev, libelf-dev, and bpftool for eBPF CO-RE bytecode generation.
+```
+
+---
+
+## 2. Standard Toolchain Invariants
+* **C++ Compiler:** Modern GCC (>= 13.0) or Clang (>= 16.0) supporting `-std=c++20`.
+* **Optimization Flags:** `-O3 -march=native -Wall -Wextra -pthread -fno-omit-frame-pointer`.
+* **Runtime Pathing (RPATH):** All binaries set `CMAKE_INSTALL_RPATH "/usr/local/lib"` to locate shared ecosystem libraries dynamically without brittle `LD_LIBRARY_PATH` overrides.
+* **Kernel Dependencies:** `libbpf-dev`, `libelf-dev`, and `bpftool` for eBPF CO-RE bytecode generation.
