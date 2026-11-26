@@ -192,7 +192,7 @@ The stack includes a master automated integration harness in `tests/e2e/run_all_
 
 ```bash
 # Execute the complete 50-category master suite
-sudo bash /home/kami/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
+sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
 ```
 
 ```text
@@ -260,7 +260,7 @@ sudo bash /home/kami/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
 * **Operating System:** Ubuntu 22.04 / 24.04 LTS or Debian 12 (Kernel $\ge 5.15$, $6.x+$ supported).
 * **Dependencies:** `build-essential`, `cmake` ($\ge 3.20$), `libbpf-dev`, `libelf-dev`, `libxdp-dev`, `libssl-dev`, `luajit`, `libluajit-5.1-dev`, `jq`, `python3-venv`.
 
-### Step 1: Clone and Execute 6-Tier Meta-Installer
+### Step 1: Clone and Execute 5-Tier Meta-Installer
 ```bash
 git clone https://github.com/kamisaberi/sentinel-stack.git
 cd sentinel-stack
@@ -269,7 +269,7 @@ sudo ./install.sh
 
 ### Step 2: Build Master Unified CLI (`aryo`)
 ```bash
-cd /home/kami/sentinel-stack
+cd ${WORKSPACE_ROOT}/sentinel-stack
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -- -j$(nproc)
 sudo cp build/aryo /usr/local/bin/aryo
@@ -292,7 +292,7 @@ sudo ./verify_stack.sh
  [03/21] eBPF Filesystem Mounted (/sys/fs/bpf)         : [PASS]
  [04/21] Physical TPM 2.0 Silicon Root (/dev/tpmrm0)   : [PASS]
  [05/21] Python 3 Virtual Environment (/opt/sentinel) : [PASS]
- [06/21] Central Cache Directory (/var/cache/sentinel) : [PASS]
+ [06/21] Central Cache Directory (${SENTINEL_ROOT}/artifacts/downloads) : [PASS]
  [07/21] libxinfer.so Universal Silicon Runtime        : [PASS]
  [08/21] libblackbox.so Mitigation Kernel Core          : [PASS]
  [09/21] In-Kernel eBPF Driver Filter (xdp_drop.o)     : [PASS]

@@ -29901,10 +29901,10 @@
 
 <h1 id="master-unified-cli-aryo-modular-architecture">Master Unified CLI (<code>aryo</code>) Modular Architecture</h1>
 <p>The Master Unified CLI binary (<strong><code>/usr/local/bin/aryo</code></strong>) serves as the single-entrypoint operator interface across all 18 domains of the Aryorithm ecosystem (<code>login</code>, <code>status</code>, <code>hub</code>, <code>package</code>, <code>model</code>, <code>dataset</code>, <code>pcap</code>, <code>scenario</code>, <code>blueprint</code>, <code>5g</code>, <code>sbom</code>, <code>trism</code>, <code>space</code>, <code>forge</code>, <code>slab</code>, <code>lab</code>, <code>matrix</code>, <code>system</code>).</p>
-<p>To maintain maintainability and zero-overhead performance, <code>/home/kami/sentinel-stack/src/aryo.cpp</code> is modularized into <strong>4 clean C++20 header modules</strong>.</p>
+<p>To maintain maintainability and zero-overhead performance, <code>${WORKSPACE_ROOT}/sentinel-stack/src/aryo.cpp</code> is modularized into <strong>4 clean C++20 header modules</strong>.</p>
 <hr />
 <h2 id="1-modular-header-structure">1. Modular Header Structure</h2>
-<div class="highlight"><pre><span></span><code> /home/kami/sentinel-stack/src/
+<div class="highlight"><pre><span></span><code> ${WORKSPACE_ROOT}/sentinel-stack/src/
  ├── common.hpp         # ANSI colors, corporate banner, forward_exec() POSIX execvp proxying
  ├── help_manuals.hpp   # Level-1 overview + 18 Level-2 dedicated contextual help manuals
  ├── domain_router.hpp  # Fast zero-overhead argument interceptor &amp; domain dispatch router

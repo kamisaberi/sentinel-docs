@@ -160,7 +160,7 @@ If a trajectory command breaches this boundary, `motion-guard` drops the packet 
 ## 6. Repository Layout
 
 ```text
-/home/kami/motion-guard/
+${WORKSPACE_ROOT}/motion-guard/
 ├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Lifecycle targets: build, test, bench, install, cobot-up/down
 ├── cmake/
@@ -231,7 +231,7 @@ If a trajectory command breaches this boundary, `motion-guard` drops the packet 
 ## 7. Build, Test, Benchmark & Installation
 
 ```bash
-cd /home/kami/motion-guard
+cd ${WORKSPACE_ROOT}/motion-guard
 
 # 1. Compile Release targets (-O3 -march=native -Wall -Wextra)
 make build
@@ -288,7 +288,7 @@ aryo lab motion-cbf-clamp       # Nagumo CBF velocity boundary clamp audit
 `motion-guard` provisions an 8-container digital twin on subnet `10.240.70.0/24` running **all three non-IP buses simultaneously**:
 
 ```bash
-cd /home/kami/motion-guard
+cd ${WORKSPACE_ROOT}/motion-guard
 
 # Deploy the 8-node simulation mesh in the background
 make cobot-up

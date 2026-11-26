@@ -211,7 +211,7 @@ ccsds-guard/
 
 ### Step 1: Initialize Permanent Lab Harnesses, Build & Run Tests
 ```bash
-cd /home/kami/ccsds-guard
+cd ${WORKSPACE_ROOT}/ccsds-guard
 
 # 1. Hard-copy all 6 research harnesses to /etc/sentinel/lab/harnesses and /opt/sentinel-stack/harnesses
 make init

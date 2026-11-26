@@ -226,8 +226,8 @@ xInfer Forge is controlled through declarative YAML configuration files.
 ```yaml
 appliance:
   sentinel_api_url: "http://localhost:8443"
-  db_path: "/home/kami/blackbox-sentinel/build/blackbox_audit.db"
-  models_dir: "/home/kami/blackbox-sentinel/models"
+  db_path: "${WORKSPACE_ROOT}/blackbox-sentinel/build/blackbox_audit.db"
+  models_dir: "${WORKSPACE_ROOT}/blackbox-sentinel/models"
   checkpoints_dir: "./checkpoints"
 
 training:

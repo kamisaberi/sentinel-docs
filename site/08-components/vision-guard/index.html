@@ -30466,7 +30466,7 @@
 </table>
 <hr />
 <h2 id="6-repository-layout">6. Repository Layout</h2>
-<div class="highlight"><pre><span></span><code>/home/kami/vision-guard/
+<div class="highlight"><pre><span></span><code>${WORKSPACE_ROOT}/vision-guard/
 ├── CMakeLists.txt                         # Build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Lifecycle targets: build, test, bench, install, vision-up/down
 ├── cmake/
@@ -30531,7 +30531,7 @@
 </code></pre></div>
 <hr />
 <h2 id="7-build-test-benchmark-installation">7. Build, Test, Benchmark &amp; Installation</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/vision-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/vision-guard
 
 <span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
 make<span class="w"> </span>build
@@ -30578,7 +30578,7 @@ aryo<span class="w"> </span>lab<span class="w"> </span>vision-optical-blind<span
 <hr />
 <h2 id="9-vision-edge-digital-twin-mesh-8-containers">9. Vision Edge Digital Twin Mesh (8 Containers)</h2>
 <p><code>vision-guard</code> provisions an 8-container digital twin on subnet <code>10.240.80.0/24</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/vision-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/vision-guard
 
 <span class="c1"># Deploy the 8-node simulation mesh in the background</span>
 make<span class="w"> </span>vision-up

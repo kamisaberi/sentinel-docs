@@ -59,7 +59,7 @@ The meta-installer builds all 6 tiers in topological order ($T_1 \to T_6$), upda
 ### 1. Build the Ecosystem
 
 ```bash
-cd /home/kami/sentinel-stack
+cd ${WORKSPACE_ROOT}/sentinel-stack
 sudo ./install.sh
 ```
 

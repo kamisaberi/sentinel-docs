@@ -145,7 +145,7 @@ Modern high-velocity network infrastructure operates under extreme throughput an
 ## 5. Repository Structure
 
 ```text
-/home/kami/net-guard/
+${WORKSPACE_ROOT}/net-guard/
 ├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Orchestration: build, test, bench, install, telco-up/down
 ├── cmake/
@@ -220,7 +220,7 @@ Modern high-velocity network infrastructure operates under extreme throughput an
 ## 6. Build, Test, Benchmark & Installation
 
 ```bash
-cd /home/kami/net-guard
+cd ${WORKSPACE_ROOT}/net-guard
 
 # 1. Compile Release binaries (-O3 -march=native -Wall -Wextra)
 make build
@@ -279,7 +279,7 @@ aryo lab net-pqc-handshake   # Post-Quantum TLS 1.3 ML-KEM audit
 `net-guard` provisions an 11-container digital twin on subnet `10.240.60.0/24`:
 
 ```bash
-cd /home/kami/net-guard
+cd ${WORKSPACE_ROOT}/net-guard
 
 # Deploy the entire 11-node simulation mesh in background
 make telco-up

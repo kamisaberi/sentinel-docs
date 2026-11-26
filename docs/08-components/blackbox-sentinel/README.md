@@ -240,13 +240,13 @@ sudo apt-get install -y \
 ### Option 1: 1-Click Master Compilation
 Builds Wasm3, the main appliance daemon, all tools, test suites, and reference plugins:
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 ./build_all.sh
 ```
 
 ### Option 2: Manual CMake Build
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc) sentinel sentinel_ctl sentinel_spkg test_extensibility
@@ -328,7 +328,7 @@ Run the automated integration test suites to verify sub-microsecond mitigation a
 
 ### 1. Test 3-Tier Extensibility & SEGV Crash Isolation
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./build/test_extensibility
 ```
 *Asserts:*
@@ -339,7 +339,7 @@ sudo ./build/test_extensibility
 
 ### 2. Test 4-Stage ModelRouter & Cross-Modal Fusion
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./build/test_model_router
 ```
 *Asserts:*

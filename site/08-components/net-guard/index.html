@@ -30460,7 +30460,7 @@
 </table>
 <hr />
 <h2 id="5-repository-structure">5. Repository Structure</h2>
-<div class="highlight"><pre><span></span><code>/home/kami/net-guard/
+<div class="highlight"><pre><span></span><code>${WORKSPACE_ROOT}/net-guard/
 ├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Orchestration: build, test, bench, install, telco-up/down
 ├── cmake/
@@ -30531,7 +30531,7 @@
 </code></pre></div>
 <hr />
 <h2 id="6-build-test-benchmark-installation">6. Build, Test, Benchmark &amp; Installation</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/net-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/net-guard
 
 <span class="c1"># 1. Compile Release binaries (-O3 -march=native -Wall -Wextra)</span>
 make<span class="w"> </span>build
@@ -30581,7 +30581,7 @@ aryo<span class="w"> </span>lab<span class="w"> </span>net-pqc-handshake<span cl
 <hr />
 <h2 id="8-telco-5g-fintech-multi-node-grid-digital-twin-11-containers">8. Telco 5G &amp; FinTech Multi-Node Grid Digital Twin (11 Containers)</h2>
 <p><code>net-guard</code> provisions an 11-container digital twin on subnet <code>10.240.60.0/24</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/net-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/net-guard
 
 <span class="c1"># Deploy the entire 11-node simulation mesh in background</span>
 make<span class="w"> </span>telco-up

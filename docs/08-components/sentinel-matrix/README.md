@@ -232,7 +232,7 @@ aryo matrix scenario down --name water_grid_v2
 ### 1-Click Initialization:
 ```bash
 # 1. Clone and navigate to matrix repository
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 2. Build mock_plc, verify all 5 ONNX models, and sync host dependencies
 make init

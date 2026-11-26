@@ -30646,7 +30646,7 @@ TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
 * <strong>Automated Forensic Spooling:</strong> When an adversary issues write commands (<code>FC05</code>, <code>FC06</code>, S7 <code>0x28/0x29</code>, IEC <code>COT=6</code>), the honeytap captures the full raw hex packet payload, timestamps, originating IP/port, and physical barrier margins into structured JSON spool archives (<code>/var/run/sentinel/honeynet_spool/exploit_*.json</code>).</p>
 <hr />
 <h2 id="8-repository-layout-component-architecture">8. Repository Layout &amp; Component Architecture</h2>
-<div class="highlight"><pre><span></span><code>/home/kami/ics-guard/
+<div class="highlight"><pre><span></span><code>${WORKSPACE_ROOT}/ics-guard/
 ├── CMakeLists.txt                       # Build definition (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                             # Lifecycle orchestration: build, test, bench, install, grid-up
 ├── cmake/
@@ -30725,7 +30725,7 @@ TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
 <li>Linux Kernel 6.x / 7.x with <code>eBPF</code> and <code>AF_XDP</code> support.</li>
 <li>Core libraries installed system-wide: <code>libblackbox.so</code> (Blackbox Essential) and <code>libxinfer.so</code> (xInfer Essential).</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/ics-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/ics-guard
 
 <span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
 make<span class="w"> </span>build
@@ -30775,7 +30775,7 @@ aryo<span class="w"> </span>lab<span class="w"> </span>ics-airgap-tripwire#<span
 <hr />
 <h2 id="11-production-master-grid-digital-twin-17-containers">11. Production Master Grid Digital Twin (17 Containers)</h2>
 <p><code>ics-guard</code> orchestrates a complete 17-container industrial digital twin mesh on isolated subnet <code>10.240.0.0/24</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/ics-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/ics-guard
 
 <span class="c1"># Deploy the entire 17-node simulation mesh in the background</span>
 make<span class="w"> </span>grid-up

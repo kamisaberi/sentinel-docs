@@ -197,7 +197,7 @@ TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
 ## 8. Repository Layout & Component Architecture
 
 ```text
-/home/kami/ics-guard/
+${WORKSPACE_ROOT}/ics-guard/
 ├── CMakeLists.txt                       # Build definition (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                             # Lifecycle orchestration: build, test, bench, install, grid-up
 ├── cmake/
@@ -279,7 +279,7 @@ TOPOLOGY 2: PASSIVE NON-INTRUSIVE OPTICAL TAP AUDIT (ZERO OPERATIONAL RISK)
 * Core libraries installed system-wide: `libblackbox.so` (Blackbox Essential) and `libxinfer.so` (xInfer Essential).
 
 ```bash
-cd /home/kami/ics-guard
+cd ${WORKSPACE_ROOT}/ics-guard
 
 # 1. Compile Release targets (-O3 -march=native -Wall -Wextra)
 make build
@@ -338,7 +338,7 @@ aryo lab ics-airgap-tripwire# Nagumo barrier margin & forward invariance audit
 `ics-guard` orchestrates a complete 17-container industrial digital twin mesh on isolated subnet `10.240.0.0/24`:
 
 ```bash
-cd /home/kami/ics-guard
+cd ${WORKSPACE_ROOT}/ics-guard
 
 # Deploy the entire 17-node simulation mesh in the background
 make grid-up

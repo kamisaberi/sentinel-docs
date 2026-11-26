@@ -1,4 +1,4 @@
-# Meta-Builder Architecture: Automating the 6-Tier Ecosystem
+# Meta-Builder Architecture: Automating the 5-Tier Ecosystem
 
 Building, linking, and configuring a 6-tier cyber-physical security ecosystem from scratch typically requires executing dozens of disparate build steps: compiling eBPF bytecode with Clang BPF targets, generating gRPC Protobuf stubs, resolving shared library paths in `/etc/ld.so.conf.d/`, isolating Python machine learning environments, and authoring real-time systemd service units.
 

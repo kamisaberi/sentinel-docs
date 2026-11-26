@@ -264,7 +264,7 @@ sudo apt-get update && sudo apt-get install -y \
 
 ### Step 1: Clone Repository
 ```bash
-cd /home/kami
+cd ${WORKSPACE_ROOT}
 git clone https://github.com/kamisaberi/sentinel-nexus.git
 cd sentinel-nexus
 ```
@@ -343,7 +343,7 @@ intelligence:
 ### Option A: Direct Foreground Execution
 Run Nexus directly for testing and development:
 ```bash
-cd /home/kami/sentinel-nexus
+cd ${WORKSPACE_ROOT}/sentinel-nexus
 ./build/sentinel-nexus configs/nexus.yaml
 ```
 

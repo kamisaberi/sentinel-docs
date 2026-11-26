@@ -148,7 +148,7 @@ struct ShmVisionHeader {
 ## 6. Repository Layout
 
 ```text
-/home/kami/vision-guard/
+${WORKSPACE_ROOT}/vision-guard/
 ├── CMakeLists.txt                         # Build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Lifecycle targets: build, test, bench, install, vision-up/down
 ├── cmake/
@@ -217,7 +217,7 @@ struct ShmVisionHeader {
 ## 7. Build, Test, Benchmark & Installation
 
 ```bash
-cd /home/kami/vision-guard
+cd ${WORKSPACE_ROOT}/vision-guard
 
 # 1. Compile Release targets (-O3 -march=native -Wall -Wextra)
 make build
@@ -273,7 +273,7 @@ aryo lab vision-optical-blind # Optical laser blinding & weapon score audit
 `vision-guard` provisions an 8-container digital twin on subnet `10.240.80.0/24`:
 
 ```bash
-cd /home/kami/vision-guard
+cd ${WORKSPACE_ROOT}/vision-guard
 
 # Deploy the 8-node simulation mesh in the background
 make vision-up

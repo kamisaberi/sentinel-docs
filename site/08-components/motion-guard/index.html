@@ -30438,7 +30438,7 @@
 </table>
 <hr />
 <h2 id="6-repository-layout">6. Repository Layout</h2>
-<div class="highlight"><pre><span></span><code>/home/kami/motion-guard/
+<div class="highlight"><pre><span></span><code>${WORKSPACE_ROOT}/motion-guard/
 ├── CMakeLists.txt                         # Release build flags (-O3 -march=native -fno-omit-frame-pointer)
 ├── Makefile                               # Lifecycle targets: build, test, bench, install, cobot-up/down
 ├── cmake/
@@ -30505,7 +30505,7 @@
 </code></pre></div>
 <hr />
 <h2 id="7-build-test-benchmark-installation">7. Build, Test, Benchmark &amp; Installation</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/motion-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/motion-guard
 
 <span class="c1"># 1. Compile Release targets (-O3 -march=native -Wall -Wextra)</span>
 make<span class="w"> </span>build
@@ -30553,7 +30553,7 @@ aryo<span class="w"> </span>lab<span class="w"> </span>motion-cbf-clamp<span cla
 <hr />
 <h2 id="9-robotics-can-fd-ethercat-multi-node-grid-digital-twin-8-containers">9. Robotics, CAN-FD &amp; EtherCAT Multi-Node Grid Digital Twin (8 Containers)</h2>
 <p><code>motion-guard</code> provisions an 8-container digital twin on subnet <code>10.240.70.0/24</code> running <strong>all three non-IP buses simultaneously</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/kami/motion-guard
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKSPACE_ROOT</span><span class="si">}</span>/motion-guard
 
 <span class="c1"># Deploy the 8-node simulation mesh in the background</span>
 make<span class="w"> </span>cobot-up

@@ -183,7 +183,7 @@ sudo make install && sudo ldconfig
 Use the included master compilation script to generate `vmlinux.h`, compile the eBPF CO-RE kernel filter, build `libblackbox.so`, and compile the AF_XDP test binaries:
 
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 ./scripts/build_all.sh
 ```
 
@@ -191,7 +191,7 @@ cd /home/kami/blackbox-essential
 
 #### 1. Compile eBPF CO-RE Bytecode
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 ./scripts/build_ebpf.sh
 
 # Verify BTF and CO-RE sections exist:
@@ -201,7 +201,7 @@ readelf -S src/mitigation/xdp_drop.o | grep -E "BTF|maps|xdp"
 
 #### 2. Build and Install C++20 Core Library
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
@@ -218,7 +218,7 @@ sudo ldconfig
 ### 1. Test AF_XDP Ring Engine (VMware / Docker Adaptive Mode)
 Validates that UMEM allocates frame chunks cleanly and adapts to virtual network adapters:
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 sudo ./build/test_af_xdp
 ```
 *Expected Output:*
@@ -231,7 +231,7 @@ sudo ./build/test_af_xdp
 ### 2. Live Wire Traffic & In-Kernel Drop Test
 Sends real UDP frames on the wire, verifies capture through the AF_XDP UMEM ring, injects a block rule into `blocked_ip_map`, and asserts that subsequent frames are dropped in-kernel at the driver level before reaching userspace:
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 sudo ./build/test_af_xdp_live
 ```
 *Expected Output:*

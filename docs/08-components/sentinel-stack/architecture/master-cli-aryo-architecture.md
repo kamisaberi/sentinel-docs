@@ -2,14 +2,14 @@
 
 The Master Unified CLI binary (**`/usr/local/bin/aryo`**) serves as the single-entrypoint operator interface across all 18 domains of the Aryorithm ecosystem (`login`, `status`, `hub`, `package`, `model`, `dataset`, `pcap`, `scenario`, `blueprint`, `5g`, `sbom`, `trism`, `space`, `forge`, `slab`, `lab`, `matrix`, `system`).
 
-To maintain maintainability and zero-overhead performance, `/home/kami/sentinel-stack/src/aryo.cpp` is modularized into **4 clean C++20 header modules**.
+To maintain maintainability and zero-overhead performance, `${WORKSPACE_ROOT}/sentinel-stack/src/aryo.cpp` is modularized into **4 clean C++20 header modules**.
 
 ---
 
 ## 1. Modular Header Structure
 
 ```text
- /home/kami/sentinel-stack/src/
+ ${WORKSPACE_ROOT}/sentinel-stack/src/
  ├── common.hpp         # ANSI colors, corporate banner, forward_exec() POSIX execvp proxying
  ├── help_manuals.hpp   # Level-1 overview + 18 Level-2 dedicated contextual help manuals
  ├── domain_router.hpp  # Fast zero-overhead argument interceptor & domain dispatch router
