@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To understand how **`xinfer`** is used to build other applications, think of it like a **Game Engine (like Unreal Engine or Unity)**.
 
 Unreal Engine handles the complex graphics, physics, and memory management so that game developers can focus on building games (like *Fortnite* or *Cyberpunk*).

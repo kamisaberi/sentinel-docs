@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete, self-contained Markdown runbook. You can save this directly as **`INSTALL_AND_RUN.md`** inside your `sentinel-matrix` repository.
 
 ***
@@ -53,7 +58,7 @@ Before launching the simulation mesh, verify that the native C++20 daemons (`sen
 
 ### A. Build `sentinel-nexus` (Command Plane)
 ```bash
-cd /home/kami/sentinel-nexus
+cd ${WORKSPACE_ROOT}/sentinel-nexus
 mkdir -p build && cd build
 cmake ..
 make -j$(nproc)
@@ -64,7 +69,7 @@ ls -la sentinel-nexus nexus-ctl
 
 ### B. Build `blackbox-sentinel` (Edge Appliance)
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 mkdir -p build && cd build
 cmake ..
 make -j$(nproc)
@@ -80,7 +85,7 @@ ls -la sentinel
 Initialize the simulation workspace, generate mTLS certificates, synchronize binaries, and bundle host dynamic libraries (`absl`, `grpc`, `protobuf`, `re2`):
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Initialize folders, environment, and synchronize binaries/libraries
 make init
@@ -100,7 +105,7 @@ ls -lh shared/lib/
 Build the 5 custom simulation images (`nexus`, `sentinel`, `forge`, `traffic`, `monitor`):
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 sudo make build
 ```
 
@@ -111,7 +116,7 @@ sudo make build
 Start the entire 8-component container grid in background mode:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 sudo make up
 ```
 
@@ -148,7 +153,7 @@ http://localhost:9443
 ### B. Live Terminal Dashboard (TUI)
 To view the terminal dashboard inside the mesh:
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 make tui
 ```
 *(Press `Ctrl+C` to exit the dashboard view without stopping the simulation).*
@@ -215,7 +220,7 @@ sudo docker compose start sentinel-edge-01
 
 ### Stop the Mesh
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 sudo make down
 ```
 

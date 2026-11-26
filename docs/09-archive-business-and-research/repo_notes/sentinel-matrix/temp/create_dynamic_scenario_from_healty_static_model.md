@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Architecture & Plan: Packing the Full Master Grid with Tested Models
 
 Based on your directory listings, you already have:
@@ -14,7 +19,7 @@ We will now bundle this **exact, tested production grid** (all 9 containers: `ne
 Create the directory hierarchy for the scenario bundle:
 
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/production_master_grid/{models,configs/nodes,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/{models,configs/nodes,pcaps}
 ```
 
 ---
@@ -25,33 +30,33 @@ Populate the bundle with the files you already tested:
 
 ```bash
 # 1. Copy the tested neural models
-cp /home/kami/sentinel-matrix/shared/models/network_threat_detector.onnx /home/kami/sentinel-matrix/scenarios/production_master_grid/models/
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/production_master_grid/models/
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/production_master_grid/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/production_master_grid/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_detector.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/models/ 2>/dev/null || true
 
 # 2. Copy the active node configs & register maps
-cp /home/kami/sentinel-matrix/configs/nodes/node_01_substation_alpha.yaml /home/kami/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
-cp /home/kami/sentinel-matrix/configs/nodes/node_02_hospital_pacs.yaml /home/kami/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
-cp /home/kami/sentinel-matrix/configs/nodes/node_03_refinery_plc.yaml /home/kami/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/production_master_grid/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/nodes/node_01_substation_alpha.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/nodes/node_02_hospital_pacs.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/nodes/node_03_refinery_plc.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/configs/nodes/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/configs/ 2>/dev/null || true
 
 # 3. Copy the real attack PCAP captures
-cp /home/kami/sentinel-matrix/shared/datasets/industroyer2_substation.pcap /home/kami/sentinel-matrix/scenarios/production_master_grid/pcaps/
-cp /home/kami/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap /home/kami/sentinel-matrix/scenarios/production_master_grid/pcaps/
-cp /home/kami/sentinel-matrix/shared/datasets/triton_trisis_sis.pcap /home/kami/sentinel-matrix/scenarios/production_master_grid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/industroyer2_substation.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/triton_trisis_sis.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/pcaps/
 ```
 
 ---
 
 ### Step 3: Create `manifest.json`
 
-Create `/home/kami/sentinel-matrix/scenarios/production_master_grid/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/manifest.json`:
 
 ```bash
 AUTH_KEY=$(cat /tmp/manifest.json 2>/dev/null | grep -o '"author_public_key": "[^"]*' | head -n 1 | cut -d'"' -f4 || echo "")
 
-cat << EOF > /home/kami/sentinel-matrix/scenarios/production_master_grid/manifest.json
+cat << EOF > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/manifest.json
 {
   "name": "production_master_grid",
   "slug": "production_master_grid",
@@ -87,7 +92,7 @@ EOF
 
 ### Step 4: Create `scenario.yaml` (Complete 9-Container Production Topology)
 
-Create `/home/kami/sentinel-matrix/scenarios/production_master_grid/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid/scenario.yaml`:
 
 ```yaml
 version: "1.0"
@@ -377,7 +382,7 @@ services:
 Pack the entire directory, embedding the models, configs, and PCAPs:
 
 ```bash
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/production_master_grid --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/production_master_grid --embed
 ```
 
 This creates:
@@ -409,7 +414,7 @@ Follow Steps 1 through 6 in your terminal, and confirm that all 9 production con
 ---
 ---
 
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Launch default tested production grid (.tar.gz) in 1 command
 make scenario-up

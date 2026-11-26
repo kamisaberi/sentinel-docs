@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **YES, 100%!** `blackbox-sentinel` is designed to ingest logs, telemetry, and camera feeds from external device daemons across the network.
 
 You do not need to install `blackbox-sentinel` on every device. Instead, external devices forward their native logs and network flows directly to `blackbox-sentinel` over standard network protocols.

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here are the complete, ready-to-use versions of **Document #2 (The Silicon Vendor Application Package)** and **Document #3 (The Industrial Shadow Pilot Agreement & LOI Kit)**.
 
 You can save these as **`VENDOR_APPLICATIONS.md`** and **`PILOT_AGREEMENT.md`** in your repository.

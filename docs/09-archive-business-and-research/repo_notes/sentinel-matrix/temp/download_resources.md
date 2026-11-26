@@ -1,6 +1,11 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete reference guide and command-by-command instructions to download certified malware **PCAPs**, research **SLAB datasets**, and digital twin **scenarios** using both **`sentinel-ctl`** and **`sentinel-matrix`**.
 
-Both tools use the **Cache-First Engine** (`/var/cache/sentinel/`), checking local storage first before downloading and automatically managing runtime paths.
+Both tools use the **Cache-First Engine** (`${SENTINEL_ROOT}/artifacts/downloads/`), checking local storage first before downloading and automatically managing runtime paths.
 
 ---
 
@@ -22,7 +27,7 @@ The `sentinel-ctl` utility manages dependencies, PCAP captures, and research dat
 Fetch ground-truth binary captures into `/etc/sentinel/pcaps/`:
 
 ```bash
-cd /home/kami/blackbox-sentinel/build
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/build
 
 # 1. Download Industroyer2 IEC-104 Substation Breaker Trip
 sudo ./sentinel-ctl pcap pull industroyer2_substation.pcap
@@ -51,7 +56,7 @@ ls -lh /etc/sentinel/pcaps/
 Download zero-copy binary datasets (`[0x534C4142 | EventID | Label | Dim | Tensor]`) into `/etc/sentinel/datasets/` for `sentinel-lab` line-rate streaming:
 
 ```bash
-cd /home/kami/blackbox-sentinel/build
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/build
 
 # 1. Download CIC-IDS-2017 PortScan (32-dimensional, 81 MB)
 sudo ./sentinel-ctl dataset pull cicids2017_portscan.slab
@@ -73,7 +78,7 @@ hexdump -C /etc/sentinel/datasets/cicids2017_portscan.slab | head -n 2
 To download every `.spkg` package and ONNX model required by your active routing specification in one command:
 
 ```bash
-cd /home/kami/blackbox-sentinel/build
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/build
 sudo ./sentinel-ctl sync ../configs/model_routes.yaml
 ```
 
@@ -83,7 +88,7 @@ sudo ./sentinel-ctl sync ../configs/model_routes.yaml
 Inspect all cached resources or export them to a USB drive for offline air-gapped facilities:
 
 ```bash
-cd /home/kami/blackbox-sentinel/build
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/build
 
 # List all downloaded assets currently cached locally
 ./sentinel-ctl cache list
@@ -112,7 +117,7 @@ Inside `sentinel-matrix`, you can pull and stage resources using `make` commands
 Populate `sentinel-matrix/shared/datasets/` with the certified malware captures from the cache:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # Pull & synchronize all certified PCAPs in one step
 make sync-hub-pcaps
@@ -129,7 +134,7 @@ ls -lh shared/datasets/*.pcap
 Download and unpack complete multi-node scenarios (Docker Compose topologies, network configurations, and attack automation scripts) into `configs/active_scenario/`:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # Option A: Pull the Power Substation Blackout Scenario (IEC-104 + Substation Alpha)
 make scenario-pull NAME=power_grid_blackout
@@ -153,7 +158,7 @@ ls -la configs/active_scenario/scripts/
 Once downloaded, stream the packets live over the virtual network (`10.240.0.0/24`) to test in-kernel drops ($0.84\,\mu\text{s}$) and web dashboard updates:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Replay Industroyer2 attack against Substation Node (.101)
 make attack-hub-industroyer2
@@ -176,8 +181,8 @@ Run the status check at any time:
 
 ```bash
 # In blackbox-sentinel:
-/home/kami/blackbox-sentinel/build/sentinel-ctl status
+${WORKSPACE_ROOT}/blackbox-sentinel/build/sentinel-ctl status
 
 # In sentinel-matrix:
-/home/kami/sentinel-matrix/tools/matrix_ctl.sh status
+${WORKSPACE_ROOT}/sentinel-matrix/tools/matrix_ctl.sh status
 ```

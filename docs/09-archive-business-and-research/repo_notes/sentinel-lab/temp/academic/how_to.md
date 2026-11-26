@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Instruction & Roadmap: Academic Research Kit (ARK)
 
 To make `sentinel-lab` immediately usable and citable by professors, PhD students, and research lab directors at universities like **TalTech** and **Aalto University**, we create three essential open-access academic assets in `sentinel-lab`:
@@ -15,7 +20,7 @@ To make `sentinel-lab` immediately usable and citable by professors, PhD student
 
 ### File 1: `sentinel-lab/LICENSE` (Apache 2.0)
 
-Create `/home/kami/sentinel-lab/LICENSE`:
+Create `${WORKSPACE_ROOT}/sentinel-lab/LICENSE`:
 
 ```text
                                  Apache License
@@ -42,7 +47,7 @@ Create `/home/kami/sentinel-lab/LICENSE`:
 
 ### File 2: `sentinel-lab/CITATION.cff`
 
-Create `/home/kami/sentinel-lab/CITATION.cff`:
+Create `${WORKSPACE_ROOT}/sentinel-lab/CITATION.cff`:
 
 ```yaml
 cff-version: 1.2.0
@@ -73,7 +78,7 @@ keywords:
 
 ### File 3: `sentinel-lab/ACADEMIC_KIT.md`
 
-Create `/home/kami/sentinel-lab/ACADEMIC_KIT.md`:
+Create `${WORKSPACE_ROOT}/sentinel-lab/ACADEMIC_KIT.md`:
 
 ```markdown
 # Sentinel-Lab: Academic Research Kit (ARK)

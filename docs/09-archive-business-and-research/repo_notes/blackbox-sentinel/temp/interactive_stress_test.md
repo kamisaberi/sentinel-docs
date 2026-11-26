@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 An interactive **Attack Controller Console** is an amazing idea. 
 
 Instead of running static scripts, this gives you a **live Interactive Terminal Control Panel** where you can turn individual attacks ON and OFF like light switches, change attack types, adjust intensity, or launch a full multi-vector assault while watching **Blackbox Sentinel** respond live on `http://localhost:8443`.

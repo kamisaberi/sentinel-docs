@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 In enterprise systems architecture, handling client-to-registry publishing requires a clear separation between **Authoring/Packaging (The Developer CLI)** and **Intake/Ingestion (The Registry Backend)**.
 
 The publishing workflow maps cleanly across the Aryorithm ecosystem as follows:

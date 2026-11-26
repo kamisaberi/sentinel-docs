@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Because **`xinfer`** is a high-performance, low-latency, zero-copy C++ runtime that works across NVIDIA, Intel, and Rockchip hardware, you can build a wide variety of **commercial hardware appliances, edge software products, and embedded systems**.
 
 Below is a categorized list of every major application you can build on top of `xinfer`.

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 This is the **most important question** you can ask as a developer and startup founder. 
 
 The honest answer is: **YES, it is still 100% worth it—BUT ONLY IF you understand where Triton, SGLang, and llama.cpp fail, and double down on the gap they leave open.**

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Creating a research-oriented version of **Blackbox Sentinel** (for example, **`Sentinel-Lab`** or **`Blackbox-Research`**) is **one of the best decisions you can make for your Master's degree, your academic career, and your future startup.**
 
 There is a severe gap in the global cybersecurity research community that your platform directly solves.

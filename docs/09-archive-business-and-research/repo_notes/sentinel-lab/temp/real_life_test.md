@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is a complete, real-world simulation pipeline that streams **real network flow records from the known CIC-IDS-2017 dataset [1.2.8] directly across your Network Interface Card (NIC)** into **`sentinel-lab`**, evaluates them at line-rate using your pre-trained ONNX model via `libxinfer.so`, and triggers native eBPF/XDP kernel drops.
 
 ---
@@ -380,7 +385,7 @@ Open two terminal windows on your Ubuntu workstation:
 
 #### Terminal 1: Build & Launch Sentinel-Lab
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 
 # 1. Compile eBPF filter bytecode
 ./bpf/build_bpf.sh
@@ -396,7 +401,7 @@ sudo ./sentinel_lab
 
 #### Terminal 2: Stream the Real Dataset onto the NIC
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 
 # Install Python requirements
 pip install -r tools/requirements.txt

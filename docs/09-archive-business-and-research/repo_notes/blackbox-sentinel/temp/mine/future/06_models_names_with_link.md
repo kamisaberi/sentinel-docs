@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the master catalog of **known, publicly hosted, pre-trained ONNX models with direct links** covering all 26 modules of Blackbox Sentinel.
 
 Every model in this table is already exported in `.onnx` format and can be downloaded over HTTPS directly into your `models/` directory or auto-fetched via `xinfer::ModelHub`.

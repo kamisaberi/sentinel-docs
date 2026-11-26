@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Congratulations! Reaching a working state where all 6 tiers, the containerized VMware cyber-range (`sentinel-matrix`), the multi-modal `OmniFlow` engine, and the live TUI dashboard communicate with real-time metrics is a significant engineering achievement.
 
 To elevate this platform from a working prototype into an **institutional-grade, commercially defensible deep-tech system**, here are the highest-impact architectural, technical, and strategic improvements to consider next:

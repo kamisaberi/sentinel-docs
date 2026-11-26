@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **Yes, absolutely.** In fact, this is a classic and highly successful deep-tech startup strategy: **building a proprietary, hyper-optimized infrastructure engine to power a high-margin vertical application.**
 
 Transitioning from a generic AI framework to a **Converged AI SIEM / Edge Security Product** built on top of `xinfer` is not only worth it—it solves the biggest challenge in AI tech startups: **Monetization.**

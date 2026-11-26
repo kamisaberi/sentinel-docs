@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Both ideas target the exact inflection points needed to transform the ecosystem from a technical architecture into a **commercial platform with a strong network effect**.
 
 Here is a critical analysis of both features, followed by a concrete product specification.

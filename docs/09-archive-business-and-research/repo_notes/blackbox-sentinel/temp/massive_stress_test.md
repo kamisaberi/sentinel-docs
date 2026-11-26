@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 With **192GB RAM and an Intel Core i9-14900K (32 threads)**, you have a world-class workstation. You can simulate an entire enterprise infrastructure and industrial facility simultaneously.
 
 Below is a massive **12-Container Simulation Environment (`docker-compose.massive.yml`)** and an automated **Stress Test Script (`scripts/massive_stress_test.sh`)** designed to push `blackbox-sentinel` and `libblackbox.so` to hundreds of thousands of events per second.
@@ -255,7 +260,7 @@ chmod +x scripts/massive_stress_test.sh
 
 #### Step 1: Spin up the 12-container network
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo docker-compose -f docker-compose.massive.yml up -d
 ```
 

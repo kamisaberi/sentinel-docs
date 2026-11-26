@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the comprehensive **Master 5-Year Expansion Horizon Matrix (50 Strategic Applications)**.
 
 This matrix maps out the future of Aryorithm’s foundational primitives—**in-kernel zero-copy AF_XDP, multi-silicon `xinfer` INT8 execution, continuous RK4 ODE physics, and Control Barrier Functions ($h(x) \ge 0$)**—across all major global industries.

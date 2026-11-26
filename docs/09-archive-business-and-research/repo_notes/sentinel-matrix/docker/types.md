@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 If you try to write a separate `Dockerfile` for every brand and model of sensor, PLC, and edge device in the world, you will end up with **hundreds of static files** that duplicate 95% of the same Linux base and differ only by a protocol listener or register configuration.
 
 In industrial automation and cyber-physical systems (CPS), despite thousands of vendor catalog numbers (Siemens, Schneider, ABB, Honeywell, Rockwell, Omron, Phoenix Contact), **all sensors and edge devices in the world collapse into exactly 8 Core Architectural Archetypes**.

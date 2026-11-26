@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete implementation of **Real PCAP Threat Streaming** for `sentinel-matrix`.
 
 This upgrades the system from synthetic vectors to **authentic, byte-level `.pcap` traffic replays** of the most critical cyber-physical attacks in history:
@@ -14,7 +19,7 @@ The architecture includes:
 
 ### 1. The Real Malware PCAP Builder: `tools/generate_real_pcaps.py`
 
-Save as `/home/kami/sentinel-matrix/tools/generate_real_pcaps.py`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/tools/generate_real_pcaps.py`:
 
 ```python
 #!/usr/bin/env python3
@@ -30,7 +35,7 @@ import os
 import struct
 import socket
 
-PCAP_DIR = "/home/kami/sentinel-matrix/configs/pcaps"
+PCAP_DIR = "${WORKSPACE_ROOT}/sentinel-matrix/configs/pcaps"
 os.makedirs(PCAP_DIR, exist_ok=True)
 
 def write_pcap_global_header(f):
@@ -157,7 +162,7 @@ if __name__ == "__main__":
 
 Make it executable:
 ```bash
-chmod +x /home/kami/sentinel-matrix/tools/generate_real_pcaps.py
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/tools/generate_real_pcaps.py
 ```
 
 ---
@@ -166,7 +171,7 @@ chmod +x /home/kami/sentinel-matrix/tools/generate_real_pcaps.py
 
 This script reads any `.pcap` file, extracts real packet metadata, streams raw frames, and dispatches the attack into the Nexus intelligence grid:
 
-Save as `/home/kami/sentinel-matrix/src/traffic/pcap_streamer.py`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/src/traffic/pcap_streamer.py`:
 
 ```python
 #!/usr/bin/env python3
@@ -251,7 +256,7 @@ if __name__ == "__main__":
 
 Make it executable:
 ```bash
-chmod +x /home/kami/sentinel-matrix/src/traffic/pcap_streamer.py
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/src/traffic/pcap_streamer.py
 ```
 
 ---
@@ -310,7 +315,7 @@ scenario:
 
 ### 4. Update `Makefile` with the 3 Attack Triggers
 
-Add these targets to `/home/kami/sentinel-matrix/Makefile`:
+Add these targets to `${WORKSPACE_ROOT}/sentinel-matrix/Makefile`:
 
 ```makefile
 attack-industroyer:
@@ -341,7 +346,7 @@ attack-stuxnet:
 
 #### Step 1: Generate the Authentic Binary PCAP Files
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 python3 tools/generate_real_pcaps.py
 ```
 

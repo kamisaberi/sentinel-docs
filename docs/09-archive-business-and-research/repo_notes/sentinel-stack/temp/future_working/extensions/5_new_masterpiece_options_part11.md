@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is an expansive new batch of **10 bleeding-edge ecosystem features (Batches 19 & 20: Ideas 86 to 95)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **spacecraft plasma Hall thruster instabilities, SQUID quantum voltage standards, cement kiln refractory collapse, ALD semiconductor pyrophoric vapor protection, and deepwater methane plume acoustics**.

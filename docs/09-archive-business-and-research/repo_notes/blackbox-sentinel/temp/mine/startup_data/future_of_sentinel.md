@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **Yes, absolutely.** In fact, because Blackbox Sentinel is written in native C++20, integrates eBPF/XDP at the kernel level, and runs hardware-accelerated AI via `libxinfer.so`, **it is architecturally designed to evolve far beyond a traditional passive SIEM.**
 
 Legacy SIEMs (Splunk, Elastic, Microsoft Sentinel) cannot support inline features like NDR, IPS, or WAF because their runtime engines (Java, Python, cloud SaaS) are too slow to sit in the live execution path. 

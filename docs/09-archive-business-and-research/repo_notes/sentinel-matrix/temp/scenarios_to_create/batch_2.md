@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Instruction & Roadmap: Batch 2 Production Scenarios
 
 We now construct, configure, and package **Batch 2** of the production scenarios:
@@ -12,21 +17,21 @@ We now construct, configure, and package **Batch 2** of the production scenarios
 
 ### Step 4.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/{models,configs,pcaps}
 ```
 
 ### Step 4.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/
-cp /home/kami/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/triton_trisis_sis.pcap /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/triton_trisis_sis.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/configs/ 2>/dev/null || true
 ```
 
 ### Step 4.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/manifest.json`:
 ```json
 {
   "name": "refinery_cracking_sis_triad",
@@ -55,7 +60,7 @@ Create `/home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/manifes
 ```
 
 ### Step 4.4: Create `scenario.yaml` (19 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -303,14 +308,14 @@ services:
 
 ### Step 4.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 19-Node Continuous Catalytic Cracking Refinery with SIL-3 SIS...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad/run_demo.sh
 ```
 
 ---
@@ -319,21 +324,21 @@ chmod +x /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad/run_de
 
 ### Step 5.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/{models,configs,pcaps}
 ```
 
 ### Step 5.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/models/
-cp /home/kami/sentinel-matrix/shared/models/lidar_spatial_detector.onnx* /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/lidar_spatial_detector.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/configs/ 2>/dev/null || true
 ```
 
 ### Step 5.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/manifest.json`:
 ```json
 {
   "name": "container_terminal_port_mesh",
@@ -362,7 +367,7 @@ Create `/home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/manife
 ```
 
 ### Step 5.4: Create `scenario.yaml` (19 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -599,14 +604,14 @@ services:
 
 ### Step 5.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 19-Node Automated Maritime Port Terminal...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh/run_demo.sh
 ```
 
 ---
@@ -615,21 +620,21 @@ chmod +x /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh/run_d
 
 ### Step 6.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/{models,configs,pcaps}
 ```
 
 ### Step 6.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/configs/ 2>/dev/null || true
 ```
 
 ### Step 6.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/manifest.json`:
 ```json
 {
   "name": "nuclear_turbine_island_cooling",
@@ -658,7 +663,7 @@ Create `/home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/mani
 ```
 
 ### Step 6.4: Create `scenario.yaml` (22 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -920,14 +925,14 @@ services:
 
 ### Step 6.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 22-Node Nuclear Secondary Island & Turbine Protection Grid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling/run_demo.sh
 ```
 
 ---
@@ -938,13 +943,13 @@ Run these three commands to pack all three scenarios into verified `.tar.gz` bun
 
 ```bash
 # 1. Pack Scenario 04: Catalytic Cracker & SIS Triad (19 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/refinery_cracking_sis_triad --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/refinery_cracking_sis_triad --embed
 
 # 2. Pack Scenario 05: Automated Container Port (19 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/container_terminal_port_mesh --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/container_terminal_port_mesh --embed
 
 # 3. Pack Scenario 06: Nuclear Turbine Island (22 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/nuclear_turbine_island_cooling --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/nuclear_turbine_island_cooling --embed
 ```
 
 ---

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 You have identified a fundamental limitation of the initial simulator. 
 
 **Sentinel was engineered with 26 decoupled native subsystems and 30 industrial plugins.** Testing only synthetic 32-dimensional NetFlow vectors evaluates barely $15\%$ of its capabilities. It does not test the computer-vision inference pipeline (`xinfer` YOLO/UltraFace plugins), SCADA physical constraint validators (Modbus/DNP3), medical PACS dissectors (DICOM), container syscall guards (CWPP), phishing/credential abuse engines (ITDR/ATO), or file entropy calculators (NGAV).

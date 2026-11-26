@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the technical specification and implementation for the **Unified Meta-Build System & Master DAG Pipeline**.
 
 ---
@@ -11,7 +16,7 @@ The Meta-Build System coordinates compilation, dynamic config validation, symbol
                           SENTINEL-STACK UNIFIED META-BUILD DAG PIPELINE
 ========================================================================================================
  Phase 1: ENVIRONMENT & DEPENDENCIES  ──> Validates GCC 13+, CMake 3.20+, libxdp, bpftool, LuaJIT
- Phase 2: DIRECTORY & TREE SETUP       ──> Provisions /var/cache/sentinel, /etc/sentinel, /usr/local/lib
+ Phase 2: DIRECTORY & TREE SETUP       ──> Provisions ${SENTINEL_ROOT}/artifacts/downloads, /etc/sentinel, /usr/local/lib
  Phase 3: CORE LIBRARIES & INGESTION    ──> Compiles xinfer-essential (libxinfer) & blackbox-essential (libblackbox, xdp_drop.o)
  Phase 4: APPLIANCE & FLEET C2        ──> Compiles blackbox-sentinel (daemon + 30 plugins) & sentinel-nexus (C2)
  Phase 5: LAB TESTBED & RANGE TWIN    ──> Compiles sentinel-lab (all 8 research modules) & sentinel-matrix (mock_plc)
@@ -40,7 +45,7 @@ RED='\033[31m'
 BOLD='\033[1m'
 RESET='\033[0m'
 
-ROOT_DIR="/home/kami"
+ROOT_DIR="${WORKSPACE_ROOT}"
 NPROC=$(nproc)
 
 echo -e "${CYAN}${BOLD}"
@@ -65,10 +70,10 @@ echo -e "${GREEN}[+] Toolchain verified: GCC $(gcc -dumpversion) | CMake $(cmake
 # PHASE 2: SYSTEM DIRECTORIES & ASSET PROVISIONING
 # ------------------------------------------------------------------------------
 echo -e "${YELLOW}[PHASE 2/6] Provisioning System Directories & Cache Trees...${RESET}"
-sudo mkdir -p /var/cache/sentinel/pcaps /var/cache/sentinel/datasets /var/cache/sentinel/scenarios /var/cache/sentinel/spkg
+sudo mkdir -p ${SENTINEL_ROOT}/artifacts/downloads/pcaps ${SENTINEL_ROOT}/artifacts/downloads/datasets ${SENTINEL_ROOT}/artifacts/downloads/scenarios ${SENTINEL_ROOT}/artifacts/downloads/spkg
 sudo mkdir -p /etc/sentinel/configs /etc/sentinel/models /etc/sentinel/rules.d /etc/sentinel/certs
 sudo mkdir -p /usr/local/lib /usr/local/bin /opt/sentinel-stack
-echo -e "${GREEN}[+] Directories provisioned at /var/cache/sentinel/ and /etc/sentinel/.${RESET}"
+echo -e "${GREEN}[+] Directories provisioned at ${SENTINEL_ROOT}/artifacts/downloads/ and /etc/sentinel/.${RESET}"
 
 # ------------------------------------------------------------------------------
 # PHASE 3: COMPILE CORE LIBRARIES (Tier 1 & Tier 2)
@@ -213,10 +218,10 @@ check_test "7" "sentinel-nexus C2 executable present in /usr/local/bin/" test -x
 check_test "8" "sentinel_lab research executable present in /usr/local/bin/" test -x /usr/local/bin/sentinel_lab
 
 # Test 9: Digital Twin PLC Executable
-check_test "9" "mock_plc twin executable present in sentinel-matrix/shared/bin/" test -x /home/kami/sentinel-matrix/shared/bin/mock_plc
+check_test "9" "mock_plc twin executable present in sentinel-matrix/shared/bin/" test -x ${WORKSPACE_ROOT}/sentinel-matrix/shared/bin/mock_plc
 
 # Test 10: Config Files Integrity
-check_test "10" "Config files present in blackbox-sentinel/configs/" test -f /home/kami/blackbox-sentinel/configs/sensors_config.yaml
+check_test "10" "Config files present in blackbox-sentinel/configs/" test -f ${WORKSPACE_ROOT}/blackbox-sentinel/configs/sensors_config.yaml
 
 echo "------------------------------------------------------------------"
 echo "Health Check Result: $PASS_COUNT / $TOTAL_TESTS Passed."

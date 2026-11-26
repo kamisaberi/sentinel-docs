@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Your idea is **architecturally sound and aligns directly with how enterprise OT/IT security platforms operate**. 
 
 In fact, this hierarchical model mirrors the **Purdue Enterprise Reference Architecture (ISA-95)** used in critical infrastructure. 

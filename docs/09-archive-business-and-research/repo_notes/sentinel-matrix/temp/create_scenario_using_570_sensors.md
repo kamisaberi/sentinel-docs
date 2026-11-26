@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Operator & Engineer Guide: Building Industrial Digital Twin Scenarios Using the 570-Sensor Catalog
 
 This handbook outlines the complete workflow for creating, configuring, executing, and promoting a multi-tier cyber-physical scenario in **Sentinel-Matrix** using the 570-sensor industrial catalog.
@@ -55,7 +60,7 @@ Note their:
 Use the master CLI to generate a standardized scenario project skeleton:
 
 ```bash
-cd /home/kami/sentinel-matrix/scenarios
+cd ${WORKSPACE_ROOT}/sentinel-matrix/scenarios
 aryo scenario new water_dosing_facility --sector WATER_TREATMENT
 ```
 
@@ -153,7 +158,7 @@ nodes:
       - "15031:15031"  # #031: 3-Axis Bearing Vibration (mm/s)
       - "8088:8088"    # Real-Time Chaos/Fault Injection Hook
     command: [
-      "python3", "/home/kami/sentinel-matrix/tools/sensor_multiplexer.py"
+      "python3", "${WORKSPACE_ROOT}/sentinel-matrix/tools/sensor_multiplexer.py"
     ]
 
 # 3. Catalog Sensors Activated in this Twin
@@ -176,7 +181,7 @@ catalog_sensors:
 Link the defense artifacts that protect against the specific threats detected by those sensors:
 
 ```bash
-cd /home/kami/sentinel-matrix/scenarios/water_dosing_facility
+cd ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_dosing_facility
 
 # 1. Add reflex rules targeting Modbus & pH poisoning:
 aryo scenario add . modbus_safety_guard
@@ -195,7 +200,7 @@ cat manifest.json | jq .dependencies
 
 #### 1. Launch the Digital Twin Scenario:
 ```bash
-aryo matrix scenario load /home/kami/sentinel-matrix/scenarios/water_dosing_facility/scenario.yaml
+aryo matrix scenario load ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_dosing_facility/scenario.yaml
 ```
 
 The scenario engine initializes the segmented bridge networks, boots the PLC and edge appliance, and starts the sensor multiplexer emitting continuous physical ODE telemetry.
@@ -247,7 +252,7 @@ Observe `blackbox-sentinel` logs. Because the commanded network state (`"Normal 
 Once the scenario proves that zero false positives occur and the physical safety barriers hold under simulated attack, promote the virtual twin to a **physical bare-metal blueprint**:
 
 ```bash
-cd /home/kami/sentinel-matrix/scenarios
+cd ${WORKSPACE_ROOT}/sentinel-matrix/scenarios
 
 # 1. Convert scenario to production blueprint:
 aryo blueprint from-scenario water_dosing_facility \

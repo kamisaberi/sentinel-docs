@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To give each of the 50 projects the rigorous architectural depth it warrants without hitting output generation limits, we will unpack them **part by part in structured 5-project batches**.
 
 Here is **Part 1: Projects 01 through 05**, covering High-Voltage Energy, Power Grid Stability, Private 5G UPF, O-RAN Telecom, and Counter-UAS Defense.

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Project 4 of 8: `xinfer-forge` (`forge-cli`)
 ## Master Landing Page & Technical Architecture Document
 **Target URL:** `aryorithm.com/technology/forge`  
@@ -16,7 +21,7 @@
  4. The Non-Negotiable Golden Attack Regression Gate (Zero-Tolerance Verification)
  5. Automated Compilation & Nexus Staging Pipeline (PyTorch -> ONNX Opset 17)
  6. CLI Command Architecture & Developer Tooling (forge-cli Reference)
- 7. Closed-Loop Integration with the 6-Tier Sentinel Ecosystem
+ 7. Closed-Loop Integration with the 5-Tier Sentinel Ecosystem
  8. Empirical Benchmarks: Adaptation Accuracy & Poisoning Resilience Curves
  9. Sovereign Regulatory Compliance (EU AI Act Article 15, NIST SP 800-218)
  10. Technical Frequently Asked Questions (FAQ)
@@ -267,7 +272,7 @@ $ forge-cli export-onnx \
 
 ---
 
-## 7. Closed-Loop Integration with the 6-Tier Sentinel Ecosystem
+## 7. Closed-Loop Integration with the 5-Tier Sentinel Ecosystem
 
 `xinfer-forge` operates as the connective tissue between edge telemetry and centralized orchestration:
 

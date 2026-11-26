@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is a master table mapping every major security responsibility of **Blackbox Sentinel™** to its industry-standard benchmark dataset, the best-fit pretrained AI model architecture, its ONNX availability, and why it fits the `xinfer` and `blackbox` engine.
 
 ---

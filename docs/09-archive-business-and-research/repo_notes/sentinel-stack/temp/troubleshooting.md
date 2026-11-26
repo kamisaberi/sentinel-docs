@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Sentinel-Stack: Master Architecture, Operations & Troubleshooting Manual
 
 ---
@@ -14,7 +19,7 @@
   [ PHASE 0: 00_check_system.sh ]
   • Probes CPU architecture (x86_64 / aarch64), RAM (min 4GB), and Hypervisor (VMware/KVM).
   • Validates Kernel BTF (/sys/kernel/btf/vmlinux) for eBPF CO-RE.
-  • Mounts BPF filesystem (/sys/fs/bpf) & provisions /var/cache/sentinel/ and /etc/sentinel/.
+  • Mounts BPF filesystem (/sys/fs/bpf) & provisions ${SENTINEL_ROOT}/artifacts/downloads/ and /etc/sentinel/.
                  │
                  ▼
   [ PHASE 1: 01_install_dependencies.sh ]
@@ -26,14 +31,14 @@
   [ PHASE 2: 02_clone_repositories.sh ]
   • Synchronizes 6 core repositories: xinfer-essential, blackbox-essential, blackbox-sentinel,
     sentinel-lab, sentinel-nexus, and sentinel-hub.
-  • Priority Resolution: Local workspace (/home/kami/) rsync first, GitHub clone fallback.
+  • Priority Resolution: Local workspace (${WORKSPACE_ROOT}/) rsync first, GitHub clone fallback.
                  │
                  ▼
   [ PHASE 3: 03_build_all_tiers.sh ]
   • Topological Compilation DAG:
     Tier 1 (libxinfer.so) ──► Tier 2 (libblackbox.so & eBPF CO-RE) ──► Tier 3 (sentinel, sentinel-spkg, sentinel-ctl)
     ──► Tier 4 (forge-cli) ──► Tier 5 (sentinel_lab) ──► Tier 6 (sentinel-nexus & nexus-ctl)
-    ──► Sentinel-Hub (Seals Core 8 .spkg packages and populates /var/cache/sentinel/).
+    ──► Sentinel-Hub (Seals Core 8 .spkg packages and populates ${SENTINEL_ROOT}/artifacts/downloads/).
                  │
                  ▼
   [ PHASE 4: 04_setup_systemd.sh ]
@@ -54,8 +59,8 @@
 | Category | Observed Error / Symptom | Root Cause | Permanent Resolution |
 | :--- | :--- | :--- | :--- |
 | **Permissions** | `sudo ./scripts/05_verify_installation.sh: permission denied` | Execute bit (`+x`) missing on script files. | `chmod +x scripts/*.sh install.sh` |
-| **Permissions** | `rsync: mkstemp failed: Permission denied (13)` in Phase 2 | `sentinel-stack/src/` owned by `root:root` from previous `sudo` run. | `sudo chown -R $USER:$USER /home/kami/sentinel-stack` |
-| **Python / Forge** | `ModuleNotFoundError: No module named 'forge'` | `02_clone_repositories.sh` checked wrong path for `xinfer-forge`. | Update script to check `/home/kami/xinfer-forge` first. |
+| **Permissions** | `rsync: mkstemp failed: Permission denied (13)` in Phase 2 | `sentinel-stack/src/` owned by `root:root` from previous `sudo` run. | `sudo chown -R $USER:$USER ${WORKSPACE_ROOT}/sentinel-stack` |
+| **Python / Forge** | `ModuleNotFoundError: No module named 'forge'` | `02_clone_repositories.sh` checked wrong path for `xinfer-forge`. | Update script to check `${WORKSPACE_ROOT}/xinfer-forge` first. |
 | **Python / Forge** | `ModuleNotFoundError: No module named 'forge.models'` | `rsync` had `--exclude 'models'`, stripping the `forge/models/` package. | Change to `--exclude '/checkpoints'` in `02_clone_repositories.sh`. |
 | **Compilers** | `sentinel_ctl.cpp: error: ‘geteuid’ was not declared in this scope` | Missing `<unistd.h>` header for POSIX `geteuid()` check. | Add `#include <unistd.h>` to `tools/sentinel_ctl.cpp`. |
 | **Compilers** | `error: ‘AF_INET’ was not declared in this scope` in `sentinel_ctl` | Missing socket headers for `cmd_slab_stream`. | Add `<sys/socket.h>`, `<netinet/in.h>`, `<arpa/inet.h>`. |
@@ -84,7 +89,7 @@
 * **Root Cause:** In Linux, even when executing under `sudo` (root), the kernel checks the **execute bit (`+x`)** in file permissions. If the script was cloned via Git or created without `chmod +x`, execution fails.
 * **Resolution:**
   ```bash
-  cd /home/kami/sentinel-stack
+  cd ${WORKSPACE_ROOT}/sentinel-stack
   chmod +x install.sh scripts/*.sh
   ```
 
@@ -94,13 +99,13 @@
 
 * **Symptom:**
   ```text
-  rsync: [generator] recv_generator: mkdir "/home/kami/sentinel-stack/src/..." failed: Permission denied (13)
+  rsync: [generator] recv_generator: mkdir "${WORKSPACE_ROOT}/sentinel-stack/src/..." failed: Permission denied (13)
   rsync: [receiver] mkstemp "...": Permission denied (13)
   ```
 * **Root Cause:** When `install.sh` runs under `sudo`, any directory it creates (such as `sentinel-stack/src/`) is assigned root ownership (`root:root`). Subsequent runs as regular user `kami` cannot create or modify files inside `src/`.
 * **Resolution:**
   ```bash
-  sudo chown -R $USER:$USER /home/kami/sentinel-stack
+  sudo chown -R $USER:$USER ${WORKSPACE_ROOT}/sentinel-stack
   ```
 
 ---
@@ -111,8 +116,8 @@
   ```text
   /opt/sentinel-stack/venv/bin/python3: Error while finding module specification for 'forge.cli' (ModuleNotFoundError: No module named 'forge')
   ```
-* **Root Cause:** In `scripts/02_clone_repositories.sh`, the sync logic was hardcoded to check `${WORKSPACE_DIR}/blackbox-sentinel/xinfer-forge`. In your local workspace, the repository is located at **`/home/kami/xinfer-forge`**, so Phase 2 skipped copying it, leaving `sentinel-stack/src/xinfer-forge` empty.
-* **Resolution:** Ensure `scripts/02_clone_repositories.sh` checks `/home/kami/xinfer-forge` first:
+* **Root Cause:** In `scripts/02_clone_repositories.sh`, the sync logic was hardcoded to check `${WORKSPACE_DIR}/blackbox-sentinel/xinfer-forge`. In your local workspace, the repository is located at **`${WORKSPACE_ROOT}/xinfer-forge`**, so Phase 2 skipped copying it, leaving `sentinel-stack/src/xinfer-forge` empty.
+* **Resolution:** Ensure `scripts/02_clone_repositories.sh` checks `${WORKSPACE_ROOT}/xinfer-forge` first:
   ```bash
   if [ -d "${WORKSPACE_DIR}/xinfer-forge" ]; then
       mkdir -p "${TARGET_DIR}/xinfer-forge"
@@ -235,18 +240,18 @@ If your environment ever reaches an inconsistent state, use this procedure to re
 
 ```bash
 # 1. Stop any running containers and host services
-cd /home/kami/sentinel-matrix 2>/dev/null && sudo make down 2>/dev/null || true
+cd ${WORKSPACE_ROOT}/sentinel-matrix 2>/dev/null && sudo make down 2>/dev/null || true
 sudo systemctl stop sentinel-nexus.service blackbox-sentinel.service 2>/dev/null || true
 
 # 2. Reset permissions on the source workspace
-sudo chown -R $USER:$USER /home/kami/sentinel-stack
+sudo chown -R $USER:$USER ${WORKSPACE_ROOT}/sentinel-stack
 
 # 3. Clean stale AppArmor locks
 sudo aa-remove-unknown
 sudo systemctl restart containerd docker
 
 # 4. Make all installer scripts executable
-cd /home/kami/sentinel-stack
+cd ${WORKSPACE_ROOT}/sentinel-stack
 chmod +x install.sh scripts/*.sh
 
 # 5. Run the master meta-installer
@@ -264,7 +269,7 @@ sudo ./install.sh
 [*] Testing Tier 4: forge-cli runtime... [PASS]
 [*] Testing Tier 5: sentinel_lab binary... [PASS]
 [*] Testing Tier 6: sentinel-nexus & nexus-ctl... [PASS]
-[*] Testing Filesystem: /var/cache/sentinel... [PASS]
+[*] Testing Filesystem: ${SENTINEL_ROOT}/artifacts/downloads... [PASS]
 --------------------------------------------------------
 [+] Smoke Test Results: 9/9 Health Checks Verified.
 [+] All ecosystem tiers, toolchains, and daemons verified successfully!

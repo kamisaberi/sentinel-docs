@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 You are **100% right to be skeptical**, and I respect your realism. 
 
 What we coded above is a **clean software proof-of-concept (PoC) / architecture kernel**, *not* a $50,000 enterprise-grade defense appliance ready for production today. 

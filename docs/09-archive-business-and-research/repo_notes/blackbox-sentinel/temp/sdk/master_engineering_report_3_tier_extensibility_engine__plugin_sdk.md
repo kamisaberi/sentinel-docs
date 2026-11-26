@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Master Engineering Report: 3-Tier Extensibility Engine & Plugin SDK
 
 ---
@@ -198,7 +203,7 @@ clang --target=wasm32 -O3 -nostdlib -Wl,--no-entry -Wl,--export=sentinel_dissect
 sudo cp build/my_dissector.so /etc/sentinel/plugins.d/
 
 # 4. Re-run the full 3-tier regression test at any time:
-cd /home/kami/blackbox-sentinel && sudo ./test_extensibility
+cd ${WORKSPACE_ROOT}/blackbox-sentinel && sudo ./test_extensibility
 ```
 
 The extensibility subsystem is now complete and validated across all three tiers.

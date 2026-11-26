@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **Yes — Docker Compose can simulate almost all of those non-IP buses**, though **not** over a normal TCP/IP bridge alone. Standard Docker `bridge` networks only route Ethernet/IP packets, so non-IP hardware buses require specific Linux/Docker mechanisms (`AF_PACKET`, `vcan`, `ipc: shareable` shared memory, `v4l2loopback`, or Unix sockets).
 
 Here is the exact engineering breakdown by bus type, what works cleanly inside Docker Compose on Ubuntu 26.04 (`docker-ce 29.7.2`), and what `sentinel-matrix` needs to support it.

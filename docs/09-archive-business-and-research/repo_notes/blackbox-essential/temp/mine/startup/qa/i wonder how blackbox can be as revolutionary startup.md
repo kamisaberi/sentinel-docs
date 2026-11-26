@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To transform **`blackbox`** from a C++ codebase into a **multi-million dollar, revolutionary cybersecurity startup**, you must position it as a category creator.
 
 Here is the strategic startup thesis for **Blackbox**: why it is revolutionary, how it disrupts giant competitors, who pays for it, and how to scale it.

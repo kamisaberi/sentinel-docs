@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To thoroughly evaluate Blackbox Sentinel’s 26 modules simultaneously under realistic, sustained load, here is a comprehensive **Enterprise Simulation Network (`docker-compose.enterprise.yml`)** and an **Autonomous Attack & Telemetry Simulation Engine (`scripts/infinite_traffic_simulator.py`)**.
 
 This setup creates a segmented virtual enterprise with **IT, DMZ, OT/SCADA, and Red-Team subnets** and runs an infinite loop generating realistic telemetry and threat traffic across all module domains.
@@ -38,7 +43,7 @@ This setup creates a segmented virtual enterprise with **IT, DMZ, OT/SCADA, and 
 
 ### File 1: `docker-compose.enterprise.yml`
 
-Save this file in your project root (`/home/kami/blackbox-sentinel/docker-compose.enterprise.yml`):
+Save this file in your project root (`${WORKSPACE_ROOT}/blackbox-sentinel/docker-compose.enterprise.yml`):
 
 ```yaml
 services:
@@ -423,7 +428,7 @@ chmod +x scripts/infinite_traffic_simulator.py
 
 #### Step 1: Start the Multi-Subnet Enterprise Containers
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo docker compose -f docker-compose.enterprise.yml up -d --build
 ```
 
@@ -434,13 +439,13 @@ sudo docker ps --format "table {{.Names}}\t{{.Status}}"
 
 #### Step 2: Start Blackbox Sentinel (Terminal 1)
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./build/sentinel
 ```
 
 #### Step 3: Launch the Infinite Attack Simulator (Terminal 2)
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 python3 scripts/infinite_traffic_simulator.py
 ```
 

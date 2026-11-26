@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To eliminate one-off manual `g++` and `clang` commands, we will integrate all tools, test suites, and reference plugins directly into the official **CMake build trees** and provide automated **master build scripts** for both `blackbox-sentinel` and `blackbox-essential`.
 
 ---
@@ -13,7 +18,7 @@ We will add the following first-class build targets to `blackbox-sentinel`:
 
 ### Step 1.1: Update `blackbox-sentinel/CMakeLists.txt`
 
-Open `/home/kami/blackbox-sentinel/CMakeLists.txt`. Without removing any existing lines, add these targets right below the existing module test executables section at the bottom of the file:
+Open `${WORKSPACE_ROOT}/blackbox-sentinel/CMakeLists.txt`. Without removing any existing lines, add these targets right below the existing module test executables section at the bottom of the file:
 
 ```cmake
 # -------------------------------------------------------------------
@@ -75,10 +80,10 @@ install(TARGETS
 
 ### Step 1.2: Create Master Build & Test Script for `blackbox-sentinel`
 
-Create a single script, `/home/kami/blackbox-sentinel/build_all.sh`, that builds Wasm3, the main appliance daemon, all tools, tests, plugins (Rust Wasm, C Wasm, Native C++), and syncs rules to `/etc/sentinel/`:
+Create a single script, `${WORKSPACE_ROOT}/blackbox-sentinel/build_all.sh`, that builds Wasm3, the main appliance daemon, all tools, tests, plugins (Rust Wasm, C Wasm, Native C++), and syncs rules to `/etc/sentinel/`:
 
 ```bash
-cat << 'EOF' > /home/kami/blackbox-sentinel/build_all.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/blackbox-sentinel/build_all.sh
 #!/usr/bin/env bash
 set -e
 
@@ -148,7 +153,7 @@ echo "   - build/nexus-rule-broadcaster                           "
 echo "============================================================"
 EOF
 
-chmod +x /home/kami/blackbox-sentinel/build_all.sh
+chmod +x ${WORKSPACE_ROOT}/blackbox-sentinel/build_all.sh
 ```
 
 ---
@@ -161,7 +166,7 @@ We will add the **`test_af_xdp`** and **`test_af_xdp_live`** executables directl
 
 ### Step 2.1: Update `blackbox-essential/CMakeLists.txt`
 
-Open `/home/kami/blackbox-essential/CMakeLists.txt` and append the test executable targets at the bottom of the file right before `install()`:
+Open `${WORKSPACE_ROOT}/blackbox-essential/CMakeLists.txt` and append the test executable targets at the bottom of the file right before `install()`:
 
 ```cmake
 # -------------------------------------------------------------------
@@ -188,10 +193,10 @@ target_link_libraries(test_af_xdp_live PRIVATE
 
 ### Step 2.2: Create Master Build & Test Script for `blackbox-essential`
 
-Create `/home/kami/blackbox-essential/scripts/build_all.sh` to compile eBPF CO-RE bytecode, `libblackbox.so`, and all AF_XDP binaries in one step:
+Create `${WORKSPACE_ROOT}/blackbox-essential/scripts/build_all.sh` to compile eBPF CO-RE bytecode, `libblackbox.so`, and all AF_XDP binaries in one step:
 
 ```bash
-cat << 'EOF' > /home/kami/blackbox-essential/scripts/build_all.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/blackbox-essential/scripts/build_all.sh
 #!/usr/bin/env bash
 set -e
 
@@ -229,7 +234,7 @@ echo "   - build/test_af_xdp_live                                 "
 echo "============================================================"
 EOF
 
-chmod +x /home/kami/blackbox-essential/scripts/build_all.sh
+chmod +x ${WORKSPACE_ROOT}/blackbox-essential/scripts/build_all.sh
 ```
 
 ---
@@ -240,7 +245,7 @@ chmod +x /home/kami/blackbox-essential/scripts/build_all.sh
 Run the new master script:
 
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 ./scripts/build_all.sh
 ```
 
@@ -255,7 +260,7 @@ sudo ./build/test_af_xdp_live
 Run the new master script:
 
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 ./build_all.sh
 ```
 

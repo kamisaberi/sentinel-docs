@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **YES, 100%!** `xinfer-essential` is fully configured to compile into a standalone shared library (**`libxinfer.so`**) and install globally on Ubuntu. 
 
 When you install `xinfer-essential`, CMake places:
@@ -28,7 +33,7 @@ Run these exact commands in your terminal:
 
 ```bash
 # 1. Navigate to xinfer-essential
-cd /home/kami/xinfer-essential
+cd ${WORKSPACE_ROOT}/xinfer-essential
 
 # 2. Create and enter build directory
 mkdir -p build && cd build

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **Yes, exactly.** We discussed **Composable Packages**—where an `.spkg` package can bind to, require, or directly invoke an AI foundation model hosted in the Aryorithm Cloud Vault (`hub.aryorithm.com`).
 
 Here is the exact architectural breakdown of **how `.spkg` packages use AI models**, why decoupling them is critical, and the database schema update needed for the web and backend teams.

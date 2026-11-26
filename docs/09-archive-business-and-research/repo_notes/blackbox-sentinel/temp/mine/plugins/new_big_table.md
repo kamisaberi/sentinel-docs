@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the master commercial plugin catalog for **Blackbox Sentinel™**, containing **30 high-value add-on plugins** organized by rank, technical capability, target buyer, and annual subscription pricing tier.
 
 ---

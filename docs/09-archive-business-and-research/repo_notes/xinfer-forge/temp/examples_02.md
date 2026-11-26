@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is a complete, self-contained Python script (**`standalone_finetune_demo.py`**) that executes the entire workflow from start to finish:
 
 1. **Downloads** a real pre-trained cybersecurity PyTorch checkpoint (`.pth`).

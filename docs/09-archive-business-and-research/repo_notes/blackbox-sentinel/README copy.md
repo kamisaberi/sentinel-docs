@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Blackbox Sentinel: Commercial Cyber-Physical Defense Appliance
 
 Blackbox Sentinel is a turnkey commercial security software appliance and air-gapped command center built on top of the `libblackbox.so` security engine and the `libxinfer.so` AI runtime. Designed for military installations, critical infrastructure, smart factories, and high-assurance data centers, Blackbox Sentinel provides active, sub-millisecond threat mitigation, a real-time web command dashboard, enterprise RBAC authentication, TPM 2.0 node locking, and automated compliance forensic reporting.

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 As a systems architecture and product strategy review, here is my honest observation on this 50-product portfolio—what already aligns with your stack, where the hidden architectural gaps are, and how to turn 50 ideas into a scalable business instead of 50 separate maintenance burdens.
 
 ---

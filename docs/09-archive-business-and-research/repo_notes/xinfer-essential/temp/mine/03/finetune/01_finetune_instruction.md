@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **You are completely right, and this is a much smarter, more realistic engineering decision.**
 
 Trying to write a custom autograd and backpropagation engine from scratch in pure C++ inside an inference runtime is an enormous engineering trap. It bloats the engine, risks memory leaks, and reinvents the wheel.

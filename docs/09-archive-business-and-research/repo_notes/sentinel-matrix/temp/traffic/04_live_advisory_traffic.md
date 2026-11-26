@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete implementation of the **Live Adversary Emulation Container (`matrix-adversary`)** for `sentinel-matrix`.
 
 This container is assigned IP **`10.240.0.99`** on the private subnet and runs an infinite daemon that generates live network traffic over the wire—interleaving ambient requests with real `nmap` SYN port discovery sweeps, Modbus TCP command cycles, and high-velocity API queries.
@@ -6,7 +11,7 @@ This container is assigned IP **`10.240.0.99`** on the private subnet and runs a
 
 ### 1. Build Definition: `docker/Dockerfile.adversary`
 
-Save as `/home/kami/sentinel-matrix/docker/Dockerfile.adversary`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/docker/Dockerfile.adversary`:
 
 ```dockerfile
 FROM ubuntu:devel
@@ -40,7 +45,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ### 2. Container Entrypoint: `docker/entrypoints/adversary_entrypoint.sh`
 
-Save as `/home/kami/sentinel-matrix/docker/entrypoints/adversary_entrypoint.sh`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/docker/entrypoints/adversary_entrypoint.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -69,14 +74,14 @@ exec python3 /app/src/traffic/live_adversary_daemon.py
 
 Make it executable:
 ```bash
-chmod +x /home/kami/sentinel-matrix/docker/entrypoints/adversary_entrypoint.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/docker/entrypoints/adversary_entrypoint.sh
 ```
 
 ---
 
 ### 3. The Live Adversary Daemon: `src/traffic/live_adversary_daemon.py`
 
-Save as `/home/kami/sentinel-matrix/src/traffic/live_adversary_daemon.py`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/src/traffic/live_adversary_daemon.py`:
 
 ```python
 #!/usr/bin/env python3
@@ -214,14 +219,14 @@ if __name__ == "__main__":
 
 Make it executable:
 ```bash
-chmod +x /home/kami/sentinel-matrix/src/traffic/live_adversary_daemon.py
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/src/traffic/live_adversary_daemon.py
 ```
 
 ---
 
 ### 4. Integrate into `docker-compose.yml`
 
-In `/home/kami/sentinel-matrix/docker-compose.yml`, add the `adversary` service at static IP **`10.240.0.99`**:
+In `${WORKSPACE_ROOT}/sentinel-matrix/docker-compose.yml`, add the `adversary` service at static IP **`10.240.0.99`**:
 
 ```yaml
   # ============================================================================
@@ -253,7 +258,7 @@ In `/home/kami/sentinel-matrix/docker-compose.yml`, add the `adversary` service 
 
 ### 5. Update `Makefile` with Live Trigger Targets
 
-Add these targets to `/home/kami/sentinel-matrix/Makefile`:
+Add these targets to `${WORKSPACE_ROOT}/sentinel-matrix/Makefile`:
 
 ```makefile
 # ------------------------------------------------------------------------------
@@ -279,7 +284,7 @@ live-api:
 Build the adversary container and bring up the updated simulation mesh:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Build the adversary container
 sudo docker compose build adversary

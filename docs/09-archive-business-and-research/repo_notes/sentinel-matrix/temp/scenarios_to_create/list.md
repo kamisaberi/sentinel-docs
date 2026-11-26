@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the detailed architectural portfolio of **10 production-scale, real-world dynamic industrial scenarios**. 
 
 Each scenario is modeled after real critical infrastructure (water authorities, national transmission grids, gigafactories, nuclear plants, and satellite stations). Every scenario incorporates **10+ field sensors**, **multiple edge appliances running different AI backends** (Intel OpenVINO, NVIDIA TensorRT, Rockchip RKNN), **a central Sentinel-Nexus command plane**, and **Purdue-model segmented network zones** (with air-gapped subnets).
@@ -323,7 +328,7 @@ To produce all 10 scenario `.tar.gz` bundles ready for cloud publishing, we will
 
 Each scenario will be scaffolded, populated with its models, configs, and PCAPs, and packed with `--embed` into an independent `.tar.gz` bundle:
 ```bash
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/<scenario_name> --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/<scenario_name> --embed
 ```
 
 ---

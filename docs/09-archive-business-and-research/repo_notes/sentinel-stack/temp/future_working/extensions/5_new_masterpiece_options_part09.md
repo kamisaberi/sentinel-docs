@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is an expansive new batch of **10 bleeding-edge ecosystem features (Batches 15 & 16: Ideas 66 to 75)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **subnormal floating-point arithmetic traps, blast furnace tuyere backfire prevention, fiber Sagnac phase noise, nuclear spent fuel decay heat ODEs, and aeroelastic wing flutter mitigation**.

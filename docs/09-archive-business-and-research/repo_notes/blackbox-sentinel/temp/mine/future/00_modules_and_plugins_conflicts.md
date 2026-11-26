@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To prevent collisions, race conditions, memory corruption, and duplicate processing across **26 modules** and **30 plugins**, we must establish a formal **Architectural Boundary**.
 
 The most common failure in large security architectures is treating modules and plugins as the same thing. If a module and a plugin both attempt to bind to the same network port, alter the same event state, or hook into the Linux kernel simultaneously, the appliance will crash or suffer severe packet drops.

@@ -1,8 +1,13 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### 1. How We Should Handle and Organize the 50 Tests
 
 To manage a 50-category real-world test harness effectively across your engineering team, CI/CD pipelines, and site reliability engineers (SREs), the suite should be structured around **7 Operational Pillars** and maintained inside a dedicated handbook:
 
-`/home/kami/sentinel-stack/docs/E2E_TEST_HANDBOOK.md`
+`${WORKSPACE_ROOT}/sentinel-stack/docs/E2E_TEST_HANDBOOK.md`
 
 ```text
 ========================================================================================================
@@ -50,13 +55,13 @@ To give your team complete flexibility, the runner supports 3 execution modes:
 
 1. **Single Test Execution (Granular Debugging):**
    ```bash
-   sudo bash /home/kami/sentinel-stack/tests/e2e/01_test_auth_tokens.sh
-   sudo bash /home/kami/sentinel-stack/tests/e2e/16_test_hardware_tpm_licensing.sh
-   sudo bash /home/kami/sentinel-stack/tests/e2e/50_test_honeynet_vaccine_broadcast.sh
+   sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/01_test_auth_tokens.sh
+   sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/16_test_hardware_tpm_licensing.sh
+   sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/50_test_honeynet_vaccine_broadcast.sh
    ```
 2. **Master Integration Suite (Full 50-Category Run):**
    ```bash
-   sudo bash /home/kami/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
+   sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
    ```
 3. **CI/CD Automated Nightly Pipeline:**
    Hook `run_all_e2e_tests.sh` into your build daemon (e.g. GitHub Actions / local systemd timer). Since every test script uses `set -euo pipefail` and asserts exit code `0`, any failure immediately stops the runner, outputs the exact curl/CLI error log, and returns exit code `1`.
@@ -134,7 +139,7 @@ Below is the complete reference handbook documenting all 50 tests, detailing the
 * **Invariants Tested:** Audits physical TPM 2.0 silicon root (`/dev/tpmrm0`), enrolls hardware identity token, subscribes node, generates offline 1-year `.lic` envelope signed by master key, applies locally, and verifies signature.
 
 #### Test 17: 3-Tier Plugin Supervisor & SLA (`17_test_plugin_supervisor_sla.sh`)
-* **Target Binary:** `/home/kami/blackbox-sentinel/run_extensibility_suite.sh`
+* **Target Binary:** `${WORKSPACE_ROOT}/blackbox-sentinel/run_extensibility_suite.sh`
 * **Invariants Tested:** Compiles native C++20 reference plugin (`sentinel_modbus_guard.so`), provisions Lua rules, executes `test_extensibility`, and asserts microsecond SLAs (Tier A C++20 $< 120\,\text{ns}$, Tier C LuaJIT $< 450\,\text{ns}$, Tier B Wasm3 $< 1.5\,\mu\text{s}$).
 
 #### Test 18: HIL Continuous ODE Physics (`18_test_hil_rk4_physics.sh`)
@@ -223,7 +228,7 @@ Below is the complete reference handbook documenting all 50 tests, detailing the
 ### Pillar 7: Deep Kernel eBPF, Microarchitecture, PQC & Cryptography
 
 #### Test 25: 21-Check Stack & eBPF Driver Health (`25_test_kernel_ebpf_stack_health.sh`)
-* **Target Binary:** `/home/kami/sentinel-stack/verify_stack.sh`
+* **Target Binary:** `${WORKSPACE_ROOT}/sentinel-stack/verify_stack.sh`
 * **Invariants Tested:** Executes master 21-point automated health check, audits pinned eBPF maps in `/sys/fs/bpf/`, verifies core shared libraries (`libblackbox.so`, `libxinfer.so`), and audits `aryo status`.
 
 #### Test 26: Fleet Topology & ZTP Provisioning (`26_test_fleet_ztp_enclaves.sh`)
@@ -239,7 +244,7 @@ Below is the complete reference handbook documenting all 50 tests, detailing the
 * **Invariants Tested:** Queries commercial pricing matrix (4 tiers, 93 entitlements), updates plan parameters, audits ICS/OT ransomware signature repository, and verifies MITRE ATT&CK for ICS technique mappings.
 
 #### Test 31: 4-Stage ModelRouter Cascade DAG (`31_test_model_router_cascade.sh`)
-* **Target Binary:** `/home/kami/blackbox-sentinel/build/test_model_router`
+* **Target Binary:** `${WORKSPACE_ROOT}/blackbox-sentinel/build/test_model_router`
 * **Invariants Tested:** Tests 4-stage pipeline (SPKG Reflex $\to$ Dissectors $\to$ AI Inference $\to$ ThreatCorrelator Fusion) and validates cascade short-circuiting (Reflexive DROP at Stage 1 bypasses Stages 2–4 with 0 wasted cycles).
 
 #### Test 33: Multi-Protocol SCADA Dissectors (`33_test_scada_dissectors_bench.sh`)
@@ -314,8 +319,8 @@ To save this documentation handbook to your codebase and run the complete 50-cat
 
 ```bash
 # 1. Save documentation handbook to sentinel-stack/docs/
-mkdir -p /home/kami/sentinel-stack/docs/
+mkdir -p ${WORKSPACE_ROOT}/sentinel-stack/docs/
 
 # 2. Run the full 50-category master suite
-sudo bash /home/kami/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
+sudo bash ${WORKSPACE_ROOT}/sentinel-stack/tests/e2e/run_all_e2e_tests.sh
 ```

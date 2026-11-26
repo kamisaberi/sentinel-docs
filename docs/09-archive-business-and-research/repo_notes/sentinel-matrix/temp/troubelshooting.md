@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Sentinel-Matrix: Master Architecture, Operations & Field Troubleshooting Manual
 
 ---
@@ -49,7 +54,7 @@ sudo ss -tulpn | grep -E "9443|50051" || echo "[+] Ports are clear!"
 `make init` collects the compiled host binaries (`sentinel`, `sentinel-nexus`, `nexus-ctl`), harvests host-compiled dynamic shared libraries (`libabsl`, `libgrpc++`, `libprotobuf`, `libre2`), and synchronizes the web assets.
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Harvest binaries, libraries, and web assets
 make init
@@ -61,7 +66,7 @@ make sync-hub-pcaps
 ### Step 3: Launching the Simulation Grid
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # Launch all 8 containers in the background with host-volume mounts
 sudo make up
@@ -144,14 +149,14 @@ http://localhost:9443
 
 ### 2. Live Terminal TUI (Side-by-Side Console)
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 make tui
 ```
 
 ### 3. Firing Live Wire Attacks & Replays
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 
 # 1. Live Modbus FC05 Coil Override via mbpoll (MITRE T0855)
 sudo make live-scada
@@ -174,7 +179,7 @@ sudo make chaos-sever
 
 ### 4. Clean Shutdown
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 sudo make down
 ```
 
@@ -226,7 +231,7 @@ Every operational error encountered during integration is detailed below, includ
   sudo systemctl restart docker
 
   # 4. Dismantle cleanly
-  cd /home/kami/sentinel-matrix
+  cd ${WORKSPACE_ROOT}/sentinel-matrix
   sudo docker compose down --remove-orphans
   sudo make up
   ```
@@ -252,9 +257,9 @@ Every operational error encountered during integration is detailed below, includ
      ```
   3. Recompile and update the binary:
      ```bash
-     cd /home/kami/blackbox-sentinel/build && make -j$(nproc) sentinel
-     cp sentinel /home/kami/sentinel-matrix/shared/bin/sentinel
-     cd /home/kami/sentinel-matrix && docker compose up -d --force-recreate
+     cd ${WORKSPACE_ROOT}/blackbox-sentinel/build && make -j$(nproc) sentinel
+     cp sentinel ${WORKSPACE_ROOT}/sentinel-matrix/shared/bin/sentinel
+     cd ${WORKSPACE_ROOT}/sentinel-matrix && docker compose up -d --force-recreate
      ```
 
 ---
@@ -265,7 +270,7 @@ Every operational error encountered during integration is detailed below, includ
 * **Root Cause:** The `traffic-gen` container mounts `./configs` as `/configs`. It does not mount `/shared`. When PCAPs were copied only to `shared/datasets/`, the container could not see them.
 * **Resolution:** Ensure `make sync-hub-pcaps` copies the PCAPs into both `configs/pcaps/` and `shared/datasets/`:
   ```bash
-  cd /home/kami/sentinel-matrix
+  cd ${WORKSPACE_ROOT}/sentinel-matrix
   make sync-hub-pcaps
   ```
   *(Verify the files exist on the host at `configs/pcaps/industroyer2_substation.pcap` and `configs/pcaps/triton_trisis_sis.pcap`).*

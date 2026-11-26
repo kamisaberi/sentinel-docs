@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Sentinel Matrix: Autonomous Cyber-Range & Simulation Mesh
 
 ```text
@@ -186,7 +191,7 @@ sudo usermod -aG docker $USER
 The `make init` command creates the shared directories, synchronizes the compiled host binaries (`sentinel-nexus`, `sentinel`, `nexus-ctl`), and automatically bundles all host-compiled dynamic libraries (`libabsl_*`, `libre2`, `libgrpc++`, `libprotobuf`) into `shared/lib/`:
 
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 make init
 ```
 

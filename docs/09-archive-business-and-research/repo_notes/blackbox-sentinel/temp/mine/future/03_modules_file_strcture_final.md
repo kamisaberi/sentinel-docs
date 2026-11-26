@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 The initial structure presented **10 folders** because, in enterprise software, related security capabilities are traditionally grouped under **umbrella subsystems** to prevent redundant processing:
 
 1. **The `ndr/` module** was grouped to contain: **NDR (#3)**, **IDS/IPS (#4)**, **DDoS Mitigation (#13)**, and **NGFW (#15)** (since all four inspect raw network packets).

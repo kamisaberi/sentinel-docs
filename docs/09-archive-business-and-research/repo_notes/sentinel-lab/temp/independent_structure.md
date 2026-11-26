@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To ensure you **never need to modify or recompile the C++ code of `sentinel-lab` again**, the engine must be designed as a **Universal Invariant Testbed**.
 
 To achieve this, we make two architectural upgrades:
@@ -348,7 +353,7 @@ int main() {
 Rebuild `sentinel-lab` once. From this point forward, **you will never need to recompile this binary again**:
 
 ```bash
-cd /home/kami/sentinel-lab/build
+cd ${WORKSPACE_ROOT}/sentinel-lab/build
 cmake .. -DENABLE_OPENVINO=ON
 make -j$(nproc)
 ```
@@ -452,13 +457,13 @@ Open two terminals:
 
 #### Terminal 1: Run the Unchanged Sentinel-Lab Daemon
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 sudo ./build/sentinel_lab
 ```
 
 #### Terminal 2: Run the Python Evaluation Harness
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 python3 examples/evaluate_onnx_dataset.py
 ```
 

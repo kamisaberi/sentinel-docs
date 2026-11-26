@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **Yes, 100%!** `xinfer-essential` is fully designed to run on a regular CPU inside an Ubuntu VMware Virtual Machine for development, unit testing, and debugging.
 
 In fact, developing on a standard CPU inside a Virtual Machine is the **standard industry workflow** for C++ engine developers before deploying binaries to physical target hardware (like NVIDIA Jetson or Rockchip boards).

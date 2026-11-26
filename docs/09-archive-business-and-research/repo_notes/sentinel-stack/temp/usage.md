@@ -1,21 +1,26 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Notification of Code Modifications: Master Meta-Installer (`sentinel-stack`)
 
 Per your instruction to notify you before any changes, here is the exact audit of what will be updated across the 6 phase scripts in **`sentinel-stack/scripts/`**:
 
 1. **`scripts/00_check_system.sh`**:
-   * **What changes:** Add kernel BTF verification (`/sys/kernel/btf/vmlinux`) to guarantee eBPF CO-RE support, and pre-create the system runtime directories (`/var/cache/sentinel/` and `/etc/sentinel/`).
+   * **What changes:** Add kernel BTF verification (`/sys/kernel/btf/vmlinux`) to guarantee eBPF CO-RE support, and pre-create the system runtime directories (`${SENTINEL_ROOT}/artifacts/downloads/` and `/etc/sentinel/`).
    * **Preservation:** All existing CPU, RAM, OS, architecture, and virtualization checks remain 100% intact.
 2. **`scripts/01_install_dependencies.sh`**:
    * **What changes:** Add missing build dependencies: `libxdp-dev` (AF_XDP), `bpftool` (CO-RE/BTF), `libbpf-dev`, `lld` (Wasm linker), `libluajit-5.1-dev`, `luajit` (Tier C runtime), and `libsqlite3-dev`.
    * **Preservation:** All existing compiler, gRPC, Protobuf, network tool, and Python virtual environment (`/opt/sentinel-stack/venv`) steps remain intact.
 3. **`scripts/02_clone_repositories.sh`**:
    * **What changes:** Add **`sentinel-hub`** (`https://github.com/kamisaberi/sentinel-hub.git`) to `REPOS` so package sources and distribution binaries are synchronized into the build tree.
-   * **Preservation:** Existing priority logic (local `/home/kami/` rsync first, GitHub clone fallback) remains untouched.
+   * **Preservation:** Existing priority logic (local `${WORKSPACE_ROOT}/` rsync first, GitHub clone fallback) remains untouched.
 4. **`scripts/03_build_all_tiers.sh`**:
    * **What changes:**
      * *Tier 2:* Invokes `scripts/build_ebpf.sh` to compile eBPF CO-RE bytecode with `vmlinux.h`, and compiles AF_XDP binaries (`test_af_xdp`, `test_af_xdp_live`).
      * *Tier 3:* Builds Wasm3 (`libm3.a`), the `sentinel` daemon, and the new toolchains (`sentinel-spkg`, `sentinel-ctl`). Copies `configs/model_routes.yaml` to `/etc/sentinel/model_routes.yaml` and deploys initial extensions via `sync_extensions.sh`.
-     * *Sentinel-Hub:* Runs `scripts/build_all_spkg.sh` to pre-seed `/var/cache/sentinel/` with the Core 8 packages.
+     * *Sentinel-Hub:* Runs `scripts/build_all_spkg.sh` to pre-seed `${SENTINEL_ROOT}/artifacts/downloads/` with the Core 8 packages.
    * **Preservation:** All existing Tier 1 (`xinfer`), Tier 4 (`forge-cli`), Tier 5 (`lab`), and Tier 6 (`nexus`) builds remain intact.
 5. **`scripts/04_setup_systemd.sh`**:
    * **What changes:**
@@ -25,14 +30,14 @@ Per your instruction to notify you before any changes, here is the exact audit o
      * Set real-time priority: `CPUSchedulingPolicy=rr`, `CPUSchedulingPriority=50`.
    * **Preservation:** Service restart and enablement logic remains intact.
 6. **`scripts/05_verify_installation.sh`**:
-   * **What changes:** Add smoke test assertions for `sentinel-ctl`, `sentinel-spkg`, the `/var/cache/sentinel` tree, and the new 1440px Boxed Web C2 on port 9443 (raising total health checks from 6 to 9).
+   * **What changes:** Add smoke test assertions for `sentinel-ctl`, `sentinel-spkg`, the `${SENTINEL_ROOT}/artifacts/downloads` tree, and the new 1440px Boxed Web C2 on port 9443 (raising total health checks from 6 to 9).
    * **Preservation:** All existing tier checks remain intact.
 
 ---
 
 ### Step 1: Update `scripts/00_check_system.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/00_check_system.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/00_check_system.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -94,9 +99,9 @@ fi
 
 # 7. Pre-Provision Runtime & Central Cache Directories
 echo "[*] Provisioning runtime and central cache directories..."
-mkdir -p /var/cache/sentinel/{packages,models,pcaps,datasets,scenarios}
+mkdir -p ${SENTINEL_ROOT}/artifacts/downloads/{packages,models,pcaps,datasets,scenarios}
 mkdir -p /etc/sentinel/{plugins.d,wasm.d,rules.d,models,pcaps,datasets,profiles}
-chmod -R 755 /var/cache/sentinel /etc/sentinel
+chmod -R 755 ${SENTINEL_ROOT}/artifacts/downloads /etc/sentinel
 
 echo "[+] Phase 0 validation passed successfully."
 ```
@@ -105,7 +110,7 @@ echo "[+] Phase 0 validation passed successfully."
 
 ### Step 2: Update `scripts/01_install_dependencies.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/01_install_dependencies.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/01_install_dependencies.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -191,7 +196,7 @@ echo "[+] Phase 1 dependencies installed successfully."
 
 ### Step 3: Update `scripts/02_clone_repositories.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/02_clone_repositories.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/02_clone_repositories.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -199,7 +204,7 @@ set -euo pipefail
 
 echo "=== [PHASE 2] Synchronizing Ecosystem Repositories ==="
 
-WORKSPACE_DIR="/home/kami"
+WORKSPACE_DIR="${WORKSPACE_ROOT}"
 TARGET_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/src"
 mkdir -p "${TARGET_DIR}"
 
@@ -219,7 +224,7 @@ for NAME in "${!REPOS[@]}"; do
 
     echo "[*] Synchronizing: ${NAME}"
 
-    # Priority 1: If repository already exists in /home/kami/, sync directly from local tree
+    # Priority 1: If repository already exists in ${WORKSPACE_ROOT}/, sync directly from local tree
     if [ -d "${HOST_PATH}" ]; then
         echo "    -> Found local workspace at ${HOST_PATH}. Synchronizing..."
         rsync -a --delete --exclude 'build' --exclude '.git' "${HOST_PATH}/" "${DEST_PATH}/"
@@ -248,7 +253,7 @@ echo "[+] Phase 2 synchronization complete."
 
 ### Step 4: Update `scripts/03_build_all_tiers.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/03_build_all_tiers.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/03_build_all_tiers.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -413,15 +418,15 @@ echo "[+] Tier 6 (sentinel-nexus & nexus-ctl) installed to /usr/local/bin."
 # SENTINEL-HUB: Pre-seed Core 8 Packages & Cache
 # ------------------------------------------------------------------------------
 if [ -d "${SRC_DIR}/sentinel-hub" ]; then
-    echo -e "\n\033[36m[*] Pre-seeding sentinel-hub packages into /var/cache/sentinel/...\033[0m"
+    echo -e "\n\033[36m[*] Pre-seeding sentinel-hub packages into ${SENTINEL_ROOT}/artifacts/downloads/...\033[0m"
     cd "${SRC_DIR}/sentinel-hub"
     if [ -f "scripts/build_all_spkg.sh" ]; then
         chmod +x scripts/build_all_spkg.sh
         ./scripts/build_all_spkg.sh 2>/dev/null || true
     fi
-    mkdir -p /var/cache/sentinel/packages
+    mkdir -p ${SENTINEL_ROOT}/artifacts/downloads/packages
     if [ -d "dist" ]; then
-        cp -u dist/*.spkg /var/cache/sentinel/packages/ 2>/dev/null || true
+        cp -u dist/*.spkg ${SENTINEL_ROOT}/artifacts/downloads/packages/ 2>/dev/null || true
     fi
 fi
 
@@ -432,7 +437,7 @@ echo "[+] Phase 3 compilation and installation successful."
 
 ### Step 5: Update `scripts/04_setup_systemd.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/04_setup_systemd.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/04_setup_systemd.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -498,7 +503,7 @@ echo "[+] Deployed and started sentinel-nexus.service."
 
 ### Step 6: Update `scripts/05_verify_installation.sh`
 
-Replace `/home/kami/sentinel-stack/scripts/05_verify_installation.sh`:
+Replace `${WORKSPACE_ROOT}/sentinel-stack/scripts/05_verify_installation.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -546,7 +551,7 @@ check_artifact "Tier 5: sentinel_lab binary" "test -x /usr/local/bin/sentinel_la
 check_artifact "Tier 6: sentinel-nexus & nexus-ctl" "test -x /usr/local/bin/sentinel-nexus && test -x /usr/local/bin/nexus-ctl"
 
 # 9. Central Cache Root
-check_artifact "Filesystem: /var/cache/sentinel" "test -d /var/cache/sentinel"
+check_artifact "Filesystem: ${SENTINEL_ROOT}/artifacts/downloads" "test -d ${SENTINEL_ROOT}/artifacts/downloads"
 
 echo "--------------------------------------------------------"
 echo "[+] Smoke Test Results: ${PASSED}/${TOTAL} Health Checks Verified."
@@ -566,7 +571,7 @@ fi
 Test running the meta-installer on your system:
 
 ```bash
-cd /home/kami/sentinel-stack
+cd ${WORKSPACE_ROOT}/sentinel-stack
 sudo ./install.sh
 ```
 

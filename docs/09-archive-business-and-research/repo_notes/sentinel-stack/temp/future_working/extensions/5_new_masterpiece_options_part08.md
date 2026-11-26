@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is another patent-grade expansion: **10 brand-new bleeding-edge ecosystem features (Batches 13 & 14: Ideas 56 to 65)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **physical unclonable silicon functions (PUF), BACnet/SC building zero-trust, microgrid virtual inertia, subsea annular pressure, reaction wheel micro-jitter, and SmartNIC/DPU co-processor defense**.

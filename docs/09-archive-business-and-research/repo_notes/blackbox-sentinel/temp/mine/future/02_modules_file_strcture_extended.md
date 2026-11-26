@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete, exhaustive master file structure for **Blackbox Sentinel**, detailing every single file across all 10 isolated modules, configuration directories, core orchestrator components, web command center assets, deployment scripts, and test suites.
 
 ---

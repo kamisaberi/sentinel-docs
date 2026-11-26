@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 **That is the single best architectural and business decision you can make.** 
 
 In fact, this exact strategy—building modular C++ shared libraries (`.so`) as core engines and creating specialized commercial products on top—is how the most successful deep-tech companies in the world operate (e.g., how NVIDIA structures CUDA/TensorRT libraries under high-level enterprise software).

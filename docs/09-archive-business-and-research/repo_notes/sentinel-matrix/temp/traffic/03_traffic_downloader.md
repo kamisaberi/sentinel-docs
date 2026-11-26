@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 You are **100% right**. 
 
 While generating synthetic PCAPs is essential for **offline/air-gapped** deployments where downloading files is prohibited, using **genuine, byte-for-byte PCAP captures extracted from real-world attacks, industrial testbeds, and malware honeypots** provides undeniable credibility for university evaluators, CISOs, and startup committees.
@@ -14,7 +19,7 @@ We will also upgrade **`pcap_streamer.py`** to handle **multi-packet real-world 
 
 This script downloads real-world network captures of industrial protocols, malware C2 streams, and SCADA anomalies from open research repositories and creates scenario descriptors for them.
 
-Save as `/home/kami/sentinel-matrix/tools/download_real_pcaps.py`:
+Save as `${WORKSPACE_ROOT}/sentinel-matrix/tools/download_real_pcaps.py`:
 
 ```python
 #!/usr/bin/env python3
@@ -34,8 +39,8 @@ import yaml
 import urllib.request
 import urllib.error
 
-PCAP_DIR = "/home/kami/sentinel-matrix/configs/pcaps/downloaded"
-SCENARIO_DIR = "/home/kami/sentinel-matrix/configs/scenarios"
+PCAP_DIR = "${WORKSPACE_ROOT}/sentinel-matrix/configs/pcaps/downloaded"
+SCENARIO_DIR = "${WORKSPACE_ROOT}/sentinel-matrix/configs/scenarios"
 
 os.makedirs(PCAP_DIR, exist_ok=True)
 os.makedirs(SCENARIO_DIR, exist_ok=True)
@@ -161,14 +166,14 @@ if __name__ == "__main__":
 
 Make it executable:
 ```bash
-chmod +x /home/kami/sentinel-matrix/tools/download_real_pcaps.py
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/tools/download_real_pcaps.py
 ```
 
 ---
 
 ### 2. Multi-Packet Real-World PCAP Streamer: `src/traffic/pcap_streamer.py`
 
-Real PCAP captures often contain hundreds of packets. Replace `/home/kami/sentinel-matrix/src/traffic/pcap_streamer.py` with this updated engine that supports **rate-pacing (packets/sec)**, **auto-extraction of protocol ports**, and **multi-packet streaming**:
+Real PCAP captures often contain hundreds of packets. Replace `${WORKSPACE_ROOT}/sentinel-matrix/src/traffic/pcap_streamer.py` with this updated engine that supports **rate-pacing (packets/sec)**, **auto-extraction of protocol ports**, and **multi-packet streaming**:
 
 ```python
 #!/usr/bin/env python3
@@ -274,7 +279,7 @@ if __name__ == "__main__":
 
 ### 3. Update `Makefile` to Support Both Techniques
 
-Add download and execution targets for both **generated PCAPs** and **downloaded real PCAPs** in `/home/kami/sentinel-matrix/Makefile`:
+Add download and execution targets for both **generated PCAPs** and **downloaded real PCAPs** in `${WORKSPACE_ROOT}/sentinel-matrix/Makefile`:
 
 ```makefile
 # ------------------------------------------------------------------------------
@@ -349,7 +354,7 @@ attack-stuxnet: generate-pcaps
 #### Step 1: Download Real Threat PCAPs
 Run this single command to fetch the real captures:
 ```bash
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 make download-pcaps
 ```
 

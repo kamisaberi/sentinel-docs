@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete step-by-step guide to launch the **12-container massive simulation environment** and execute the **massive stress test** on your machine.
 
 ---
@@ -7,7 +12,7 @@ Here is the complete step-by-step guide to launch the **12-container massive sim
 Before starting, make sure you are in the `blackbox-sentinel` project root directory:
 
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 ```
 
 Ensure the stress script has execution permissions:
@@ -64,7 +69,7 @@ sudo docker exec sim-attacker-bruteforce apt-get update -qq && sudo docker exec 
 Open **Terminal 1** and start the Sentinel appliance daemon:
 
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./build/sentinel
 ```
 
@@ -87,7 +92,7 @@ sudo ./build/sentinel
 Open **Terminal 2** and execute the automated high-throughput stress test:
 
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./scripts/massive_stress_test.sh
 ```
 
@@ -105,7 +110,7 @@ sudo ./scripts/massive_stress_test.sh
 If you prefer to manually start, stop, and switch attack types in real time rather than running a one-shot script, launch the interactive Python console in Terminal 2 instead:
 
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo python3 scripts/attack_console.py
 ```
 

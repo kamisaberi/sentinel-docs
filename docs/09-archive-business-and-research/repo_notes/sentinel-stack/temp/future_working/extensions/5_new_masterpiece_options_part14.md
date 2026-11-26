@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is another patent-grade expansion: **10 brand-new bleeding-edge ecosystem features (Batches 25 & 26: Ideas 116 to 125)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **Generation-IV liquid sodium fast reactors, star tracker cosmic ray filtering, manned deep-submergence ballasts, ultra-fast hybrid HVDC circuit breakers, and uranium centrifuge resonance defense**.

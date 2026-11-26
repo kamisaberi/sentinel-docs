@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 My engineering call: **go Vertical-Driven (Start with 1 of the remaining 3 cartridges and build its exact Bus alongside it)**—not "all buses first."
 
 ### Why Vertical-Driven Beats "All Buses First"
@@ -27,7 +32,7 @@ If you build all 4 non-IP bus drivers (`Raw L2`, `SocketCAN`, `DMA-BUF/ShmRing`,
 In strict compliance with **Rules 1–3**, before proposing any code or creating `net-guard`, I should inspect the live ingestion boundary in **`blackbox-sentinel`** in full so the `IngressDriver` + `RawL2` design fits cleanly without breaking `production_master_grid` or `tactical_uav_swarm_combat_grid`.
 
 If you agree with this sequence, please paste:
-1. Tree of `/home/kami/blackbox-sentinel` (`tree -L 3 /home/kami/blackbox-sentinel`)
-2. Full file: `/home/kami/blackbox-sentinel/CMakeLists.txt`
-3. Full file: `/home/kami/blackbox-sentinel/include/sentinel/sdk/abi.hpp`
-4. Full file: `/home/kami/blackbox-sentinel/src/main.cpp`
+1. Tree of `${WORKSPACE_ROOT}/blackbox-sentinel` (`tree -L 3 ${WORKSPACE_ROOT}/blackbox-sentinel`)
+2. Full file: `${WORKSPACE_ROOT}/blackbox-sentinel/CMakeLists.txt`
+3. Full file: `${WORKSPACE_ROOT}/blackbox-sentinel/include/sentinel/sdk/abi.hpp`
+4. Full file: `${WORKSPACE_ROOT}/blackbox-sentinel/src/main.cpp`

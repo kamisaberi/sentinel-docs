@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Instruction & Roadmap: Batch 1 Production Scenarios
 
 We will now build, populate, and package the first **3 large-scale production scenarios**:
@@ -12,23 +17,23 @@ We will now build, populate, and package the first **3 large-scale production sc
 
 ### Step 1.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/{models,configs,pcaps}
 ```
 
 ### Step 1.2: Populate Models, Configs & PCAPs
 ```bash
 # Copy verified models
-cp /home/kami/sentinel-matrix/shared/models/network_threat_detector.onnx /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/models/
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/models/
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_detector.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/models/ 2>/dev/null || true
 
 # Copy attack PCAP & register map
-cp /home/kami/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/configs/ 2>/dev/null || true
 ```
 
 ### Step 1.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/manifest.json`:
 ```json
 {
   "name": "water_utility_regional_grid",
@@ -57,7 +62,7 @@ Create `/home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/manifes
 ```
 
 ### Step 1.4: Create `scenario.yaml` (20 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -308,16 +313,16 @@ services:
 ```
 
 ### Step 1.5: Create `run_demo.sh`
-Create `/home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh`:
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 20-Node Regional Water Treatment Grid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid/run_demo.sh
 ```
 
 ---
@@ -326,21 +331,21 @@ chmod +x /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid/run_de
 
 ### Step 2.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/{models,configs,pcaps}
 ```
 
 ### Step 2.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/models/
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/industroyer2_substation.pcap /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/industroyer2_substation.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/configs/ 2>/dev/null || true
 ```
 
 ### Step 2.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/manifest.json`:
 ```json
 {
   "name": "substation_500kv_transmission",
@@ -369,7 +374,7 @@ Create `/home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/manif
 ```
 
 ### Step 2.4: Create `scenario.yaml` (20 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -615,14 +620,14 @@ services:
 
 ### Step 2.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 20-Node 500kV Transmission Substation Grid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission/run_demo.sh
 ```
 
 ---
@@ -631,22 +636,22 @@ chmod +x /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission/run_
 
 ### Step 3.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/{models,configs,pcaps}
 ```
 
 ### Step 3.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/
-cp /home/kami/sentinel-matrix/shared/models/lidar_spatial_detector.onnx* /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/lidar_spatial_detector.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/pcaps/
-cp /home/kami/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/pcaps/
-cp /home/kami/sentinel-matrix/configs/5g_slices.yaml /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/stuxnet_s7comm_injected.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/5g_slices.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/configs/ 2>/dev/null || true
 ```
 
 ### Step 3.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/manifest.json`:
 ```json
 {
   "name": "smart_factory_5g_robotics",
@@ -676,7 +681,7 @@ Create `/home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/manifest.
 ```
 
 ### Step 3.4: Create `scenario.yaml` (24 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -973,14 +978,14 @@ services:
 
 ### Step 3.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 24-Node 5G Standalone Automotive Assembly Gigafactory...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics/run_demo.sh
 ```
 
 ---
@@ -991,13 +996,13 @@ Run these three commands to pack all three scenarios into verified `.tar.gz` bun
 
 ```bash
 # 1. Pack Scenario 01: Water Utility (20 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/water_utility_regional_grid --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/water_utility_regional_grid --embed
 
 # 2. Pack Scenario 02: 500kV Substation (20 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/substation_500kv_transmission --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/substation_500kv_transmission --embed
 
 # 3. Pack Scenario 03: 5G Smart Factory (24 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/smart_factory_5g_robotics --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/smart_factory_5g_robotics --embed
 ```
 
 ---

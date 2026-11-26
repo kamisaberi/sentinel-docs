@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the refactored **`sentinel-stack/install.sh`** integrated with our new **Unified Meta-Build System (`build_all.sh`)** and **10-Point Health Verification Suite (`verify_stack.sh`)**.
 
 ### What Was Integrated
@@ -91,7 +96,7 @@ echo -e "  • Package Toolchain    : ${CYAN}sentinel-spkg --help${NC}"
 echo -e "  • Edge XDR Daemon      : ${CYAN}systemctl status blackbox-sentinel${NC}"
 echo -e "  • Command Plane Daemon : ${CYAN}systemctl status sentinel-nexus${NC}"
 echo -e "  • Research Testbed     : ${CYAN}sentinel_lab --help${NC}"
-echo -e "  • Digital Twin PLC     : ${CYAN}/home/kami/sentinel-matrix/shared/bin/mock_plc -h${NC}"
+echo -e "  • Digital Twin PLC     : ${CYAN}${WORKSPACE_ROOT}/sentinel-matrix/shared/bin/mock_plc -h${NC}"
 echo -e "${GREEN}${BOLD}========================================================================${NC}\n"
 ```
 

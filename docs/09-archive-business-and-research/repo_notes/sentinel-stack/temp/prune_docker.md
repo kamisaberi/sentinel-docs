@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # 1. Stop any stopped or hanging matrix simulation containers holding the network
 docker stop $(docker ps -aq --filter "name=matrix-") 2>/dev/null || true
 docker rm $(docker ps -aq --filter "name=matrix-") 2>/dev/null || true
@@ -9,5 +14,5 @@ docker network prune -f
 docker network inspect $(docker network ls -q) --format '{{.Name}}: {{range .IPAM.Config}}{{.Subnet}}{{end}}' | grep "10.240.0" || echo "[+] Address pool 10.240.0.0/24 is 100% FREE"
 
 # 4. Re-launch your generic sentinel-matrix scenario
-cd /home/kami/sentinel-matrix
+cd ${WORKSPACE_ROOT}/sentinel-matrix
 # Run your standard generic scenario command (e.g. docker compose up -d or make up)

@@ -1,8 +1,13 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # Project 8 of 8: `sentinel-stack` (`sentinel-stack`)
 ## Master Landing Page & Technical Architecture Document
 **Target URL:** `aryorithm.com/technology/stack`  
 **Repository:** `https://github.com/kamisaberi/sentinel-stack`  
-**Artifact:** `install.sh` & Master Meta-Orchestrator (Unified 6-Tier Build & Deployment Engine)
+**Artifact:** `install.sh` & Master Meta-Orchestrator (Unified 5-Tier Build & Deployment Engine)
 
 ---
 
@@ -32,7 +37,7 @@
 `TIER 8 MASTER ORCHESTRATOR` `1-CLICK ZERO-PROMPT INSTALL` `TOPOLOGICAL DAG COMPILER` `UBUNTU 24.04 / 26.04`
 
 ### Headline
-# Deploy the Complete 6-Tier Active Defense Ecosystem in a Single Command.
+# Deploy the Complete 5-Tier Active Defense Ecosystem in a Single Command.
 
 ### Subheadline
 **`sentinel-stack`** is the master build automation, dependency resolver, and deployment orchestration platform for the **Aryorithm / Blackbox Sentinel** ecosystem. In a single zero-prompt execution, it resolves OS toolchains, manages modern Python virtual environments (PEP 668), compiles all six native C++20 and eBPF/XDP tiers in strict topological dependency order, installs libraries system-wide, and deploys production systemd daemons with automated health verification.
@@ -115,7 +120,7 @@ When executing `sudo ./install.sh`, the orchestrator executes a linear, 6-phase 
                  │
                  ▼
   [ PHASE 2: REPOSITORY SYNCHRONIZATION (02_clone_repositories.sh) ]
-  • Checks for existing local workspace repositories in /home/kami/.
+  • Checks for existing local workspace repositories in ${WORKSPACE_ROOT}/.
   • Synchronizes source trees using rsync (excluding stale build folders).
   • Clones missing repositories from GitHub via shallow depth-1 clones.
                  │
@@ -317,7 +322,7 @@ sudo make clean      # Purges all build directories, caches, and object files
 ## 10. Technical Frequently Asked Questions (FAQ)
 
 #### Q: Can `sentinel-stack` run completely offline in an air-gapped facility?
-**A:** Yes. If the Ubuntu machine is inside a classified or air-gapped network, pre-seed the `/home/kami/` directory with the repository folders and point your APT sources to an internal local mirror. `scripts/02_clone_repositories.sh` detects existing local source trees and synchronizes them with zero outbound internet requests.
+**A:** Yes. If the Ubuntu machine is inside a classified or air-gapped network, pre-seed the `${WORKSPACE_ROOT}/` directory with the repository folders and point your APT sources to an internal local mirror. `scripts/02_clone_repositories.sh` detects existing local source trees and synchronizes them with zero outbound internet requests.
 
 #### Q: What happens if a compilation step runs out of RAM?
 **A:** In Phase 0 (`00_check_system.sh`), the installer assesses total system RAM. If total memory is under 4 GB (common on constrained virtual machines), the compiler dynamically caps parallel build jobs (`make -j2`) to prevent the Linux kernel OOM-killer from terminating the compiler.

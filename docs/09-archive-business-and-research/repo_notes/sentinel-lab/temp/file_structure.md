@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the recommended, production-ready repository architecture for **`sentinel-lab`** (`https://github.com/kamisaberi/sentinel-lab`).
 
 `sentinel-lab` serves as the **open-source academic research platform and reproducible benchmark testbed** (supporting **Intel OpenVINO** and **NVIDIA TensorRT**). It is designed so that Master's/PhD students, professors, and cybersecurity researchers can clone it, drop in their ONNX models, and immediately measure microsecond-level latency and line-rate throughput under live attack traffic.
@@ -209,7 +214,7 @@ Open your terminal on your Ubuntu machine to set up the local repository and pus
 
 ```bash
 # 1. Clone your empty repository from GitHub
-cd /home/kami
+cd ${WORKSPACE_ROOT}
 git clone https://github.com/kamisaberi/sentinel-lab.git
 cd sentinel-lab
 
@@ -225,7 +230,7 @@ touch tools/train_cicids2017.py tools/export_yolo.py tools/evaluate_benchmark.py
 touch tests/CMakeLists.txt tests/test_inference.cpp tests/test_ebpf.cpp tests/test_benchmarker.cpp
 
 # 4. Copy your paper.tex into the root
-cp /home/kami/blackbox-sentinel/paper.tex ./paper.tex
+cp ${WORKSPACE_ROOT}/blackbox-sentinel/paper.tex ./paper.tex
 
 # 5. Commit and push your initial structure
 git add .

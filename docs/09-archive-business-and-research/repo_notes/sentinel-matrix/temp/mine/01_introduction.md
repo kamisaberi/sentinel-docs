@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 This is the logical capstone for the entire ecosystem. 
 
 Building an **autonomous, infinite cyber-range simulation** proves the self-improving defense flywheel in real time: edge nodes mitigate attacks in microseconds, stream uncertainties to Nexus, Forge adapts the model without human intervention, and updated weights hot-reload back into the fleet without downtime.

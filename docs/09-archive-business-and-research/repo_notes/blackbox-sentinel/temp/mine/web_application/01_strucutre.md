@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Building an **interactive web command center** for **Blackbox Sentinel** is a natural and necessary step. 
 
 For enterprise and defense clients, **the web dashboard is the product**. CISOs, plant managers, and security analysts rarely log into an SSH terminal—they judge the value of a \$25,000 appliance by the responsiveness, control, and clarity of its web interface.

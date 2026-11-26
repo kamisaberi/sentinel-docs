@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete, self-contained Python script (**`examples/run_full_evaluation.py`**). 
 
 It requires **zero changes to your C++ or HPP files**. It performs the entire workflow in one script:
@@ -251,13 +256,13 @@ Open two terminals on your Ubuntu workstation:
 
 #### Terminal 1: Run the Unchanged `sentinel_lab` Daemon
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 sudo ./build/sentinel_lab
 ```
 
 #### Terminal 2: Run the Pipeline Script
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 python3 examples/run_full_evaluation.py
 ```
 

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is another patent-grade expansion: **10 brand-new bleeding-edge ecosystem features (Batches 21 & 22: Ideas 96 to 105)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **superconducting quantum dilution refrigeration, electric aircraft distributed propulsion wake dynamics, subsea riser vortex-induced vibrations, glass tank throat devitrification, and hyperloop linear motor phase synchronization**.

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete, re-categorized list of all **50 Cyber-Physical Systems, OT, Defense, Telco, Robotics, and Vision products**, mapped cleanly into the **5 implemented platform cartridges** (`ics-guard`, `ccsds-guard`, `net-guard`, `motion-guard`, and `vision-guard`). 
 
 Every single one of these 50 products is powered by the ecosystem architecture you built—meaning they can all be brought to life using scenario configurations, multi-bus ingress, and the core C++20/ONNX runtime engine.

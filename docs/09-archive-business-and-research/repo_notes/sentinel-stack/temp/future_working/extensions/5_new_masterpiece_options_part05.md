@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is an advanced expansion: **10 brand-new bleeding-edge ecosystem features (Batches 7 & 8: Ideas 26 to 35)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features tackle ultra-specialized domains: **quantum communication physical security, subsea acoustic channels, MEMS sensor resonance attacks, Ethernet-APL hazardous zones, and network polymorphism**.

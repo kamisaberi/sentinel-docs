@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 This is the exact evolutionary step needed. Moving from a single, autonomous edge appliance to a **Distributed Fleet Architecture** transforms Sentinel from an isolated sensor into a **Federated Collective Defense Grid** (what we can designate as **Tier 6: Sentinel Commander / Sentinel Fleet Grid**).
 
 Having 500 or 5,000 heterogeneous appliances (Intel OpenVINO NUCs in factory floors, NVIDIA Jetson/TensorRT units at substations, Rockchip/Hailo boards in branch offices) all running `libblackbox` and `libxinfer` provides unmatched edge compute power. But without centralized orchestration, they are isolated islands.

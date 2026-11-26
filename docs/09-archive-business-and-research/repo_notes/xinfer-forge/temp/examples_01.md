@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here are two complete, real-world runnable examples for **`xinfer-forge`**:
 
 1. **`examples/01_continuous_network_adaptation.py`:** An end-to-end continuous adaptation pipeline. It collects real network flows from a local facility, runs self-supervised masked feature reconstruction (SSL) to adapt to the site's unique baseline, passes the model through the safety regression gate, exports `models/network_threat_v2.onnx`, and triggers zero-downtime hot-reloading on Blackbox Sentinel. It concludes by mathematically proving that Version 2 reduced false positives while maintaining a $0.95+$ detection score on real attacks.
@@ -83,7 +88,7 @@ def main():
             "min_golden_detection_rate": 1.00
         },
         "appliance": {
-            "models_dir": "/home/kami/blackbox-sentinel/models",
+            "models_dir": "${WORKSPACE_ROOT}/blackbox-sentinel/models",
             "sentinel_api_url": "http://localhost:8443"
         },
         "export": {
@@ -283,13 +288,13 @@ Open two terminals on your Ubuntu workstation:
 
 #### Terminal 1: Start Blackbox Sentinel
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 sudo ./build/sentinel
 ```
 
 #### Terminal 2: Run Example 1 (Adaptation Pipeline)
 ```bash
-cd /home/kami/blackbox-sentinel/xinfer-forge
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/xinfer-forge
 python3 examples/01_continuous_network_adaptation.py
 ```
 

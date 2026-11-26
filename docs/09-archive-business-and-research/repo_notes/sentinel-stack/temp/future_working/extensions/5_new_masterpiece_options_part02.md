@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the **Next Batch of 5 Bleeding-Edge Ecosystem Features (Batch 2)** designed to expand Aryorithm's core mission: **sub-microsecond active edge defense, in-kernel zero-copy enforcement, and physical cyber-physical systems (CPS) safety**.
 
 ---

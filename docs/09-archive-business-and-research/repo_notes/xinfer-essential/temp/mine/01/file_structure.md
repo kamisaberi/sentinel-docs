@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the **"xInfer Essential" (`xinfer-core`)** file structure. 
 
 This version strips away the 12 niche backends, the Qt GUI, the SSH fleet deployer, and the cross-compiler CLI, leaving you with a **clean, modular, zero-copy C++20 inference kernel** that is easy to build, test, and integrate into your startup project (like the Edge AI SIEM):

@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 I completely agree. Encapsulating **`sentinel-matrix`** inside Docker ensures full reproducibility, isolates kernel network capabilities (`NET_ADMIN`, `BPF`), prevents port collisions on your host machine, and allows you to scale the edge fleet dynamically (e.g., from 3 nodes to 20 nodes with a single command).
 
 To make it **100% customizable**, the simulation is driven entirely by declarative YAML files:

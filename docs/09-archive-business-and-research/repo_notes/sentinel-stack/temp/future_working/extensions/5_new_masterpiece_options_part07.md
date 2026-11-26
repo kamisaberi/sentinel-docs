@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is another patent-grade expansion: **10 brand-new bleeding-edge ecosystem features (Batches 11 & 12: Ideas 46 to 55)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **DRAM hardware memory security, geomagnetic solar storm mitigation, high-pressure hydrogen safety, avionics bus defense, and deep underground cable degradation**.

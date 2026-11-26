@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the comprehensive master handover and architecture documentation summarizing all five projects developed across this environment. 
 
 You can copy and paste this complete document into a new chat session to restore full technical context, architectural specifications, file trees, and implementation progress.
@@ -192,7 +197,7 @@ Evaluated on an industrial bare-metal testbed (Intel Core i9-14900K, 24 cores / 
 
 ### 1. Build and Install `xinfer-essential`
 ```bash
-cd /home/kami/xinfer-essential
+cd ${WORKSPACE_ROOT}/xinfer-essential
 mkdir -p build && cd build
 cmake .. -DXINFER_ENABLE_OPENVINO=ON -DXINFER_BUILD_EXAMPLES=ON
 make -j$(nproc)
@@ -202,7 +207,7 @@ sudo ldconfig
 
 ### 2. Build and Install `blackbox-essential`
 ```bash
-cd /home/kami/blackbox-essential
+cd ${WORKSPACE_ROOT}/blackbox-essential
 ./bpf/build_bpf.sh
 mkdir -p build && cd build
 cmake .. -DBLACKBOX_BUILD_TESTS=ON
@@ -213,7 +218,7 @@ sudo ldconfig
 
 ### 3. Build and Launch `blackbox-sentinel`
 ```bash
-cd /home/kami/blackbox-sentinel
+cd ${WORKSPACE_ROOT}/blackbox-sentinel
 mkdir -p build && cd build
 cmake ..
 make -j$(nproc)
@@ -223,13 +228,13 @@ sudo ./build/sentinel
 
 ### 4. Run `xinfer-forge` Continuous Adaptation
 ```bash
-cd /home/kami/blackbox-sentinel/xinfer-forge
+cd ${WORKSPACE_ROOT}/blackbox-sentinel/xinfer-forge
 ./deploy/run_adaptation.sh
 ```
 
 ### 5. Build and Run `sentinel-lab` (Academic Testbed)
 ```bash
-cd /home/kami/sentinel-lab
+cd ${WORKSPACE_ROOT}/sentinel-lab
 ./bpf/build_bpf.sh
 mkdir -p build && cd build
 cmake .. -DENABLE_OPENVINO=ON -DBUILD_TESTS=ON

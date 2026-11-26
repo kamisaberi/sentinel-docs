@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is another patent-grade expansion: **10 brand-new bleeding-edge ecosystem features (Batches 23 & 24: Ideas 106 to 115)** designed specifically for the **Aryorithm / Blackbox Sentinel** core architecture.
 
 These features push into **inertial confinement laser fusion, marine azipod shaft whirling, particle collider beam aborts, automated composite tape placement, and hypersonic boundary layer transition**.

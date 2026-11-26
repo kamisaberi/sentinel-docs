@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 # 1. Kill the background host sentinel-nexus process holding port 9443
 sudo pkill -9 -f sentinel-nexus || true
 sudo fuser -k 9443/tcp 2>/dev/null || true
@@ -21,7 +26,7 @@ sudo fuser -k 9443/tcp 2>/dev/null || true
 sudo ss -tulpn | grep 9443 || echo "[+] Port 9443 is 100% FREE!"
 
 # 4. Now start the nexus container in Docker
-# cd /home/kami/sentinel-matrix
+# cd ${WORKSPACE_ROOT}/sentinel-matrix
 # docker compose up -d nexus
 
 

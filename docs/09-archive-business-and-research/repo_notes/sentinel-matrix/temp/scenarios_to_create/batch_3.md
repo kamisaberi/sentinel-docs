@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 ### Instruction & Roadmap: Batch 3 Production Scenarios (Final 4 Scenarios)
 
 We are now constructing, configuring, and packaging the final four large-scale production scenarios to complete your **10-Scenario Master Portfolio**:
@@ -13,22 +18,22 @@ We are now constructing, configuring, and packaging the final four large-scale p
 
 ### Step 7.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/{models,configs,pcaps}
 ```
 
 ### Step 7.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/
-cp /home/kami/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/pcaps/
-cp /home/kami/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/configs/ 2>/dev/null || true
 ```
 
 ### Step 7.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/manifest.json`:
 ```json
 {
   "name": "hospital_pacs_surgical_microgrid",
@@ -58,7 +63,7 @@ Create `/home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/ma
 ```
 
 ### Step 7.4: Create `scenario.yaml` (18 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -273,14 +278,14 @@ services:
 
 ### Step 7.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 18-Node Hospital Clinical PACS & Surgical Microgrid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/run_demo.sh
 ```
 
 ---
@@ -289,21 +294,21 @@ chmod +x /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid/r
 
 ### Step 8.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/{models,configs,pcaps}
 ```
 
 ### Step 8.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/models/
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/shared/datasets/industroyer2_substation.pcap /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/pcaps/
-cp /home/kami/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/pcaps/
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/industroyer2_substation.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/configs/ 2>/dev/null || true
 ```
 
 ### Step 8.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/manifest.json`:
 ```json
 {
   "name": "transcontinental_gas_pipeline",
@@ -332,7 +337,7 @@ Create `/home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/manif
 ```
 
 ### Step 8.4: Create `scenario.yaml` (21 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -588,14 +593,14 @@ services:
 
 ### Step 8.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 21-Node Transcontinental Gas Pipeline SCADA Grid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline/run_demo.sh
 ```
 
 ---
@@ -604,20 +609,20 @@ chmod +x /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline/run_
 
 ### Step 9.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/{models,configs,pcaps}
 ```
 
 ### Step 9.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/models/
-cp /home/kami/sentinel-matrix/shared/models/power_quality_anomaly.onnx* /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/power_quality_anomaly.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/models/ 2>/dev/null || true
 
-cp /home/kami/sentinel-matrix/configs/space_telemetry.yaml /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/configs/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/pcaps/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/space_telemetry.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/cve_2023_44487_rapid_reset.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/pcaps/
 ```
 
 ### Step 9.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/manifest.json`:
 ```json
 {
   "name": "orbital_satellite_ground_station",
@@ -645,7 +650,7 @@ Create `/home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/ma
 ```
 
 ### Step 9.4: Create `scenario.yaml` (18 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -867,14 +872,14 @@ services:
 
 ### Step 9.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 18-Node Orbital Satellite Ground Link & MOC C2 Grid...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station/run_demo.sh
 ```
 
 ---
@@ -883,23 +888,23 @@ chmod +x /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station/r
 
 ### Step 10.1: Create Directory Tree
 ```bash
-mkdir -p /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/{models,configs,pcaps}
+mkdir -p ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/{models,configs,pcaps}
 ```
 
 ### Step 10.2: Populate Models, Configs & PCAPs
 ```bash
-cp /home/kami/sentinel-matrix/shared/models/network_threat_int8.onnx /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/
-cp /home/kami/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/network_threat_int8.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/thermal_anomaly_vision.onnx ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/models/vibration_spectral_ae.onnx* ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/models/ 2>/dev/null || true
 
-cp /home/kami/blackbox-sentinel/configs/trism_policy.yaml /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
-cp /etc/sentinel/live_sbom.json /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/configs/plc_register_map.json /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
-cp /home/kami/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/pcaps/
+cp ${WORKSPACE_ROOT}/blackbox-sentinel/configs/trism_policy.yaml ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
+cp /etc/sentinel/live_sbom.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/configs/plc_register_map.json ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/configs/ 2>/dev/null || true
+cp ${WORKSPACE_ROOT}/sentinel-matrix/shared/datasets/modbus_uiuc_scada_attack.pcap ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/pcaps/
 ```
 
 ### Step 10.3: Create `manifest.json`
-Create `/home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/manifest.json`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/manifest.json`:
 ```json
 {
   "name": "chemical_reactor_copilot_trism",
@@ -928,7 +933,7 @@ Create `/home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/mani
 ```
 
 ### Step 10.4: Create `scenario.yaml` (20 Containers)
-Create `/home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/scenario.yaml`:
+Create `${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/scenario.yaml`:
 ```yaml
 version: "1.0"
 scenario:
@@ -1184,14 +1189,14 @@ services:
 
 ### Step 10.5: Create `run_demo.sh`
 ```bash
-cat << 'EOF' > /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/run_demo.sh
+cat << 'EOF' > ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/run_demo.sh
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo -e "\033[1;36m[*] Launching 20-Node Exothermic Reactor with AI Copilot & Live-SBOM...\033[0m"
-python3 /home/kami/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
+python3 ${WORKSPACE_ROOT}/sentinel-matrix/tools/scenario_engine.py load "${SCRIPT_DIR}/scenario.yaml"
 EOF
-chmod +x /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/run_demo.sh
+chmod +x ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism/run_demo.sh
 ```
 
 ---
@@ -1202,16 +1207,16 @@ Run these four commands to pack Scenarios 07 through 10 into verified `.tar.gz` 
 
 ```bash
 # 1. Pack Scenario 07: Hospital PACS & Surgical Microgrid (18 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/hospital_pacs_surgical_microgrid --embed
 
 # 2. Pack Scenario 08: Gas Transmission Pipeline (21 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/transcontinental_gas_pipeline --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/transcontinental_gas_pipeline --embed
 
 # 3. Pack Scenario 09: Orbital Ground Station (18 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/orbital_satellite_ground_station --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/orbital_satellite_ground_station --embed
 
 # 4. Pack Scenario 10: Chemical Reactor AI Copilot & Live-SBOM (20 Containers)
-aryo scenario pack /home/kami/sentinel-matrix/scenarios/chemical_reactor_copilot_trism --embed
+aryo scenario pack ${WORKSPACE_ROOT}/sentinel-matrix/scenarios/chemical_reactor_copilot_trism --embed
 ```
 
 ---

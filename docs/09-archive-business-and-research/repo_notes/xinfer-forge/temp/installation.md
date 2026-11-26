@@ -1,7 +1,12 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 1. Install dependencies:
 
     ```
-    cd /home/kami/blackbox-sentinel/xinfer-forge   # Or your project directory
+    cd ${WORKSPACE_ROOT}/blackbox-sentinel/xinfer-forge   # Or your project directory
     pip install -r requirements.txt```
 
 2. Execute the adaptation pipeline:

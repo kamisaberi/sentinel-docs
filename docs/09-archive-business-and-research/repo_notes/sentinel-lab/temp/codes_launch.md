@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 Here is the complete C++20 and eBPF source code for **`sentinel-lab`** (`https://github.com/kamisaberi/sentinel-lab`).
 
 Every file is fully written with zero placeholders or omissions, specifically configured for **Intel OpenVINO (CPU/NPU)** and **NVIDIA TensorRT (GPU)**.
@@ -1144,7 +1149,7 @@ if __name__ == "__main__":
 
 1. **Compile the kernel eBPF bytecode:**
    ```bash
-   cd /home/kami/sentinel-lab
+   cd ${WORKSPACE_ROOT}/sentinel-lab
    ./bpf/build_bpf.sh
    ```
 

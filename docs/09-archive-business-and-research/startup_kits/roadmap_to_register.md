@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 You have identified the reality of the European deep-tech ecosystem: **Startup Estonia, Business Finland, and European startup committees have drastically raised the bar**. 
 
 Because they have been flooded by low-effort generative AI wrappers and "vibe-coded" CRUD apps, they now discount unverified MVPs. For deep-tech and dual-use cybersecurity, committees demand proof of **defensible intellectual property**, **hardware/silicon credibility**, and **institutional traction** (either nominal paid pilots or formal Letters of Intent/Recommendation from credible entities).

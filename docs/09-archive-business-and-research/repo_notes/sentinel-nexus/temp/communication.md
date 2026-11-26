@@ -1,3 +1,8 @@
+!!! info "Archival Engineering Record — Historical Context"
+    This document preserves a historical design artifact from earlier development iterations. For active production specifications, verified APIs, and deployment runbooks, consult **Section 02 (System Architecture)** and **Section 03 (Developer & SDK)**.
+
+---
+
 To connect your existing ecosystem to **Sentinel Nexus (Tier 6)**, we need specific, targeted integration points across the other 5 tiers. 
 
 Importantly, **none of these changes should break the standalone, air-gapped operation of any project**. They act as an **optional telemetry and control uplink** that activates when a Nexus endpoint is configured.
