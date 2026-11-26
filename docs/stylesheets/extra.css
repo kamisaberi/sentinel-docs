@@ -1,5 +1,5 @@
 /* ==============================================================================
-   ARYORITHM MASTER DOCUMENTATION — OPERATIONS DASHBOARD DESIGN SYSTEM
+   ARYORITHM MASTER DOCUMENTATION — COMPACT DASHBOARD DESIGN SYSTEM
    ============================================================================== */
 
 /* 1. Full-Width Viewport Canvas Expansion */
@@ -9,14 +9,16 @@
   margin-right: auto !important;
 }
 
-/* 2. Primary Navigation Rail: Console Dashboard Styling */
+/* 2. Primary Navigation Rail: Compact Console Sidebar */
 .md-sidebar--primary {
-  width: 18.5rem !important;
+  width: 17.5rem !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif !important;
 }
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
   background-color: #090d16;
   border-right: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.4rem 0.25rem !important;
 }
 
 [data-md-color-scheme="default"] .md-sidebar--primary .md-sidebar__scrollwrap {
@@ -24,41 +26,49 @@
   border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* 3. Section Demarcation & Category Micro-Typography */
-.md-nav__item--section > .md-nav__link,
+/* 3. Compact Typography & Tight Nested Indentation */
+.md-nav {
+  font-size: 0.72rem !important;
+  line-height: 1.35 !important;
+}
+
+.md-nav__list .md-nav__list {
+  padding-left: 0.55rem !important;
+}
+
+/* Folder / Group Headers (Clean, non-uppercase dashboard hierarchy) */
 .md-nav__item--nested > .md-nav__link,
 .md-nav__item--nested > label.md-nav__link {
-  text-transform: uppercase !important;
-  font-size: 0.68rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
-  color: #64748b !important;
-  margin-top: 0.85rem !important;
-  padding: 0.35rem 0.6rem !important;
+  font-size: 0.73rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  color: #cbd5e1 !important;
+  margin-top: 0.12rem !important;
+  padding: 0.24rem 0.5rem !important;
 }
 
-/* 4. Navigation Links: Dashboard Pill Geometry */
+/* 4. Navigation Links: Sleek Pill Geometry */
 .md-nav__link {
-  border-radius: 6px !important;
-  padding: 0.32rem 0.65rem !important;
-  margin: 0.1rem 0.2rem !important;
-  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  font-size: 0.82rem !important;
+  border-radius: 5px !important;
+  padding: 0.22rem 0.5rem !important;
+  margin: 0.04rem 0.15rem !important;
+  font-size: 0.71rem !important;
+  color: #94a3b8 !important;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Hover State */
 .md-nav__link:hover {
   background-color: rgba(0, 240, 255, 0.07) !important;
   color: #00f0ff !important;
 }
 
-/* Active State: Cyber-Physical Cyan Accent Indicator */
+/* Active Item: Cyan Accent Indicator */
 .md-nav__item--active > .md-nav__link {
   background-color: rgba(0, 240, 255, 0.12) !important;
   color: #00f0ff !important;
   font-weight: 600 !important;
-  border-left: 3px solid #00f0ff !important;
-  padding-left: 0.55rem !important;
+  border-left: 2.5px solid #00f0ff !important;
+  padding-left: 0.45rem !important;
 }
 
 /* 5. Sleek Custom Scrollbar Ergonomics */
@@ -79,7 +89,7 @@
   background: rgba(0, 240, 255, 0.5);
 }
 
-/* 6. Content Pane Header Cleanliness */
+/* 6. Content Pane Breathing Room */
 .md-content {
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
