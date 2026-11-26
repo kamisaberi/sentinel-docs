@@ -32,12 +32,12 @@ def build_tree(directory: pathlib.Path, indent: int) -> list[str]:
         if p.is_file() and p.suffix.lower() == ".md":
             rel = p.relative_to(DOCS_DIR).as_posix()
             title = "Overview" if p.name.lower() in ("readme.md", "index.md") else extract_title(p)
-            lines.append(f"{pad}- {json.dumps(title)}: {json.dumps(rel)}")
+            lines.append(f"{pad}- {json.dumps(title, ensure_ascii=False)}: {json.dumps(rel, ensure_ascii=False)}")
         elif p.is_dir():
             sub_lines = build_tree(p, indent + 4)
             if sub_lines:
                 folder_title = p.name.replace("-", " ").replace("_", " ").title()
-                lines.append(f"{pad}- {json.dumps(folder_title)}:")
+                lines.append(f"{pad}- {json.dumps(folder_title, ensure_ascii=False)}:")
                 lines.extend(sub_lines)
     return lines
 

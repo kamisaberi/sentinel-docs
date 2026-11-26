@@ -939,7 +939,7 @@ nav:
                   - "Linux Installation Instruction": "09-archive-business-and-research/adjacent_projects/alloy/mine/linux_installation_instruction.md"
                   - "Restrictions": "09-archive-business-and-research/adjacent_projects/alloy/mine/RESTRICTIONS.md"
                   - "Temp":
-                      - "\ud83d\udd17 Alloy": "09-archive-business-and-research/adjacent_projects/alloy/mine/temp/README_01.MD"
+                      - "🔗 Alloy": "09-archive-business-and-research/adjacent_projects/alloy/mine/temp/README_01.MD"
           - "Aryorithm.Com Frontend":
               - "System architecture": "09-archive-business-and-research/adjacent_projects/aryorithm.com-frontend/ARCHITECTURE.md"
               - "Deployment runbook (web host)": "09-archive-business-and-research/adjacent_projects/aryorithm.com-frontend/DEPLOYMENT.md"
