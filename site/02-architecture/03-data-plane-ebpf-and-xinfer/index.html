@@ -29878,18 +29878,12 @@
 <hr />
 <h2 id="1-in-kernel-ebpfxdp-filtering-blackbox-essential">1. In-Kernel eBPF/XDP Filtering (<code>blackbox-essential</code>)</h2>
 <p><code>blackbox-essential</code> compiles in-kernel eBPF bytecode using Clang/LLVM CO-RE (Compile Once – Run Everywhere) and attaches to the physical network interface using XDP:</p>
-<div class="highlight"><pre><span></span><code>Incoming Wire Frame ──► NIC RX Queue ──► XDP Driver Hook (&lt; 0.84 µs)
-                                                 │
-                        ┌────────────────────────┴────────────────────────┐
-                        ▼                                                 ▼
-             Hostile (In eBPF Map)                              Nominal / Unknown
-                        │                                                 │
-                        ▼                                                 ▼
-                 XDP_DROP (&lt; 0.84 µs)                           AF_XDP UMEM Zero-Copy
-                (Hardware NIC Drop)                                       │
-                                                                          ▼
-                                                              Userspace IngressManager
-</code></pre></div>
+<pre class="mermaid"><code>graph LR
+    WIRE["Incoming Wire Frame"] --&gt; RX["NIC RX Queue"]
+    RX --&gt; XDP{"XDP Driver Hook (&lt; 0.84 µs)"}
+    XDP --&gt;|"Hostile (In eBPF Map)"| DROP["XDP_DROP (&lt; 0.84 µs)"]
+    XDP --&gt;|"Nominal / Unknown"| UMEM["AF_XDP UMEM Zero-Copy"]
+    UMEM --&gt; INGRESS["Userspace IngressManager"]</code></pre>
 <ul>
 <li><strong>XDP Driver Hook:</strong> Evaluates the frame at the earliest possible software processing point. If an IP or TEID is registered inside <code>/sys/fs/bpf/blackbox_blocked_ips</code>, the driver returns <code>XDP_DROP</code> immediately.</li>
 <li><strong>Kernel W^X Protection (<code>live_sbom.o</code>):</strong> Attaches a tracepoint to the kernel <code>sys_enter_mprotect</code> system call. Any unauthorized attempt to transition process memory pages to <code>PROT_READ | PROT_WRITE | PROT_EXEC</code> (fileless shellcode injection) triggers an immediate <code>SIGKILL</code> in <code>&lt; 1.0 µs</code>.</li>

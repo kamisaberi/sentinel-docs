@@ -1109,10 +1109,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provisioning-lifecyle-commands" class="md-nav__link">
+  <a href="#provisioning-lifecycle-commands" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Provisioning &amp; Lifecyle Commands
+        Provisioning &amp; Lifecycle Commands
       </span>
     </span>
   </a>
@@ -29875,10 +29875,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provisioning-lifecyle-commands" class="md-nav__link">
+  <a href="#provisioning-lifecycle-commands" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Provisioning &amp; Lifecyle Commands
+        Provisioning &amp; Lifecycle Commands
       </span>
     </span>
   </a>
@@ -29932,19 +29932,69 @@
     end</code></pre>
 <hr />
 <h2 id="2-exemplary-catalog-recipes">2. Exemplary Catalog Recipes</h2>
-<div class="highlight"><pre><span></span><code>┌──────┬────────────────────────────────────┬──────────────┬──────────────────┬──────────────────────────┐
-│ Slug │ Scenario Title                     │ Cartridge    │ Subnet           │ Verified Defense Vector  │
-├──────┼────────────────────────────────────┼──────────────┼──────────────────┼──────────────────────────┤
-│ 01   │ Substation Busbar Trip Shield      │ ics-guard    │ 10.240.101.0/24  │ IEC-104 Spurious Trip    │
-│ 02   │ S7 PLC Firmware Runaway Guard      │ ics-guard    │ 10.240.102.0/24  │ S7Comm CPU STOP 0x29     │
-│ 05   │ Drinking Water Chemical Dosing     │ ics-guard    │ 10.240.105.0/24  │ Modbus Tampered Setpoint │
-│ 11   │ Tactical UAV STANAG Interceptor    │ ccsds-guard  │ 10.240.111.0/24  │ DLI Telecommand Checksum │
-│ 21   │ 5G UPF URLLC Slice Air-Gap         │ net-guard    │ 10.240.121.0/24  │ GTP-U Slice-Hopping Drop │
-│ 31   │ Industrial Cobot EtherCAT Clamp    │ motion-guard │ 10.240.131.0/24  │ Joint Accel Surge Clamp  │
-│ 43   │ HIPAA RAM-Only Surgical ToF Guard  │ vision-guard │ 10.240.143.0/24  │ 0B Disk Egress ShmRing   │
-└──────┴────────────────────────────────────┴──────────────┴──────────────────┴──────────────────────────┘
-</code></pre></div>
-<h3 id="provisioning-lifecyle-commands">Provisioning &amp; Lifecyle Commands</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Slug</th>
+<th style="text-align: left;">Scenario Title</th>
+<th style="text-align: left;">Cartridge</th>
+<th style="text-align: left;">Subnet</th>
+<th style="text-align: left;">Verified Defense Vector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>01</code></strong></td>
+<td style="text-align: left;">Substation Busbar Trip Shield</td>
+<td style="text-align: left;"><code>ics-guard</code></td>
+<td style="text-align: left;"><code>10.240.101.0/24</code></td>
+<td style="text-align: left;">IEC-104 Spurious Trip</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>02</code></strong></td>
+<td style="text-align: left;">S7 PLC Firmware Runaway Guard</td>
+<td style="text-align: left;"><code>ics-guard</code></td>
+<td style="text-align: left;"><code>10.240.102.0/24</code></td>
+<td style="text-align: left;">S7Comm CPU STOP <code>0x29</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>05</code></strong></td>
+<td style="text-align: left;">Drinking Water Chemical Dosing</td>
+<td style="text-align: left;"><code>ics-guard</code></td>
+<td style="text-align: left;"><code>10.240.105.0/24</code></td>
+<td style="text-align: left;">Modbus Tampered Setpoint</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>11</code></strong></td>
+<td style="text-align: left;">Tactical UAV STANAG Interceptor</td>
+<td style="text-align: left;"><code>ccsds-guard</code></td>
+<td style="text-align: left;"><code>10.240.111.0/24</code></td>
+<td style="text-align: left;">DLI Telecommand Checksum</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>21</code></strong></td>
+<td style="text-align: left;">5G UPF URLLC Slice Air-Gap</td>
+<td style="text-align: left;"><code>net-guard</code></td>
+<td style="text-align: left;"><code>10.240.121.0/24</code></td>
+<td style="text-align: left;">GTP-U Slice-Hopping Drop</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>31</code></strong></td>
+<td style="text-align: left;">Industrial Cobot EtherCAT Clamp</td>
+<td style="text-align: left;"><code>motion-guard</code></td>
+<td style="text-align: left;"><code>10.240.131.0/24</code></td>
+<td style="text-align: left;">Joint Accel Surge Clamp</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>43</code></strong></td>
+<td style="text-align: left;">HIPAA RAM-Only Surgical ToF Guard</td>
+<td style="text-align: left;"><code>vision-guard</code></td>
+<td style="text-align: left;"><code>10.240.143.0/24</code></td>
+<td style="text-align: left;"><code>0B</code> Disk Egress ShmRing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="provisioning-lifecycle-commands">Provisioning &amp; Lifecycle Commands</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Provision and launch recipe 05 directly</span>
 aryo<span class="w"> </span>scenario<span class="w"> </span>provision<span class="w"> </span>05_drinking_water_dosing_guard<span class="w"> </span>--up
 

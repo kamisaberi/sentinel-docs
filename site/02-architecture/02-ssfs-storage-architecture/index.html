@@ -557,10 +557,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-the-7-primary-artifact-classes" class="md-nav__link">
+  <a href="#2-the-7-primary-artifact-classes-ssfs-topology" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. The 7 Primary Artifact Classes
+        2. The 7 Primary Artifact Classes (SSFS Topology)
       </span>
     </span>
   </a>
@@ -29857,10 +29857,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-the-7-primary-artifact-classes" class="md-nav__link">
+  <a href="#2-the-7-primary-artifact-classes-ssfs-topology" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. The 7 Primary Artifact Classes
+        2. The 7 Primary Artifact Classes (SSFS Topology)
       </span>
     </span>
   </a>
@@ -29908,46 +29908,17 @@
 <li><strong>User Mode (<code>UID != 0</code> / Non-Root):</strong> <code>${HOME}/.sentinel</code></li>
 </ol>
 <hr />
-<h2 id="2-the-7-primary-artifact-classes">2. The 7 Primary Artifact Classes</h2>
-<div class="highlight"><pre><span></span><code>${SENTINEL_ROOT}/
-├── spkg/                       &lt;-- Sentinel Distribution Packages (.spkg.zst)
-│   ├── installed/              &lt;-- Active unpacked plugins (/web, /plugins.d)
-│   ├── cache/                  &lt;-- Signed package tarballs
-│   └── staging/                &lt;-- Atomic verification workspace
-│
-├── scenarios/                  &lt;-- Digital Twin Simulation Meshes
-│   ├── catalog/                &lt;-- Declarative scenario definitions (scenario.yaml)
-│   ├── workspaces/             &lt;-- Rendered Docker Compose workspaces (&lt;slug&gt;/)
-│   └── snapshots/              &lt;-- Incident memory &amp; telemetry dumps
-│
-├── blueprints/                 &lt;-- Hardware &amp; Network Topology Blueprints
-│   ├── hardware/               &lt;-- PCIe BDF addresses, AF_XDP NIC bindings
-│   ├── apparatus/              &lt;-- Plant ODE descriptors &amp; 3D keep-out meshes
-│   └── tsn/                    &lt;-- IEEE 802.1Qbv cycle slot schedules
-│
-├── models/                     &lt;-- Machine Learning Model Substrate
-│   ├── registry/&lt;sha256&gt;       &lt;-- Content-Addressable Storage (CAS) of verified base models
-│   ├── calibrated/             &lt;-- Domain-specific autoencoders (water_dosing_ae.onnx, etc.)
-│   └── forge/checkpoints/      &lt;-- xinfer-forge continual learning representations
-│
-├── slab/                       &lt;-- Sentinel Lab Research Testbed
-│   ├── experiments/            &lt;-- 14-D state trajectories &amp; Lyaponuv metrics
-│   ├── benchmarks/             &lt;-- Sub-120 ns hardware cycle histograms
-│   └── trajectories/           &lt;-- Runge-Kutta 4th-Order phase space logs
-│
-├── artifacts/                  &lt;-- Heavy Binary Asset Ingress
-│   ├── pcaps/                  &lt;-- Raw wire captures cataloged by protocol
-│   └── downloads/              &lt;-- Transient HTTPS &amp; Git LFS download buffers
-│
-├── pki/                        &lt;-- Hardware Silicon Identity &amp; mTLS
-│   ├── ca/                     &lt;-- Root &amp; Intermediate authority certs
-│   ├── certs/                  &lt;-- Node cryptographic credentials
-│   └── tpm/                    &lt;-- Physical TPM 2.0 SRK handles &amp; PCR quotes
-│
-└── runtime/                    &lt;-- Volatile IPC descriptor handles
-    ├── sockets/                &lt;-- AF_UNIX domain bridges (can://bus0)
-    └── locks/                  &lt;-- Kernel advisory concurrency locks
-</code></pre></div>
+<h2 id="2-the-7-primary-artifact-classes-ssfs-topology">2. The 7 Primary Artifact Classes (SSFS Topology)</h2>
+<pre class="mermaid"><code>graph TD
+    ROOT["${SENTINEL_ROOT} (/var/lib/sentinel or ~/.sentinel)"]
+    ROOT --&gt; SPKG["spkg/ (installed, cache, staging)"]
+    ROOT --&gt; SCEN["scenarios/ (catalog, workspaces, snapshots)"]
+    ROOT --&gt; BP["blueprints/ (hardware, apparatus, tsn)"]
+    ROOT --&gt; MOD["models/ (registry/&lt;sha256&gt;, calibrated, forge)"]
+    ROOT --&gt; SLAB["slab/ (experiments, benchmarks, trajectories)"]
+    ROOT --&gt; ART["artifacts/ (pcaps, downloads)"]
+    ROOT --&gt; PKI["pki/ (ca, certs, tpm)"]
+    ROOT --&gt; RUN["runtime/ (sockets, locks)"]</code></pre>
 <hr />
 <h2 id="3-content-addressable-storage-cas-deduplication">3. Content-Addressable Storage (CAS) Deduplication</h2>
 <p>Heavy binary assets (such as multi-megabyte PCAPs and ONNX weight tensors) are never duplicated across scenario directories. When <code>fetch_scenario_assets.py</code> or <code>models_downloader.sh</code> retrieves an asset:</p>

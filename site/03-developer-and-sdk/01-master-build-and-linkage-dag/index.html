@@ -718,6 +718,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-standard-toolchain-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Standard Toolchain Invariants
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -29834,6 +29845,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-standard-toolchain-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Standard Toolchain Invariants
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -29855,44 +29877,44 @@
 <p>To ensure reproducible, zero-circular-dependency compilation across clean air-gapped environments, the Aryorithm ecosystem enforces a strict bottom-up compilation order from Tier 0 to Tier 4.</p>
 <hr />
 <h2 id="1-topologically-sorted-compilation-sequence">1. Topologically Sorted Compilation Sequence</h2>
-<p>```mermaid
-graph TD
+<pre class="mermaid"><code>graph TD
     subgraph Step1["Step 1: Tier 0 Cores (Parallel)"]
         FS["sentinel-fs -&gt; libsentinelfs.so, sfs"]
         BB["blackbox-essential -&gt; libblackbox.so, xdp_drop.o"]
         XI["xinfer-essential -&gt; libxinfer.so"]
-    end</p>
-<pre><code>subgraph Step2["Step 2: Tier 1 Ingress &amp; Routing"]
-    BS["blackbox-sentinel -&gt; sentinel, sentinel-ctl, sentinel-artifact"]
-    XF["xinfer-forge -&gt; forge-cli"]
-end
+    end
 
-subgraph Step3["Step 3: Tier 2 Production Cartridges (Parallel)"]
-    ICS["ics-guard -&gt; libics_guard.so, aryo-ics"]
-    CCSDS["ccsds-guard -&gt; libccsds_guard.so, aryo-aerospace"]
-    NET["net-guard -&gt; libnet_guard.so, aryo-net"]
-    MOT["motion-guard -&gt; libmotion_guard.so, aryo-motion"]
-    VIS["vision-guard -&gt; libvision_guard.so, aryo-vision"]
-end
+    subgraph Step2["Step 2: Tier 1 Ingress &amp; Routing"]
+        BS["blackbox-sentinel -&gt; sentinel, sentinel-ctl, sentinel-artifact"]
+        XF["xinfer-forge -&gt; forge-cli"]
+    end
 
-subgraph Step4["Step 4: Tier 3 &amp; Tier 4 Top-Level Stacks"]
-    NEXUS["sentinel-nexus -&gt; sentinel-nexus C2"]
-    MATRIX["sentinel-matrix -&gt; scenario_engine.py"]
-    LAB["sentinel-lab -&gt; Research Verification Harnesses"]
-    STACK["sentinel-stack -&gt; master aryo CLI"]
-end
+    subgraph Step3["Step 3: Tier 2 Production Cartridges (Parallel)"]
+        ICS["ics-guard -&gt; libics_guard.so, aryo-ics"]
+        CCSDS["ccsds-guard -&gt; libccsds_guard.so, aryo-aerospace"]
+        NET["net-guard -&gt; libnet_guard.so, aryo-net"]
+        MOT["motion-guard -&gt; libmotion_guard.so, aryo-motion"]
+        VIS["vision-guard -&gt; libvision_guard.so, aryo-vision"]
+    end
 
-Step1 --&gt; Step2
-Step2 --&gt; Step3
-Step3 --&gt; Step4
-</code></pre>
-<ol>
-<li>Standard Toolchain Invariants
-C++ Compiler: Modern GCC (&gt;= 13.0) or Clang (&gt;= 16.0) supporting -std=c++20.
-Optimization Flags: -O3 -march=native -Wall -Wextra -pthread -fno-omit-frame-pointer.
-Runtime Pathing (RPATH): All binaries set CMAKE_INSTALL_RPATH "/usr/local/lib" to locate shared ecosystem libraries dynamically without brittle LD_LIBRARY_PATH overrides.
-Kernel Dependencies: libbpf-dev, libelf-dev, and bpftool for eBPF CO-RE bytecode generation.</li>
-</ol>
+    subgraph Step4["Step 4: Tier 3 &amp; Tier 4 Top-Level Stacks"]
+        NEXUS["sentinel-nexus -&gt; sentinel-nexus C2"]
+        MATRIX["sentinel-matrix -&gt; scenario_engine.py"]
+        LAB["sentinel-lab -&gt; Research Verification Harnesses"]
+        STACK["sentinel-stack -&gt; master aryo CLI"]
+    end
+
+    Step1 --&gt; Step2
+    Step2 --&gt; Step3
+    Step3 --&gt; Step4</code></pre>
+<hr />
+<h2 id="2-standard-toolchain-invariants">2. Standard Toolchain Invariants</h2>
+<ul>
+<li><strong>C++ Compiler:</strong> Modern GCC (&gt;= 13.0) or Clang (&gt;= 16.0) supporting <code>-std=c++20</code>.</li>
+<li><strong>Optimization Flags:</strong> <code>-O3 -march=native -Wall -Wextra -pthread -fno-omit-frame-pointer</code>.</li>
+<li><strong>Runtime Pathing (RPATH):</strong> All binaries set <code>CMAKE_INSTALL_RPATH "/usr/local/lib"</code> to locate shared ecosystem libraries dynamically without brittle <code>LD_LIBRARY_PATH</code> overrides.</li>
+<li><strong>Kernel Dependencies:</strong> <code>libbpf-dev</code>, <code>libelf-dev</code>, and <code>bpftool</code> for eBPF CO-RE bytecode generation.</li>
+</ul>
 
 
 

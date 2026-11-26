@@ -29924,18 +29924,48 @@
 <hr />
 <h2 id="1-executive-performance-metrics">1. Executive Performance Metrics</h2>
 <p>Unlike legacy Intrusion Detection Systems (IDS) or Next-Gen Firewalls that measure latency in milliseconds, Blackbox Sentinel enforces physical invariants at <strong>hardware bus speeds</strong>:</p>
-<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   CORE PERFORMANCE BENCHMARK MATRIX                                    │
-├─────────────────────────────────────────┬──────────────────┬─────────────────┬─────────────────────────┤
-│ Metric                                  │ Industry Average │ Aryorithm SLA   │ Verified Production Mean│
-├─────────────────────────────────────────┼──────────────────┼─────────────────┼─────────────────────────┤
-│ In-Kernel eBPF/XDP Mitigation           │ 15 ms – 250 ms   │ &lt; 1.00 µs       │ 0.84 µs                 │
-│ AF_XDP Multi-Queue Throughput           │ 1.2M EPS         │ 10.0M – 40.0M+  │ 41.84M EPS (Line-Rate)  │
-│ Deterministic Telecontrol Reflex Gate   │ 50 µs – 2.0 ms   │ &lt; 120.00 ns     │ 11.96 ns (P99: 12.87 ns)│
-│ Autonomous UAV Waypoint Air-Gap Gate    │ 1.0 ms – 15 ms   │ &lt; 50.00 ns      │ 23.77 ns (P99: 26.60 ns)│
-│ Cloud Egress Cost (Data Residency)      │ $0.12 / GB       │ $0.00           │ $0.00 (Zero-Egress)     │
-└─────────────────────────────────────────┴──────────────────┴─────────────────┴─────────────────────────┘
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Industry Average</th>
+<th style="text-align: left;">Aryorithm SLA</th>
+<th style="text-align: left;">Verified Production Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>In-Kernel eBPF/XDP Mitigation</strong></td>
+<td style="text-align: left;"><code>15 ms – 250 ms</code></td>
+<td style="text-align: left;"><code>&lt; 1.00 µs</code></td>
+<td style="text-align: left;"><strong><code>0.84 µs</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AF_XDP Multi-Queue Throughput</strong></td>
+<td style="text-align: left;"><code>1.2M EPS</code></td>
+<td style="text-align: left;"><code>10.0M – 40.0M+ EPS</code></td>
+<td style="text-align: left;"><strong><code>41.84M EPS</code></strong> (Line-Rate)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Deterministic Telecontrol Reflex Gate</strong></td>
+<td style="text-align: left;"><code>50 µs – 2.0 ms</code></td>
+<td style="text-align: left;"><code>&lt; 120.00 ns</code></td>
+<td style="text-align: left;"><strong><code>11.96 ns</code></strong> (P99: <code>12.87 ns</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Autonomous UAV Waypoint Air-Gap Gate</strong></td>
+<td style="text-align: left;"><code>1.0 ms – 15 ms</code></td>
+<td style="text-align: left;"><code>&lt; 50.00 ns</code></td>
+<td style="text-align: left;"><strong><code>23.77 ns</code></strong> (P99: <code>26.60 ns</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cloud Egress Cost (Data Residency)</strong></td>
+<td style="text-align: left;"><code>$0.12 / GB</code></td>
+<td style="text-align: left;"><code>$0.00</code></td>
+<td style="text-align: left;"><strong><code>$0.00</code></strong> (Zero-Egress)</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="2-in-kernel-ebpfxdp-zero-copy-ingestion-libblackboxso">2. In-Kernel eBPF/XDP Zero-Copy Ingestion (<code>libblackbox.so</code>)</h2>
 <p>Standard Linux network stacks process incoming packets through intermediate kernel socket buffers (<code>sk_buff</code>), incurring expensive CPU cache-line invalidations and memory copying. Blackbox Sentinel bypasses this bottleneck via <strong>AF_XDP zero-copy UMEM ring buffers</strong>:</p>
@@ -29946,27 +29976,54 @@
 <hr />
 <h2 id="3-sub-120-ns-telecontrol-invariance-gates-the-5-cartridges">3. Sub-120 ns Telecontrol Invariance Gates (The 5 Cartridges)</h2>
 <p>Every domain cartridge implements a hardware cycle counter using the Time Stamp Counter register (<code>RDTSC</code>/<code>RDTSCP</code>). Benchmarks conducted across <strong>100,000 consecutive test frames</strong> confirm that telecontrol safety enforcement operates with zero runtime heap allocation:</p>
-<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                  DOMAIN CARTRIDGE BENCHMARK AUDIT                                      │
-├───────────────┬──────────────────────────────────────────┬─────────────────┬──────────────┬────────────┤
-│ Cartridge     │ Protocols, Standards &amp; Safety Boundaries │ Physical Busses │ Mean Latency │ P99 Latency│
-├───────────────┼──────────────────────────────────────────┼─────────────────┼──────────────┼────────────┤
-│ ics-guard     │ Modbus TCP (:502), S7Comm (:102),        │ Bus A (Ethernet)│ 11.96 ns     │ 12.87 ns   │
-│               │ IEC 60870-5-104 (:2404), RK4 Plant ODE   │                 │              │            │
-├───────────────┼──────────────────────────────────────────┼─────────────────┼──────────────┼────────────┤
-│ ccsds-guard   │ NATO STANAG 4586 DLI, CCSDS 132/133,     │ Bus A (UDP/IP)  │ 23.77 ns     │ 26.60 ns   │
-│               │ 3D Kinematic Teleport, Rover Regolith CBF│                 │              │            │
-├───────────────┼──────────────────────────────────────────┼─────────────────┼──────────────┼────────────┤
-│ net-guard     │ 3GPP 5G UPF GTP-U, Non-IP L2 GOOSE/SV,   │ Bus A (Raw L2,  │ 18.42 ns     │ 24.11 ns   │
-│               │ NASDAQ ITCH 5.0, O-RAN E2AP, PQC ML-KEM  │ IPv4, SCTP)     │              │            │
-├───────────────┼──────────────────────────────────────────┼─────────────────┼──────────────┼────────────┤
-│ motion-guard  │ ISO 13849 PL-e, EtherCAT L2 (0x88A4),    │ Bus A, B, C     │ 14.10 ns     │ 18.20 ns   │
-│               │ SocketCAN CAN-FD, AMR ShmRing, TSN CBF   │ (CAN/EtherCAT)  │              │            │
-├───────────────┼──────────────────────────────────────────┼─────────────────┼──────────────┼────────────┤
-│ vision-guard  │ 4K RTSP (:8554), GigE Vision GVCP,       │ Bus A, C, D     │ 16.30 ns     │ 20.80 ns   │
-│               │ HIPAA RAM-Only ShmRing, NIR DMS Gaze     │ (V4L2/Camera)   │              │            │
-└───────────────┴──────────────────────────────────────────┴─────────────────┴──────────────┴────────────┘
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Cartridge</th>
+<th style="text-align: left;">Protocols, Standards &amp; Safety Boundaries</th>
+<th style="text-align: left;">Physical Busses</th>
+<th style="text-align: left;">Mean Latency</th>
+<th style="text-align: left;">P99 Latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>ics-guard</code></strong></td>
+<td style="text-align: left;">Modbus TCP (<code>:502</code>), S7Comm (<code>:102</code>), IEC 60870-5-104 (<code>:2404</code>), RK4 Plant ODE</td>
+<td style="text-align: left;">Bus A (Ethernet)</td>
+<td style="text-align: left;"><strong><code>11.96 ns</code></strong></td>
+<td style="text-align: left;"><code>12.87 ns</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ccsds-guard</code></strong></td>
+<td style="text-align: left;">NATO STANAG 4586 DLI, CCSDS 132/133, 3D Kinematic Teleport, Rover Regolith CBF</td>
+<td style="text-align: left;">Bus A (UDP/IP)</td>
+<td style="text-align: left;"><strong><code>23.77 ns</code></strong></td>
+<td style="text-align: left;"><code>26.60 ns</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>net-guard</code></strong></td>
+<td style="text-align: left;">3GPP 5G UPF GTP-U, Non-IP L2 GOOSE/SV, NASDAQ ITCH 5.0, O-RAN E2AP, PQC ML-KEM</td>
+<td style="text-align: left;">Bus A (Raw L2, IPv4, SCTP)</td>
+<td style="text-align: left;"><strong><code>18.42 ns</code></strong></td>
+<td style="text-align: left;"><code>24.11 ns</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>motion-guard</code></strong></td>
+<td style="text-align: left;">ISO 13849 PL-e, EtherCAT L2 (<code>0x88A4</code>), SocketCAN CAN-FD, AMR ShmRing, TSN CBF</td>
+<td style="text-align: left;">Bus A, B, C (CAN/EtherCAT)</td>
+<td style="text-align: left;"><strong><code>14.10 ns</code></strong></td>
+<td style="text-align: left;"><code>18.20 ns</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>vision-guard</code></strong></td>
+<td style="text-align: left;">4K RTSP (<code>:8554</code>), GigE Vision GVCP, HIPAA RAM-Only ShmRing, NIR DMS Gaze</td>
+<td style="text-align: left;">Bus A, C, D (V4L2/Camera)</td>
+<td style="text-align: left;"><strong><code>16.30 ns</code></strong></td>
+<td style="text-align: left;"><code>20.80 ns</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="4-hardware-attestation-silicon-root-of-trust">4. Hardware Attestation &amp; Silicon Root of Trust</h2>
 <p>The ecosystem's cryptographic identity does not rely on software secrets stored on disk:
