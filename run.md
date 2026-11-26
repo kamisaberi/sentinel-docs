@@ -1,0 +1,1 @@
+ ./.docs_venv/bin/zensical serve -a 127.0.0.1:8008
