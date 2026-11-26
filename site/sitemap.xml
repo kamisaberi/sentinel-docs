@@ -7,10 +7,67 @@
         <loc>https://docs.aryorithm.com/01-executive-and-fundraising/01-executive-summary-and-moat/</loc>
       </url>
       <url>
+        <loc>https://docs.aryorithm.com/01-executive-and-fundraising/02-verified-benchmarks-and-doi/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/01-executive-and-fundraising/03-portfolio-50-products/</loc>
+      </url>
+      <url>
         <loc>https://docs.aryorithm.com/01-executive-and-fundraising/04-commercialization-and-next-steps/</loc>
       </url>
       <url>
         <loc>https://docs.aryorithm.com/02-architecture/01-five-tier-dependency-dag/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/02-architecture/02-ssfs-storage-architecture/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/02-architecture/03-data-plane-ebpf-and-xinfer/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/02-architecture/04-multi-bus-ingress-and-router/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/02-architecture/05-control-plane-c2-and-forge/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/03-developer-and-sdk/01-master-build-and-linkage-dag/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/03-developer-and-sdk/02-cartridge-and-plugin-sdk/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/03-developer-and-sdk/03-binary-formats-specification/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/00-cartridges-overview/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/01-ics-guard/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/02-ccsds-guard/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/03-net-guard/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/04-motion-guard/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/04-domain-cartridges/05-vision-guard/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/05-operations-and-cli/01-cli-reference/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/05-operations-and-cli/02-50-scenario-catalog/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/06-compliance-and-assurance/01-regulatory-and-hardware-assurance/</loc>
+      </url>
+      <url>
+        <loc>https://docs.aryorithm.com/07-investor-and-customer-demos/01-five-minute-demos/</loc>
       </url>
       <url>
         <loc>https://docs.aryorithm.com/08-components/</loc>
