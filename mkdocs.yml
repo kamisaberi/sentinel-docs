@@ -72,6 +72,7 @@ nav:
       - "Cartridge #4: motion-guard": 04-domain-cartridges/04-motion-guard.md
       - "Cartridge #5: vision-guard": 04-domain-cartridges/05-vision-guard.md
   - 5. Operations & Scenarios:
+      - Master Installation Guide: 05-operations-and-cli/00-master-installation-guide.md
       - Master CLI (aryo, sentinel-ctl, sfs): 05-operations-and-cli/01-cli-reference.md
       - 50-Recipe Scenario Catalog: 05-operations-and-cli/02-50-scenario-catalog.md
   - 6. Compliance & Assurance:
