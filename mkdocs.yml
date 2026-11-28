@@ -73,8 +73,12 @@ nav:
       - "Cartridge #5: vision-guard": 04-domain-cartridges/05-vision-guard.md
   - 5. Operations & Scenarios:
       - Master Installation Guide: 05-operations-and-cli/00-master-installation-guide.md
-      - Master CLI (aryo, sentinel-ctl, sfs): 05-operations-and-cli/01-cli-reference.md
+      - Master CLI Architecture & Matrix: 05-operations-and-cli/01-cli-reference.md
       - 50-Recipe Scenario Catalog: 05-operations-and-cli/02-50-scenario-catalog.md
+      - "CLI Manual: aryo (Master CLI)": 05-operations-and-cli/03-aryo-master-cli.md
+      - "CLI Manual: sentinel-ctl (Operator)": 05-operations-and-cli/04-sentinel-ctl-manual.md
+      - "CLI Manual: sentinel-artifact (SDK)": 05-operations-and-cli/05-sentinel-artifact-sdk.md
+      - "CLI Manual: sentinel-matrix (Twin)": 05-operations-and-cli/06-sentinel-matrix-cli.md
   - 6. Compliance & Assurance:
       - EU NIS2, IEC 62443, CMMC & TPM 2.0: 06-compliance-and-assurance/01-regulatory-and-hardware-assurance.md
   - 7. Investor Live Demos:
